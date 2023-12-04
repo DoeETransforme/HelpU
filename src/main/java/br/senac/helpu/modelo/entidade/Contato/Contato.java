@@ -7,12 +7,13 @@ public class Contato implements Serializable{
 	private static final long serialVersionUID = 8094576640471907006L;
 	private String email;
 	private String celular;
-	private int idcontato;
+	private Long id;
 	
 	
-	public Contato (String celular, String email, int idcontato) {
+	public Contato (String celular, String email, Long id) {
 		setCelular(celular);
 		setEmail(email);
+		setId(id);
 	}
 	
 	public static long getSerialversionuid() {
@@ -33,11 +34,11 @@ public class Contato implements Serializable{
 		this.celular = celular;
 	}
 
-	public int getIdcontato() {
-		return idcontato;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdcontato(int idcontato) {
-		this.idcontato = idcontato;
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
