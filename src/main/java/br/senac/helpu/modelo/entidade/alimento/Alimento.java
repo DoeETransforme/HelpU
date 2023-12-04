@@ -3,33 +3,30 @@ package br.senac.helpu.modelo.entidade.alimento;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Alimento implements Serializable{
-	
-	
+public class Alimento implements Serializable {
+
 	private static final long serialVersionUID = -4895659664756496928L;
-	
+
 	private long id;
 	private LocalDate dataValidade;
 	private float peso;
 	private String nome;
-	
-	
-	public Alimento (long id, LocalDate dataValidade, float peso, String nome) {
-		
+
+	public Alimento(long id, LocalDate dataValidade, float peso, String nome) {
+
 		setId(id);
 		setDataValidade(dataValidade);
 		setPeso(peso);
 		setNome(nome);
-		
-	}
-	
 
-	public long getId() {
-		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 
 	public LocalDate getDataValidade() {
@@ -48,12 +45,16 @@ public class Alimento implements Serializable{
 		this.peso = peso;
 	}
 
-	public String nome() {
-		return nome;
-	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }
