@@ -13,8 +13,8 @@ public class Usuario implements Serializable {
 	private String senha;
 	private Contato contato;
 
-	public Usuario(String nome, String senha, Contato contato) {
-
+	public Usuario(long id, String nome, String senha, Contato contato) {
+		setId(id);
 		setNome(nome);
 		setSenha(senha);
 		setContato(contato);
