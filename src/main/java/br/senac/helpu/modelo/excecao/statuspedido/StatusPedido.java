@@ -1,5 +1,8 @@
 package br.senac.helpu.modelo.excecao.statuspedido;
 
-public enum StatusPedido {
+import java.io.Serializable;
 
+public enum StatusPedido implements Serializable{
+		
+		ATIVO, CANCELADA, CONCLUIDA;
 }
