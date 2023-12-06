@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.excecao.statuspedido;
+package br.senac.helpu.modelo.enumeracao.statuspedido;
 
 import java.io.Serializable;
 
