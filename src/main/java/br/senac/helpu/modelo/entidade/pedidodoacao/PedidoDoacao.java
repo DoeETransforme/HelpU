@@ -11,13 +11,13 @@ public class PedidoDoacao implements Serializable {
 
 	private static final long serialVersionUID = 5828763779674937613L;
 
-	private int id;
+	private long id;
 	private String titulo;
 	private String descricao;
 	private StatusPedido statusPedido;
 	private List<Item> itens;
 
-	public PedidoDoacao(int id, String titulo, String descricao, StatusPedido statusPedido) {
+	public PedidoDoacao(long id, String titulo, String descricao, StatusPedido statusPedido) {
 		setId(id);
 		setTitulo(titulo);
 		setDescricao(descricao);
@@ -25,11 +25,18 @@ public class PedidoDoacao implements Serializable {
 		itens = new ArrayList<>();
 	}
 
-	public int getId() {
+	public PedidoDoacao(String titulo, String descricao, StatusPedido statusPedido) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		itens = new ArrayList<>();
+	}
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
