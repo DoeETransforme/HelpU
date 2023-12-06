@@ -4,29 +4,21 @@ import java.io.Serializable;
 
 public class Endereco implements Serializable {
 	
-	private static final long serialVersionID = 1L;
+	private static final long serialVersionUID = -7731215238349813452L;
 	
-	private Long idEndereco;
-	
-	private String logradouro;
-	
-	private String bairro;
-	
-	private String complemento;
-	
-	private int numero;
-	
-	private String cidade;
-	
-	private String unidadeFederativa;
-	
+	private Long id;	
+	private String logradouro;	
+	private String bairro;	
+	private String complemento;	
+	private int numero;	
+	private String cidade;	
+	private String unidadeFederativa;	
 	private String cep;
 	
-
-	public Endereco(Long idEndereco, String logradouro, String bairro, String complemento, int numero, String cidade,
+	public Endereco(Long id, String logradouro, String bairro, String complemento, int numero, String cidade,
 			String unidadeFederativa, String cep) {
 		super();
-		this.idEndereco = idEndereco;
+		this.id = id;
 		this.logradouro = logradouro;
 		this.bairro = bairro;
 		this.complemento = complemento;
@@ -48,12 +40,12 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 	}
 
-	public Long getIdEndereco() {
-		return idEndereco;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdEndereco(Long idEndereco) {
-		this.idEndereco = idEndereco;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getLogradouro() {
