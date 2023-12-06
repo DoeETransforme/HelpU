@@ -17,27 +17,25 @@ public class Endereco implements Serializable {
 	
 	public Endereco(Long id, String logradouro, String bairro, String complemento, int numero, String cidade,
 			String unidadeFederativa, String cep) {
-		super();
-		this.id = id;
-		this.logradouro = logradouro;
-		this.bairro = bairro;
-		this.complemento = complemento;
-		this.numero = numero;
-		this.cidade = cidade;
-		this.unidadeFederativa = unidadeFederativa;
-		this.cep = cep;
+		setId(id);
+		setLogradouro(logradouro);
+		setBairro(bairro);
+		setComplemento(complemento);
+		setNumero(numero);
+		setCidade(cidade);
+		setUnidadeFederativa(unidadeFederativa);
+		setCep(cep);
 	}
 
 	public Endereco(String logradouro, String bairro, String complemento, int numero, String cidade,
 			String unidadeFederativa, String cep) {
-		super();
-		this.logradouro = logradouro;
-		this.bairro = bairro;
-		this.complemento = complemento;
-		this.numero = numero;
-		this.cidade = cidade;
-		this.unidadeFederativa = unidadeFederativa;
-		this.cep = cep;
+		setLogradouro(logradouro);
+		setBairro(bairro);
+		setComplemento(complemento);
+		setNumero(numero);
+		setCidade(cidade);
+		setUnidadeFederativa(unidadeFederativa);
+		setCep(cep);
 	}
 
 	public Long getId() {
@@ -102,7 +100,6 @@ public class Endereco implements Serializable {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-	
+	}	
 	
 }
