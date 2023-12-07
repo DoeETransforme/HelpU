@@ -2,19 +2,54 @@ package br.senac.helpu.modelo.entidade.endereco;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.Table;
+
+import br.senac.helpu.modelo.entidade.Ong.Ong;
+
+@Table(name = "endereco")
 public class Endereco implements Serializable {
-	
+
 	private static final long serialVersionUID = -7731215238349813452L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+
+	@Column(name = "logadouro", length = 30, nullable = true)
+	private String logradouro;
+
+	@Column(name = "bairro", length = 30, nullable = true)
+	private String bairro;
+
+	@Column(name = "complemento", length = 30, nullable = false)
+	private String complemento;
+
+	@Column(name = "numero", nullable = true)
+	private int numero;
+
+	@Column(name = "cidade", length = 30, nullable = true)
+	private String cidade;
 	
-	private Long id;	
-	private String logradouro;	
-	private String bairro;	
-	private String complemento;	
-	private int numero;	
-	private String cidade;	
-	private String unidadeFederativa;	
+	@Column(name= "unidadeFederativa", length = 2, nullable = true)
+	private String unidadeFederativa;
+	
+	@Column(name= "cep", length = 9, nullable= false)
 	private String cep;
 	
+	@ManyToOne (fetch = FetchType.LAZY)
+			@MapsId
+			@JoinColumn(name= "id")
+	private Ong ong;
+
 	public Endereco(Long id, String logradouro, String bairro, String complemento, int numero, String cidade,
 			String unidadeFederativa, String cep) {
 		setId(id);
@@ -100,6 +135,6 @@ public class Endereco implements Serializable {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}	
-	
+	}
+
 }
