@@ -17,6 +17,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.22</version>
 		</dependency>
+		<dependency>
+			<groupId>br.senac</groupId>
+			<artifactId>HelpU</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
   </dependencies>
   
 </project>

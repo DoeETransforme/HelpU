@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.senac.helpu.modelo.entidade.item.Item;
+import br.senac.helpu.modelo.entidade.Item.Item;
 import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
 
 public class PropostaDoacao implements Serializable{

@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.entidade.item;
+package br.senac.helpu.modelo.entidade.Item;
 
 import java.io.Serializable;
 import java.util.ArrayList;
