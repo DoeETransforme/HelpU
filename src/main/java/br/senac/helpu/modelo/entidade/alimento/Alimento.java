@@ -21,13 +21,13 @@ public class Alimento implements Serializable {
 	@Column(name = "id_alimento")
 	private Long id;
 	
-	@Column(name = "dataValidade", length = 20, nullable = true)
+	@Column(name = "dataValidade", length = 20, nullable = false)
 	private LocalDate dataValidade;
 	
-	@Column(name = "peso", nullable = true)
+	@Column(name = "peso", nullable = false)
 	private float peso;
 	
-	@Column(name = "nome", length = 35, nullable = true)
+	@Column(name = "nome", length = 35, nullable = false)
 	private String nome;
 
 	public Alimento(Long id, LocalDate dataValidade, float peso, String nome) {
