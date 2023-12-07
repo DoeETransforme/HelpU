@@ -11,10 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import br.senac.helpu.modelo.entidade.Ong.Ong;
 
-@Table(name = "endereco")
+@Table(name = "endereco", uniqueConstraints = {@UniqueConstraint(columnNames = { })})
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = -7731215238349813452L;
