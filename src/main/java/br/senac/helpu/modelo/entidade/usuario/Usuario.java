@@ -4,9 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.Contato.Contato;
@@ -28,8 +32,11 @@ public class Usuario implements Serializable {
 	@Column(name = "senha_usuario", length = 15, nullable = false)
 	private String senha;
 	
-	@Column(name = "contato_usuario", nullable = false)
+	@OneToOne(fetch = FetchType.LAZY)
+	@MapsId
+	@JoinColumn(name = "id_contato")
 	private Contato contato;
+	
 	
 	public Usuario() {}
 	
