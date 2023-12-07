@@ -27,7 +27,7 @@ public class PedidoDoacao implements Serializable {
 	private static final long serialVersionUID = 5828763779674937613L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_pedidoDoacao")
+	@Column(name = "id_pedido_Doacao")
 	private long id;
 	
 	@Column(name = "titulo", length = 25, nullable = false)
@@ -37,10 +37,10 @@ public class PedidoDoacao implements Serializable {
 	private String descricao;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "StatusPedido", length = 50 , nullable = true)
+	@Column(name = "Status_Pedido", length = 50 , nullable = true)
 	private StatusPedido statusPedido;
 	
-	@OneToMany(fetch= FetchType.LAZY, mappedBy = "propostaDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch= FetchType.LAZY, mappedBy = "proposta_Doacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 
 	
