@@ -30,7 +30,7 @@ public class Doador implements Serializable {
 	@Column(name = "id_doador")
 	private Long id;
 	
-	@Column(name = "cpf", length = 14, nullable = false , unique = true)
+	@Column(name = "cpf", length = 14, nullable = true , unique = true)
 	private String cpf;
 	
 	@Column(name = "data_nascimento", nullable = false)
