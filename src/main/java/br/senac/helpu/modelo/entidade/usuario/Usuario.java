@@ -2,7 +2,7 @@ package br.senac.helpu.modelo.entidade.usuario;
 
 import java.io.Serializable;
 
-import br.senac.helpu.modelo.entidade.contato.Contato;
+import br.senac.helpu.modelo.entidade.Contato.Contato;
 
 public class Usuario implements Serializable {
 
@@ -10,7 +10,7 @@ public class Usuario implements Serializable {
 
 	private long id;
 	private String nome;
-	private String senha;
+	private String senha;''
 	private Contato contato;
 
 	public Usuario(long id, String nome, String senha, Contato contato) {
