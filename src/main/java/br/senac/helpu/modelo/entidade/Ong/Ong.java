@@ -1,10 +1,10 @@
-package br.senac.helpu.modelo.entidade.Ong;
+package br.senac.helpu.modelo.entidade.ong;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.senac.helpu.modelo.entidade.Contato.Contato;
+import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
