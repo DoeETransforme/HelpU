@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.enumeracao.statuspedido.StatusPedido;
 @Entity
-@Table(name = "pedido_dacao")
+@Table(name = "pedido_doacao")
 public class PedidoDoacao implements Serializable {
 
 	private static final long serialVersionUID = 5828763779674937613L;
