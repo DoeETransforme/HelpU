@@ -13,7 +13,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.senac.helpu.modelo.entidade.Contato.Contato;
+import br.senac.helpu.modelo.entidade.contato.Contato;
 
 @Entity
 @Table(name = "usuario")
