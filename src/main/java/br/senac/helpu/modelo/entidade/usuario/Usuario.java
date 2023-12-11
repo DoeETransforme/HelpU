@@ -10,7 +10,7 @@ public class Usuario implements Serializable {
 
 	private long id;
 	private String nome;
-	private String senha;''
+	private String senha;
 	private Contato contato;
 
 	public Usuario(long id, String nome, String senha, Contato contato) {
