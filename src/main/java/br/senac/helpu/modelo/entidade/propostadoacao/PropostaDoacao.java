@@ -1,8 +1,6 @@
 package br.senac.helpu.modelo.entidade.propostadoacao;
 
 import java.io.Serializable;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.senac.helpu.modelo.entidade.Item.Item;
+import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
 
 
