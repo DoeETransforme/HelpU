@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.entidade.contato;
+package br.senac.helpu.modelo.entidade.Contato;
 
 import java.io.Serializable;
  
