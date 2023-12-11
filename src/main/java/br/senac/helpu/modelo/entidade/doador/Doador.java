@@ -4,38 +4,24 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Scanner;
 
+import br.senac.helpu.modelo.entidade.Contato.Contato;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
-public class Doador implements Serializable {
+public class Doador extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 5246756539851329248L;
 
-	private long id;
 	private String cpf;
 	private LocalDate data;
 	private List<PropostaDoacao> propostas;
-
-	public Doador(long id, String cpf, LocalDate data) {
-		setId(id);
+	
+	public Doador(long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
+		super(id, nome, senha, contato);
 		setCpf(cpf);
 		setData(data);
 		propostas = new ArrayList<>();
-	}
-	
-	public Doador( String cpf, LocalDate data) {
-		setCpf(cpf);
-		setData(data);
-		propostas = new ArrayList<>();
-	}
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getCpf() {
