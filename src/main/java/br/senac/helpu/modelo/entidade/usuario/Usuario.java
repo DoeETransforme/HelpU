@@ -4,17 +4,52 @@ import java.io.Serializable;
 
 import br.senac.helpu.modelo.entidade.contato.Contato;
 
-public class Usuario implements Serializable {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import br.senac.helpu.modelo.entidade.contato.Contato;
+
+@Entity
+@Table(name = "usuario")
+
+public class Usuario implements Serializable {
 	private static final long serialVersionUID = -8566282827144097443L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_usuario")
 	private long id;
+
+	@Column(name = "nome_usuario", length = 30, nullable = false, unique = true)
 	private String nome;
+
+	@Column(name = "senha_usuario", length = 15, nullable = false)
 	private String senha;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@MapsId
+	@JoinColumn(name = "id_contato")
 	private Contato contato;
+
+	public Usuario() {
+	}
 
 	public Usuario(long id, String nome, String senha, Contato contato) {
 		setId(id);
+		setNome(nome);
+		setSenha(senha);
+		setContato(contato);
+	}
+
+	public Usuario(String nome, String senha, Contato contato) {
 		setNome(nome);
 		setSenha(senha);
 		setContato(contato);
@@ -55,5 +90,4 @@ public class Usuario implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
 }
