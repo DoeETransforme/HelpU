@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Scanner;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,21 +16,23 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 
+import br.senac.helpu.modelo.entidade.contato.Contato;
+import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
 @Entity
 @Table(name = "doador")
-public class Doador implements Serializable {
+public class Doador extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 5246756539851329248L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_doador")
 	private Long id;
-	
-	@Column(name = "cpf", length = 14, nullable = false , unique = true)
+  
+  @Column(name = "cpf", length = 14, nullable = false , unique = true)
 	private String cpf;
 	
 	@Column(name = "data_nascimento", nullable = false)
@@ -38,26 +40,12 @@ public class Doador implements Serializable {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
-
-	public Doador(long id, String cpf, LocalDate data) {
-		setId(id);
+	
+	public Doador(long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
+		super(id, nome, senha, contato);
 		setCpf(cpf);
 		setData(data);
 		propostas = new ArrayList<>();
-	}
-	
-	public Doador( String cpf, LocalDate data) {
-		setCpf(cpf);
-		setData(data);
-		propostas = new ArrayList<>();
-	}
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getCpf() {
