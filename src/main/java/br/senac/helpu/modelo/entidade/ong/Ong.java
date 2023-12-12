@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.entidade.Ong;
+package br.senac.helpu.modelo.entidade.ong;
 
 import java.io.Serializable;
 import java.util.List;
