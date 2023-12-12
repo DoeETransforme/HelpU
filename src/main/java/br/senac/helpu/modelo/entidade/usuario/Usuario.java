@@ -2,7 +2,7 @@ package br.senac.helpu.modelo.entidade.usuario;
 
 import java.io.Serializable;
 
-import br.senac.helpu.modelo.entidade.Contato.Contato;
+import br.senac.helpu.modelo.entidade.contato.Contato;
 
 public class Usuario implements Serializable {
 
