@@ -1,49 +1,51 @@
 package br.senac.helpu.modelo.entidade.ong;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
-import br.senac.helpu.modelo.enumeracao.statuspedido.StatusPedido;
+import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
-public class Ong implements Serializable{
+public class Ong extends Usuario implements Serializable {
 
-	private int id;
+	private static final long serialVersionUID = -2680258071107532867L;
+
 	private String cnpj;
 	private Endereco endereco;
-	private List<StatusPedido> pedidodoacao;
-	private static final long serialVersionUID = -3707751312475379705L;
-	
-	public Ong(int id, String cnpj, Endereco endereco, List<StatusPedido> pedidodoacao) {
-		setId(id);
+	List<PedidoDoacao> pedidos;
+
+	public Ong(long id, String nome, String senha, Contato contato, String cnpj, Endereco endereco) {
+		super(id, nome, senha, contato);
 		setCnpj(cnpj);
 		setEndereco(endereco);
-		setPedidodoacao(pedidodoacao);
+		pedidos = new ArrayList<>();
 	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getCnpj() {
 		return cnpj;
 	}
+
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public List<StatusPedido> getPedidodoacao() {
-		return pedidodoacao;
+
+	public void addPedido(PedidoDoacao pedido) {
+		pedidos.add(pedido);
 	}
-	public void setPedidodoacao(List<StatusPedido> pedidodoacao) {
-		this.pedidodoacao = pedidodoacao;
+
+	public void removePedido(PedidoDoacao pedido) {
+		pedidos.remove(pedido);
 	}
 
 }
