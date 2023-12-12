@@ -1,7 +1,7 @@
 package br.senac.helpu.modelo.entidade.endereco;
  
 import java.io.Serializable;
- 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
- 
-import br.senac.helpu.modelo.entidade.Ong.Ong;
+
+import br.senac.helpu.modelo.entidade.ong.Ong;
  
 @Entity
 @Table(name = "endereco")
@@ -143,4 +143,3 @@ public class Endereco implements Serializable {
 	}
  
 }
-
