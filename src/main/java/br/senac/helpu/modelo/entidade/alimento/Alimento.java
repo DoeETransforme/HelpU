@@ -29,9 +29,15 @@ public class Alimento implements Serializable {
 	
 	@Column(name = "nome", length = 35, nullable = false)
 	private String nome;
+	
+	public Alimento(LocalDate dataValidade, float peso, String nome) {
+		setDataValidade(dataValidade);
+		setPeso(peso);
+		setNome(nome);
 
+	}
+	
 	public Alimento(Long id, LocalDate dataValidade, float peso, String nome) {
-
 		setId(id);
 		setDataValidade(dataValidade);
 		setPeso(peso);
