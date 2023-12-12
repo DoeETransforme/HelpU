@@ -1,3 +1,6 @@
+package br.senac.helpu.modelo.entidade.ong;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
