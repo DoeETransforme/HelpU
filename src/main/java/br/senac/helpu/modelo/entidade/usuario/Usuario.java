@@ -2,6 +2,8 @@ package br.senac.helpu.modelo.entidade.usuario;
 
 import java.io.Serializable;
 
+import br.senac.helpu.modelo.entidade.contato.Contato;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,6 +19,7 @@ import br.senac.helpu.modelo.entidade.contato.Contato;
 
 @Entity
 @Table(name = "usuario")
+
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = -8566282827144097443L;
 
