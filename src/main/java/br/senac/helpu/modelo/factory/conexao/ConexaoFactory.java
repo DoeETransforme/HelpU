@@ -20,8 +20,7 @@ public class ConexaoFactory {
 		configuracao.addAnnotatedClass(br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao.class);
 		configuracao.addAnnotatedClass(br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao.class);
 		configuracao.addAnnotatedClass(br.senac.helpu.modelo.entidade.usuario.Usuario.class);
-		configuracao.addAnnotatedClass(br.senac.helpu.modelo.enumeracao.statuspedido.StatusPedido.class);
-		configuracao.addAnnotatedClass(br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta.class);
+		
 		
 		configuracao.configure("hibernate.cfg.xml");
 
