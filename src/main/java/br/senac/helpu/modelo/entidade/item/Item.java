@@ -22,7 +22,7 @@ public class Item implements Serializable {
  
 	private static final long serialVersionUID = -4650927518777774993L;
  
-	private static final String Generationtype = null;
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
