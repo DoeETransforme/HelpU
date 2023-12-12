@@ -3,16 +3,34 @@ package br.senac.helpu.modelo.entidade.alimento;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "alimento")
 public class Alimento implements Serializable {
 
 	private static final long serialVersionUID = -4895659664756496928L;
-
-	private long id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_alimento")
+	private Long id;
+	
+	@Column(name = "dataValidade", length = 20, nullable = false)
 	private LocalDate dataValidade;
+	
+	@Column(name = "peso", nullable = false)
 	private float peso;
+	
+	@Column(name = "nome", length = 35, nullable = false)
 	private String nome;
 
-	public Alimento(long id, LocalDate dataValidade, float peso, String nome) {
+	public Alimento(Long id, LocalDate dataValidade, float peso, String nome) {
 
 		setId(id);
 		setDataValidade(dataValidade);
@@ -54,7 +72,7 @@ public class Alimento implements Serializable {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 }

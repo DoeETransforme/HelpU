@@ -5,16 +5,40 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
+@Entity
+@Table(name = "doador")
 public class Doador extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 5246756539851329248L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_doador")
+	private Long id;
+  
+  @Column(name = "cpf", length = 14, nullable = false , unique = true)
 	private String cpf;
-	private LocalDate data;
+	
+	@Column(name = "data_nascimento", nullable = false)
+	private LocalDate dataNascimento;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
 	
 	public Doador(long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
@@ -33,11 +57,11 @@ public class Doador extends Usuario implements Serializable {
 	}
 
 	public LocalDate getData() {
-		return data;
+		return dataNascimento;
 	}
 
 	public void setData(LocalDate data) {
-		this.data = data;
+		this.dataNascimento = data;
 	}
 
 	public static long getSerialversionuid() {
