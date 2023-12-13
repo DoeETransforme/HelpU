@@ -44,8 +44,8 @@ public class Item implements Serializable {
 
 	public Item(int quantidade) {
 		setQuantidade(quantidade);
-		alimentos = new ArrayList<>();
 	}
+	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
