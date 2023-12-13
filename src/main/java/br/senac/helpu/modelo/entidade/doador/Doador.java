@@ -36,6 +36,8 @@ public class Doador extends Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
 	
+	public Doador() {}
+
 	public Doador(Long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
 		super(id, nome, senha, contato);
 		setCpf(cpf);
