@@ -74,7 +74,7 @@ public class Alimento implements Serializable {
 
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
