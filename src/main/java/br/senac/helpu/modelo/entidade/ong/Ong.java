@@ -26,11 +26,6 @@ public class Ong extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = -2680258071107532867L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_ong")
-	private long id;
-
 	@Column(name = "cnpj_ong", length = 18, nullable = false, unique = true)
 	private String cnpj;
 
@@ -40,19 +35,20 @@ public class Ong extends Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ong", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Endereco> enderecos;
 
-	public Ong(long id, String nome, String senha, Contato contato, String cnpj) {
+	public Ong() {}
+
+	public Ong(Long id, String nome, String senha, Contato contato, String cnpj) {
 		super(id, nome, senha, contato);
 		setCnpj(cnpj);
 		pedidosdoacao = new ArrayList<>();
 		enderecos = new ArrayList<>();
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+	public Ong(String nome, String senha, Contato contato, String cnpj) {
+		super(nome, senha, contato);
+		setCnpj(cnpj);
+		pedidosdoacao = new ArrayList<>();
+		enderecos = new ArrayList<>();
 	}
 
 	public String getCnpj() {
