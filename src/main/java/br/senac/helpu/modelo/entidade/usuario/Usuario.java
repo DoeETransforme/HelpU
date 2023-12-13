@@ -10,23 +10,24 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.senac.helpu.modelo.entidade.contato.Contato;
-
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuario")
-
 public class Usuario implements Serializable {
+
 	private static final long serialVersionUID = -8566282827144097443L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
-	private long id;
+	private Long id;
 
 	@Column(name = "nome_usuario", length = 30, nullable = false, unique = true)
 	private String nome;
@@ -39,10 +40,9 @@ public class Usuario implements Serializable {
 	@JoinColumn(name = "id_contato")
 	private Contato contato;
 
-	public Usuario() {
-	}
+	public Usuario() {}
 
-	public Usuario(long id, String nome, String senha, Contato contato) {
+	public Usuario(Long id, String nome, String senha, Contato contato) {
 		setId(id);
 		setNome(nome);
 		setSenha(senha);
@@ -55,11 +55,11 @@ public class Usuario implements Serializable {
 		setContato(contato);
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
