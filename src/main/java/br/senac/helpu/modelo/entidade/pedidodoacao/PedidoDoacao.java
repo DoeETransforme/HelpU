@@ -39,11 +39,7 @@ public class PedidoDoacao implements Serializable {
 	@OneToMany(mappedBy = "pedido_doacao")
 	private List<Item> itens;
 	
-	@OneToOne
-	@MapsId
-	@JoinColumn(name = "id_status_Pedido")
 	@Enumerated ( EnumType.STRING)
-	@Column(name = "status_pedido", length = 30, nullable = false, unique = false)
 	private StatusPedido statuspedido;
 
 	public PedidoDoacao() {}
