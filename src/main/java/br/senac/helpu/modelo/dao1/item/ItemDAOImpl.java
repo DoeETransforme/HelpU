@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.DAO.item;
+package br.senac.helpu.modelo.dao.item;
 
 import java.util.List;
 
