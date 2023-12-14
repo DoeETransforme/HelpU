@@ -17,7 +17,6 @@ public class Main {
 		
 		System.out.println(item.getQuantidade());
 
-		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");
 
 	}
 }
