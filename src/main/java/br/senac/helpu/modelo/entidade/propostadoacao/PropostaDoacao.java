@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +35,7 @@ public class PropostaDoacao implements Serializable {
 	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
 
-	@OneToMany(mappedBy = "proposta_doacao")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "proposta_doacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 
 	public PropostaDoacao() {}

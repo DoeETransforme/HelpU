@@ -8,9 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +18,7 @@ import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
 @Entity
-@Table(name = "ONG")
+@Table(name = "ong")
 public class Ong extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = -2680258071107532867L;
