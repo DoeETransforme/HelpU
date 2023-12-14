@@ -7,6 +7,7 @@ import br.senac.helpu.modelo.entidade.item.Item;
 public class Main {
 	public static void main(String[] args) {
 		
+
 			
 		Item item = new Item(10);
 		ItemDao dao = new ItemDAOImpl();
@@ -15,6 +16,8 @@ public class Main {
 		
 		
 		System.out.println(item.getQuantidade());
+
+		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");
 
 	}
 }

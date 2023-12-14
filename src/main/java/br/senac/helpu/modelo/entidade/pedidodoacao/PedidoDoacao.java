@@ -28,7 +28,7 @@ public class PedidoDoacao implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pedido_doacao")
-	private long id;
+	private Long id;
 	
 	@Column(name = "titulo_pedido_doacao", length = 45, nullable = false, unique = false)
 	private String titulo;
@@ -48,7 +48,7 @@ public class PedidoDoacao implements Serializable {
 
 	public PedidoDoacao() {}
 	
-	public PedidoDoacao(long id, String titulo, String descricao, StatusPedido statusPedido) {
+	public PedidoDoacao(Long id, String titulo, String descricao, StatusPedido statusPedido) {
 		setId(id);
 		setTitulo(titulo);
 		setDescricao(descricao);
@@ -63,11 +63,11 @@ public class PedidoDoacao implements Serializable {
 		itens = new ArrayList<>();
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -26,11 +26,6 @@ import br.senac.helpu.modelo.entidade.usuario.Usuario;
 public class Doador extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 5246756539851329248L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_doador")
-	private Long id;
   
   @Column(name = "cpf", length = 14, nullable = false , unique = true)
 	private String cpf;
@@ -41,13 +36,22 @@ public class Doador extends Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
 	
-	public Doador(long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
+	public Doador() {}
+
+	public Doador(Long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
 		super(id, nome, senha, contato);
 		setCpf(cpf);
 		setData(data);
 		propostas = new ArrayList<>();
 	}
-
+	
+	public Doador(String nome, String senha, Contato contato, String cpf, LocalDate data) {
+		super(nome, senha, contato);
+		setCpf(cpf);
+		setData(data);
+		propostas = new ArrayList<>();
+	}
+	
 	public String getCpf() {
 		return cpf;
 	}
