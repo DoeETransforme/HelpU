@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.item.Item;
+import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.enumeracao.statuspedido.StatusPedido;
 @Entity
 @Table(name = "pedido_doacao")
@@ -29,6 +30,9 @@ public class PedidoDoacao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pedido_doacao")
 	private Long id;
+	
+
+	private Ong ong;
 	
 	@Column(name = "titulo_pedido_doacao", length = 45, nullable = false, unique = false)
 	private String titulo;
@@ -107,4 +111,11 @@ public class PedidoDoacao implements Serializable {
 		return serialVersionUID;
 	}
 
+	public Ong getOng() {
+		return ong;
+	}
+
+	public void setOng(Ong ong) {
+		this.ong = ong;
+	}
 }

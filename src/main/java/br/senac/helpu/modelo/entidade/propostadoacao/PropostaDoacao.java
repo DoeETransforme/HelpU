@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.item.Item;
-import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
+import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
 
 @Entity
@@ -37,16 +37,10 @@ public class PropostaDoacao implements Serializable {
 	@OneToMany(mappedBy = "proposta_doacao")
 	private List<Item> itens;
 	
-	private PedidoDoacao pedidoDoacao;
+	private Ong ong;
 	
 
-	public PedidoDoacao getPedidoDoacao() {
-		return pedidoDoacao;
-	}
-
-	public void setPedidoDoacao(PedidoDoacao pedidoDoacao) {
-		this.pedidoDoacao = pedidoDoacao;
-	}
+	
 
 	public PropostaDoacao() {}
 

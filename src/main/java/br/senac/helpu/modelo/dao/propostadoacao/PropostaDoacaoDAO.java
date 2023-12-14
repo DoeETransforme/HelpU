@@ -14,7 +14,7 @@ import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
  
 public interface PropostaDoacaoDAO {
 	
-	void inserirItem(PropostaDoacao propostaDoacao);
+	void inserirPropostaDoacao(PropostaDoacao propostaDoacao);
 	void deletarPropostaDoacao(PropostaDoacao propostaDoacao);
 	void atualizarPropostaDoacao(PropostaDoacao propostaDoacao);
 	void recuperarPropostaDoacao(PropostaDoacao propostaDoacao);
