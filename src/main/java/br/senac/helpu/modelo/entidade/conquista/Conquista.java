@@ -19,10 +19,10 @@ public class Conquista implements Serializable {
 	@Column(name = "id_conquista")
 	private Long id;
 
-	@Column (name = "nome_conquista", length = 30, nullable = false, unique = false)
+	@Column (name = "nome_conquista", length = 30, nullable = false, unique = true)
 	private String nome;
 
-	@Column(name = "descricao_conquista", length = 150, nullable = false, unique = false)
+	@Column(name = "descricao_conquista", length = 150, nullable = false, unique = true)
 	private String descricao;
 
 	public Conquista() {
