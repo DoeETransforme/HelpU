@@ -22,17 +22,16 @@ public class Doador extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 5246756539851329248L;
 
-	@Column(name = "cpf", length = 14, nullable = false, unique = true)
+	@Column(name = "cpf_doador", length = 14, nullable = false, unique = true)
 	private String cpf;
 
-	@Column(name = "data_nascimento", nullable = false)
+	@Column(name = "data_nascimento_doador", nullable = false)
 	private LocalDate dataNascimento;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
 
-	public Doador() {
-	}
+	public Doador() {}
 
 	public Doador(Long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
 		super(id, nome, senha, contato);

@@ -2,8 +2,11 @@ package br.senac.helpu.modelo.entidade.alimento;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.item.Item;
@@ -26,18 +31,19 @@ public class Alimento implements Serializable {
 	@Column(name = "id_alimento")
 	private Long id;
 	
-	@Column(name = "dataValidade", length = 20, nullable = false)
+	@Column(name = "data_validade_alimento", length = 20, nullable = false)
 	private LocalDate dataValidade;
 	
-	@Column(name = "peso", nullable = false)
+	@Column(name = "peso_alimento", nullable = false)
 	private float peso;
 	
-	@Column(name = "nome", length = 35, nullable = false)
+	@Column(name = "nome_alimento", length = 35, nullable = false)
 	private String nome;
 	
+	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_item")
-	private Item item;	
+	@JoinColumn(name = "id_item", nullable = false)
+	private Item itens;
 	
 	public Alimento() {}
 

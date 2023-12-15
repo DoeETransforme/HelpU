@@ -17,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.item.Item;
@@ -47,8 +48,7 @@ public class PedidoDoacao implements Serializable {
 	@JoinColumn(name = "id_ong")
 	private Ong ong;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "pedido_doacao_tem_item", joinColumns = @JoinColumn(name = "id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_item"))
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidosDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE})

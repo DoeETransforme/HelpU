@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import br.senac.helpu.modelo.entidade.contato.Contato;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -34,12 +34,10 @@ public class Usuario implements Serializable {
 	@Column(name = "senha_usuario", length = 15, nullable = false)
 	private String senha;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_contato")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Contato contato;
 
-	public Usuario() {
-	}
+	public Usuario() {}
 
 	public Usuario(Long id, String nome, String senha, Contato contato) {
 		setId(id);

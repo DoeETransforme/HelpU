@@ -13,7 +13,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyJoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
@@ -32,17 +35,20 @@ public class Item implements Serializable {
 	@Column(name = "id_item")
 	private Long id;
 
-	@Column(name = "quantidade_pedido", nullable = false)
+	@Column(name = "quantidade_item", nullable = false)
 	private int quantidade;
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Alimento> alimentos;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@MapsId("id_alimento")
+	private List<Alimento> alimentos;	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_proposta_doacao")
     private PropostaDoacao propostaDoacao;
 	
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_pedido_doacao")
+	private PedidoDoacao pedidosDoacao;
 
 	public Item() {}
 
