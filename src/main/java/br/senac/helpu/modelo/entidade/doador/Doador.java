@@ -28,7 +28,7 @@ public class Doador extends Usuario implements Serializable {
 	@Column(name = "data_nascimento", nullable = false)
 	private LocalDate dataNascimento;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "proposta_doacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
 
 	public Doador() {

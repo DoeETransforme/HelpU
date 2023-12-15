@@ -13,9 +13,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
 
@@ -30,13 +33,17 @@ public class PropostaDoacao implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_proposta_doacao")
 	private Long id;
-
+		
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "proposta_doacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "propostaDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_doador")
+    private Doador doador;
 
 	public PropostaDoacao() {}
 
