@@ -2,6 +2,7 @@ package br.senac.helpu.modelo.entidade.conquista;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,14 +26,13 @@ public class Conquista implements Serializable {
 	@Column(name = "descricao_conquista", length = 150, nullable = false, unique = true)
 	private String descricao;
 
-	public Conquista() {
-	}
+	public Conquista() {}
 
 	public Conquista(String nome, String descricao) {
 		setNome(nome);
 		setDescricao(descricao);
-	
-	}public Conquista(Long id, String nome, String descricao) {
+  }
+	public Conquista(Long id, String nome, String descricao) {
 		setId(id);
 		setNome(nome);
 		setDescricao(descricao);
