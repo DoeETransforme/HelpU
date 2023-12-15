@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.doador.Doador;
+import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao_;
@@ -25,7 +28,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 		fabrica = new ConexaoFactory();
 	}
 
-	public void salvarPropostaDoacao(PropostaDoacao propostaDoacao) {
+	public void inserirPropostaDoacao(PropostaDoacao propostaDoacao) {
 		org.hibernate.Session sessao = null;
 
 		try {
@@ -117,21 +120,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 		return propostasDoacao;
 	}
 
-	public void recuperarPropostaDoacao(PropostaDoacao propostaDoacao) {
-
-	}
-
-	public java.util.List<PropostaDoacao> recuperarTodasPropostaDoacao() {
-
-		return null;
-	}
-
-	public java.util.List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong) {
-
-		return null;
-	}
-
-	public java.util.List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta statusProposta) {
+	public List<PropostaDoacao> recuperarPropostaDoacao(PropostaDoacao propostaDoacao) {
 		Session sessao = null;
 		List<PropostaDoacao> propostas = null;
 
@@ -147,8 +136,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 			criteria.select(raizConsulta);
 
-			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.STATUS), status), construtor
-					.equal(raizConsulta.get().get(Instituicao_.ID), instituicao.getId()));
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.id), propostaDoacao));
 
 			propostas = sessao.createQuery(criteria).getResultList();
 
@@ -176,6 +164,103 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 	}
 
+	
+
+
+
+	public java.util.List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong) {
+		Session sessao = null;
+		List<PropostaDoacao> propostas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.ong), ong));
+
+			propostas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return propostas;
+
+	}
+
+	
+	
+
+	public java.util.List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta statusProposta) {
+		Session sessao = null;
+		List<PropostaDoacao> propostas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusProposta),
+				construtor.equal(raizConsulta.get(PropostaDoacao_.ong), ong));
+
+			propostas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return propostas;
+
+	}
+
+
 		
 	
 	
@@ -195,9 +280,16 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
 
 			criteria.select(raizConsulta);
+			
+		
+			Join < PropostaDoacao , Item> itemJoin = raizConsulta.join(PropostaDoacao_.itens);
 
-			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.STATUS), status), construtor
+
+			criteria.where(construtor.equal(raizConsulta.get(itens_.Alimento), alimento), construtor
 					.equal(raizConsulta.get().get(Instituicao_.ID), instituicao.getId()));
+			
+			
+			
 
 			propostas = sessao.createQuery(criteria).getResultList();
 
@@ -263,8 +355,35 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	}
 
 
-	public void inserirPropostaDoacao(PropostaDoacao propostaDoacao) {
 	
-		
+
+	@Override
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoador(Doador doador) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	@Override
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatus(Doador doador, StatusProposta statusProposta) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusData(Doador doador,
+			StatusProposta statusProposta, LocalDate dataInicial, LocalDate datafinal) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<PropostaDoacao> recuperarTodasPropostaDoacao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+
+	
 }

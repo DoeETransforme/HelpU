@@ -33,14 +33,17 @@ public class PropostaDoacao implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
+	
+	@Column(name = "Ong", length = 45, nullable = false, unique = false)
+	private Ong ong;
 
 	@OneToMany(mappedBy = "proposta_doacao")
 	private List<Item> itens;
 	
-	private Ong ong;
 	
 
 	
+
 
 	public PropostaDoacao() {}
 
@@ -76,5 +79,12 @@ public class PropostaDoacao implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public Ong getOng() {
+		return ong;
+	}
+	
+	public void setOng(Ong ong) {
+		this.ong = ong;
 	}
 }

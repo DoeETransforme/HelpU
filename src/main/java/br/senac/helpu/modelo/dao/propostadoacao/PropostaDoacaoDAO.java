@@ -17,17 +17,17 @@ public interface PropostaDoacaoDAO {
 	void inserirPropostaDoacao(PropostaDoacao propostaDoacao);
 	void deletarPropostaDoacao(PropostaDoacao propostaDoacao);
 	void atualizarPropostaDoacao(PropostaDoacao propostaDoacao);
-	void recuperarPropostaDoacao(PropostaDoacao propostaDoacao);
-	List<PropostaDoacao> recuperarTodasPropostaDoacao();
 	
+	List<PropostaDoacao> recuperarTodasPropostaDoacao();
+	List<PropostaDoacao>recuperarPropostaDoacao(PropostaDoacao propostaDoacao);
 	
 	List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong);
 	List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta statusProposta);
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimento(Ong ong , Alimento alimento);
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimentoData(Ong ong , Alimento alimento, LocalDate dataInicial, LocalDate datafinal);
-	List<PropostaDoacao> recuperarTodasPropostaDoacaoStatus(Doador doador);
-	List<PropostaDoacao> recuperarTodasPropostaDoacaoStatus(Doador doador, StatusProposta statusProposta);
-	List<PropostaDoacao> recuperarTodasPropostaDoacaoStatus(Doador doador, StatusProposta statusProposta,  LocalDate dataInicial, LocalDate datafinal);
+	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoador(Doador doador);
+	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatus(Doador doador, StatusProposta statusProposta);
+	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusData(Doador doador, StatusProposta statusProposta,  LocalDate dataInicial, LocalDate datafinal);
 	
  
 	List<PropostaDoacao>recuperarTodasPropostaDoacaoAlimento(Alimento alimento);
