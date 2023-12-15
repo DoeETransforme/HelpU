@@ -13,13 +13,12 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuario")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -8566282827144097443L;
@@ -36,11 +35,11 @@ public class Usuario implements Serializable {
 	private String senha;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@MapsId
 	@JoinColumn(name = "id_contato")
 	private Contato contato;
 
-	public Usuario() {}
+	public Usuario() {
+	}
 
 	public Usuario(Long id, String nome, String senha, Contato contato) {
 		setId(id);

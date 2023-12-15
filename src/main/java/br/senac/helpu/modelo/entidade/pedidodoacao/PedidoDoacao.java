@@ -4,20 +4,24 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.item.Item;
+import br.senac.helpu.modelo.entidade.ong.Ong;
+import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.enumeracao.statuspedido.StatusPedido;
 @Entity
 @Table(name = "pedido_doacao")
@@ -36,12 +40,21 @@ public class PedidoDoacao implements Serializable {
 	@Column(name = "descricao_pedido_doacao", length = 150, nullable = false, unique = false)
 	private String descricao;
 	
-	@OneToMany(mappedBy = "pedido_doacao")
-	private List<Item> itens;
-	
 	@Enumerated ( EnumType.STRING)
 	private StatusPedido statuspedido;
-
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_ong")
+	private Ong ong;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "pedido_doacao_tem_item", joinColumns = @JoinColumn(name = "id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_item"))
+	private List<Item> itens;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinTable(name = "cadastrar_pedido_doacao", joinColumns = @JoinColumn(name ="id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_proposta_doacao"))
+	private List<PropostaDoacao> propostasDoacao;
+	
 	public PedidoDoacao() {}
 	
 	public PedidoDoacao(Long id, String titulo, String descricao, StatusPedido statusPedido) {

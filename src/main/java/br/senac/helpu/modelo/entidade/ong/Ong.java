@@ -8,10 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,7 +17,7 @@ import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
 @Entity
-@Table(name = "ONG")
+@Table(name = "ong")
 public class Ong extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = -2680258071107532867L;
@@ -29,7 +25,7 @@ public class Ong extends Usuario implements Serializable {
 	@Column(name = "cnpj_ong", length = 18, nullable = false, unique = true)
 	private String cnpj;
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "ong", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ong", cascade = CascadeType.ALL)
 	private List<PedidoDoacao> pedidosdoacao;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ong", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -68,7 +64,7 @@ public class Ong extends Usuario implements Serializable {
 	}
 
 	public void removeEndereco(Endereco endereco) {
-		enderecos.add(endereco);
+		enderecos.remove(endereco);
 	}
 
 	public void addPedido(PedidoDoacao pedido) {

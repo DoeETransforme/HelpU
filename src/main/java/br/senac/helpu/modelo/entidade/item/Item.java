@@ -11,10 +11,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
+import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
+import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 
 @Entity
 @Table(name = "item")
@@ -31,8 +35,14 @@ public class Item implements Serializable {
 	@Column(name = "quantidade_pedido", nullable = false)
 	private int quantidade;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "alimento", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Alimento> alimentos;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_proposta_doacao")
+    private PropostaDoacao propostaDoacao;
+	
+
 
 	public Item() {}
 
