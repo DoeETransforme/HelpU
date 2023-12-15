@@ -2,24 +2,15 @@ package br.senac.helpu.modelo.entidade.conquista;
 
 import java.io.Serializable;
 
-
-
-
-public class Conquista implements Serializable{
+public class Conquista implements Serializable {
 
 	private static final long serialVersionUID = 764389677409877845L;
 
-
 	private Long id;
-	
-
 	private String nome;
-	
-
 	private String descricao;
-	
 
-	public Conquista (Long id, String nome, String descricao) {
+	public Conquista(Long id, String nome, String descricao) {
 		setId(id);
 		setNome(nome);
 		setDescricao(descricao);
