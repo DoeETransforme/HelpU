@@ -19,28 +19,23 @@ public interface PropostaDoacaoDAO {
 	void atualizarPropostaDoacao(PropostaDoacao propostaDoacao);
 	
 	List<PropostaDoacao> recuperarTodasPropostaDoacao();
-	List<PropostaDoacao>recuperarPropostaDoacao(PropostaDoacao propostaDoacao);
+
 	
 	List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong);
-	List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta statusProposta);
-	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimento(Ong ong , Alimento alimento);
-	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimentoData(Ong ong , Alimento alimento, LocalDate dataInicial, LocalDate datafinal);
+	List<PropostaDoacao>recuperarTodasPropostaDoacaoAlimento(Alimento alimento);
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoador(Doador doador);
+	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimento(Ong ong , Alimento alimento);
+	List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta statusProposta);
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatus(Doador doador, StatusProposta statusProposta);
+	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimentoData(Ong ong , Alimento alimento, LocalDate dataInicial, LocalDate datafinal);
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusData(Doador doador, StatusProposta statusProposta,  LocalDate dataInicial, LocalDate datafinal);
 	
  
-	List<PropostaDoacao>recuperarTodasPropostaDoacaoAlimento(Alimento alimento);
 	
  
 	
+
 	
-	//List<PropostaDoacao> filtrarBuscaPropostaDoacao(Optional<> especiePet, Optional<PortePet> portePet,
-			//Optional<SexoPet> sexoPet, Optional<PelagemPet> pelagemPet, Optional<EstadoPet> estadoPet);
-	
-	//List<PropostaDoacao> filtrarPetsEstado(Optional<EstadoPet> estadoPet, Ong ong);
-	
-	PropostaDoacao recuperarPropostaDoacao(Long id);
 	
  
  

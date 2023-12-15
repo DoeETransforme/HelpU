@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
@@ -34,8 +35,17 @@ public class PropostaDoacao implements Serializable {
 	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
 	
-	@Column(name = "Ong", length = 45, nullable = false, unique = false)
+	@Column(name = "Doador", length = 45, nullable = false)
+	private Doador doador;
+	
+	@Column(name = "Ong", length = 45, nullable = false)
 	private Ong ong;
+	
+	
+	
+	
+	
+
 
 	@OneToMany(mappedBy = "proposta_doacao")
 	private List<Item> itens;
@@ -86,5 +96,12 @@ public class PropostaDoacao implements Serializable {
 	
 	public void setOng(Ong ong) {
 		this.ong = ong;
+	}
+	public Doador getDoador() {
+		return doador;
+	}
+	
+	public void setDoador(Doador doador) {
+		this.doador = doador;
 	}
 }
