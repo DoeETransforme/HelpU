@@ -18,7 +18,6 @@ public class Conquista implements Serializable{
 
 	private String descricao;
 	
-	public Conquista () {}
 
 	public Conquista (Long id, String nome, String descricao) {
 		setId(id);
