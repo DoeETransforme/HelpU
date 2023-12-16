@@ -34,6 +34,9 @@ public class PedidoDoacao implements Serializable {
 	@Column(name = "id_pedido_doacao")
 	private Long id;
 	
+
+
+	
 	@Column(name = "titulo_pedido_doacao", length = 45, nullable = false, unique = false)
 	private String titulo;
 	
@@ -116,4 +119,11 @@ public class PedidoDoacao implements Serializable {
 		return serialVersionUID;
 	}
 
+	public Ong getOng() {
+		return ong;
+	}
+
+	public void setOng(Ong ong) {
+		this.ong = ong;
+	}
 }
