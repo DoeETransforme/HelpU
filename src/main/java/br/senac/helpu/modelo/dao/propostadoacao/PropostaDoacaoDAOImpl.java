@@ -336,17 +336,61 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	public java.util.List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimentoData(Ong ong, Alimento alimento,
 			LocalDate dataInicial, LocalDate datafinal) {
 		
-		return null;
-	}
-	
-	
-	
-	public java.util.List<PropostaDoacao> recuperarTodasPropostaDoacaoStatus(Doador doador,
-			StatusProposta statusProposta, LocalDate dataInicial, LocalDate datafinal) {
-		
-		return null;
-	}
+			
+			Session sessao = null;
+			java.util.List<PropostaDoacao> propostas = null;
 
+			try {
+
+				sessao = fabrica.getConexao().openSession();
+				sessao.beginTransaction();
+
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+				CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+				Root<PropostaDoacao> raizPedido = criteria.from(PropostaDoacao.class);
+
+				Join<PropostaDoacao, Ong> juncaoOng = raizPedido.join(PropostaDoacao_.ong);
+				Join<PropostaDoacao, Item> juncaoItem = raizPedido.join(PropostaDoacao_.itens);
+				Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+
+				ParameterExpression<Long> idOng = construtor.parameter(Long.class);
+				criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
+
+				ParameterExpression<Long> idAlimento = construtor.parameter(Long.class);
+				criteria.where(construtor.equal(juncaoAlimento.get(Alimento_.id), idAlimento));
+
+				criteria.where(construtor.between(raizPedido.get(PropostaDoacao_.dataCriacao), dataInicial, datafinal));
+
+				propostas = sessao.createQuery(criteria)
+						.setParameter(idOng, ong.getId())
+						.setParameter(idAlimento, alimento.getId())
+						.getResultList();
+
+				sessao.getTransaction().commit();
+
+			} catch (Exception sqlException) {
+
+				sqlException.printStackTrace();
+
+				if (sessao.getTransaction() != null) {
+					sessao.getTransaction().rollback();
+				}
+
+			} finally {
+
+				if (sessao != null) {
+					sessao.close();
+				}
+			}
+
+			return propostas;
+		}
+
+	}
+	
+	
+	
+	
 	@Override
 	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoador(Doador doador) {
 		Session sessao = null;
@@ -394,14 +438,60 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	}
 	
 
-	@Override
+
 	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusData(Doador doador,
 			StatusProposta statusProposta, LocalDate dataInicial, LocalDate datafinal) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+			
+			Session sessao = null;
+			List<PropostaDoacao> propostas = null;
 
-	@Override
+			try {
+
+				sessao = fabrica.getConexao().openSession();
+				sessao.beginTransaction();
+
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+				CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+				Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+				
+				Join<PropostaDoacao, Doador> JuncaoDoador= raizConsulta.join(PropostaDoacao_.doador); 
+
+				criteria.select(raizConsulta);
+
+				criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusProposta),
+					construtor.equal(raizConsulta.get(PropostaDoacao_.doador), doador),
+					construtor.between(raizConsulta.get(PropostaDoacao_.dataCriacao), dataInicial, datafinal));
+
+				propostas = sessao.createQuery(criteria).getResultList();
+
+				sessao.getTransaction().commit();
+
+			} catch (Exception sqlException) {
+
+				sqlException.printStackTrace();
+
+				if (sessao.getTransaction() != null) {
+					sessao.getTransaction().rollback();
+
+				}
+
+			} finally {
+
+				if (sessao != null) {
+					sessao.close();
+
+				}
+
+			}
+
+			return propostas;
+
+		}
+
+	
+
+	
 	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatus(Doador doador, StatusProposta statusProposta) {
 		Session sessao = null;
 		List<PropostaDoacao> propostas = null;
