@@ -10,7 +10,7 @@ public interface ConquistaDAO {
 		void deletarConquista (Conquista conquista);
 		void atualizarConquista (Conquista conquista);
 		
-		List<Conquista> recuperarConquista();
-		Conquista recuperarConquistaPorNome();
+		List<Conquista> recuperarConquistas();
+		Conquista recuperarConquistaPorNome(String nome);
 	 
 }
