@@ -1,5 +1,11 @@
 package br.senac.helpu.modelo.dao.endereco;
 
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
@@ -102,6 +108,45 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 				}
 			}
 		}
+		
+		@Override
+		public List<Endereco> recuperarEnderecos() {
+		
+			Session sessao = null;
+			List<Endereco> enderecos = null;
+
+			try {
+				sessao = fabrica.getConexao().openSession();
+				sessao.beginTransaction();
+
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+				CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
+				Root<Endereco> raizEndereco = criteria.from(Endereco.class);
+
+				criteria.select(raizEndereco);
+
+				enderecos = sessao.createQuery(criteria).getResultList();
+
+				sessao.getTransaction().commit();
+				
+			} catch (Exception sqlException) {
+				sqlException.printStackTrace();
+				if (sessao.getTransaction() != null) {
+					sessao.getTransaction().rollback();
+				}
+			} finally {
+				if (sessao != null) {
+					sessao.close();
+				}
+				
+			}
+			return enderecos;
+			
+			
+			
+		}
+
 	 
 			
 	}
