@@ -273,7 +273,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			ParameterExpression<StatusPedido> statusPedido = construtor.parameter(StatusPedido.class);
 			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), statusPedido));
 			
-			//criteria.where(construtor.between(datainicial,datafinal));
+			criteria.where(construtor.between(raizPedido.get(PedidoDoacao_.data), datainicial, datafinal));
 
 			pedidos = sessao.createQuery(criteria).setParameter(idOng, ong.getId()).setParameter(statusPedido, status)
 					.getResultList();

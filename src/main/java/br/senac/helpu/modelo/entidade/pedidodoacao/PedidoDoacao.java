@@ -1,6 +1,7 @@
 package br.senac.helpu.modelo.entidade.pedidodoacao;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
@@ -42,6 +45,10 @@ public class PedidoDoacao implements Serializable {
 	
 	@Enumerated ( EnumType.STRING)
 	private StatusPedido statuspedido;
+	
+	@Column(name = "data_pedido_doacao")
+	@Temporal(TemporalType.DATE)
+	private LocalDate data;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ong")
