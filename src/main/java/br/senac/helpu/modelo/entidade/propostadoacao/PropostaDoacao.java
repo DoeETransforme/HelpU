@@ -42,9 +42,10 @@ public class PropostaDoacao implements Serializable {
 	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
 
-	@Column(name = "Ong", length = 45, nullable = false)
+	@Column(name = "ong", length = 45, nullable = false)
 	private Ong ong;
-
+	
+	@Column(name=" date")
 	@Temporal(TemporalType.DATE)
 	private LocalDate dataCriacao;
 
