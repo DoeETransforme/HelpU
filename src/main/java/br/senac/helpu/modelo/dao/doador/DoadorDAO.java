@@ -18,5 +18,7 @@ public interface DoadorDAO {
 	
 	Doador recuperarDoadorId(Long id);
 	
+	Doador recuperarDoador(Doador doador);
+	
 	
 }
