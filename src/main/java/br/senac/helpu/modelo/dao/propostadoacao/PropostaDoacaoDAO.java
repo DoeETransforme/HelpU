@@ -27,7 +27,7 @@ public interface PropostaDoacaoDAO {
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimento(Ong ong , Alimento alimento);
 	List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta statusProposta);
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatus(Doador doador, StatusProposta statusProposta);
-	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimentoData(Ong ong , Alimento alimento, LocalDate dataInicial, LocalDate datafinal);
+	List<PropostaDoacao> recuperarTodasPropostaDoacaoOngAlimentoData(Ong ong , Alimento alimento, LocalDate dataInicial, LocalDate dataFinal);
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusData(Doador doador, StatusProposta statusProposta,  LocalDate dataInicial, LocalDate datafinal);
 	
  

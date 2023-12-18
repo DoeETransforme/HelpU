@@ -1,5 +1,6 @@
 package br.senac.helpu.modelo.dao.propostadoacao;
 
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -357,8 +358,8 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 				criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
 
 				ParameterExpression<Long> idAlimento = construtor.parameter(Long.class);
+				
 				criteria.where(construtor.equal(juncaoAlimento.get(Alimento_.id), idAlimento));
-
 				criteria.where(construtor.between(raizPedido.get(PropostaDoacao_.dataCriacao), dataInicial, datafinal));
 
 				propostas = sessao.createQuery(criteria)
@@ -386,7 +387,6 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			return propostas;
 		}
 
-	}
 	
 	
 	
@@ -440,7 +440,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 
 	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusData(Doador doador,
-			StatusProposta statusProposta, LocalDate dataInicial, LocalDate datafinal) {
+			StatusProposta statusProposta, LocalDate dataInicial, LocalDate dataFinal) {
 			
 			Session sessao = null;
 			List<PropostaDoacao> propostas = null;
@@ -461,7 +461,9 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 				criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusProposta),
 					construtor.equal(raizConsulta.get(PropostaDoacao_.doador), doador),
-					construtor.between(raizConsulta.get(PropostaDoacao_.dataCriacao), dataInicial, datafinal));
+					construtor.between(raizConsulta.get(PropostaDoacao_.dataCriacao), dataInicial, dataFinal));
+				
+				
 
 				propostas = sessao.createQuery(criteria).getResultList();
 
@@ -506,7 +508,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
 			
-			Join<PropostaDoacao, Doador> JuncaoDoador= raizConsulta.join(PropostaDoacao_.doador); 
+			Join<PropostaDoacao, Doador> juncaoDoador= raizConsulta.join(PropostaDoacao_.doador); 
 
 			criteria.select(raizConsulta);
 
