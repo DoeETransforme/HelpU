@@ -120,6 +120,43 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 	}
 
+	public List<PedidoDoacao> recuperarPedidosDoacao() {
+		Session sessao = null;
+		List<PedidoDoacao> pedidos = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
+			Root<PedidoDoacao> raizConquista = criteria.from(PedidoDoacao.class);
+			
+			criteria.select(raizConquista);
+			
+			pedidos = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return pedidos;
+	}
+
 	public List<PedidoDoacao> recuperarPedidoDoacaoOng(Ong ong) {
 		Session sessao = null;
 		List<PedidoDoacao> pedidos = null;
@@ -251,8 +288,8 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		return pedidos;
 	}
 
-
-	public List<PedidoDoacao> recuperarPedidoDoacaoOngStatusIntervalo(Ong ong, StatusPedido status, LocalDate datainicial, LocalDate datafinal) {
+	public List<PedidoDoacao> recuperarPedidoDoacaoOngStatusIntervalo(Ong ong, StatusPedido status,
+			LocalDate datainicial, LocalDate datafinal) {
 		Session sessao = null;
 		List<PedidoDoacao> pedidos = null;
 
@@ -272,7 +309,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			ParameterExpression<StatusPedido> statusPedido = construtor.parameter(StatusPedido.class);
 			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), statusPedido));
-			
+
 			criteria.where(construtor.between(raizPedido.get(PedidoDoacao_.data), datainicial, datafinal));
 
 			pedidos = sessao.createQuery(criteria).setParameter(idOng, ong.getId()).setParameter(statusPedido, status)
@@ -294,7 +331,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 				sessao.close();
 			}
 		}
-		return pedidos;	
+		return pedidos;
 	}
 
 }

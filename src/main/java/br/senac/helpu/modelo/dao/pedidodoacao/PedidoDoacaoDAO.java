@@ -15,6 +15,8 @@ public interface PedidoDoacaoDAO {
 	void deletarPedidoDoacao(PedidoDoacao pedidoDoacao);
 
 	void atualizarPedidoDoacao(PedidoDoacao pedidoDoacao);
+	
+	List<PedidoDoacao> recuperarPedidosDoacao();
 
 	List<PedidoDoacao> recuperarPedidoDoacaoOng(Ong ong);
 
