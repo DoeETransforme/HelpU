@@ -1,5 +1,7 @@
 package br.senac.helpu.modelo.dao.contato;
 
+import java.util.List;
+
 import br.senac.helpu.modelo.entidade.contato.Contato;
 
 public interface ContatoDAO {
@@ -9,6 +11,8 @@ public interface ContatoDAO {
 	void deletarContato(Contato contato);
 	
 	void atualizarContato(Contato contato);
+	
+	List<Contato>recuperarListaContatos();
 	
 	
 }
