@@ -45,8 +45,7 @@ public class PropostaDoacao implements Serializable {
 	@Column(name = "ong", length = 45, nullable = false)
 	private Ong ong;
 	
-	@Column(name=" date")
-	@Temporal(TemporalType.DATE)
+	@Column(name = "data_proposta", length = 10, nullable = false, unique = false)
 	private LocalDate dataCriacao;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "propostaDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
