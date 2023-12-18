@@ -12,7 +12,7 @@ public interface OngDAO {
 	
 	void atualizarOng(Ong ong);
 	
-	Ong recuperarOngNome(String nome);
+	Ong recuperarOngPeloNome(String nome);
 	
 	Ong recuperarOngId(Long id);
 	

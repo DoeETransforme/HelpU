@@ -128,40 +128,7 @@ public class OngDAOImpl implements OngDAO {
 		return ong;
 	}
 
-	public Ong recuperarOngNome(String nome) {
-		Session sessao = null;
-		Ong ongRecuperadaPeloNome = null;
-		try {
-
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
-
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<Ong> criteria = construtor.createQuery(Ong.class);
-			Root<Ong> raizDoador = criteria.from(Ong.class);
-			criteria.select(raizDoador);
-			criteria.where(construtor.equal(raizDoador.get(Ong_.id), nome));
-
-			ongRecuperadaPeloNome = sessao.createQuery(criteria).getSingleResult();
-
-			sessao.getTransaction().commit();
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
-
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
-
-		}
-
-		return ongRecuperadaPeloNome;
-
-	}
-
+	
 	public Ong recuperarOngId(Long id) {
 
 		Session sessao = null;
