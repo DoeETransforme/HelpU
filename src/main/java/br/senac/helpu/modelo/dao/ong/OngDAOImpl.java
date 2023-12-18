@@ -1,5 +1,7 @@
 package br.senac.helpu.modelo.dao.ong;
 
+import java.util.List;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -200,6 +202,37 @@ public class OngDAOImpl implements OngDAO {
 		return ongRecuperadaPeloid;
 
 	}
+	public List<Ong> recuperarListaOng() {
+		Session sessao = null;
+		 List<Ong>listaRecuperada = null;
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+			
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			
+			CriteriaQuery<Ong> criteria = construtor.createQuery(Ong.class);
+			
+			Root<Ong> raizOng = criteria.from(Ong.class);
+			
+			criteria.select(raizOng);
+			
+			listaRecuperada = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+			
+			return null;
+	
+		}catch(Exception sqlException) {
+			sqlException.printStackTrace();
+			
+			if(sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		}
+		return listaRecuperada;
+		
+	}
 
 	public Ong recuperarOng(Ong ong) {
 
@@ -242,6 +275,5 @@ public class OngDAOImpl implements OngDAO {
 
 	}
 
-
-
+	
 }

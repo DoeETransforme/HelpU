@@ -1,5 +1,7 @@
 package br.senac.helpu.modelo.dao.ong;
  
+import java.util.List;
+
 import br.senac.helpu.modelo.entidade.ong.Ong;
  
 public interface OngDAO {
@@ -15,4 +17,6 @@ public interface OngDAO {
 	Ong recuperarOngId(Long id);
 	
 	Ong recuperarOng(Ong ong);
+	
+	List<Ong> recuperarListaOng();
 }
