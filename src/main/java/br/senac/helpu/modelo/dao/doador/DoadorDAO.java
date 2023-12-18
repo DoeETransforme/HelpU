@@ -12,6 +12,8 @@ public interface DoadorDAO {
 	
 	void atualizarDoador(Doador doador);
 	
+	List<Doador>recuperarListaDoadores();
+	
 	List<Doador> recuperarDoadorPeloNome(String nome);
 	
 	Doador recuperarDoadorId(Long id);
