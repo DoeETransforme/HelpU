@@ -107,7 +107,7 @@ public class AlimentoDAOImpl implements AlimentoDAO {
 		}
 	}
 
-	@Override
+	
 	public List<Alimento> recuperarAlimentos() {
 
 		Session sessao = null;
