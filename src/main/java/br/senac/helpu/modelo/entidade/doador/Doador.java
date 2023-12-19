@@ -22,17 +22,16 @@ public class Doador extends Usuario implements Serializable {
 
 	private static final long serialVersionUID = 5246756539851329248L;
 
-	@Column(name = "cpf", length = 14, nullable = false, unique = true)
+	@Column(name = "cpf_doador", length = 14, nullable = false, unique = true)
 	private String cpf;
 
-	@Column(name = "data_nascimento", nullable = false)
+	@Column(name = "data_nascimento_doador", nullable = false)
 	private LocalDate dataNascimento;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
 
-	public Doador() {
-	}
+	public Doador() {}
 
 	public Doador(Long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
 		super(id, nome, senha, contato);
@@ -63,38 +62,13 @@ public class Doador extends Usuario implements Serializable {
 	public void setData(LocalDate data) {
 		this.dataNascimento = data;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	
+	public List<PropostaDoacao> getPropostas() {
+		return propostas;
 	}
 
-	public void addProposta(PropostaDoacao proposta) {
-		propostas.add(proposta);
+	public void setPropostas(List<PropostaDoacao> propostas) {
+		this.propostas = propostas;
 	}
 
-	public void removeProposta(PropostaDoacao proposta) {
-		propostas.remove(proposta);
-	}
-
-	public String removePropostapeloID(long id) {
-		for (PropostaDoacao propostaDoacao : propostas) {
-			if (id == propostaDoacao.getId()) {
-				propostas.remove(propostaDoacao);
-				return "A proposta de doação foi removida com sucesso.";
-			}
-		}
-		return "Não foi possível encontrar uma proposta de doação com este id.";
-	}
-
-	/*
-	 * public String editarProposta(long id) { Scanner sc = new Scanner(System.in);
-	 * for (PropostaDoacao propostaDoacao : propostas) { if (id ==
-	 * propostaDoacao.getId()) {
-	 * System.out.println("1 - Adicionar Item\n2 - Remover Item\n3 - Alterar Status"
-	 * ); int opcao = sc.nextInt(); switch (opcao) { case 1:
-	 * 
-	 * break;
-	 * 
-	 * default: break; } } } }
-	 */
 }
