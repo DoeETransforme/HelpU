@@ -69,6 +69,11 @@ public class PropostaDoacao implements Serializable {
 
 	public PropostaDoacao() {
 	}
+	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao) {
+		setId(id);
+		setStatusProposta(statusProposta);
+		itens = new ArrayList<>();
+	}
 
 
 	public PropostaDoacao(Long id, StatusProposta statusProposta) {
@@ -76,6 +81,18 @@ public class PropostaDoacao implements Serializable {
 		setStatusProposta(statusProposta);
 		itens = new ArrayList<>();
 	}
+	
+	public PropostaDoacao(Long id, StatusProposta statusProposta, LocalDate dataCriacao, Doador doador) {
+		setId(id);
+		setStatusProposta(statusProposta);
+		itens = new ArrayList<>();
+	}
+	public PropostaDoacao(Long id, StatusProposta statusProposta,Doador doador) {
+		setId(id);
+		setStatusProposta(statusProposta);
+		itens = new ArrayList<>();
+	}
+
 
 
 	public Long getId() {
