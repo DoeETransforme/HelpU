@@ -25,26 +25,26 @@ public class Endereco implements Serializable {
 	@Column(name = "id_endereco")
 	private Long id;
 
-	@Column(name = "logradouro", length = 30, nullable = false)
+	@Column(name = "logradouro_endereco", length = 30, nullable = false)
 	private String logradouro;
 
-	@Column(name = "bairro", length = 30, nullable = false)
+	@Column(name = "bairro_endereco", length = 30, nullable = false)
 	private String bairro;
 
-	@Column(name = "complemento", length = 30, nullable = true)
-	private String complemento;
-
-	@Column(name = "numero", nullable = false)
+	@Column(name = "numero_endereco", nullable = false)
 	private int numero;
 
-	@Column(name = "cidade", length = 30, nullable = false)
+	@Column(name = "cidade_endereco", length = 30, nullable = false)
 	private String cidade;
 
-	@Column(name = "unidadeFederativa", length = 2, nullable = false)
+	@Column(name = "unidadeFederativa_endereco", length = 2, nullable = false)
 	private String unidadeFederativa;
 
-	@Column(name = "cep", length = 9, nullable = false)
+	@Column(name = "cep_endereco", length = 9, nullable = false)
 	private String cep;
+	
+	@Column(name = "complemento_endereco", length = 30, nullable = true)
+	private String complemento;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ong", nullable = false)
