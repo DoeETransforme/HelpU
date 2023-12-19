@@ -5,16 +5,13 @@ package br.senac.helpu.modelo.dao.propostadoacao;
 import java.time.LocalDate;
 import java.util.List;
 
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
-
 import org.hibernate.Session;
-
 
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.alimento.Alimento_;
@@ -213,7 +210,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	
 
 
-	public java.util.List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta statusProposta) {
+	public java.util.List<PropostaDoacao> recuperarPropostaDoacaoOngStatus(Ong ong, StatusProposta status) {
 		Session sessao = null;
 		List<PropostaDoacao> propostas = null;
 
@@ -230,23 +227,18 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+			Join<PropostaDoacao, Ong> juncaoOng = raizConsulta.join(PropostaDoacao_.ong);
 			
-			Join<PropostaDoacao, Ong> JuncaoOng = raizConsulta.join(PropostaDoacao_.ong);
+			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
+			ParameterExpression<StatusProposta> statusProposta = construtor.parameter(StatusProposta.class);
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusProposta));
 
 
-			criteria.select(raizConsulta);
-
-
-			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusProposta),
-				construtor.equal(raizConsulta.get(PropostaDoacao_.ong), ong));
-
-
-			propostas = sessao.createQuery(criteria).getResultList();
-
-
+			propostas = sessao.createQuery(criteria).setParameter(idOng, ong.getId()).setParameter(statusProposta, status)
+					.getResultList();
+ 
 			sessao.getTransaction().commit();
-
-
 		} catch (Exception sqlException) {
 
 
@@ -293,20 +285,28 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 		try {
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
+			
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 			Root<PropostaDoacao> raizPedido = criteria.from(PropostaDoacao.class);
+			
 			Join<PropostaDoacao, Ong> juncaoOng = raizPedido.join(PropostaDoacao_.ong);
 			Join<PropostaDoacao, Item> juncaoItem = raizPedido.join(PropostaDoacao_.itens);
-			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
+			
 			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
+			
 			ParameterExpression<Long> idItem = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoItem.get(Item_.id), idItem));
+			
 			ParameterExpression<Long> idAlimento = construtor.parameter(Long.class);
+			
 			criteria.where(construtor.equal(juncaoAlimento.get(Alimento_.id), idAlimento));
+			
 			propostas = sessao.createQuery(criteria).setParameter(idOng, ong.getId())
 					.setParameter(idAlimento, alimento.getId()).getResultList();
+			
 			sessao.getTransaction().commit();
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
@@ -345,7 +345,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
 			
 			Join <PropostaDoacao , Item > juncaoItem = raizConsulta.join(PropostaDoacao_.itens);
-			Join<Item , Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+			Join<Item , Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
 			
 			ParameterExpression<Long> idItem = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoItem.get(Item_.id),idItem));
@@ -419,7 +419,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 				Join<PropostaDoacao, Ong> juncaoOng = raizPedido.join(PropostaDoacao_.ong);
 				Join<PropostaDoacao, Item> juncaoItem = raizPedido.join(PropostaDoacao_.itens);
-				Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+				Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
 
 
 				ParameterExpression<Long> idOng = construtor.parameter(Long.class);
@@ -553,7 +553,14 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 				CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 				Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
 				
-				Join<PropostaDoacao, Doador> JuncaoDoador= raizConsulta.join(PropostaDoacao_.doador);
+				Join<PropostaDoacao, Doador> juncaoDoador= raizConsulta.join(PropostaDoacao_.doador);
+				
+				ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
+				criteria.where(construtor.equal(juncaoDoador.get(Doador_.id), idDoador));
+				ParameterExpression<StatusProposta> statusPropostaDoador = construtor.parameter(StatusProposta.class);
+				criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusPropostaDoador));
+				
+				
 
 
 				criteria.select(raizConsulta);
@@ -626,7 +633,12 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
 			
-			Join<PropostaDoacao, Doador> juncaoDoador= raizConsulta.join(PropostaDoacao_.doador);
+			Join<PropostaDoacao, Doador> juncaoDoador = raizConsulta.join(PropostaDoacao_.doador);
+			
+			ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(juncaoDoador.get(Doador_.id), idDoador));
+			ParameterExpression<StatusProposta> statusPropostaDoador = construtor.parameter(StatusProposta.class);
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusPropostaDoador));
 
 
 			criteria.select(raizConsulta);
