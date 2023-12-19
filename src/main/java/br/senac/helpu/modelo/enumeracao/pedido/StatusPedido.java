@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.enumeracao.statuspedido;
+package br.senac.helpu.modelo.enumeracao.pedido;
 
 public enum StatusPedido{
 		
