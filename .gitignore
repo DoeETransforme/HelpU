@@ -4,3 +4,4 @@
 .project
 target/
 /bin/
+/.apt_generated_tests/
