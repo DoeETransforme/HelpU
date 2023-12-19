@@ -41,8 +41,6 @@ public class Usuario implements Serializable {
 	@JoinColumn(name = "id_contato")
 	private Contato contato;
  
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-	private List<Conquista> conquistas;
  
 	public Usuario() {
 	}
