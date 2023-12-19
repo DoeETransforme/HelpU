@@ -1,8 +1,6 @@
 package br.senac.helpu.modelo.enumeracao.statuspedido;
 
-import java.io.Serializable;
-
-public enum StatusPedido implements Serializable{
+public enum StatusPedido{
 		
 		ATIVO, CANCELADO, CONCLUIDO;
 }
