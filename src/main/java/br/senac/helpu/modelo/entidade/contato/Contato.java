@@ -29,7 +29,7 @@ public class Contato implements Serializable {
 	private String celular;
  
 	@OneToOne(fetch =FetchType.LAZY)
-	@JoinColumn(name = "id_usuario")
+	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario;
 	
 	public Contato() {}
@@ -46,8 +46,12 @@ public class Contato implements Serializable {
 		
 	}
  
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Long getId() {
+		return id;
+	}
+ 
+	public void setId(Long id) {
+		this.id = id;
 	}
  
 	public String getEmail() {
@@ -65,12 +69,13 @@ public class Contato implements Serializable {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
- 
-	public Long getId() {
-		return id;
+	
+	public Usuario getUsuario() {
+		return usuario;
 	}
- 
-	public void setId(Long id) {
-		this.id = id;
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
+
 }
