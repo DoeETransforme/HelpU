@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.enumeracao.statusproposta;
+package br.senac.helpu.modelo.enumeracao.proposta;
 
 import java.io.Serializable;
 

@@ -20,7 +20,7 @@ import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.item.Item;
-import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
+import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 
 @Entity
 @Table(name = "proposta_doacao")
