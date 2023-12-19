@@ -54,25 +54,24 @@ public class Ong extends Usuario implements Serializable {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	
+	public List<Endereco> getEnderecos() {
+		return enderecos;
 	}
 
-	public void addEndereco(Endereco endereco) {
-		enderecos.add(endereco);
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+	
+	public List<PedidoDoacao> getPedidosdoacao() {
+		return pedidosdoacao;
 	}
 
-	public void removeEndereco(Endereco endereco) {
-		enderecos.remove(endereco);
+	public void setPedidosdoacao(List<PedidoDoacao> pedidosdoacao) {
+		this.pedidosdoacao = pedidosdoacao;
 	}
 
-	public void addPedido(PedidoDoacao pedido) {
-		pedidosdoacao.add(pedido);
-	}
-
-	public void removePedido(PedidoDoacao pedido) {
-		pedidosdoacao.remove(pedido);
-	}
+	
+	
 
 }

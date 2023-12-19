@@ -47,8 +47,8 @@ public class PropostaDoacao implements Serializable {
 
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
+
 
 
 	@Column(name = "ong", length = 45, nullable = false)
@@ -76,6 +76,10 @@ public class PropostaDoacao implements Serializable {
 		setStatusProposta(statusProposta);
 		itens = new ArrayList<>();
 	}
+	public PropostaDoacao( StatusProposta statusProposta) {
+		setStatusProposta(statusProposta);
+		itens = new ArrayList<>();
+	}
 
 
 	public Long getId() {
@@ -98,6 +102,7 @@ public class PropostaDoacao implements Serializable {
 	}
 
 
+
 	public void addItem(Item item) {
 		itens.add(item);
 	}
@@ -116,6 +121,13 @@ public class PropostaDoacao implements Serializable {
 	public Ong getOng() {
 		return ong;
 	}
+  public List<Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
+	}
 
 
 	public void setOng(Ong ong) {
@@ -131,4 +143,5 @@ public class PropostaDoacao implements Serializable {
 	public void setDoador(Doador doador) {
 		this.doador = doador;
 	}
+
 }
