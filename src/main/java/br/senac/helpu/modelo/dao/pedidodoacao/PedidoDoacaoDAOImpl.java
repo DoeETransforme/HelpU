@@ -211,7 +211,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			Join<PedidoDoacao, Ong> juncaoOng = raizPedido.join(PedidoDoacao_.ong);
 			Join<PedidoDoacao, Item> juncaoItem = raizPedido.join(PedidoDoacao_.itens);
-			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
 
 			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
