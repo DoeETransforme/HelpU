@@ -298,7 +298,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Root<PropostaDoacao> raizPedido = criteria.from(PropostaDoacao.class);
 			Join<PropostaDoacao, Ong> juncaoOng = raizPedido.join(PropostaDoacao_.ong);
 			Join<PropostaDoacao, Item> juncaoItem = raizPedido.join(PropostaDoacao_.itens);
-			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
 			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
 			ParameterExpression<Long> idItem = construtor.parameter(Long.class);
@@ -345,7 +345,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
 			
 			Join <PropostaDoacao , Item > juncaoItem = raizConsulta.join(PropostaDoacao_.itens);
-			Join<Item , Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+			Join<Item , Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
 			
 			ParameterExpression<Long> idItem = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoItem.get(Item_.id),idItem));
@@ -419,7 +419,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 				Join<PropostaDoacao, Ong> juncaoOng = raizPedido.join(PropostaDoacao_.ong);
 				Join<PropostaDoacao, Item> juncaoItem = raizPedido.join(PropostaDoacao_.itens);
-				Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimentos);
+				Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
 
 
 				ParameterExpression<Long> idOng = construtor.parameter(Long.class);
