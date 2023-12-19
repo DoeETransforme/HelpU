@@ -293,7 +293,6 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Join<PropostaDoacao, Ong> juncaoOng = raizPedido.join(PropostaDoacao_.ong);
 			Join<PropostaDoacao, Item> juncaoItem = raizPedido.join(PropostaDoacao_.itens);
 			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
-			
 			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
 			

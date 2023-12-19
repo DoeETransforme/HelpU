@@ -2,18 +2,14 @@ package br.senac.helpu.modelo.entidade.alimento;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.senac.helpu.modelo.entidade.item.Item;
 
 @Entity
 @Table(name = "alimento")
@@ -35,9 +31,7 @@ public class Alimento implements Serializable {
 	@Column(name = "dataValidade", length = 20, nullable = false)
 	private LocalDate dataValidade;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "alimento")
-	private List<Item> item;
-	
+
 	public Alimento() {}
 
 	public Alimento(LocalDate dataValidade, float peso, String nome) {
@@ -87,12 +81,5 @@ public class Alimento implements Serializable {
 		this.dataValidade = dataValidade;
 	}
 	
-	public List<Item> getItem() {
-		return item;
-	}
-
-	public void setItem(List<Item> item) {
-		this.item = item;
-	}
 	
 }
