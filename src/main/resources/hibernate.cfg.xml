@@ -19,6 +19,7 @@
 		<mapping class="br\senac\helpu\modelo\entidade\ong.Ong" />
 		<mapping class="br\senac\helpu\modelo\entidade\pedidodoacao.PedidoDoacao" />
 		<mapping class="br\senac\helpu\modelo\entidade\propostadoacao.PropostaDoacao" />
-		<mapping class="br\senac\helpu\modelo\entidade\usuario.Usuario" />
+		<mapping class="br\senac\helpu\modelo\entidade\usuario.Usuario"/>
+		<mapping class="br\senac\helpu\modelo\entidade\conquista.Conquista"/>
 	</session-factory>
 </hibernate-configuration>
