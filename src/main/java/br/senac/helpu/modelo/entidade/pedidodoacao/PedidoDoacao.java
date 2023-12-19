@@ -1,6 +1,7 @@
 package br.senac.helpu.modelo.entidade.pedidodoacao;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
@@ -43,16 +46,18 @@ public class PedidoDoacao implements Serializable {
 	@Enumerated ( EnumType.STRING)
 	private StatusPedido statuspedido;
 	
+	@Column(name = "data_pedido_doacao", length = 10, nullable = false, unique = false)
+	private LocalDate data;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong")
+	@JoinColumn(name = "id_ong", nullable = false)
 	private Ong ong;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "pedido_doacao_tem_item", joinColumns = @JoinColumn(name = "id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_item"))
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name = "cadastrar_pedido_doacao", joinColumns = @JoinColumn(name ="id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_proposta_doacao"))
+	@JoinTable(name = "pedido_tem_proposta", joinColumns = @JoinColumn(name ="id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_proposta_doacao"))
 	private List<PropostaDoacao> propostasDoacao;
 	
 	public PedidoDoacao() {}
@@ -102,18 +107,6 @@ public class PedidoDoacao implements Serializable {
 
 	public void setStatusPedido(StatusPedido statusPedido) {
 		this.statuspedido = statusPedido;
-	}
-
-	public void addItem(Item item) {
-		itens.add(item);
-	}
-
-	public void removeItem(Item item) {
-		itens.remove(item);
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

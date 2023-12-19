@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -26,6 +27,11 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -8566282827144097443L;
 
+	
+	@OneToMany(mappedBy = "Conquista", fetch = FetchType.LAZY)
+		private List<Conquista> conquistas;
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_usuario")
@@ -37,8 +43,7 @@ public class Usuario implements Serializable {
 	@Column(name = "senha_usuario", length = 15, nullable = false)
 	private String senha;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_contato")
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Contato contato;
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
@@ -92,7 +97,4 @@ public class Usuario implements Serializable {
 		this.contato = contato;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 }
