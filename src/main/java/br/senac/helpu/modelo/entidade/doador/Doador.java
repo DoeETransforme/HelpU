@@ -62,38 +62,13 @@ public class Doador extends Usuario implements Serializable {
 	public void setData(LocalDate data) {
 		this.dataNascimento = data;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	
+	public List<PropostaDoacao> getPropostas() {
+		return propostas;
 	}
 
-	public void addProposta(PropostaDoacao proposta) {
-		propostas.add(proposta);
+	public void setPropostas(List<PropostaDoacao> propostas) {
+		this.propostas = propostas;
 	}
 
-	public void removeProposta(PropostaDoacao proposta) {
-		propostas.remove(proposta);
-	}
-
-	public String removePropostapeloID(long id) {
-		for (PropostaDoacao propostaDoacao : propostas) {
-			if (id == propostaDoacao.getId()) {
-				propostas.remove(propostaDoacao);
-				return "A proposta de doação foi removida com sucesso.";
-			}
-		}
-		return "Não foi possível encontrar uma proposta de doação com este id.";
-	}
-
-	/*
-	 * public String editarProposta(long id) { Scanner sc = new Scanner(System.in);
-	 * for (PropostaDoacao propostaDoacao : propostas) { if (id ==
-	 * propostaDoacao.getId()) {
-	 * System.out.println("1 - Adicionar Item\n2 - Remover Item\n3 - Alterar Status"
-	 * ); int opcao = sc.nextInt(); switch (opcao) { case 1:
-	 * 
-	 * break;
-	 * 
-	 * default: break; } } } }
-	 */
 }

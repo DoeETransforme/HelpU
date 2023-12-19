@@ -47,7 +47,7 @@ public class Endereco implements Serializable {
 	private String cep;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong")
+	@JoinColumn(name = "id_ong", nullable = false)
 	private Ong ong;
 
 	public Endereco() {}

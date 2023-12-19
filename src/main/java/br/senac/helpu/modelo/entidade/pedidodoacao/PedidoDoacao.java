@@ -45,14 +45,14 @@ public class PedidoDoacao implements Serializable {
 	private StatusPedido statuspedido;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong")
+	@JoinColumn(name = "id_ong", nullable = false)
 	private Ong ong;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidosDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name = "cadastrar_pedido_doacao", joinColumns = @JoinColumn(name ="id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_proposta_doacao"))
+	@JoinTable(name = "pedido_tem_proposta", joinColumns = @JoinColumn(name ="id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_proposta_doacao"))
 	private List<PropostaDoacao> propostasDoacao;
 	
 	public PedidoDoacao() {}
@@ -102,18 +102,6 @@ public class PedidoDoacao implements Serializable {
 
 	public void setStatusPedido(StatusPedido statusPedido) {
 		this.statuspedido = statusPedido;
-	}
-
-	public void addItem(Item item) {
-		itens.add(item);
-	}
-
-	public void removeItem(Item item) {
-		itens.remove(item);
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

@@ -37,18 +37,23 @@ public class PropostaDoacao implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "propostaDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Item> itens;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_doador")
+    @JoinColumn(name = "id_doador", nullable = false)
     private Doador doador;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "propostaDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Item> itens;
 
 	public PropostaDoacao() {}
-
+	
+	
 	public PropostaDoacao(Long id, StatusProposta statusProposta) {
 		setId(id);
+		setStatusProposta(statusProposta);
+		itens = new ArrayList<>();
+	}
+	public PropostaDoacao( StatusProposta statusProposta) {
 		setStatusProposta(statusProposta);
 		itens = new ArrayList<>();
 	}
@@ -61,6 +66,22 @@ public class PropostaDoacao implements Serializable {
 		this.id = id;
 	}
 
+	public Doador getDoador() {
+		return doador;
+	}
+
+	public void setDoador(Doador doador) {
+		this.doador = doador;
+	}
+	
+	public List<Item> getItens() {
+		return itens;
+	}
+	
+	public void setItens(List<Item> itens) {
+		this.itens = itens;
+	}
+	
 	public StatusProposta getStatusProposta() {
 		return statusProposta;
 	}
@@ -69,15 +90,6 @@ public class PropostaDoacao implements Serializable {
 		this.statusProposta = statusProposta;
 	}
 
-	public void addItem(Item item) {
-		itens.add(item);
-	}
+	
 
-	public void removeItem(Item item) {
-		itens.remove(item);
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 }

@@ -84,7 +84,4 @@ public class Usuario implements Serializable {
 		this.contato = contato;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 }
