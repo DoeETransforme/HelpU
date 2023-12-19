@@ -1,8 +1,7 @@
 package br.senac.helpu.modelo.entidade.usuario;
 
 import java.io.Serializable;
-
-import br.senac.helpu.modelo.entidade.contato.Contato;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import br.senac.helpu.modelo.entidade.conquista.Conquista;
+import br.senac.helpu.modelo.entidade.contato.Contato;
 
 @Entity
 @Table(name = "usuario")
@@ -37,6 +40,9 @@ public class Usuario implements Serializable {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_contato")
 	private Contato contato;
+
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+	private List<Conquista> conquistas;
 
 	public Usuario() {
 	}

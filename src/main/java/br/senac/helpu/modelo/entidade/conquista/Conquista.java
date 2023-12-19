@@ -19,15 +19,15 @@ public class Conquista implements Serializable {
 	private static final long serialVersionUID = 764389677409877845L;
 
 	@ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
-	
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id_conquista")
 	private Long id;
 
-	@Column (name = "nome_conquista", length = 30, nullable = false, unique = true)
+	@Column(name = "nome_conquista", length = 30, nullable = false, unique = true)
 	private String nome;
 
 	@Column(name = "descricao_conquista", length = 150, nullable = false, unique = true)
@@ -39,8 +39,10 @@ public class Conquista implements Serializable {
 	public Conquista(String nome, String descricao) {
 		setNome(nome);
 		setDescricao(descricao);
-	
-	}public Conquista(Long id, String nome, String descricao) {
+
+	}
+
+	public Conquista(Long id, String nome, String descricao) {
 		setId(id);
 		setNome(nome);
 		setDescricao(descricao);
@@ -72,5 +74,12 @@ public class Conquista implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }
