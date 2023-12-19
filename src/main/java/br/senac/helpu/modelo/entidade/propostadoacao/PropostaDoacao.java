@@ -35,7 +35,6 @@ public class PropostaDoacao implements Serializable {
 	private Long id;
 		
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status_proposta", length = 30, nullable = false, unique = false)
 	private StatusProposta statusProposta;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
