@@ -4,15 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-import br.senac.helpu.modelo.entidade.ong.Ong;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "endereco")
@@ -42,15 +39,12 @@ public class Endereco implements Serializable {
 
 	@Column(name = "cep_endereco", length = 9, nullable = false)
 	private String cep;
-	
+
 	@Column(name = "complemento_endereco", length = 30, nullable = true)
 	private String complemento;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong", nullable = false)
-	private Ong ong;
-
-	public Endereco() {}
+	public Endereco() {
+	}
 
 	public Endereco(Long id, String logradouro, String bairro, String complemento, int numero, String cidade,
 			String unidadeFederativa, String cep) {
@@ -63,9 +57,9 @@ public class Endereco implements Serializable {
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
 	}
-	
-	public Endereco(Long id, String logradouro, String bairro, int numero, String cidade,
-			String unidadeFederativa, String cep) {
+
+	public Endereco(Long id, String logradouro, String bairro, int numero, String cidade, String unidadeFederativa,
+			String cep) {
 		setId(id);
 		setLogradouro(logradouro);
 		setBairro(bairro);
@@ -85,9 +79,8 @@ public class Endereco implements Serializable {
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
 	}
-	
-	public Endereco(String logradouro, String bairro, int numero, String cidade,
-			String unidadeFederativa, String cep) {
+
+	public Endereco(String logradouro, String bairro, int numero, String cidade, String unidadeFederativa, String cep) {
 		setLogradouro(logradouro);
 		setBairro(bairro);
 		setNumero(numero);
@@ -95,8 +88,6 @@ public class Endereco implements Serializable {
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
 	}
-	
-	
 
 	public Long getId() {
 		return id;
