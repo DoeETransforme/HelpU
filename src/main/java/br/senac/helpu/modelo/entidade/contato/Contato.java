@@ -28,9 +28,6 @@ public class Contato implements Serializable {
 	@Column(name = "celular_contato", length = 16, unique = true, nullable = false)
 	private String celular;
  
-	@OneToOne(fetch =FetchType.LAZY)
-	@JoinColumn(name = "id_usuario", nullable = false)
-	private Usuario usuario;
 	
 	public Contato() {}
 	
@@ -70,12 +67,6 @@ public class Contato implements Serializable {
 		this.celular = celular;
 	}
 	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 
 }
