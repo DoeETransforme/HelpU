@@ -20,73 +20,7 @@ public class DoadorDAOimpl implements DoadorDAO {
 		fabrica = new ConexaoFactory();
 	}
  
-	public void inserirDoador(Doador doador) {
-		Session sessao = null;
-		try {
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
- 
-			sessao.save(doador);
-			sessao.getTransaction().commit();
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
- 
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
- 
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
-		}
-	}
- 
-	public void deletarDoador(Doador doador) {
-		Session sessao = null;
-		try {
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
- 
-			sessao.delete(doador);
-			sessao.getTransaction().commit();
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
- 
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
-		}
- 
-	}
- 
-	public void atualizarDoador(Doador doador) {
-		Session sessao = null;
-		try {
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
- 
-			sessao.update(doador);
-			sessao.getTransaction().commit();
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
- 
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
- 
-		}
- 
-	}
-	
+
 	public List<Doador> recuperarListaDoadores() {
 		Session sessao = null;
 		List<Doador> listaRecuperada = null;
@@ -118,8 +52,6 @@ public class DoadorDAOimpl implements DoadorDAO {
 		}
 		return listaRecuperada;
 	}
- 
- 
  
 	public Doador recuperarDoador(Doador doador) {
 		Session sessao = null;

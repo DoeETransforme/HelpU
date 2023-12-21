@@ -1,16 +1,16 @@
 package br.senac.helpu.modelo.entidade.conquista;
  
 import java.io.Serializable;
- 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
- 
-import br.senac.helpu.modelo.entidade.usuario.Usuario;
+
+import br.senac.helpu.modelo.entidade.doador.Doador;
  
 @Entity
 @Table(name = "Conquista")
@@ -29,9 +29,8 @@ public class Conquista implements Serializable {
 	@Column(name = "descricao_conquista", length = 150, nullable = false, unique = true)
 	private String descricao;
  
-	@ManyToOne
-	@JoinColumn(name = "id_usuario")
-	private Usuario usuario;
+	@ManyToMany(mappedBy = "conquistas")
+	private List<Doador> doadores;
  
 	
 	public Conquista() {
@@ -73,14 +72,5 @@ public class Conquista implements Serializable {
 		this.descricao = descricao;
 	}
  
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
  
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 }

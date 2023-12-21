@@ -50,14 +50,13 @@ public class PedidoDoacao implements Serializable {
 	private LocalDate data;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong", nullable = false)
+	@JoinColumn(name = "id_ong", nullable = false, unique = true)
 	private Ong ong;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinTable(name = "pedido_tem_proposta", joinColumns = @JoinColumn(name ="id_pedido_doacao"), inverseJoinColumns = @JoinColumn(name = "id_proposta_doacao"))
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostasDoacao;
 	
 	public PedidoDoacao() {}
