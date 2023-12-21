@@ -1,4 +1,5 @@
 package br.senac.helpu.modelo.dao.usuario;
+<<<<<<< HEAD
  
 import java.util.List;
  
@@ -8,6 +9,17 @@ import javax.persistence.criteria.Root;
  
 import org.hibernate.Session;
  
+=======
+
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Session;
+
+>>>>>>> e733e1194781c8885f002e75e60f23c7cf501e79
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
@@ -100,6 +112,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			}
 		}
 	}
+<<<<<<< HEAD
  
 	public List<Contato> listaContatos() {
 		Session sessao = null;
@@ -118,13 +131,40 @@ public class UsuarioDAOImpl implements UsuarioDAO {
  
 			listaRecuperada = sessao.createQuery(criteria).getResultList();
  
+=======
+
+	public List<Contato> listaContatos() {
+		Session sessao = null;
+		List<Contato> listaRecuperada = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
+			Root<Contato> raizContato = criteria.from(Contato.class);
+
+			criteria.select(raizContato);
+
+			listaRecuperada = sessao.createQuery(criteria).getResultList();
+
+>>>>>>> e733e1194781c8885f002e75e60f23c7cf501e79
 			sessao.getTransaction().commit();
 		} catch (Exception sqException) {
 			if (sessao.getTransaction() != null)
 				sessao.getTransaction().rollback();
 		}
 		return listaRecuperada;
+<<<<<<< HEAD
  
 	}
  
 }
+=======
+
+	}
+
+}
+>>>>>>> e733e1194781c8885f002e75e60f23c7cf501e79
