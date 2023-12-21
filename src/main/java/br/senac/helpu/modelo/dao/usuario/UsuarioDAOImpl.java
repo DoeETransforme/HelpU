@@ -1,7 +1,14 @@
 package br.senac.helpu.modelo.dao.usuario;
 
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 import org.hibernate.Session;
 
+import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
@@ -92,6 +99,32 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				sessao.close();
 			}
 		}
+	}
+
+	public List<Contato> listaContatos() {
+		Session sessao = null;
+		List<Contato> listaRecuperada = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
+			Root<Contato> raizContato = criteria.from(Contato.class);
+
+			criteria.select(raizContato);
+
+			listaRecuperada = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+		} catch (Exception sqException) {
+			if (sessao.getTransaction() != null)
+				sessao.getTransaction().rollback();
+		}
+		return listaRecuperada;
+
 	}
 
 }
