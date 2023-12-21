@@ -116,9 +116,6 @@ public class PropostaDoacao implements Serializable {
 		return ong;
 	}
 
-	public List<Item> getItens() {
-		return itens;
-	}
 
 	public void setOng(Ong ong) {
 		this.ong = ong;
