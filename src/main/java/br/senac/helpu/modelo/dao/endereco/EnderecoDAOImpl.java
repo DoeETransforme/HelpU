@@ -108,46 +108,6 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 				}
 			}
 		}
-		
-		
-		public List<Endereco> recuperarEnderecos() {
-		
-			Session sessao = null;
-			List<Endereco> enderecos = null;
-
-			try {
-				sessao = fabrica.getConexao().openSession();
-				sessao.beginTransaction();
-
-				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-
-				CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
-				Root<Endereco> raizEndereco = criteria.from(Endereco.class);
-
-				criteria.select(raizEndereco);
-
-				enderecos = sessao.createQuery(criteria).getResultList();
-
-				sessao.getTransaction().commit();
-				
-			} catch (Exception sqlException) {
-				sqlException.printStackTrace();
-				if (sessao.getTransaction() != null) {
-					sessao.getTransaction().rollback();
-				}
-			} finally {
-				if (sessao != null) {
-					sessao.close();
-				}
-				
-			}
-			return enderecos;
-			
-			
-			
-		}
-
-	 
 			
 	}
 	 
