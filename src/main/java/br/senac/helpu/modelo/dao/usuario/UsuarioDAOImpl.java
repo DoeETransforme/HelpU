@@ -8,7 +8,7 @@ import javax.persistence.criteria.Root;
  
 import org.hibernate.Session;
  
- 
+import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
  
@@ -101,10 +101,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
  
-	
-	public List<Usuario> recuperarUsuarios() {
+	public List<Contato> listaContatos() {
 		Session sessao = null;
-		List<Usuario> usuarios = null;
+		List<Contato> listaRecuperada = null;
  
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -112,27 +111,20 @@ public class UsuarioDAOImpl implements UsuarioDAO {
  
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
  
-			CriteriaQuery<Usuario> criteria = construtor.createQuery(Usuario.class);
-			Root<Usuario> raizItem = criteria.from(Usuario.class);
+			CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
+			Root<Contato> raizContato = criteria.from(Contato.class);
  
-			criteria.select(raizItem);
+			criteria.select(raizContato);
  
-			usuarios = sessao.createQuery(criteria).getResultList();
+			listaRecuperada = sessao.createQuery(criteria).getResultList();
  
 			sessao.getTransaction().commit();
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
-			if (sessao.getTransaction() != null) {
+		} catch (Exception sqException) {
+			if (sessao.getTransaction() != null)
 				sessao.getTransaction().rollback();
-			}
-		} finally {
-			if (sessao != null) {
-				sessao.close();
-			}
 		}
-		return usuarios;
+		return listaRecuperada;
+ 
 	}
  
 }
- 
- 
