@@ -44,7 +44,7 @@ public class Endereco implements Serializable {
 	private String complemento;
 	
 	@MapsId
-	@OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "enderecos", cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 
