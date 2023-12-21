@@ -1,22 +1,18 @@
 package br.senac.helpu.modelo.entidade.usuario;
  
 import java.io.Serializable;
-import java.util.List;
- 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
  
-import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.contato.Contato;
  
 @Entity
@@ -37,12 +33,9 @@ public class Usuario implements Serializable {
 	@Column(name = "senha_usuario", length = 15, nullable = false)
 	private String senha;
  
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_contato")
-	private Contato contato;
+	@OneToOne(cascade = CascadeType.ALL)
+	Contato contato;
  
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-	private List<Conquista> conquistas;
  
 	public Usuario() {
 	}
