@@ -56,7 +56,7 @@ public class PropostaDoacao implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pedido_doacao")
-	private PedidoDoacao pedido;
+	private PedidoDoacao pedidoDoacao;
 
 	public PropostaDoacao() {}
 
