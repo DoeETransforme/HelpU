@@ -34,7 +34,7 @@ public class Usuario implements Serializable {
 	private String senha;
  
 	@OneToOne(cascade = CascadeType.ALL)
-	Contato contato;
+	private Contato contato;
  
  
 	public Usuario() {
