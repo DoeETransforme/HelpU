@@ -53,10 +53,10 @@ public class PedidoDoacao implements Serializable {
 	@JoinColumn(name = "id_ong", nullable = false, unique = true)
 	private Ong ong;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedido_doacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedido_doacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostasDoacao;
 	
 	public PedidoDoacao() {}
