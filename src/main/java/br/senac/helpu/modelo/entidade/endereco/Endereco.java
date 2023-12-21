@@ -2,14 +2,16 @@ package br.senac.helpu.modelo.entidade.endereco;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
 @Entity
 @Table(name = "endereco")
@@ -18,8 +20,6 @@ public class Endereco implements Serializable {
 	private static final long serialVersionUID = -7731215238349813452L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_endereco")
 	private Long id;
 
 	@Column(name = "logradouro_endereco", length = 30, nullable = false)
@@ -42,7 +42,13 @@ public class Endereco implements Serializable {
 
 	@Column(name = "complemento_endereco", length = 30, nullable = true)
 	private String complemento;
+	
+	@MapsId
+	@OneToOne(mappedBy = "endereco", cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
 
+	
 	public Endereco() {
 	}
 
@@ -151,6 +157,14 @@ public class Endereco implements Serializable {
 
 	public void setCep(String cep) {
 		this.cep = cep;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }
