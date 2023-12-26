@@ -1,12 +1,13 @@
 package br.senac.helpu.modelo.entidade.contato;
  
 import java.io.Serializable;
- 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
  
@@ -19,7 +20,6 @@ public class Contato implements Serializable {
 	private static final long serialVersionUID = 8094576640471907006L;
 	
 	@Id
-	@Column(name = "id_contato")
 	private Long id;
 	
 	@Column(name = "email_contato", length = 65, unique = true, nullable = false)
@@ -28,8 +28,9 @@ public class Contato implements Serializable {
 	@Column(name = "celular_contato", length = 16, unique = true, nullable = false)
 	private String celular;
  
-	@OneToOne(fetch =FetchType.LAZY)
-	@JoinColumn(name = "id_usuario", nullable = false)
+	@MapsId
+	@OneToOne(mappedBy = "contato", cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
 	public Contato() {}
@@ -70,12 +71,6 @@ public class Contato implements Serializable {
 		this.celular = celular;
 	}
 	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 
 }

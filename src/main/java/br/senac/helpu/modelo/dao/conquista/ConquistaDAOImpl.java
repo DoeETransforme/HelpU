@@ -1,4 +1,4 @@
-package br.senac.helpu.modelo.dao.usuario;
+package br.senac.helpu.modelo.dao.conquista;
 
 import java.util.List;
 
@@ -8,102 +8,83 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
-import br.senac.helpu.modelo.entidade.contato.Contato;
-import br.senac.helpu.modelo.entidade.usuario.Usuario;
+import br.senac.helpu.modelo.entidade.conquista.Conquista;
+import br.senac.helpu.modelo.entidade.conquista.Conquista_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
-public class UsuarioDAOImpl implements UsuarioDAO {
+public class ConquistaDAOImpl implements ConquistaDAO {
 
 	private ConexaoFactory fabrica;
 
-	public UsuarioDAOImpl() {
+	public ConquistaDAOImpl() {
 		fabrica = new ConexaoFactory();
 	}
 
-	@Override
-	public void inserirUsuario(Usuario usuario) {
-		Session sessao = null;
-
-		try {
-
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
-
-			sessao.save(usuario);
-
-			sessao.getTransaction().commit();
-
-		} catch (Exception sqlException) {
-			sqlException.printStackTrace();
-
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-		}
-
-	}
-
-	@Override
-	public void deletarUsuario(Usuario usuario) {
+	public void inserirConquista(Conquista conquista) {
 		Session sessao = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-
-			sessao.delete(usuario);
-
+			sessao.save(conquista);
 			sessao.getTransaction().commit();
-
 		} catch (Exception sqlException) {
-
 			sqlException.printStackTrace();
-
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-
 		} finally {
-
-			if (sessao != null) {
-				sessao.close();
-			}
-		}
-
-	}
-
-	@Override
-	public void atualizarUsuario(Usuario usuario) {
-		Session sessao = null;
-
-		try {
-
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
-
-			sessao.update(usuario);
-
-			sessao.getTransaction().commit();
-
-		} catch (Exception sqlException) {
-
-			sqlException.printStackTrace();
-
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-
-		} finally {
-
 			if (sessao != null) {
 				sessao.close();
 			}
 		}
 	}
 
-	public List<Contato> listaContatos() {
+	public void deletarConquista(Conquista conquista) {
 		Session sessao = null;
-		List<Contato> listaRecuperada = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+			sessao.delete(conquista);
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+	}
+
+	public void atualizarConquista(Conquista conquista) {
+		Session sessao = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+			sessao.update(conquista);
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+
+			}
+		}
+	}
+
+	public List<Conquista> recuperarConquistas() {
+
+		Session sessao = null;
+		List<Conquista> conquistas = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -111,46 +92,61 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
-			CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
-			Root<Contato> raizContato = criteria.from(Contato.class);
+			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			Root<Conquista> raizConquista = criteria.from(Conquista.class);
 
-			criteria.select(raizContato);
+			criteria.select(raizConquista);
 
-			listaRecuperada = sessao.createQuery(criteria).getResultList();
+			conquistas = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
-		} catch (Exception sqException) {
-			if (sessao.getTransaction() != null)
-				sessao.getTransaction().rollback();
-		}
-		return listaRecuperada;
-
-	}
-
-	public List<Usuario> listaUsuarios() {
-		Session sessao = null;
-		List<Usuario> listaRecuperada = null;
-		
-		try {
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
-			
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			
-			CriteriaQuery<Usuario>criteria = construtor.createQuery(Usuario.class);
-			Root<Usuario> raizUsuario = criteria.from(Usuario.class);
-			
-			criteria.select(raizUsuario);
-			
-			listaRecuperada = sessao.createQuery(criteria).getResultList();
-			
-			sessao.getTransaction().commit();
-		}catch(Exception sqException){
-			if(sessao.getTransaction()!= null) {
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
-		return listaRecuperada;
+
+		return conquistas;
+
 	}
 
+	public Conquista recuperarConquistaPorNome(String nome) {
+		Session sessao = null;
+		Conquista conquistaRecuperadoPeloNome = null;
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			Root<Conquista> raizConquista = criteria.from(Conquista.class);
+			
+			criteria.select(raizConquista);
+			criteria.where(construtor.equal(raizConquista.get(Conquista_.nome), nome));
+			conquistaRecuperadoPeloNome = sessao.createQuery(criteria).getSingleResult();
+			
+			sessao.getTransaction().commit();
+			
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+
+		}
+
+		return conquistaRecuperadoPeloNome;
+	}
 }
+

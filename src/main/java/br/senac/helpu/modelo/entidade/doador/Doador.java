@@ -9,9 +9,13 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
@@ -30,6 +34,13 @@ public class Doador extends Usuario implements Serializable {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
+	
+	@ManyToMany
+	@JoinTable(name = "conquista_doador", 
+	joinColumns = @JoinColumn(name = "id_usuario"), 
+	inverseJoinColumns = @JoinColumn(name = "id_conquista"))
+	private List<Conquista> conquistas;
+
 
 	public Doador() {}
 
