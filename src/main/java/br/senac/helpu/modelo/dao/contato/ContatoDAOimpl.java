@@ -13,11 +13,11 @@ import org.hibernate.Session;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
-public class ContatoDAOimpl implements ContatoDAO {
+public class ContatoDAOImpl implements ContatoDAO {
 
 	private ConexaoFactory fabrica;
 
-	public ContatoDAOimpl() {
+	public ContatoDAOImpl() {
 		fabrica = new ConexaoFactory();
 	}
 
