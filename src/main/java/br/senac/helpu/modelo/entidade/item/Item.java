@@ -91,6 +91,22 @@ public class Item implements Serializable {
 	public void setAlimento(Alimento alimento) {
 		this.alimento = alimento;
 	}
+
+	public PedidoDoacao getPedidoDoacao() {
+		return pedidoDoacao;
+	}
+
+	public void setPedidoDoacao(PedidoDoacao pedidoDoacao) {
+		this.pedidoDoacao = pedidoDoacao;
+	}
+
+	public PropostaDoacao getPropostaDoacao() {
+		return propostaDoacao;
+	}
+
+	public void setPropostaDoacao(PropostaDoacao propostaDoacao) {
+		this.propostaDoacao = propostaDoacao;
+	}
 	
 }
 
