@@ -27,6 +27,7 @@ public class Usuario implements Serializable {
 	private String nome;
 	@Column(name = "senha_usuario", length = 15, nullable = false)
 	private String senha;
+	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_contato") 
 	Contato contato;

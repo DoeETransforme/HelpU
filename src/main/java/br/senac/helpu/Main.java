@@ -24,14 +24,15 @@ public class Main {
 		Alimento alimento = new Alimento(LocalDate.of(2022, 1, 1), 20 , "arroz" );
 		AlimentoDAO daoalimento = new AlimentoDAOImpl();
 		ItemDao dao = new ItemDAOImpl();
-		Contato contato = new Contato((long) 1 ,"92993591231", "email@gmail.com");
+		Contato contato = new Contato("9293159123", "ema332i2l2@gmail.com");
 		ContatoDAO daoContato = new ContatoDAOimpl();
 		
 		daoContato.inserirContato(contato);
+	    Ong ong = new Ong("amiguingho", "senhasenha", contato, "cnpjBolado");
+	    Ong ong1 = new Ong("amiguingdfho", "senfhasenha", contato, "cnpfjBolado");
 		
-		Ong ong = new Ong("amiguingho", "senhasenha", contato, "cnpjBolado");
+		contato.setUsuario(ong1);
 		
-		contato.setUsuario(ong);
 		UsuarioDAO daoUsuario = new UsuarioDAOImpl();
 		
 		daoUsuario.inserirUsuario(ong);
