@@ -22,29 +22,29 @@ public class Alimento implements Serializable {
 	@Column(name = "id_alimento")
 	private Long id;
 	
-	@Column(name = "nome", length = 35, nullable = false)
+	@Column(name = "nome_alimento", length = 35, nullable = false)
 	private String nome;
 	
-	@Column(name = "peso", nullable = false)
-	private float peso;
+	@Column(name = "unidade_alimento", nullable = false)
+	private float unidadeAlimento;
 	
-	@Column(name = "dataValidade", length = 20, nullable = false)
+	@Column(name = "data_validade_alimento", length = 20, nullable = false)
 	private LocalDate dataValidade;
 	
 
 	public Alimento() {}
 
-	public Alimento(LocalDate dataValidade, float peso, String nome) {
+	public Alimento(LocalDate dataValidade, float unidadeAlimento, String nome) {
 		setDataValidade(dataValidade);
-		setPeso(peso);
+		setUnidadeAlimento(unidadeAlimento);
 		setNome(nome);
 
 	}
 	
-	public Alimento(Long id, LocalDate dataValidade, float peso, String nome) {
+	public Alimento(Long id, LocalDate dataValidade, float unidadeAlimento, String nome) {
 		setId(id);
 		setDataValidade(dataValidade);
-		setPeso(peso);
+		setUnidadeAlimento(unidadeAlimento);
 		setNome(nome);
 
 	}
@@ -65,12 +65,12 @@ public class Alimento implements Serializable {
 		this.nome = nome;
 	}
 	
-	public float getPeso() {
-		return peso;
+	public float getUnidadeAlimento() {
+		return unidadeAlimento;
 	}
 
-	public void setPeso(float peso) {
-		this.peso = peso;
+	public void setUnidadeAlimento(float unidadeAlimento) {
+		this.unidadeAlimento = unidadeAlimento;
 	}
 	
 	public LocalDate getDataValidade() {
