@@ -96,6 +96,17 @@ public class Endereco implements Serializable {
 		setCep(cep);
 	}
 	
+	public Endereco(String logradouro, String bairro, int numero, String cidade,
+			String unidadeFederativa, String cep, Ong ong) {
+		setLogradouro(logradouro);
+		setBairro(bairro);
+		setNumero(numero);
+		setCidade(cidade);
+		setUnidadeFederativa(unidadeFederativa);
+		setCep(cep);
+		this.ong = ong;
+	}
+	
 	
 
 	public Long getId() {

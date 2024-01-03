@@ -75,6 +75,23 @@ public class PedidoDoacao implements Serializable {
 		setStatusPedido(statusPedido);
 		itens = new ArrayList<>();
 	}
+	
+	public PedidoDoacao(String titulo, String descricao, StatusPedido statusPedido, LocalDate data) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		this.data = data;
+		itens = new ArrayList<>();
+	}
+	public PedidoDoacao(String titulo, String descricao, StatusPedido statusPedido, LocalDate data, Ong ong) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		this.data = data;
+		this.ong = ong;
+		itens = new ArrayList<>();
+	}
+
 
 	public Long getId() {
 		return id;
