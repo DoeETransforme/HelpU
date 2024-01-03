@@ -12,11 +12,11 @@ import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.doador.Doador_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
-public class DoadorDAOimpl implements DoadorDAO {
+public class DoadorDAOImpl implements DoadorDAO {
  
 	private ConexaoFactory fabrica;
  
-	public DoadorDAOimpl () {
+	public DoadorDAOImpl () {
 		fabrica = new ConexaoFactory();
 	}
  
