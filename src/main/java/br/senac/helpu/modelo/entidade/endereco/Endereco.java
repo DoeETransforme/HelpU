@@ -104,7 +104,7 @@ public class Endereco implements Serializable {
 		setCidade(cidade);
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
-		this.ong = ong;
+		setOng(ong);
 	}
 
 	public Long getId() {
