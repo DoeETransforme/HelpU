@@ -107,7 +107,6 @@ public class AlimentoDAOImpl implements AlimentoDAO {
 		}
 	}
 
-	
 	public List<Alimento> recuperarAlimentos() {
 
 		Session sessao = null;
@@ -136,10 +135,8 @@ public class AlimentoDAOImpl implements AlimentoDAO {
 			if (sessao != null) {
 				sessao.close();
 			}
-			return alimentos;
-		
-
 		}
+		return alimentos;
 
 	}
 }
