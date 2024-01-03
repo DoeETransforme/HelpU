@@ -34,11 +34,11 @@ public class Item implements Serializable {
 	private int quantidade;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_pedido_doacao")
+	@JoinColumn(name = "id", insertable = false, updatable = false)
 	private PedidoDoacao pedidoDoacao;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_proposta_doacao")
+	@JoinColumn(name = "id", insertable = false, updatable = false)
 	private PropostaDoacao propostaDoacao;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -90,6 +90,22 @@ public class Item implements Serializable {
 
 	public void setAlimento(Alimento alimento) {
 		this.alimento = alimento;
+	}
+
+	public PedidoDoacao getPedidoDoacao() {
+		return pedidoDoacao;
+	}
+
+	public void setPedidoDoacao(PedidoDoacao pedidoDoacao) {
+		this.pedidoDoacao = pedidoDoacao;
+	}
+
+	public PropostaDoacao getPropostaDoacao() {
+		return propostaDoacao;
+	}
+
+	public void setPropostaDoacao(PropostaDoacao propostaDoacao) {
+		this.propostaDoacao = propostaDoacao;
 	}
 	
 }
