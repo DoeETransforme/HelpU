@@ -11,6 +11,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
 @Entity
@@ -45,8 +46,8 @@ public class Endereco implements Serializable {
 	
 	@MapsId
 	@OneToOne(mappedBy = "enderecos", cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_usuario")
-	private Usuario usuario;
+	@JoinColumn(name = "id_ong")
+	private Ong ong;
 
 	
 	public Endereco() {
@@ -93,6 +94,17 @@ public class Endereco implements Serializable {
 		setCidade(cidade);
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
+	}
+	
+	
+	public Endereco(String logradouro, String bairro, int numero, String cidade, String unidadeFederativa, String cep, Ong ong ) {
+		setLogradouro(logradouro);
+		setBairro(bairro);
+		setNumero(numero);
+		setCidade(cidade);
+		setUnidadeFederativa(unidadeFederativa);
+		setCep(cep);
+		this.ong = ong;
 	}
 
 	public Long getId() {
@@ -159,12 +171,12 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 	}
 	
-	public Usuario getUsuario() {
-		return usuario;
+	public Ong getOng() {
+		return ong;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setOng(Ong ong) {
+		this.ong = ong;
 	}
 
 }
