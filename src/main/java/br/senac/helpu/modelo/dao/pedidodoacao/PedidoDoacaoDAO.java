@@ -6,7 +6,7 @@ import java.util.List;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
-import br.senac.helpu.modelo.enumeracao.statuspedido.StatusPedido;
+import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 
 public interface PedidoDoacaoDAO {
 

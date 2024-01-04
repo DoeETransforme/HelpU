@@ -23,7 +23,7 @@ import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.ong.Ong_;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao_;
-import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
+import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
 

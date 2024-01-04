@@ -7,7 +7,7 @@ import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
-import br.senac.helpu.modelo.enumeracao.statusproposta.StatusProposta;
+import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 
 public interface PropostaDoacaoDAO {
 	void inserirPropostaDoacao(PropostaDoacao propostaDoacao);
