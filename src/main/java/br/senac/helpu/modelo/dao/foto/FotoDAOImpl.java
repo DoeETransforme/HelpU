@@ -142,6 +142,7 @@ public class FotoDAOImpl implements FotoDAO {
     }
 
     public Foto recuperarFotoNome(String nome) {
+		return null;
 
     }
 
