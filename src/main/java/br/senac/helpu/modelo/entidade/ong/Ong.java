@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.contato.Contato;
@@ -28,23 +29,25 @@ public class Ong extends Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ong", cascade = CascadeType.ALL)
 	private List<PedidoDoacao> pedidosdoacao;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ong", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Endereco> enderecos;
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private Endereco enderecos;
 
 	public Ong() {}
 
 	public Ong(Long id, String nome, String senha, Contato contato, String cnpj) {
 		super(id, nome, senha, contato);
 		setCnpj(cnpj);
+		setEnderecos(enderecos);
 		pedidosdoacao = new ArrayList<>();
-		enderecos = new ArrayList<>();
+		
 	}
 
 	public Ong(String nome, String senha, Contato contato, String cnpj) {
 		super(nome, senha, contato);
 		setCnpj(cnpj);
+		setEnderecos(enderecos);
 		pedidosdoacao = new ArrayList<>();
-		enderecos = new ArrayList<>();
+		
 	}
 
 	public String getCnpj() {
@@ -54,23 +57,14 @@ public class Ong extends Usuario implements Serializable {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	
-	public List<Endereco> getEnderecos() {
+
+	public Endereco getEnderecos() {
 		return enderecos;
 	}
 
-	public void setEnderecos(List<Endereco> enderecos) {
+	public void setEnderecos(Endereco enderecos) {
 		this.enderecos = enderecos;
 	}
-	
-	public List<PedidoDoacao> getPedidosdoacao() {
-		return pedidosdoacao;
-	}
-
-	public void setPedidosdoacao(List<PedidoDoacao> pedidosdoacao) {
-		this.pedidosdoacao = pedidosdoacao;
-	}
-
 	
 	
 
