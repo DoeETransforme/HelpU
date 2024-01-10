@@ -46,7 +46,7 @@ public class Endereco implements Serializable {
 	
 	@MapsId
 	@OneToOne(mappedBy = "enderecos", cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_ong")
+	@JoinColumn(name = "id")
 	private Ong ong;
 
 	
