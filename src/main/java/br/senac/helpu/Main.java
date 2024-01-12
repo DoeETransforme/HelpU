@@ -14,8 +14,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 
-	
-		Ong ong = new Ong("nomeborwlado", "3rw123123", null ,"cnpjbrwolado");
+		Contato contato = new Contato("celularrewbolado", "emailsurweperbolado");
+		Ong ong = new Ong("nomeborwlado", "3rw123123", contato ,"cnpjbrwolado");
 		
 		
 		Endereco endereco = new Endereco ("logradourobolado", "bairoobolado", 10 , "CidadeBolada" , "am", "122-21", ong);
