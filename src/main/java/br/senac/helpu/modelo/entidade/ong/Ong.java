@@ -38,7 +38,7 @@ public class Ong extends Usuario implements Serializable {
 		super(id, nome, senha, contato);
 		setCnpj(cnpj);
 		setEnderecos(enderecos);
-		pedidosdoacao = new ArrayList<>();
+		
 		
 	}
 
@@ -46,7 +46,6 @@ public class Ong extends Usuario implements Serializable {
 		super(nome, senha, contato);
 		setCnpj(cnpj);
 		setEnderecos(enderecos);
-		pedidosdoacao = new ArrayList<>();
 		
 	}
 

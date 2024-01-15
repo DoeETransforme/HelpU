@@ -48,14 +48,14 @@ public class Doador extends Usuario implements Serializable {
 		super(id, nome, senha, contato);
 		setCpf(cpf);
 		setData(data);
-		propostas = new ArrayList<>();
+	
 	}
 
 	public Doador(String nome, String senha, Contato contato, String cpf, LocalDate data) {
 		super(nome, senha, contato);
 		setCpf(cpf);
 		setData(data);
-		propostas = new ArrayList<>();
+
 	}
 
 	public String getCpf() {
