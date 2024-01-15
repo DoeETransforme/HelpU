@@ -64,6 +64,12 @@ public class Main {
 		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");		
 		alimentoDao.inserirAlimento(alimento);
 		
+		Item item = new Item(10);		
+		itemDao.inserirItem(item);
+
+		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");		
+		alimentoDao.inserirAlimento(alimento);
+
 		System.out.println(item.getQuantidade());
 
 		
