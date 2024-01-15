@@ -32,36 +32,37 @@ public class Main {
 	public static void main(String[] args) {
 		UsuarioDAO usuarioDao = new UsuarioDAOImpl();
 		ContatoDAO contatoDao = new ContatoDAOImpl();
+		OngDAO ongDao = new OngDAOImpl();
 		EnderecoDAO enderecoDao = new EnderecoDAOImpl();
-		OngDAO ongDao = new OngDAOImpl();		
 		DoadorDAO doadorDao = new DoadorDAOImpl();
-		PedidoDoacaoDAO pedidoDao = new PedidoDoacaoDAOImpl();
 		ItemDao itemDao = new ItemDAOImpl();
 		AlimentoDAO alimentoDao = new AlimentoDAOImpl();
-
-
+		
+		
 		Usuario usuario = new Usuario("Marlon", "123456", null);	
 		usuarioDao.inserirUsuario(usuario);
-
-		/*
-		 * Contato contato = new Contato("992832557", "marlon@gmail.com", usuario);
-		 * 
-		 * usuario.setContato(contato); contatoDao.inserirContato(contato);
-		 */
-
+		
+		Contato contato = new Contato("992832557", "marlon@gmail.com", usuario);
+		
+		usuario.setContato(contato);
+		contatoDao.inserirContato(contato);
+		
 		Ong ong = new Ong("HelpU", "654321", null, "5148212856455");
 		usuarioDao.inserirUsuario(ong);
-
+		
 		Doador doador = new Doador("Ruan", "123456", null, "13351789732", LocalDate.now());
 		usuarioDao.inserirUsuario(doador);
-
+		
 		/*
 		 * Endereco endereco = new Endereco("Rua Floriano", "Fortaleza", 113,
 		 * "Blumenau", "SC", "89066900"); enderecoDao.inserirEndereco(endereco);
 		 */
-		
-		PedidoDoacao pedidoDoacao = new PedidoDoacao("Arroz", "100 kg", LocalDate.now(), StatusPedido.ATIVO, ong);
-		pedidoDao.inserirPedidoDoacao(pedidoDoacao);
+				
+		Item item = new Item(10);		
+		itemDao.inserirItem(item);
+
+		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");		
+		alimentoDao.inserirAlimento(alimento);
 		
 		Item item = new Item(10);		
 		itemDao.inserirItem(item);
