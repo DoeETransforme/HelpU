@@ -62,6 +62,7 @@ public class Ong extends Usuario implements Serializable {
 	}
 	
 	
+	
 
 	
 	

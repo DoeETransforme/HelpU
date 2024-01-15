@@ -1,6 +1,7 @@
 package br.senac.helpu;
  
 import java.time.LocalDate;
+import java.util.List;
 
 import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
@@ -12,6 +13,7 @@ import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.ong.Ong;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
  
 public class Main {
 	public static void main(String[] args) {
@@ -32,7 +34,7 @@ public class Main {
 		
 		
 
- 
+		
 		
 	}
 }
