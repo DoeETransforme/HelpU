@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
 	private String senha;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_contato") 
+	@JoinColumn(name = "id_contato", nullable = true) 
 	Contato contato;
 
 	public Usuario() {
