@@ -39,17 +39,17 @@ public class Contato implements Serializable {
 	
 	public Contato() {}
 	
-	public Contato(String celular, String email ) {
+	public Contato(String celular, String email, Usuario usuario) {
 		setCelular(celular);
 		setEmail(email);
-		
+		setUsuario(usuario);
 	}
 		
-	public Contato(Long id, String celular, String email) {
+	public Contato(Long id, String celular, String email, Usuario usuario) {
 		setId(id);
 		setCelular(celular);
 		setEmail(email);
-		
+		setUsuario(usuario);
 	}
  
 	public Long getId() {
@@ -75,11 +75,11 @@ public class Contato implements Serializable {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
- 
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}

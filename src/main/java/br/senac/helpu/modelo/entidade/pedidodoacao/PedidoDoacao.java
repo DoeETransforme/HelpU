@@ -61,12 +61,21 @@ public class PedidoDoacao implements Serializable {
 	
 	public PedidoDoacao() {}
 	
-	public PedidoDoacao(Long id, String titulo, String descricao, StatusPedido statusPedido) {
+	public PedidoDoacao(Long id, String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong) {
 		setId(id);
+		setData(data);
+		setTitulo(titulo);
+		setDescricao(descricao);	
+		setStatusPedido(statusPedido);
+		setOng(ong);
+	}
+
+	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong) {
+		setData(data);
 		setTitulo(titulo);
 		setDescricao(descricao);
 		setStatusPedido(statusPedido);
-		itens = new ArrayList<>();
+		setOng(ong);
 	}
 
 	public PedidoDoacao(String titulo, String descricao, StatusPedido statusPedido) {
@@ -116,6 +125,14 @@ public class PedidoDoacao implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public Ong getOng() {
+		return ong;
+	}
+
+	public void setOng(Ong ong) {
+		this.ong = ong;
+	}
 
 	public StatusPedido getStatusPedido() {
 		return this.statuspedido;
@@ -124,5 +141,5 @@ public class PedidoDoacao implements Serializable {
 	public void setStatusPedido(StatusPedido statusPedido) {
 		this.statuspedido = statusPedido;
 	}
-
+	
 }
