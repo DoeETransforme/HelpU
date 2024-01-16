@@ -43,41 +43,39 @@ public class Main {
 		PropostaDoacaoDAO propostaDoacaoDao = new PropostaDoacaoDAOImpl();
 		ItemDao itemDao = new ItemDAOImpl();
 		AlimentoDAO alimentoDao = new AlimentoDAOImpl();
-		
-		
-		Usuario usuario = new Usuario("Marlon", "123456", null);	
+
+		Usuario usuario = new Usuario("Marlon", "123456", null);
 		usuarioDao.inserirUsuario(usuario);
-		
+
 		Contato contato = new Contato("992832557", "marlon@gmail.com", usuario);
-		
+
 		usuario.setContato(contato);
 		contatoDao.inserirContato(contato);
-		
+
 		Ong ong = new Ong("HelpU", "654321", null, "5148212856455");
 		usuarioDao.inserirUsuario(ong);
-		
+
 		Doador doador = new Doador("Ruan", "123456", null, "13351789732", LocalDate.now());
 		usuarioDao.inserirUsuario(doador);
-		
-		PedidoDoacao pedidoDoacao = new PedidoDoacao("Arroz", "100 kg de arroz", LocalDate.now(), StatusPedido.ATIVO, ong);
+
+		PedidoDoacao pedidoDoacao = new PedidoDoacao("Arroz", "100 kg de arroz", LocalDate.now(), StatusPedido.ATIVO,
+				ong);
 		pedidoDoacaoDao.inserirPedidoDoacao(pedidoDoacao);
-		
-		PropostaDoacao propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.now(), pedidoDoacao);
+
+		PropostaDoacao propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.now(),
+				pedidoDoacao);
 		propostaDoacaoDao.inserirPropostaDoacao(propostaDoacao);
-		
-		/*
-		 * Endereco endereco = new Endereco("Rua Floriano", "Fortaleza", 113,
-		 * "Blumenau", "SC", "89066900"); enderecoDao.inserirEndereco(endereco);
-		 */
-				
-		Item item = new Item(10);		
+
+		Endereco endereco = new Endereco("Rua Francisco", "Fortaleza", 255, "Blumenau", "SC", "89056900", ong); 
+		enderecoDao.inserirEndereco(endereco);
+
+		Item item = new Item(10);
 		itemDao.inserirItem(item);
 
-		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");		
+		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");
 		alimentoDao.inserirAlimento(alimento);
 
 		System.out.println(item.getQuantidade());
 
-		
 	}
 }
