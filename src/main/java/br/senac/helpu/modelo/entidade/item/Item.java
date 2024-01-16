@@ -18,7 +18,6 @@ import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 
-
 @Entity
 @Table(name = "item")
 public class Item implements Serializable {
@@ -32,28 +31,29 @@ public class Item implements Serializable {
 
 	@Column(name = "quantidade_pedido", nullable = false)
 	private int quantidade;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_pedido_doacao", insertable = false, updatable = false)
+	@JoinColumn(name = "id_pedido_doacao")
 	private PedidoDoacao pedidoDoacao;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_proposta_doacao", insertable = false, updatable = false)
+	@JoinColumn(name = "id_proposta_doacao")
 	private PropostaDoacao propostaDoacao;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_alimento", insertable = false, updatable = false)
 	private Alimento alimento;
-	
 
-	public Item() {}
+	public Item() {
+	}
 
 	public Item(Long id, int quantidade, Alimento alimento) {
 		setId(id);
 		setQuantidade(quantidade);
 		setAlimento(alimento);
+
 	}
-	
+
 	public Item(Long id, int quantidade) {
 		setId(id);
 		setQuantidade(quantidade);
@@ -63,11 +63,47 @@ public class Item implements Serializable {
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 	}
-	
+
 	public Item(int quantidade) {
 		setQuantidade(quantidade);
 	}
 
+	public Item(Long id, int quantidade, Alimento alimento, PedidoDoacao pedido) {
+		setId(id);
+		setQuantidade(quantidade);
+		setAlimento(alimento);
+		setPedidoDoacao(pedido);
+	}
+	
+	public Item(Long id, int quantidade, Alimento alimento, PropostaDoacao proposta) {
+		setId(id);
+		setQuantidade(quantidade);
+		setAlimento(alimento);
+		setPropostaDoacao(proposta);
+	}
+	
+	public Item(Long id, int quantidade, PedidoDoacao pedido) {
+		setId(id);
+		setQuantidade(quantidade);
+		setPedidoDoacao(pedido);
+	}
+	
+	public Item(Long id, int quantidade, PropostaDoacao proposta) {
+		setId(id);
+		setQuantidade(quantidade);
+		setPropostaDoacao(proposta);
+	}
+	
+	public Item(int quantidade,PedidoDoacao pedido) {
+		setQuantidade(quantidade);
+		setPedidoDoacao(pedido);
+	}
+	
+	public Item(int quantidade, PropostaDoacao proposta) {
+		setQuantidade(quantidade);
+		setPropostaDoacao(proposta);
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -83,7 +119,7 @@ public class Item implements Serializable {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
+
 	public Alimento getAlimento() {
 		return alimento;
 	}
@@ -107,7 +143,5 @@ public class Item implements Serializable {
 	public void setPropostaDoacao(PropostaDoacao propostaDoacao) {
 		this.propostaDoacao = propostaDoacao;
 	}
-	
+
 }
-
-

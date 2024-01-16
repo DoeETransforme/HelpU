@@ -14,11 +14,11 @@ import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.ong.Ong_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
-public class OngDAOImpl implements OngDAO {
+public class OngDAOimpl implements OngDAO {
 
 	private ConexaoFactory fabrica;
 
-	public OngDAOImpl() {
+	public OngDAOimpl() {
 
 		fabrica = new ConexaoFactory();
 

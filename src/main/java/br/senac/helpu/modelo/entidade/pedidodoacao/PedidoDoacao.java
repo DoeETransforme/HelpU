@@ -2,6 +2,7 @@ package br.senac.helpu.modelo.entidade.pedidodoacao;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,8 +25,7 @@ import javax.persistence.Table;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
-import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
-
+import br.senac.helpu.modelo.enumeracao.statuspedido.StatusPedido;
 @Entity
 @Table(name = "pedido_doacao")
 public class PedidoDoacao implements Serializable {
@@ -41,12 +43,14 @@ public class PedidoDoacao implements Serializable {
 	@Column(name = "descricao_pedido_doacao", length = 150, nullable = false, unique = false)
 	private String descricao;
 	
-	@Column(name = "data_pedido_doacao", length = 10, nullable = false, unique = false)
-	private LocalDate data;
-	
 	@Enumerated ( EnumType.STRING)
 	private StatusPedido statuspedido;
 	
+	@Column(name = "data_pedido_doacao", length = 10, nullable = false, unique = false)
+	private LocalDate data;
+	
+	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ong", nullable = false, unique = true)
 	private Ong ong;
@@ -76,6 +80,30 @@ public class PedidoDoacao implements Serializable {
 		setOng(ong);
 	}
 
+	public PedidoDoacao(String titulo, String descricao, StatusPedido statusPedido) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		itens = new ArrayList<>();
+	}
+	
+	public PedidoDoacao(String titulo, String descricao, StatusPedido statusPedido, LocalDate data) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		this.data = data;
+		itens = new ArrayList<>();
+	}
+	public PedidoDoacao(String titulo, String descricao, StatusPedido statusPedido, LocalDate data, Ong ong) {
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		this.data = data;
+		this.ong = ong;
+		itens = new ArrayList<>();
+	}
+
+
 	public Long getId() {
 		return id;
 	}
@@ -87,15 +115,7 @@ public class PedidoDoacao implements Serializable {
 	public String getTitulo() {
 		return titulo;
 	}
-	
-	public LocalDate getData() {
-		return data;
-	}
 
-	public void setData(LocalDate data) {
-		this.data = data;
-	}
-	
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -122,6 +142,13 @@ public class PedidoDoacao implements Serializable {
 
 	public void setStatusPedido(StatusPedido statusPedido) {
 		this.statuspedido = statusPedido;
+	}
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 	
 }

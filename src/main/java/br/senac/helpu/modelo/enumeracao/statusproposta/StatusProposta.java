@@ -1,7 +1,7 @@
-package br.senac.helpu.modelo.enumeracao.proposta;
+package br.senac.helpu.modelo.enumeracao.statusproposta;
 
 import java.io.Serializable;
 
 public enum StatusProposta implements Serializable{
-	ANALISE, RECUSADO, ACEITO
+	ANALISE, RECUSADA, ACEITA
 }

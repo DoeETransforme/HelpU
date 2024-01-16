@@ -22,7 +22,6 @@ public class ConexaoFactory {
 		configuracao.addAnnotatedClass(br.senac.helpu.modelo.entidade.usuario.Usuario.class);
 		configuracao.addAnnotatedClass(br.senac.helpu.modelo.entidade.conquista.Conquista.class);
 		
-		
 		configuracao.configure("hibernate.cfg.xml");
 
 		ServiceRegistry servico = new StandardServiceRegistryBuilder().applySettings(configuracao.getProperties())

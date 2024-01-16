@@ -12,6 +12,7 @@
 		
 		<property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 		<mapping class="br\senac\helpu\modelo\entidade\alimento.Alimento" />
+		<mapping class="br\senac\helpu\modelo\entidade\usuario.Usuario"/>
 		<mapping class="br\senac\helpu\modelo\entidade\contato.Contato" />
 		<mapping class="br\senac\helpu\modelo\entidade\doador.Doador" />
 		<mapping class="br\senac\helpu\modelo\entidade\endereco.Endereco" />
@@ -19,7 +20,6 @@
 		<mapping class="br\senac\helpu\modelo\entidade\ong.Ong" />
 		<mapping class="br\senac\helpu\modelo\entidade\pedidodoacao.PedidoDoacao" />
 		<mapping class="br\senac\helpu\modelo\entidade\propostadoacao.PropostaDoacao" />
-		<mapping class="br\senac\helpu\modelo\entidade\usuario.Usuario"/>
 		<mapping class="br\senac\helpu\modelo\entidade\conquista.Conquista"/>
 	</session-factory>
 </hibernate-configuration>
