@@ -49,6 +49,8 @@ public class PedidoDoacao implements Serializable {
 	@Column(name = "data_pedido_doacao", length = 10, nullable = false, unique = false)
 	private LocalDate data;
 	
+	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ong", nullable = false, unique = true)
 	private Ong ong;
@@ -140,6 +142,13 @@ public class PedidoDoacao implements Serializable {
 
 	public void setStatusPedido(StatusPedido statusPedido) {
 		this.statuspedido = statusPedido;
+	}
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 	
 }

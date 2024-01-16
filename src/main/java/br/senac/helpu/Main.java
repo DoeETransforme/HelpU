@@ -2,7 +2,6 @@ package br.senac.helpu;
  
 import java.time.LocalDate;
 
-
 import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
