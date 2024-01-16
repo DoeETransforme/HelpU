@@ -50,6 +50,7 @@ public class Endereco implements Serializable {
 	@JoinColumn(name = "id_ong", nullable = false)
 	private Ong ong;
 
+	
 	public Endereco() {}
 
 	public Endereco(Long id, String logradouro, String bairro, String complemento, int numero, String cidade,
@@ -172,5 +173,13 @@ public class Endereco implements Serializable {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
+	public Ong getOng() {
+		return ong;
 
+	}
+	public void setOng(Ong ong) {
+		this.ong = ong;
+	}
 }
+
+
