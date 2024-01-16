@@ -20,7 +20,6 @@ import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.item.Item;
-import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 
@@ -38,11 +37,6 @@ public class PropostaDoacao implements Serializable {
 
 	@Enumerated(EnumType.STRING)
 	private StatusProposta statusProposta;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong", nullable = false)
-	//@Column(name = "ong", length = 45, nullable = false)
-	private Ong ong;
 
 	@Column(name = "data_proposta", length = 10, nullable = false, unique = false)
 	private LocalDate dataCriacao;
@@ -56,33 +50,20 @@ public class PropostaDoacao implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pedido_doacao", nullable = false)
-	private PedidoDoacao pedidoDoacao;
-
-	
+	private PedidoDoacao pedidoDoacao;	
 
 	public PropostaDoacao() {}
 
-	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao, Ong ong) {
+	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao) {
 	    setId(id);
 	    setStatusProposta(statusProposta);
 	    setDoador(doador);
 	    setDataCriacao(dataCriacao);
-	  
-	    setOng(ong);
-	}
-	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao, Ong ong, PedidoDoacao pedido) {
-	    setId(id);
-	    setStatusProposta(statusProposta);
-	    //this.dataCriacao = dataCriacao != null ? dataCriacao : LocalDate.now(); 
-	    setDataCriacao(dataCriacao);
-	    setDoador(doador);
-	 
-        setOng(ong);
-	    setPedidoDoacao(pedido);
 	}
 	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao, PedidoDoacao pedido) {
 	    setId(id);
 	    setStatusProposta(statusProposta);
+	    //this.dataCriacao = dataCriacao != null ? dataCriacao : LocalDate.now(); 
 	    setDataCriacao(dataCriacao);
 	    setDoador(doador);
 	    setPedidoDoacao(pedido);
@@ -121,19 +102,6 @@ public class PropostaDoacao implements Serializable {
 		itens.remove(item);
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public Ong getOng() {
-		return ong;
-	}
-
-
-	public void setOng(Ong ong) {
-		this.ong = ong;
-	}
-
 	public Doador getDoador() {
 		return doador;
 	}
@@ -147,14 +115,6 @@ public class PropostaDoacao implements Serializable {
 
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
-	}
-
-	public List<Item> getItens() {
-		return itens;
-	}
-
-	public void setItens(List<Item> itens) {
-		this.itens = itens;
 	}
 
 	public PedidoDoacao getPedidoDoacao() {
