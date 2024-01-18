@@ -258,16 +258,12 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
 
-			Join<PedidoDoacao, Ong> juncaoPedidos = raizPedido.join(PedidoDoacao_.ong);
-
-			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
-			criteria.where(construtor.equal(juncaoPedidos.get(Ong_.id), idOng));
-
-			ParameterExpression<StatusPedido> statusPedido = construtor.parameter(StatusPedido.class);
-			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), statusPedido));
-
-			pedidos = sessao.createQuery(criteria).setParameter(idOng, ong.getId()).setParameter(statusPedido, status)
-					.getResultList();
+			criteria.select(raizPedido);
+			
+			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status),
+					construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()));
+			
+			pedidos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
 

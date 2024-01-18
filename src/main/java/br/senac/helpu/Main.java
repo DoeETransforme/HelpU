@@ -1,6 +1,7 @@
 package br.senac.helpu;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAO;
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAOImpl;
@@ -58,16 +59,15 @@ public class Main {
 		Doador doador = new Doador("Ruan", "123456", null, "13351789732", LocalDate.now());
 		usuarioDao.inserirUsuario(doador);
 
-		PedidoDoacao pedidoDoacao = new PedidoDoacao("Arroz", "100 kg de arroz", LocalDate.now(), StatusPedido.ATIVO,
-				ong);
+		PedidoDoacao pedidoDoacao = new PedidoDoacao("Arroz", "100 kg de arroz", LocalDate.of(1999, 07, 10),
+				StatusPedido.ATIVO, ong);
 		pedidoDoacaoDao.inserirPedidoDoacao(pedidoDoacao);
 
 		PropostaDoacao propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.now(),
 				pedidoDoacao);
 		propostaDoacaoDao.inserirPropostaDoacao(propostaDoacao);
 
-		Endereco endereco = new Endereco("Rua Francisco", "Fortaleza", 255, "Blumenau", "SC", "89056900", ong); 
-		enderecoDao.inserirEndereco(endereco);
+		Endereco endereco = new Endereco("Rua Francisco", "Fortaleza", 255, "Blumenau", "SC", "89056900", ong);
 
 		Item item = new Item(10);
 		itemDao.inserirItem(item);
@@ -77,5 +77,9 @@ public class Main {
 
 		System.out.println(item.getQuantidade());
 
+		List<PedidoDoacao> pedidos = pedidoDoacaoDao.recuperarPedidoDoacaoOngStatus(ong, StatusPedido.ATIVO);
+		for (PedidoDoacao pedido : pedidos) {
+			System.out.println(pedido.getTitulo());
+		}
 	}
 }
