@@ -124,4 +124,20 @@ public class PedidoDoacao implements Serializable {
 		this.statuspedido = statusPedido;
 	}
 	
+	
+	public void addItem(Item item) {
+		itens.add(item);
+	}
+	
+	public void removeItem(Item item) {
+		itens.remove(item);
+	}
+	
+	public void addPropostaDoacao(PropostaDoacao proposta) {
+		propostasDoacao.add(proposta);
+	}
+	
+	public void removePropostaDoacao(PropostaDoacao proposta) {
+		propostasDoacao.remove(proposta);
+	}
 }
