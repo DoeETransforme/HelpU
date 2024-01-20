@@ -2,6 +2,7 @@ package br.senac.helpu.modelo.entidade.propostadoacao;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -59,14 +60,15 @@ public class PropostaDoacao implements Serializable {
 	    setStatusProposta(statusProposta);
 	    setDoador(doador);
 	    setDataCriacao(dataCriacao);
+	    itens = new ArrayList<>();
 	}
 	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao, PedidoDoacao pedido) {
 	    setId(id);
 	    setStatusProposta(statusProposta);
-	    //this.dataCriacao = dataCriacao != null ? dataCriacao : LocalDate.now(); 
 	    setDataCriacao(dataCriacao);
 	    setDoador(doador);
 	    setPedidoDoacao(pedido);
+	    itens = new ArrayList<>();
 	}
 
 	public PropostaDoacao(Long id, StatusProposta statusProposta, LocalDate dataCriacao, Doador doador) {
@@ -74,6 +76,7 @@ public class PropostaDoacao implements Serializable {
 		setStatusProposta(statusProposta);
 		setDataCriacao(dataCriacao);
 	    setDoador(doador);
+	    itens = new ArrayList<>();;
 	}
 
 	
