@@ -2,6 +2,7 @@ package br.senac.helpu.modelo.entidade.pedidodoacao;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -66,6 +67,8 @@ public class PedidoDoacao implements Serializable {
 		setDescricao(descricao);	
 		setStatusPedido(statusPedido);
 		setOng(ong);
+		itens = new ArrayList<>();
+		propostasDoacao = new ArrayList<>();
 	}
 
 	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong) {
@@ -74,6 +77,8 @@ public class PedidoDoacao implements Serializable {
 		setDescricao(descricao);
 		setStatusPedido(statusPedido);
 		setOng(ong);
+		itens = new ArrayList<>();
+		propostasDoacao = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -124,4 +129,20 @@ public class PedidoDoacao implements Serializable {
 		this.statuspedido = statusPedido;
 	}
 	
+	
+	public void addItem(Item item) {
+		itens.add(item);
+	}
+	
+	public void removeItem(Item item) {
+		itens.remove(item);
+	}
+	
+	public void addPropostaDoacao(PropostaDoacao proposta) {
+		propostasDoacao.add(proposta);
+	}
+	
+	public void removePropostaDoacao(PropostaDoacao proposta) {
+		propostasDoacao.remove(proposta);
+	}
 }
