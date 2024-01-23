@@ -14,9 +14,7 @@
         <header>
             <div>
                 <div>
-                    <picture>
                         <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-                    </picture>
                     <input type="search" placeholder="Pesquisar">
                 </div>
                 <nav>
@@ -62,8 +60,8 @@
             <div>
                 <h1>Faça seu cadastro</h1>
                 <div>
-                    <a href="CadastroOngPrimeiroPasso.html"><button>Sou ONG</button></a>
-                    <button>Sou pessoa fisica</button>
+                    <a href="./resources/paginas/Cadastro_ONG.jsp"><button>Sou ONG</button></a>
+                    <a href="./resources/paginas/Cadastro_PF.jsp"><button>Sou pessoa fisica</button></a>
                 </div>
             </div>
 
@@ -79,12 +77,12 @@
                 <div>
                     <h2>Outras informações</h2>
                     <ol>
-                        <a href="TelaDeErro1.html"><li>Quem somos</li></a>
+                        <a href="./resources/paginas/TelaDeErro1.jsp"><li>Quem somos</li></a>
                             
-                        <a href="TelaDeErro1.html"><li>Equipe</li>  </a>
+                        <a href="./resources/paginas/TelaDeErro1.jsp"><li>Equipe</li>  </a>
                             
                        
-                        <a href="TelaDeErro1.html"><li>Impacto</li></a>
+                        <a href="./resources/paginas/TelaDeErro1.jsp"><li>Impacto</li></a>
                            
                         
                     </ol>
