@@ -20,6 +20,7 @@
             <input type="text" name="nome" class="padrao_input" placeholder="Nome Completo" maxlength="30" required>
             <input type="date" name="data_nascimento" class="padrao_input" placeholder="Data de Nascimento" required>
             <input type="tel" name="celular" class="padrao_input" placeholder="Celular" pattern="[0-9] {2} [0-9] {5} [4] {0-9}" maxlength="14" required>
+            <input type="text" name="cpf" class="padrao_input" placeholder="Digite seu cpf" maxlength="20" required>
             <input type="email" name="email" class="padrao_input" placeholder="Seu melhor E-mail"  maxlength="65" required>
             <input type="email" class="padrao_input" placeholder="Confirmar E-mail" maxlength="65" required>
             <input type="password" name="senha" class="padrao_input" placeholder="Senha" maxlength="15" required>
