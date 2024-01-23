@@ -133,9 +133,9 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizConquista = criteria.from(PedidoDoacao.class);
-			
+
 			criteria.select(raizConquista);
-			
+
 			pedidos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -259,10 +259,10 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
 
 			criteria.select(raizPedido);
-			
+
 			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status),
 					construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()));
-			
+
 			pedidos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
