@@ -69,14 +69,6 @@ public class Main {
 
 		Endereco endereco = new Endereco("Rua Francisco", "Fortaleza", 255, "Blumenau", "SC", "89056900", ong);
 
-		Item item = new Item(10);
-		itemDao.inserirItem(item);
-
-		Alimento alimento = new Alimento(LocalDate.now(), 10, "Arroz");
-		alimentoDao.inserirAlimento(alimento);
-
-		System.out.println(item.getQuantidade());
-
 		List<PedidoDoacao> pedidos = pedidoDoacaoDao.recuperarPedidoDoacaoOngStatus(ong, StatusPedido.ATIVO);
 		for (PedidoDoacao pedido : pedidos) {
 			System.out.println(pedido.getTitulo());
