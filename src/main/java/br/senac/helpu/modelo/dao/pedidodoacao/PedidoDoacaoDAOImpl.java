@@ -209,21 +209,14 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
 
-			Join<PedidoDoacao, Ong> juncaoOng = raizPedido.join(PedidoDoacao_.ong);
 			Join<PedidoDoacao, Item> juncaoItem = raizPedido.join(PedidoDoacao_.itens);
 			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
-
-			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
-			criteria.where(construtor.equal(juncaoOng.get(Ong_.id), idOng));
-
-			ParameterExpression<Long> idItem = construtor.parameter(Long.class);
-			criteria.where(construtor.equal(juncaoItem.get(Item_.id), idItem));
-
-			ParameterExpression<Long> idAlimento = construtor.parameter(Long.class);
-			criteria.where(construtor.equal(juncaoAlimento.get(Alimento_.id), idAlimento));
-
-			pedidos = sessao.createQuery(criteria).setParameter(idOng, ong.getId())
-					.setParameter(idAlimento, alimento.getId()).getResultList();
+			
+			criteria.select(raizPedido);
+			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()),
+					construtor.equal(juncaoAlimento.get(Alimento_.id), alimento.getId()));
+			pedidos = sessao.createQuery(criteria).getResultList();
+			
 
 			sessao.getTransaction().commit();
 
@@ -297,22 +290,16 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
+			
+			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()),
+					(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status)), 
+					(construtor.between(raizPedido.get(PedidoDoacao_.data), datainicial, datafinal)));
 
-			Join<PedidoDoacao, Ong> juncaoPedidos = raizPedido.join(PedidoDoacao_.ong);
-
-			ParameterExpression<Long> idOng = construtor.parameter(Long.class);
-			criteria.where(construtor.equal(juncaoPedidos.get(Ong_.id), idOng));
-
-			ParameterExpression<StatusPedido> statusPedido = construtor.parameter(StatusPedido.class);
-			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), statusPedido));
-
-			criteria.where(construtor.between(raizPedido.get(PedidoDoacao_.data), datainicial, datafinal));
-
-			pedidos = sessao.createQuery(criteria).setParameter(idOng, ong.getId()).setParameter(statusPedido, status)
-					.getResultList();
+			pedidos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
 
+			criteria.select(raizPedido);
 		} catch (Exception sqlException) {
 
 			sqlException.printStackTrace();
