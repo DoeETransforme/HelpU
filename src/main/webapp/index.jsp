@@ -61,8 +61,11 @@
                 <h1>Faça seu cadastro</h1>
                 <form>
                 <div>
-                    <a href="./resources/paginas/Cadastro_ONG"><button>Sou ONG</button></a>
-                    <a href="./resources/paginas/cadastro-doador"><button>Sou pessoa fisica</button></a>
+
+                    <a href="./resources/paginas/Cadastro_ONG.jsp"><button>Sou ONG</button></a>
+                    <a href="./resources/paginas/cadastro-doador.jsp"><button>Sou pessoa fisica</button></a>
+
+                   
                 </div>
                 </form>
             </div>

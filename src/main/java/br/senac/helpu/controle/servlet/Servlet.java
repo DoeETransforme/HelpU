@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,15 +47,24 @@ public class Servlet extends HttpServlet{
 		try {
 			switch (action) {
 			case "/cadastrar-doador":
+				mostrarFormularioDoador(request, response);
+				break;
+			case "/inserir-doador":
 				inserirDoador(request, response);
 				break;
 
 			default:
 				break;
 			}
-		} catch (Exception e) {
-
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
 		}
+	}
+
+	private void mostrarFormularioDoador(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-doador");
+		dispatcher.forward(request, response);
 	}
 
 	private void inserirDoador(HttpServletRequest request, HttpServletResponse response)
@@ -75,9 +85,11 @@ public class Servlet extends HttpServlet{
 
 		doador = new Doador(nome, senha, cpf, data);
 		contato = new Contato(telefone, email, doador);
-
+		
 
 		contatoDAO.inserirContato(contato);
 		usuarioDAO.inserirUsuario(doador);
+		
+		response.sendRedirect("Perfil_pessoa");
 	}
 }
