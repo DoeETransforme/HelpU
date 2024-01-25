@@ -19,7 +19,7 @@
         </div>
         <nav>
             <a href="Cadastro.html">Conquistas</a>
-            <a href="Perfil_Pessoa.html">Minha conta</a>
+            <a href="./Pessoa_pessoa.jsp">Minha conta</a>
         </nav>
     </header>
 

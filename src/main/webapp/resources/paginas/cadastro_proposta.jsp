@@ -19,8 +19,8 @@
             <input type="search" placeholder="Pesquisar">
         </div>
         <nav>
-            <a href="Login.html">Login</a>
-            <a href="Cadastro.html">Cadastro</a>
+            <a href="./login.jsp">Login</a>
+            <a href="./cadastro.jsp">Cadastro</a>
         </nav>
     </header>
 

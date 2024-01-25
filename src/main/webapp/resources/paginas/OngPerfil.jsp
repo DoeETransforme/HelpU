@@ -18,9 +18,8 @@
                 <input type="text" placeholder="Pesquisar">
             </div>
             <nav>
-                <a href="Login.html">Login</a>
-                <a href="Cadastro.html">Cadastro</a>
-            </nav>
+                <a href="./login.jsp">Login</a>
+            <a href="./Cadastro.jsp">Cadastro</a>
         </header>
 
         <main>

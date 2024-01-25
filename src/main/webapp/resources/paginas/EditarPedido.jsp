@@ -18,7 +18,7 @@
             <input type="search" placeholder="Pesquisar">
         </div>
         <nav>
-            <a href="Perfil_Pessoa.html">Minha conta</a>
+            <a href="./Perfil_pessoa.jsp">Minha conta</a>
         </nav>
     </header>
     <main>
