@@ -45,18 +45,18 @@ public class Main {
 		ItemDao itemDao = new ItemDAOImpl();
 		AlimentoDAO alimentoDao = new AlimentoDAOImpl();
 
-		Usuario usuario = new Usuario("Marlon", "123456", null);
+		Usuario usuario = new Usuario("Marlon", "123456");
 		usuarioDao.inserirUsuario(usuario);
 
 		Contato contato = new Contato("992832557", "marlon@gmail.com", usuario);
 
-		usuario.setContato(contato);
+		
 		contatoDao.inserirContato(contato);
 
-		Ong ong = new Ong("HelpU", "654321", null, "5148212856455");
+		Ong ong = new Ong("HelpU", "654321", "5148212856455");
 		usuarioDao.inserirUsuario(ong);
 
-		Doador doador = new Doador("Ruan", "123456", null, "13351789732", LocalDate.now());
+		Doador doador = new Doador("Ruan", "123456", "13351789732", LocalDate.now());
 		usuarioDao.inserirUsuario(doador);
 
 		PedidoDoacao pedidoDoacao = new PedidoDoacao("Arroz", "100 kg de arroz", LocalDate.of(1999, 07, 10),
