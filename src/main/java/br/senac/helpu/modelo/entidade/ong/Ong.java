@@ -38,7 +38,12 @@ public class Ong extends Usuario implements Serializable {
 		super(nome, senha, contato);
 		setCnpj(cnpj);
 	}
-
+	
+	public Ong(String nome, String senha, String cnpj) {
+		super(nome, senha);
+		setCnpj(cnpj);
+	}
+	
 	public String getCnpj() {
 		return cnpj;
 	}
