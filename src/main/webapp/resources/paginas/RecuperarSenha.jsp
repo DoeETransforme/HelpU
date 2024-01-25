@@ -14,7 +14,7 @@
         <header>
             <div>
                 <picture>
-                    <a href="Pagina_Inicial.html"><img src="imagem.jpg" alt="logo"></a>
+                    <a href="Pagina_Inicial.html"><img src="imgaem.jpg" alt="logo"></a>
                 </picture>
                 <input type="search" placeholder="Pesquisar">
             </div>
@@ -27,30 +27,23 @@
 
     <main>
         <div>
-            <h1>Para redefinir sua senha, siga os passos a seguir:</h1>
-            <input class="padrao_input" type="password" class="padrao_input" id="novasenha"
-                placeholder="Cria uma nova senha" required>
-            <p> Sua nova senha deve possuir as seguintes regras:</p>
+            <h1>Esqueceu sua senha?</h1>
+            <div>
+                <p>Enviaremos um código de confirmação com 6 digitos para seu e-mail.</p>
+                <p>Se ocorrer do código não funcionar ou perder a validade, reenvie a solicitação.</p>
+            </div>
+            <label for="email"></label>
+            <input class="padrao_input" type="email" placeholder="e-mail" required>
         </div>
         <div>
-            <ol>
-                <ul>
-                    <li>Letras maisuculas e minusculas</li>
-                    <li>Minimo de 10 carcteres</li>
-                    <li>Ter números</li>
-                    <li>Ter simbolos</li>
-                    <li>Sem sequencias numericas</li>
-                </ul>
-            </ol>
+            <label>Reenviar o código de confirmação</label>
         </div>
         <div>
-            <input class="padrao_input" type="password" class="padrao_input" placeholder="Confirmar nova senha"
-                required>
+            <button class="botão_padrão" id="enviarcodigo">Enviar</button>
         </div>
-        <div>
-            <button type="submit" class="botão_padrão">Confirmar</button>
         </div>
     </main>
+    </div>
 </body>
 
 </html>

@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpu</title>
     
-    </style>
 </head>
 <body>
     <div>
         <header>
             <div>
                 <picture>
-                    <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
+                    <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
                 </picture>
                 <input type="text" placeholder="Pesquisar">
             </div>

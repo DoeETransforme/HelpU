@@ -13,7 +13,7 @@
     <header>
         <div>
             <picture>
-                <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
+                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
             </picture>
             <input type="search" placeholder="Pesquisar">
         </div>
@@ -23,7 +23,7 @@
         </nav>
     </header>
 
-    <img src="imagem.com" alt="Imagem de Perfil">
+    <img src="link_da_imagem" alt="Imagem de Perfil">
 
     <h2><span id="doacoesRealizadas">0</span> doações realizadas</h2>
     <h2><span id="doacoesFeitas">0</span> doações feitas</h2>

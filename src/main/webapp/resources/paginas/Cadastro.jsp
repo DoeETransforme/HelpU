@@ -33,6 +33,9 @@
 
                 </div>
             </div>
+            <div>
+            <label>Já tem uma conta? <a href="Login.html" target="_self">Faça login!</a></label>
+        </div>
         </main>
     </div>
 </body>
