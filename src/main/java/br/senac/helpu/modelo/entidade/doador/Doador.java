@@ -44,15 +44,15 @@ public class Doador extends Usuario implements Serializable {
 
 	public Doador() {}
 
-	public Doador(Long id, String nome, String senha, Contato contato, String cpf, LocalDate data) {
-		super(id, nome, senha, contato);
+	public Doador(Long id, String nome, String senha, String cpf, LocalDate data) {
+		super(id, nome, senha);
 		setCpf(cpf);
 		setData(data);
 		propostas = new ArrayList<>();
 	}
 
-	public Doador(String nome, String senha, Contato contato, String cpf, LocalDate data) {
-		super(nome, senha, contato);
+	public Doador(String nome, String senha, String cpf, LocalDate data) {
+		super(nome, senha);
 		setCpf(cpf);
 		setData(data);
 		propostas = new ArrayList<>();
