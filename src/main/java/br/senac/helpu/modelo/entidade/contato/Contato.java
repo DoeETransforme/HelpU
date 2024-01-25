@@ -29,7 +29,7 @@ public class Contato implements Serializable {
 	private String celular;
  
 	@MapsId
-	@OneToOne(mappedBy = "contato", cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
