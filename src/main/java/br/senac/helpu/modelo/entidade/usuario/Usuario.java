@@ -33,24 +33,18 @@ public class Usuario implements Serializable {
 	@Column(name = "senha_usuario", length = 15, nullable = false)
 	private String senha;
  
-	@OneToOne(cascade = CascadeType.ALL)
-	private Contato contato;
- 
- 
 	public Usuario() {
 	}
  
-	public Usuario(Long id, String nome, String senha, Contato contato) {
+	public Usuario(Long id, String nome, String senha) {
 		setId(id);
 		setNome(nome);
 		setSenha(senha);
-		setContato(contato);
 	}
  
-	public Usuario(String nome, String senha, Contato contato) {
+	public Usuario(String nome, String senha) {
 		setNome(nome);
 		setSenha(senha);
-		setContato(contato);
 	}
  
 	public Long getId() {
@@ -75,14 +69,6 @@ public class Usuario implements Serializable {
  
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
- 
-	public Contato getContato() {
-		return contato;
-	}
- 
-	public void setContato(Contato contato) {
-		this.contato = contato;
 	}
  
 	public static long getSerialversionuid() {
