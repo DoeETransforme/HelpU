@@ -10,9 +10,9 @@
 <body>
 
     <header>
-        <div>
+        <div>+
             <picture>
-                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
+                <a href="Pagina_I nicial.html"><img src="logo-imagem.com" alt="Logo"></a>
             </picture>
             <input type="search" placeholder="Pesquisar">
         </div>
