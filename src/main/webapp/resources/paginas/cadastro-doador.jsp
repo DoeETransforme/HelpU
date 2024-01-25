@@ -27,11 +27,13 @@
             <input type="password" class="padrao_input" placeholder="Confirmar Senha" maxlength="15" required>
 
             <!-- Nescessario ver como será feito o submit com imagem-->
+
             <button type="submit">
                 <a href="login.html">
                     <img src="Imagens/Right.png">
                 </a>
             </button>
+
         </form>
     </div>    
 </main>

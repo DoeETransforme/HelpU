@@ -59,10 +59,15 @@
         <footer>
             <div>
                 <h1>Faça seu cadastro</h1>
+                <form>
                 <div>
+
                     <a href="./resources/paginas/Cadastro_ONG.jsp"><button>Sou ONG</button></a>
                     <a href="./resources/paginas/cadastro-doador.jsp"><button>Sou pessoa fisica</button></a>
+
+                   
                 </div>
+                </form>
             </div>
 
             <div>
@@ -77,12 +82,12 @@
                 <div>
                     <h2>Outras informações</h2>
                     <ol>
-                        <a href="./resources/paginas/TelaDeErro1.jsp"><li>Quem somos</li></a>
+                        <a href="./resources/paginas/TelaDeErro1"><li>Quem somos</li></a>
                             
-                        <a href="./resources/paginas/TelaDeErro1.jsp"><li>Equipe</li>  </a>
+                        <a href="./resources/paginas/TelaDeErro1"><li>Equipe</li>  </a>
                             
                        
-                        <a href="./resources/paginas/TelaDeErro1.jsp"><li>Impacto</li></a>
+                        <a href="./resources/paginas/TelaDeErro1"><li>Impacto</li></a>
                            
                         
                     </ol>
