@@ -52,7 +52,12 @@ public class Usuario implements Serializable {
 		setSenha(senha);
 		setContato(contato);
 	}
- 
+	
+	public Usuario(String nome, String senha) {
+		setNome(nome);
+		setSenha(senha);
+	}
+	
 	public Long getId() {
 		return id;
 	}
