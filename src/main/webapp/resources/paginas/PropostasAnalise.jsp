@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@
                 <input type="search" placeholder="Pesquisar">
             </div>
             <nav>
-                <a href="Login.html">Minha conta</a>
+                <a href="./Perfil_pessoa.jsp">Minha conta</a>
                
             </nav>
         </div>

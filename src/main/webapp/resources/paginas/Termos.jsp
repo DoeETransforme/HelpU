@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HelpU</title>
 </head>
 <body>
 
@@ -17,8 +19,8 @@
                 <input type="search" placeholder="Pesquisar">
             </div>
             <nav>
-                <a href="Login.html">Login</a>
-                <a href="Cadastro.html">Cadastro</a>
+                <a href="./login.jsp">Login</a>
+            <a href="./Cadastro.jsp">Cadastro</a>
             </nav>
         </div>
 
