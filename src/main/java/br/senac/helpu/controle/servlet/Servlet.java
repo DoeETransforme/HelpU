@@ -46,11 +46,11 @@ public class Servlet extends HttpServlet{
 
 		try {
 			switch (action) {
-			case "/":
-				mostrarIndex(request, response);
-				break;
+//			case "/":
+//				mostrarIndex(request, response);
+//				break;
 				
-			case "/cadastrar-doador":
+			case "/cadastro-doador":
 				mostrarFormularioDoador(request, response);
 				break;
 				
@@ -63,7 +63,6 @@ public class Servlet extends HttpServlet{
 				break;
 
 			default:
-				mostrarIndex(request, response);
 				break;
 			}
 		} catch (SQLException ex) {
@@ -79,7 +78,8 @@ public class Servlet extends HttpServlet{
 
 	private void mostrarFormularioDoador(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastrar-doador.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-doador.jsp");
 		dispatcher.forward(request, response);
 	}
 	
