@@ -12,7 +12,7 @@
         <header>
             <div>
                 <picture>
-                    <a href="Pagina_Inicial.html"><img src="caminho/para/sua/imagem.jpg" alt="Logo"></a>
+                    <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
                 </picture>
                 <input type="search" placeholder="Pesquisar">
             </div>
