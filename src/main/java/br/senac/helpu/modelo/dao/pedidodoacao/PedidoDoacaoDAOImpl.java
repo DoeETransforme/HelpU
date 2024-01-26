@@ -319,8 +319,38 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 	@Override
 	public List<PedidoDoacao> recuperarPedidoDoacaoStatus(StatusPedido status) {
-		// TODO Auto-generated method stub
-		return null;
+	    Session sessao = null;
+	    List<PedidoDoacao> pedidos = null;
+
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
+	        Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
+
+	        criteria.where(construtor.equal(raizPedido.get("status"), status));
+
+	        pedidos = sessao.createQuery(criteria).getResultList();
+
+	        sessao.getTransaction().commit();
+
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    return pedidos;
 	}
+
+	
 
 }
