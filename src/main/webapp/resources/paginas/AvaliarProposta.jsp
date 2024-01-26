@@ -5,20 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Helpu</title>
+    <title>HelpU</title>
 </head>
 <body>
 
     <header>
-        <div>
+        <div>+
             <picture>
-                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
+                <a href="Pagina_I nicial.html"><img src="logo-imagem.com" alt="Logo"></a>
             </picture>
             <input type="search" placeholder="Pesquisar">
         </div>
         <nav>
-            <a href="Login.html">Login</a>
-            <a href="Cadastro.html">Cadastro</a>
+            <a href="./login.jsp">Login</a>
+            <a href="./Cadastro.jsp">Cadastro</a>
         </nav>
     </header>
 

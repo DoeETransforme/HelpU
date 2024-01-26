@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,8 +17,8 @@
             <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
             <input type="search" placeholder="Pesquisar">
             <nav>
-                <a href="Login.html">Login</a>
-                <a href="Cadastro.html">Cadastro</a>
+                <a href="./login.jsp">Login</a>
+            <a href="./Cadastro.jsp">Cadastro</a>
             </nav>
         </div>
     </header>
