@@ -163,7 +163,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 			        CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
 			        Root<Conquista> raizConsulta = criteria.from(Conquista.class);
 			        
-			        Join<Conquista, Doador> juncaoDoador = raizConsulta.join("doadores"); // use o nome da propriedade, não a classe gerada pelo metamodelo
+			        Join<Conquista, Doador> juncaoDoador = raizConsulta.join("doadores");
 			        
 			        ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
 			        criteria.where(construtor.equal(juncaoDoador.get("id"), idDoador));
