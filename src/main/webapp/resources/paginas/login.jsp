@@ -26,7 +26,7 @@
             <div>
                 <div>
                     <h1>Login</h1>
-                    <form action="Perfil_Pessoa.html" method="post">
+                    <form action="login" method="post">
                         <input type="email" id="LoginEmail" name="LoginEmail" placeholder="E-mail de login" required>
                         <input type="password" id="LoginSenha" name="LoginSenha" placeholder="Senha de login" required>
                         <input type="submit" value="Logar!">
