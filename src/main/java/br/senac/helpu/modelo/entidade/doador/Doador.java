@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.conquista.Conquista;
-import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
@@ -49,13 +48,14 @@ public class Doador extends Usuario implements Serializable {
 		setCpf(cpf);
 		setData(data);
 		propostas = new ArrayList<>();
-	}
+		conquistas = new ArrayList<>();}
 
 	public Doador(String nome, String senha, String cpf, LocalDate data) {
 		super(nome, senha);
 		setCpf(cpf);
 		setData(data);
 		propostas = new ArrayList<>();
+		conquistas = new ArrayList<>();
 	}
 
 	public String getCpf() {
@@ -74,12 +74,15 @@ public class Doador extends Usuario implements Serializable {
 		this.dataNascimento = data;
 	}
 	
-	public List<PropostaDoacao> getPropostas() {
-		return propostas;
+	public void addConquista(Conquista conquista) {
+		conquistas.add(conquista);
 	}
-
-	public void setPropostas(List<PropostaDoacao> propostas) {
-		this.propostas = propostas;
+	
+	public void removeConquista(Conquista conquista) {
+		conquistas.remove(conquista);
 	}
-
+	
+	
+	
+	
 }
