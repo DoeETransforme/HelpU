@@ -18,8 +18,8 @@
             <input type="search" placeholder="Pesquisar">
         </div>
         <nav>
-            <a href="Perfil_Pessoa.html" .html">Minha conta</a>
-            <a href="Cadastro.html">Cadastro</a>
+            <a href="./Perfil_pessoa.jsp">Minha conta</a>
+            <a href="./cadastro.jsp">Cadastro</a>
         </nav>
 
     </header>

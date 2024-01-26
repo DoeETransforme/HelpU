@@ -11,21 +11,19 @@
 
     <header>
         <div>
-            <div>
-                <picture>
-                    <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-                </picture>
-                <input type="search" placeholder="Pesquisar">
-            </div>
-            <nav>
-                <a href="Login.html">Login</a>
-                <a href="Cadastro.html">Cadastro</a>
-            </nav>
+            <picture>
+                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
+            </picture>
+            <input type="search" placeholder="Pesquisar">
         </div>
+        <nav>
+           <a href="./login.jsp">Login</a>
+            <a href="./Cadastro.jsp">Cadastro</a>
+        </nav>
     </header>
 
     <div>
-        <img src="imagem.com" alt="ImagemPerfil_PF" class="ImagemPerfil">
+        <img src="caminho_da_imagem_de_perfil" alt="Imagem de Perfil">
 
         <h1>Editar Perfil</h1>
 
