@@ -86,8 +86,8 @@ public class Servlet extends HttpServlet{
 
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("celular");
-
-		doador = new Doador(nome, senha, cpf, data);
+		
+		ong = new Ong(nome, senha, cnpj, data);
 		contato = new Contato(telefone, email, doador);
 
 		contatoDAO.inserirContato(contato);
