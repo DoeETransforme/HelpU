@@ -317,4 +317,10 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		return pedidos;
 	}
 
+	@Override
+	public List<PedidoDoacao> recuperarPedidoDoacaoStatus(StatusPedido status) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

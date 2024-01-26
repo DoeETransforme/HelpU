@@ -469,4 +469,50 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 	}
 
-}
+	@Override
+	public List<PropostaDoacao> recuperarPropostaDoacaoStatus(StatusProposta status) {
+		Session sessao = null;
+		List<PropostaDoacao> propostas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), status));
+					
+
+			propostas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return propostas;
+
+	}
+	}
+
