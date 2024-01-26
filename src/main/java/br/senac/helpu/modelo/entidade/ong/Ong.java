@@ -29,13 +29,13 @@ public class Ong extends Usuario implements Serializable {
 
 	public Ong() {}
 
-	public Ong(Long id, String nome, String senha, Contato contato, String cnpj) {
-		super(id, nome, senha, contato);
+	public Ong(Long id, String nome, String senha, String cnpj) {
+		super(id, nome, senha);
 		setCnpj(cnpj);
 	}
 
-	public Ong(String nome, String senha, Contato contato, String cnpj) {
-		super(nome, senha, contato);
+	public Ong(String nome, String senha, String cnpj) {
+		super(nome, senha);
 		setCnpj(cnpj);
 	}
 
