@@ -111,6 +111,6 @@ public class Servlet extends HttpServlet{
 		contatoDAO.inserirContato(contato);
 		usuarioDAO.inserirUsuario(doador);
 		
-		response.sendRedirect("/login");
+		response.sendRedirect("login");
 	}
 }
