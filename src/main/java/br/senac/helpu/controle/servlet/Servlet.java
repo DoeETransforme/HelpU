@@ -46,9 +46,18 @@ public class Servlet extends HttpServlet{
 
 		try {
 			switch (action) {
-			case "/cadastrar-doador":
+//			case "/":
+//				mostrarIndex(request, response);
+//				break;
+				
+			case "/cadastro-doador":
 				mostrarFormularioDoador(request, response);
 				break;
+				
+			case "/login":
+				mostrarLogin(request, response);
+				break;
+				
 			case "/inserir-doador":
 				inserirDoador(request, response);
 				break;
@@ -60,10 +69,23 @@ public class Servlet extends HttpServlet{
 			throw new ServletException(ex);
 		}
 	}
+	
+	private void mostrarIndex(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./index.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	private void mostrarFormularioDoador(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("cadastrar-doador");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-doador.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarLogin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/login.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -73,8 +95,8 @@ public class Servlet extends HttpServlet{
 		Doador doador = null;
 
 		String nome = request.getParameter("nome");
-		LocalDate data = LocalDate.parse(request.getParameter("data_nascimento"));
 		String senha = request.getParameter("senha");
+		LocalDate data = LocalDate.parse(request.getParameter("data-nascimento"));
 		String cpf = request.getParameter("cpf");
 
 
@@ -85,11 +107,10 @@ public class Servlet extends HttpServlet{
 
 		doador = new Doador(nome, senha, cpf, data);
 		contato = new Contato(telefone, email, doador);
-		
 
 		contatoDAO.inserirContato(contato);
 		usuarioDAO.inserirUsuario(doador);
 		
-		response.sendRedirect("Perfil_pessoa");
+		response.sendRedirect("login");
 	}
 }

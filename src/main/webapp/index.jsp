@@ -59,15 +59,13 @@
         <footer>
             <div>
                 <h1>Faça seu cadastro</h1>
-                <form>
                 <div>
 
                     <a href="./resources/paginas/Cadastro_ONG.jsp"><button>Sou ONG</button></a>
-                    <a href="./resources/paginas/cadastro-doador.jsp"><button>Sou pessoa fisica</button></a>
-
+                 <%--    <a href= "<%request.getServletContext();%>cadastro-doador"><button>Sou pessoa fisica</button></a>
+ --%>				<a href= "<%request.getServletContext();%>cadastro-doador"><button>Sou pessoa fisica</button></a>
                    
                 </div>
-                </form>
             </div>
 
             <div>
