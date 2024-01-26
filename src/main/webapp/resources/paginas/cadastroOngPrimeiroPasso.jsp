@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <form action="CadastroOngSegundoPasso.html" method="post" >
+        <form action="cadastrar-ong" method="post" >
             <div>
                 <div>
                     <label for="NomeCompletoOng">Nome completo</label>
