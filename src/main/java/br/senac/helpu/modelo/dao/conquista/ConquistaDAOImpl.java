@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
+import javax.persistence.criteria.Join;
 
 import org.hibernate.Session;
 
+
 import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.conquista.Conquista_;
+import br.senac.helpu.modelo.entidade.doador.Doador;
+import br.senac.helpu.modelo.entidade.doador.Doador_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
 public class ConquistaDAOImpl implements ConquistaDAO {
@@ -148,5 +153,48 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 		return conquistaRecuperadoPeloNome;
 	}
-}
+
+	public List<Conquista> recuperarConquistasPorDoador(Doador doador) {
+		Session sessao = null;
+		List<Conquista> conquistas = null;
+			    try  {
+			    	sessao = fabrica.getConexao().openSession();
+			        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			        CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			        Root<Conquista> raizConsulta = criteria.from(Conquista.class);
+			        
+			        Join<Conquista, Doador> juncaoDoador = raizConsulta.join("doadores"); // use o nome da propriedade, não a classe gerada pelo metamodelo
+			        
+			        ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
+			        criteria.where(construtor.equal(juncaoDoador.get("id"), idDoador));
+			        
+			        return sessao.createQuery(criteria)
+			                     .setParameter(idDoador, doador.getId())
+			                     .getResultList();
+			    
+
+ 
+		} catch (Exception sqlException) {
+ 
+			sqlException.printStackTrace();
+ 
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+ 
+			}
+ 
+		} finally {
+ 
+			if (sessao != null) {
+				sessao.close();
+ 
+			}
+ 
+		}
+ 
+		return conquistas;
+ 
+	}}
+ 
+
 
