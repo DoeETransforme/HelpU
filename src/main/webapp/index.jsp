@@ -59,7 +59,6 @@
         <footer>
             <div>
                 <h1>Faça seu cadastro</h1>
-                <form>
                 <div>
 
                     <a href="./resources/paginas/Cadastro_ONG.jsp"><button>Sou ONG</button></a>
@@ -67,7 +66,6 @@
 
                    
                 </div>
-                </form>
             </div>
 
             <div>
