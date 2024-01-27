@@ -19,6 +19,8 @@ public interface PedidoDoacaoDAO {
 	List<PedidoDoacao> recuperarPedidosDoacao();
 
 	List<PedidoDoacao> recuperarPedidoDoacaoOng(Ong ong);
+	
+	List<PedidoDoacao> recuperarPedidoDoacaoStatus(StatusPedido status);
 
 	List<PedidoDoacao> recuperarPedidoDoacaoOngAlimento(Ong ong, Alimento alimento);
 

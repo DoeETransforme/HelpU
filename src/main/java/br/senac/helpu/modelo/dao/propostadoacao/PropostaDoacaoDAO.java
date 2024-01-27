@@ -20,6 +20,10 @@ public interface PropostaDoacaoDAO {
 
 	List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong);
 
+	List<PropostaDoacao> recuperarPropostaDoacaoStatus(StatusProposta status);
+
+	int recuperarQuantidadePropostaDoacaoStatusOng(StatusProposta status, Ong ong);
+
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoAlimento(Alimento alimento);
 
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoador(Doador doador);

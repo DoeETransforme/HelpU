@@ -34,11 +34,12 @@ public class Doador extends Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<PropostaDoacao> propostas;
 	
+	
 	@ManyToMany
 	@JoinTable(name = "conquista_doador", 
 	joinColumns = @JoinColumn(name = "id_usuario"), 
 	inverseJoinColumns = @JoinColumn(name = "id_conquista"))
-	private List<Conquista> conquistas;
+	private List<Conquista> conquistas = new ArrayList<>();
 
 
 	public Doador() {}
@@ -47,15 +48,12 @@ public class Doador extends Usuario implements Serializable {
 		super(id, nome, senha);
 		setCpf(cpf);
 		setData(data);
-		propostas = new ArrayList<>();
-		conquistas = new ArrayList<>();}
+  }
 
 	public Doador(String nome, String senha, String cpf, LocalDate data) {
 		super(nome, senha);
 		setCpf(cpf);
 		setData(data);
-		propostas = new ArrayList<>();
-		conquistas = new ArrayList<>();
 	}
 
 	public String getCpf() {
@@ -69,20 +67,17 @@ public class Doador extends Usuario implements Serializable {
 	public LocalDate getData() {
 		return dataNascimento;
 	}
-
+  
 	public void setData(LocalDate data) {
 		this.dataNascimento = data;
 	}
 	
 	public void addConquista(Conquista conquista) {
 		conquistas.add(conquista);
-	}
+  }
 	
 	public void removeConquista(Conquista conquista) {
 		conquistas.remove(conquista);
-	}
-	
-	
-	
-	
+	}	
+  
 }

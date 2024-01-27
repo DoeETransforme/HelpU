@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
@@ -153,6 +154,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 		return conquistaRecuperadoPeloNome;
 	}
+
 	
 	public Long recuperarQuantidadeConquistaDoador(Doador doador) {
 		Session sessao = null;
@@ -196,4 +198,48 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 	}
 }
+
+
+	public List<Conquista> recuperarConquistasPorDoador(Doador doador) {
+		Session sessao = null;
+		List<Conquista> conquistas = null;
+			    try  {
+			    	sessao = fabrica.getConexao().openSession();
+			        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			        CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			        Root<Conquista> raizConsulta = criteria.from(Conquista.class);
+			        
+			        Join<Conquista, Doador> juncaoDoador = raizConsulta.join("doadores");
+			        
+			        ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
+			        criteria.where(construtor.equal(juncaoDoador.get("id"), idDoador));
+			        
+			        return sessao.createQuery(criteria)
+			                     .setParameter(idDoador, doador.getId())
+			                     .getResultList();
+			    
+
+ 
+		} catch (Exception sqlException) {
+ 
+			sqlException.printStackTrace();
+ 
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+ 
+			}
+ 
+		} finally {
+ 
+			if (sessao != null) {
+				sessao.close();
+ 
+			}
+ 
+		}
+ 
+		return conquistas;
+ 
+	}}
+
 

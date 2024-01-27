@@ -469,4 +469,87 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 	}
 
-}
+	@Override
+	public List<PropostaDoacao> recuperarPropostaDoacaoStatus(StatusProposta status) {
+		Session sessao = null;
+		List<PropostaDoacao> propostas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+
+			criteria.select(raizConsulta);
+
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), status));
+					
+
+			propostas = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return propostas;
+
+	}
+
+	
+	public int recuperarQuantidadePropostaDoacaoStatusOng(StatusProposta status, Ong ong) {
+	    Session sessao = null;
+	    int quantidadePropostas = 0;
+
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+	        CriteriaQuery<Long> criteria = construtor.createQuery(Long.class);
+	        Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+
+	        Join<PropostaDoacao, PedidoDoacao> juncaoPedido = raizConsulta.join(PropostaDoacao_.pedidoDoacao);
+	        criteria.select(construtor.count(raizConsulta));
+	        criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), status),
+	                construtor.equal(juncaoPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()));
+
+	        quantidadePropostas = sessao.createQuery(criteria).getSingleResult().intValue();
+	        sessao.getTransaction().commit();
+	        
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+
+	    return quantidadePropostas;
+	}}
+
+
