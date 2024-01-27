@@ -14,6 +14,5 @@ public interface ConquistaDAO {
 		List<Conquista> recuperarConquistas();
 		List<Conquista> recuperarConquistasPorDoador(Doador doador);
 		Conquista recuperarConquistaPorNome(String nome);
-		
-	 
+		Long recuperarQuantidadeConquistaDoador(Doador doador);	 
 }

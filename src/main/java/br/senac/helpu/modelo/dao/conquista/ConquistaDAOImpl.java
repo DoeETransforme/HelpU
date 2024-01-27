@@ -4,12 +4,13 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Join;
 
 import org.hibernate.Session;
-
 
 import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.conquista.Conquista_;
@@ -154,6 +155,51 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 		return conquistaRecuperadoPeloNome;
 	}
 
+	
+	public Long recuperarQuantidadeConquistaDoador(Doador doador) {
+		Session sessao = null;
+		Long quantidadeConquista = 0L;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Long> criteria = construtor.createQuery(Long.class);
+			Root<Doador> raizConsulta = criteria.from(Doador.class);
+
+			Join<Doador, Conquista> joinConquistas = raizConsulta.join("conquistas", JoinType.LEFT);
+
+			ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
+			criteria.select(construtor.count(joinConquistas));
+			criteria.where(construtor.equal(raizConsulta.get(Doador_.id), idDoador));
+
+			quantidadeConquista = sessao.createQuery(criteria).setParameter(idDoador, doador.getId()).getSingleResult();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return quantidadeConquista;
+
+	}
+}
+
+
 	public List<Conquista> recuperarConquistasPorDoador(Doador doador) {
 		Session sessao = null;
 		List<Conquista> conquistas = null;
@@ -195,6 +241,5 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 		return conquistas;
  
 	}}
- 
 
 
