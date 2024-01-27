@@ -39,6 +39,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
+		}finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
 		}
 
 	}

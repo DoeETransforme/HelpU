@@ -46,9 +46,9 @@ public class Servlet extends HttpServlet{
 
 		try {
 			switch (action) {
-//			case "/":
-//				mostrarIndex(request, response);
-//				break;
+			case "/":
+				mostrarIndex(request, response);
+				break;
 				
 			case "/cadastro-doador":
 				mostrarFormularioDoador(request, response);
@@ -63,6 +63,7 @@ public class Servlet extends HttpServlet{
 				break;
 
 			default:
+				mostrarIndex(request, response);
 				break;
 			}
 		} catch (SQLException ex) {
@@ -108,9 +109,9 @@ public class Servlet extends HttpServlet{
 		doador = new Doador(nome, senha, cpf, data);
 		contato = new Contato(telefone, email, doador);
 
-		contatoDAO.inserirContato(contato);
 		usuarioDAO.inserirUsuario(doador);
-		
+		contatoDAO.inserirContato(contato);
+			
 		response.sendRedirect("login");
 	}
 }

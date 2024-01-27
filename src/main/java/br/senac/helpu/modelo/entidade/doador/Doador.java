@@ -48,7 +48,8 @@ public class Doador extends Usuario implements Serializable {
 		super(id, nome, senha);
 		setCpf(cpf);
 		setData(data);
-  }
+
+	}
 
 	public Doador(String nome, String senha, String cpf, LocalDate data) {
 		super(nome, senha);
@@ -79,5 +80,5 @@ public class Doador extends Usuario implements Serializable {
 	public void removeConquista(Conquista conquista) {
 		conquistas.remove(conquista);
 	}	
-  
+
 }
