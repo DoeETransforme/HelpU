@@ -47,14 +47,12 @@ public class Doador extends Usuario implements Serializable {
 		super(id, nome, senha);
 		setCpf(cpf);
 		setData(data);
-		propostas = new ArrayList<>();
 	}
 
 	public Doador(String nome, String senha, String cpf, LocalDate data) {
 		super(nome, senha);
 		setCpf(cpf);
 		setData(data);
-		propostas = new ArrayList<>();
 	}
 
 	public String getCpf() {
@@ -71,14 +69,6 @@ public class Doador extends Usuario implements Serializable {
 
 	public void setData(LocalDate data) {
 		this.dataNascimento = data;
-	}
-	
-	public List<PropostaDoacao> getPropostas() {
-		return propostas;
-	}
-
-	public void setPropostas(List<PropostaDoacao> propostas) {
-		this.propostas = propostas;
 	}
 
 }
