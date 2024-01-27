@@ -19,6 +19,7 @@ import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.doador.Doador;
+import br.senac.helpu.modelo.entidade.ong.Ong;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet{
@@ -61,6 +62,9 @@ public class Servlet extends HttpServlet{
 			case "/inserir-doador":
 				inserirDoador(request, response);
 				break;
+			case "/cadastrar-ong":
+				inserirOng(request,response);
+				break;
 
 			default:
 				mostrarIndex(request, response);
@@ -71,6 +75,29 @@ public class Servlet extends HttpServlet{
 		}
 	}
 	
+	private void inserirOng(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		Ong ong = null;
+
+		String nome = request.getParameter("nome");
+		String senha = request.getParameter("senha");
+		String cnpj = request.getParameter("cnpj");
+
+
+		Contato contato = null;
+
+		String email = request.getParameter("email");
+		String telefone = request.getParameter("celular");
+		
+		ong = new Ong(nome, senha, cnpj, data);
+		contato = new Contato(telefone, email, doador);
+
+		contatoDAO.inserirContato(contato);
+		usuarioDAO.inserirUsuario(doador);
+		
+		response.sendRedirect("login");
+	}
+	}
+
 	private void mostrarIndex(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./index.jsp");
