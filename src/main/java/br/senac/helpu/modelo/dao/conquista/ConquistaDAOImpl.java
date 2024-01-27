@@ -197,7 +197,7 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 		return quantidadeConquista;
 
 	}
-}
+
 
 
 	public List<Conquista> recuperarConquistasPorDoador(Doador doador) {
