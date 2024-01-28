@@ -9,26 +9,26 @@
 </head>
 <body>
     <div>
-        <form action="cadastrar-ong" method="post" >
+        <form action="inserir-ong" method="post" >
             <div>
                 <div>
                     <label for="NomeCompletoOng">Nome completo</label>
-                    <input type="text" id="NomeCompletoOng" name="NomeCompletoOng" placeholder="Nome da ONG" required>
+                    <input type="text" id="NomeCompletoOng" name="nome-ong" placeholder="Nome da ONG" required>
                     <span id="erroNomeCompleto"></span>
                 </div>
                 <div>
                     <label for="CPFOuCNPJ">CPF/CNPJ</label>
-                    <input type="text" id="CPFOuCNPJ_Ong" name="CPFOuCNPJ_Ong" placeholder="CPF ou CNPJ da ONG" required>
+                    <input type="text" id="CPFOuCNPJ_Ong" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required>
                     <span id="erroCPFOuCNPJ"></span>
                 </div>
                 <div>
                     <label for="TelefoneOng">Telefone</label>
-                    <input type="text" id="TelefoneOng" name="TelefoneOng" placeholder="Telefone da ONG" required>
+                    <input type="text" id="TelefoneOng" name="tefelone-ong" placeholder="Telefone da ONG" required>
                     <span id="erroTelefone"></span>
                 </div>
                 <div>
                     <label for="EmailDaOng">Email</label>
-                    <input type="email" id="EmailDaOng" name="EmailDaOng" placeholder="Email da ONG" required>
+                    <input type="email" id="EmailDaOng" name="email-ong" placeholder="Email da ONG" required>
                     <span id="erroEmail"></span>
                 </div>
                 <div>
@@ -38,7 +38,7 @@
                 </div>
                 <div>
                     <label for="SenhaOng">Senha</label>
-                    <input type="password" id="SenhaOng" name="SenhaOng" placeholder="Senha da ONG" required>
+                    <input type="password" id="SenhaOng" name="senha-ong" placeholder="Senha da ONG" required>
                     <span id="erroSenha"></span>
                 </div>
                 <div>

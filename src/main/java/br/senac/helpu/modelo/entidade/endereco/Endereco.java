@@ -45,7 +45,7 @@ public class Endereco implements Serializable {
 	private String complemento;
  
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong", nullable = false)
+	@JoinColumn(name = "id_ong", nullable = true)
 	private Ong ong;
  
 	
@@ -62,6 +62,18 @@ public class Endereco implements Serializable {
 		setCidade(cidade);
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
+	}
+	public Endereco(Long id, String logradouro, String bairro, String complemento, int numero, String cidade,
+			String unidadeFederativa, String cep, Ong ong) {
+		setId(id);
+		setLogradouro(logradouro);
+		setBairro(bairro);
+		setComplemento(complemento);
+		setNumero(numero);
+		setCidade(cidade);
+		setUnidadeFederativa(unidadeFederativa);
+		setCep(cep);
+		setOng(ong);
 	}
 
 	public Endereco(Long id, String logradouro, String bairro, int numero, String cidade,
@@ -85,15 +97,16 @@ public class Endereco implements Serializable {
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
 	}
-
-	public Endereco(String logradouro, String bairro, int numero, String cidade,
-			String unidadeFederativa, String cep) {
+	public Endereco(String logradouro, String bairro, String complemento, int numero, String cidade,
+			String unidadeFederativa, String cep, Ong ong) {
 		setLogradouro(logradouro);
 		setBairro(bairro);
+		setComplemento(complemento);
 		setNumero(numero);
 		setCidade(cidade);
 		setUnidadeFederativa(unidadeFederativa);
 		setCep(cep);
+		setOng(ong);
 	}
 
 	public Endereco(String logradouro, String bairro, int numero, String cidade,
@@ -106,8 +119,12 @@ public class Endereco implements Serializable {
 		setCep(cep);
 		setOng(ong);
 	}
+	
+
 
  
+	
+
 	public Long getId() {
 		return id;
 	}
