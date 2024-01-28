@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.senac.helpu.modelo.dao.alimento.AlimentoDAO;
+import br.senac.helpu.modelo.dao.alimento.AlimentoDAOImpl;
 import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
+import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 
@@ -24,10 +27,12 @@ public class Servlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO usuarioDAO;
 	private ContatoDAO contatoDAO;
+	private AlimentoDAO alimentoDAO;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
 		contatoDAO = new ContatoDAOImpl();
+		alimentoDAO = new AlimentoDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -49,18 +54,6 @@ public class Servlet extends HttpServlet{
 			case "/login":
 				mostrarLogin(request, response);
 				break;
-				
-			case "/cadastro-doador":
-				mostrarCadastroDoador(request, response);
-				break;
-				
-			case "/cadastro-proposta":
-				mostrarCadastroProposta(request, response);
-				break;	
-				
-//			case "/cadastro-pedido":
-//				mostrarCadastroPedido(request, response);
-//				break;
 			 	
 			case "/perfil-doador":
 				mostrarPerfilDoador(request, response);
@@ -129,9 +122,29 @@ public class Servlet extends HttpServlet{
 			case "/termos":
 				mostrarTermos(request, response);
 				break;
+							
+			case "/cadastro-doador":
+				mostrarCadastroDoador(request, response);
+				break;
+				
+			case "/cadastro-proposta":
+				mostrarCadastroProposta(request, response);
+				break;	
+				
+//			case "/cadastro-pedido":
+//				mostrarCadastroPedido(request, response);
+//				break;
+				
+			case "/cadastro-alimento":
+				mostrarCadastroAlimento(request, response);
+				break;
 				
 			case "/inserir-doador":
 				inserirDoador(request, response);
+				break;
+				
+			case "/inserir-alimento":
+				inserirAlimento(request, response);
 				break;
 				
 			default:
@@ -154,24 +167,6 @@ public class Servlet extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/login.jsp");
 		dispatcher.forward(request, response);
 	}
-
-	private void mostrarCadastroDoador(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-doador.jsp");
-		dispatcher.forward(request, response);
-	}
-	
-	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-proposta.jsp");
-		dispatcher.forward(request, response);
-	}
-
-//	private void mostrarCadastroPedido(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-pedido.jsp");
-//		dispatcher.forward(request, response);
-//	}
 	
 	private void mostrarPerfilDoador(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -274,6 +269,30 @@ public class Servlet extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/termos.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void mostrarCadastroDoador(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-doador.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-proposta.jsp");
+		dispatcher.forward(request, response);
+	}
+
+//	private void mostrarCadastroPedido(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-pedido.jsp");
+//		dispatcher.forward(request, response);
+//	}
+	
+	private void mostrarCadastroAlimento(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-alimento.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	private void inserirDoador(HttpServletRequest request, HttpServletResponse response)
 					throws SQLException, IOException, ServletException	{
@@ -298,5 +317,22 @@ public class Servlet extends HttpServlet{
 		contatoDAO.inserirContato(contato);
 			
 		response.sendRedirect("login");
+	}
+	
+	
+	
+	private void inserirAlimento(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		Alimento alimento = null;
+		
+		String nome = request.getParameter("nome-alimento");
+		LocalDate data = LocalDate.parse(request.getParameter("data-validade"));
+		float quantidade = Float.parseFloat(request.getParameter("quantidade-alimento"));
+			
+		alimento = new Alimento(nome, data, quantidade);
+		
+		alimentoDAO.inserirAlimento(alimento);
+		
+		response.sendRedirect("cadastro-proposta");
 	}
 }
