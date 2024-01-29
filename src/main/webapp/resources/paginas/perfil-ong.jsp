@@ -34,7 +34,7 @@
             <section>
                 <div>
                     <h1>Contatos</h1>
-                    <p><strong>Telefone:</strong> ${ong.cnpj}</p>
+                    <p><strong>Telefone:</strong> <c:out value= "${ong.cnpj}"/> </p>
 
                     <p><strong>Email:</strong> ${ong.enderecos </p>
 
