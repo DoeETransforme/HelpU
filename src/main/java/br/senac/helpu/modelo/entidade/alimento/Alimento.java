@@ -34,11 +34,10 @@ public class Alimento implements Serializable {
 
 	public Alimento() {}
 
-	public Alimento(LocalDate dataValidade, float unidadeAlimento, String nome) {
+	public Alimento(String nome, LocalDate dataValidade, float unidadeAlimento) {
+		setNome(nome);
 		setDataValidade(dataValidade);
 		setUnidadeAlimento(unidadeAlimento);
-		setNome(nome);
-
 	}
 	
 	public Alimento(Long id, LocalDate dataValidade, float unidadeAlimento, String nome) {
