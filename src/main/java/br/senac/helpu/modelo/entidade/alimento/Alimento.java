@@ -25,27 +25,21 @@ public class Alimento implements Serializable {
 	@Column(name = "nome_alimento", length = 35, nullable = false)
 	private String nome;
 	
-	@Column(name = "unidade_alimento", nullable = false)
-	private float unidadeAlimento;
-	
 	@Column(name = "data_validade_alimento", length = 20, nullable = false)
 	private LocalDate dataValidade;
 	
 
 	public Alimento() {}
-
-	public Alimento(String nome, LocalDate dataValidade, float unidadeAlimento) {
-		setNome(nome);
-		setDataValidade(dataValidade);
-		setUnidadeAlimento(unidadeAlimento);
-	}
 	
-	public Alimento(Long id, LocalDate dataValidade, float unidadeAlimento, String nome) {
+	public Alimento(Long id, String nome, LocalDate dataValidade) {
 		setId(id);
 		setDataValidade(dataValidade);
-		setUnidadeAlimento(unidadeAlimento);
 		setNome(nome);
-
+	}
+	
+	public Alimento(String nome, LocalDate dataValidade) {
+		setNome(nome);
+		setDataValidade(dataValidade);
 	}
 	
 	public Long getId() {
@@ -62,14 +56,6 @@ public class Alimento implements Serializable {
 	
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	
-	public float getUnidadeAlimento() {
-		return unidadeAlimento;
-	}
-
-	public void setUnidadeAlimento(float unidadeAlimento) {
-		this.unidadeAlimento = unidadeAlimento;
 	}
 	
 	public LocalDate getDataValidade() {

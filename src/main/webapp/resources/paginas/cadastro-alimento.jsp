@@ -18,7 +18,6 @@
      <form action="inserir-alimento" method="post">
 	     <input type="text" name="nome-alimento"  placeholder="Nome do alimento" required>
 	     <input type="date" name="data-validade" required>
-		 <input type="number" name=quantidade-alimento placeholder="Quantidade do Alimento" required>
 	     <button type="submit" >Cadastro</button>
 	 </form>
 </body>
