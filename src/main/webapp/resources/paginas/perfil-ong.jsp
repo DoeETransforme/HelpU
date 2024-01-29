@@ -34,8 +34,10 @@
             <section>
                 <div>
                     <h1>Contatos</h1>
-                    <p><strong>Telefone:</strong> <a href="tel:+123456789">+123 456 789</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:contato@ong.com">contato@ong.com</a></p>
+                    <p><strong>Telefone:</strong> ${ong.cnpj}</p>
+
+                    <p><strong>Email:</strong> ${ong.enderecos </p>
+
                 </div>
                 <button>Histórico de pedidos</button>
             </section>

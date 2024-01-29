@@ -16,10 +16,10 @@ import br.senac.helpu.modelo.dao.alimento.AlimentoDAO;
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAOImpl;
 import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
-import br.senac.helpu.modelo.dao.doador.DoadorDAO;
-import br.senac.helpu.modelo.dao.doador.DoadorDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
+import br.senac.helpu.modelo.dao.ong.OngDAO;
+import br.senac.helpu.modelo.dao.ong.OngDAOImpl;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
@@ -36,6 +36,7 @@ public class Servlet extends HttpServlet{
 	private ContatoDAO contatoDAO;
 	private EnderecoDAO enderecoDAO;
 	private AlimentoDAO alimentoDAO;
+	private OngDAO ongDAO;
 
 
 	public void init() {
@@ -43,6 +44,7 @@ public class Servlet extends HttpServlet{
 		contatoDAO = new ContatoDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
+		ongDAO = new OngDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -238,7 +240,7 @@ public class Servlet extends HttpServlet{
 		endereco = new Endereco(logradouro, bairro, complemento, numero, cidade , unidadeFederativa1 , cep, ong);
 		enderecoDAO.inserirEndereco(endereco);
 		
-		response.sendRedirect("login");
+		response.sendRedirect("perfil-ong");
 		
 	}
 		
@@ -271,8 +273,16 @@ public class Servlet extends HttpServlet{
 	
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		Ong ong = (Ong) session.getAttribute("ong");
+		
+		request.setAttribute("ong", ong);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
 		dispatcher.forward(request, response);
+		
+		
 	}
 	
 	private void mostrarAvaliarProposta(HttpServletRequest request, HttpServletResponse response)
@@ -414,7 +424,7 @@ public class Servlet extends HttpServlet{
 		response.sendRedirect("login");
 	}
 
-}
+
 
 	
 	
