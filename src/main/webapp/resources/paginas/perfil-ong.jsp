@@ -34,9 +34,9 @@
             <section>
                 <div>
                     <h1>Contatos</h1>
-                    <p><strong>Telefone:</strong> <c:out value= "${ong.cnpj}"/> </p>
+                    <p><strong>Telefone:</strong> <c:out value= "${ong.cnpj_ong}"/> </p>
 
-                    <p><strong>Email:</strong> ${ong.enderecos </p>
+                    <p><strong>Email:</strong><c:out value = "${ong.cnpj}"/> </p>
 
                 </div>
                 <button>Histórico de pedidos</button>

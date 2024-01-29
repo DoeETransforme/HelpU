@@ -277,6 +277,8 @@ public class Servlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		Ong ong = (Ong) session.getAttribute("ong");
 		
+		ongDAO.recuperarOng(ong);
+		
 		request.setAttribute("ong", ong);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
