@@ -80,18 +80,28 @@
 					<version>3.0.0</version>
 					<executions>
 						<execution>
-							<id>add-source</id>
+							<id>
+								add-source</id>
 							<phase>generate-sources</phase>
 							<goals>
-								<goal>add-source</goal>
+								<goal>
+									add-source</goal>
 							</goals>
 							<configuration>
 								<sources>
-									<source>target/generated-sources/annotations</source>
+									<source>
+										target/generated-sources/annotations</source>
 								</sources>
 							</configuration>
 						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+<groupId>
+						org.apache.maven.plugins</groupId>
+<artifactId>maven-war-plugin</artifactId>
+<version>
+						3.3.1</version> <!-- Use a versão mais recente -->
 				</plugin>
 			</plugins>
 		</pluginManagement>

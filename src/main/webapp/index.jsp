@@ -61,9 +61,8 @@
                 <h1>Faça seu cadastro</h1>
                 <div>
 
-                    <a href="./resources/paginas/Cadastro_ONG.jsp"><button>Sou ONG</button></a>
-                 <%--    <a href= "<%request.getServletContext();%>cadastro-doador"><button>Sou pessoa fisica</button></a>
- --%>				<a href= "<%request.getServletContext();%>cadastro-doador"><button>Sou pessoa fisica</button></a>
+                    <a href="<%request.getServletContext();%>cadastro-ong"><button>Sou ONG</button></a>
+                    <a href= "<%request.getServletContext();%>cadastro-doador"><button>Sou pessoa fisica</button></a>
                    
                 </div>
             </div>
