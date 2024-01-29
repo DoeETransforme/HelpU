@@ -273,16 +273,20 @@ public class Servlet extends HttpServlet{
 	
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
+		dispatcher.forward(request, response);
 		
 		HttpSession session = request.getSession();
 		Ong ong = (Ong) session.getAttribute("ong");
+
+		if (ong != null) {
+		    ongDAO.recuperarOng(ong);
+		    request.setAttribute("ong", ong);
+		} else {
+		    System.out.println("sem ong");
+		}
+
 		
-		ongDAO.recuperarOng(ong);
-		
-		request.setAttribute("ong", ong);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
-		dispatcher.forward(request, response);
 		
 		
 	}
