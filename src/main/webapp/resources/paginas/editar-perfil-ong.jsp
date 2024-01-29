@@ -29,7 +29,7 @@
 
         <h1>Editar Perfil</h1>
 
-        <form action="Ong_perfil.html" method="post">
+        <form action="ong-editada" method="post">
             <div>
                 <label for="editarNome">Editar Nome:</label>
                 <input type="text" id="editarNomeONG" name="editarNome" placeholder="Editar nome"required>

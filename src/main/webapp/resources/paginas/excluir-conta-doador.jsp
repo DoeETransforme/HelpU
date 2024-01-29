@@ -32,7 +32,7 @@
                 <picture><img src="imagem.com" alt="imagem do usuario"></picture>
                 <div>
                     <a href="Perfil_Pessoa.html"><button>Voltar</button></a>
-                    <form action="ConfirmaçãoExclusão_Pf.html" method="post">
+                    <form action="contaDoador-excluida" method="post">
                         <input type="submit" name="DesativarConta" id="DesativarContaPF" value="sim">
                     </form>
                 </div>
