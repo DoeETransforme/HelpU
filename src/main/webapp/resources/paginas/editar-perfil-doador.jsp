@@ -27,7 +27,7 @@
 
         <h1>Editar Perfil</h1>
 
-        <form action="Perfil_Pessoa.html" method="post">
+        <form action="doador-editado" method="post">
             <div>
                 <label for="editarNome">Editar Nome:</label>
                 <input type="text" id="editarNomePF" name="editarNomePF" placeholder="Nome Atual do Usuário">

@@ -25,6 +25,7 @@
         <div>
             <h1>Editar Pedido de Doação</h1>
         </div>
+        <form action="pedido-editado" method="post"> 
         <div>
             <input type="text" id="Nome_pedido" placeholder="Qual o título do pedido?" class="padrao_input">
         </div>
@@ -56,6 +57,7 @@
         <div>
             <button class="botão_padrão" type="submit" id="alteração_pedido">Pronto</button>
         </div>
+        </form>
 </body>
 
 </html>
