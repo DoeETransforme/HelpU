@@ -4,16 +4,12 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.contato.Contato_;
-import br.senac.helpu.modelo.entidade.ong.Ong;
-import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
-import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao_;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.entidade.usuario.Usuario_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
@@ -26,7 +22,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		fabrica = new ConexaoFactory();
 	}
 
-	@Override
+	
 	public void inserirUsuario(Usuario usuario) {
 		Session sessao = null;
 
@@ -54,7 +50,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	}
 
-	@Override
+	
 	public void deletarUsuario(Usuario usuario) {
 		Session sessao = null;
 
@@ -83,7 +79,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	}
 
-	@Override
+	
 	public void atualizarUsuario(Usuario usuario) {
 		Session sessao = null;
 
