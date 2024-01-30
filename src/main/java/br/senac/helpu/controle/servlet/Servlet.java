@@ -224,7 +224,7 @@ public class Servlet extends HttpServlet{
 	
 		
 		
-		ongDAO.recuperarOng(ong);
+		ongDAO.recuperarOngPeloNome("amiguinho");
 		
 		
 		request.setAttribute("ong", ong);
