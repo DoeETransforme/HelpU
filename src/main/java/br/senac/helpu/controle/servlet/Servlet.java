@@ -365,7 +365,12 @@ public class Servlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			Usuario usuario = usuarioDAO.recuperarUsuarioEmail(email);
 			session.setAttribute("usuario", usuario);
-			response.sendRedirect("perfil-doador");
+			if (session.getAttribute("usuario") instanceof Ong) {
+				response.sendRedirect("perfil-ong");
+			}
+			else {
+				response.sendRedirect("perfil-doador");
+			}
 		} else {
 
 			usuarioInvalido = "usuarioInvalido";
