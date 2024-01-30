@@ -3,6 +3,7 @@ package br.senac.helpu.controle.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -341,6 +342,9 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarCadastroItem(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-item.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -456,8 +460,8 @@ public class Servlet extends HttpServlet {
 
 	private void inserirItem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		HttpSession session = request.getSession();
-		Alimento alimento = (Alimento) session.getAttribute("alimento");
+		Alimento alimento = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		
 		Item item = null;
 
 		String quantidade = request.getParameter("quantidade");
@@ -481,8 +485,5 @@ public class Servlet extends HttpServlet {
 		alimentoDAO.inserirAlimento(alimento);
 
 		response.sendRedirect("cadastro-item");
-
-		HttpSession session = request.getSession();
-		session.setAttribute("alimento", alimento);
 	}
 }
