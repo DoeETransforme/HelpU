@@ -3,6 +3,7 @@ package br.senac.helpu.controle.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,8 @@ import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
+import br.senac.helpu.modelo.dao.ong.OngDAO;
+import br.senac.helpu.modelo.dao.ong.OngDAOImpl;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
@@ -35,6 +38,7 @@ public class Servlet extends HttpServlet{
 	private ContatoDAO contatoDAO;
 	private EnderecoDAO enderecoDAO;
 	private AlimentoDAO alimentoDAO;
+	private OngDAO ongDAO;
 
 
 	public void init() {
@@ -42,6 +46,7 @@ public class Servlet extends HttpServlet{
 		contatoDAO = new ContatoDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
+		ongDAO = new OngDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -209,12 +214,32 @@ public class Servlet extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
 		dispatcher.forward(request, response);
 	}
-	
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		
+		Ong ong = new Ong("amiguinho", "1234", "varioscnpj");
+		usuarioDAO.inserirUsuario(ong);
+		Long id = ong.getId();
+	
+		
+		
+		ongDAO.recuperarOng(ong);
+		
+		
+		request.setAttribute("ong", ong);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
 		dispatcher.forward(request, response);
+		
+			
+		
+		
+
 	}
+		
+		
+	
 	
 	private void mostrarAvaliarProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
