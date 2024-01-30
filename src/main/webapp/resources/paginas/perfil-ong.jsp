@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
 
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@
 					
 
 					<p> <strong>Telefone:</strong> <c:out value="${ong.nome}" /></p>
-					<p> <strong>Email:</strong> <c:out value="${ong.senha}" /> </p>
+					<p> <strong>Email:</strong> <c:out value="${ong.cnpj}" /> </p>
 	
 					
 
