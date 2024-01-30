@@ -12,7 +12,7 @@ import br.senac.helpu.modelo.dao.doador.DoadorDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
-import br.senac.helpu.modelo.dao.item.ItemDao;
+import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.ong.OngDAO;
 import br.senac.helpu.modelo.dao.ong.OngDAOImpl;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAO;
@@ -42,7 +42,7 @@ public class Main {
 		DoadorDAO doadorDao = new DoadorDAOImpl();
 		PedidoDoacaoDAO pedidoDoacaoDao = new PedidoDoacaoDAOImpl();
 		PropostaDoacaoDAO propostaDoacaoDao = new PropostaDoacaoDAOImpl();
-		ItemDao itemDao = new ItemDAOImpl();
+		ItemDAO itemDao = new ItemDAOImpl();
 		AlimentoDAO alimentoDao = new AlimentoDAOImpl();
 
 		Usuario usuario = new Usuario("Marlon", "123456");

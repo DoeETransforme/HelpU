@@ -12,7 +12,7 @@ import org.hibernate.Session;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
-public class ItemDAOImpl implements ItemDao {
+public class ItemDAOImpl implements ItemDAO {
 
 	private ConexaoFactory fabrica;
 

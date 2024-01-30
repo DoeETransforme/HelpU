@@ -30,7 +30,7 @@ public class Item implements Serializable {
 	private Long id;
  
 	@Column(name = "quantidade_pedido", nullable = false)
-	private int quantidade;
+	private String quantidade;
  
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pedido_doacao")
@@ -44,59 +44,58 @@ public class Item implements Serializable {
 	@JoinColumn(name = "id_alimento")
 	private Alimento alimento;
  
-	public Item() {
-	}
+	public Item() {}
  
-	public Item(Long id, int quantidade, Alimento alimento) {
+	public Item(Long id, String quantidade, Alimento alimento) {
 		setId(id);
 		setQuantidade(quantidade);
 		setAlimento(alimento);
  
 	}
  
-	public Item(int quantidade, Alimento alimento) {
+	public Item(String quantidade, Alimento alimento) {
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 	}
  
-	public Item(Long id, int quantidade, Alimento alimento, PedidoDoacao pedido) {
+	public Item(Long id, String quantidade, Alimento alimento, PedidoDoacao pedido) {
 		setId(id);
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 		setPedidoDoacao(pedido);
 	}
-	public Item(Long id, int quantidade, Alimento alimento, PropostaDoacao proposta) {
+	public Item(Long id, String quantidade, Alimento alimento, PropostaDoacao proposta) {
 		setId(id);
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 		setPropostaDoacao(proposta);
 	}
-	public Item(int quantidade, Alimento alimento, PropostaDoacao proposta) {
+	public Item(String quantidade, Alimento alimento, PropostaDoacao proposta) {
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 		setPropostaDoacao(proposta);
 	}
-	public Item(int quantidade, Alimento alimento, PedidoDoacao pedido) {
+	public Item(String quantidade, Alimento alimento, PedidoDoacao pedido) {
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 		setPedidoDoacao(pedido);
 	}
 	
-	public Item(Long id, int quantidade, PedidoDoacao pedido) {
+	public Item(Long id, String quantidade, PedidoDoacao pedido) {
 		setId(id);
 		setQuantidade(quantidade);
 		setPedidoDoacao(pedido);
 	}
-	public Item(Long id, int quantidade, PropostaDoacao proposta) {
+	public Item(Long id, String quantidade, PropostaDoacao proposta) {
 		setId(id);
 		setQuantidade(quantidade);
 		setPropostaDoacao(proposta);
 	}
-	public Item(int quantidade,PedidoDoacao pedido) {
+	public Item(String quantidade,PedidoDoacao pedido) {
 		setQuantidade(quantidade);
 		setPedidoDoacao(pedido);
 	}
-	public Item(int quantidade, PropostaDoacao proposta) {
+	public Item(String quantidade, PropostaDoacao proposta) {
 		setQuantidade(quantidade);
 		setPropostaDoacao(proposta);
 	}
@@ -108,11 +107,11 @@ public class Item implements Serializable {
 		this.id = id;
 	}
  
-	public int getQuantidade() {
+	public String getQuantidade() {
 		return quantidade;
 	}
  
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(String quantidade) {
 		this.quantidade = quantidade;
 	}
  
