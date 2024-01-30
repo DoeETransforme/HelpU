@@ -18,13 +18,15 @@ import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
+import br.senac.helpu.modelo.dao.item.ItemDAO;
+import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
-//import br.senac.helpu.modelo.entidade.endereco.Endereco;
+import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 
 @WebServlet("/")
@@ -34,6 +36,7 @@ public class Servlet extends HttpServlet{
 	private UsuarioDAO usuarioDAO;
 	private ContatoDAO contatoDAO;
 	private EnderecoDAO enderecoDAO;
+	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
 
 
@@ -41,6 +44,7 @@ public class Servlet extends HttpServlet{
 		usuarioDAO = new UsuarioDAOImpl();
 		contatoDAO = new ContatoDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
+		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
 	}
 
@@ -139,6 +143,10 @@ public class Servlet extends HttpServlet{
 				mostrarCadastroOng(request, response);
 				break;
 				
+			case "/cadastro-item":
+				mostrarCadastroItem(request, response);
+				break;
+				
 			case "/cadastro-proposta":
 				mostrarCadastroProposta(request, response);
 				break;	
@@ -166,6 +174,10 @@ public class Servlet extends HttpServlet{
 				inserirEnderecoOng(request,response);
 				break;
 				
+			case "/inserir-item":
+				inserirItem(request, response);
+				break;
+				
 			case "/inserir-alimento":
 				inserirAlimento(request, response);
 				break;
@@ -177,19 +189,6 @@ public class Servlet extends HttpServlet{
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 		}
-	}
-	private void mostrarCadastroOng(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-ong.jsp");
-		dispatcher.forward(request, response);
-	}
-	
-	private void mostrarCadastroOngP2(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-ongsegundo.jsp");
-		dispatcher.forward(request, response);
 	}
 
 	private void mostrarIndex(HttpServletRequest request, HttpServletResponse response)
@@ -312,6 +311,18 @@ public class Servlet extends HttpServlet{
 		dispatcher.forward(request, response);
 	}
 	
+	private void mostrarCadastroOng(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-ong.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarCadastroOngP2(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-ongsegundo.jsp");
+		dispatcher.forward(request, response);
+	}
+	
 	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-proposta.jsp");
@@ -323,6 +334,12 @@ public class Servlet extends HttpServlet{
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-pedido.jsp");
 //		dispatcher.forward(request, response);
 //	}
+	
+	private void mostrarCadastroItem(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-item.jsp");
+		dispatcher.forward(request, response);
+	}
 	
 	private void mostrarCadastroAlimento(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -403,6 +420,21 @@ public class Servlet extends HttpServlet{
 		response.sendRedirect("login");
 		
 	}
+	
+	private void inserirItem(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		HttpSession session = request.getSession();
+		Alimento alimento = (Alimento) session.getAttribute("alimento");
+		Item item = null;
+		
+		String quantidade = request.getParameter("quantidade");
+		
+		item = new Item(quantidade, alimento);
+		
+		itemDAO.inserirItem(item);
+		
+		response.sendRedirect("cadastro-proposta");
+	}
 
 
 	private void inserirAlimento(HttpServletRequest request, HttpServletResponse response)
@@ -416,7 +448,10 @@ public class Servlet extends HttpServlet{
 		
 		alimentoDAO.inserirAlimento(alimento);
 		
-		response.sendRedirect("cadastro-proposta");
+		response.sendRedirect("cadastro-item");
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("alimento", alimento);
 	}
 }
 

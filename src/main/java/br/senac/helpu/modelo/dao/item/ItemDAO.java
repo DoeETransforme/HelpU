@@ -4,7 +4,7 @@ import java.util.List;
 
 import br.senac.helpu.modelo.entidade.item.Item;
  
-public interface ItemDao {
+public interface ItemDAO {
 	
 	
 	void inserirItem(Item item);
