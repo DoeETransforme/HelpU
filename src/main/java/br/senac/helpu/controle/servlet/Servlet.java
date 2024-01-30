@@ -16,6 +16,8 @@ import br.senac.helpu.modelo.dao.alimento.AlimentoDAO;
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAOImpl;
 import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
+import br.senac.helpu.modelo.dao.doador.DoadorDAO;
+import br.senac.helpu.modelo.dao.doador.DoadorDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
 import br.senac.helpu.modelo.dao.item.ItemDAO;
@@ -39,6 +41,7 @@ public class Servlet extends HttpServlet {
 	private EnderecoDAO enderecoDAO;
 	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
+	private DoadorDAO doadorDAO;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -46,6 +49,7 @@ public class Servlet extends HttpServlet {
 		enderecoDAO = new EnderecoDAOImpl();
 		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
+		doadorDAO = new DoadorDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -184,6 +188,10 @@ public class Servlet extends HttpServlet {
 
 			case "/inserir-alimento":
 				inserirAlimento(request, response);
+				break;
+				
+			case "/doador-editado":
+				editarDoador(request, response);
 				break;
 
 			default:
@@ -484,5 +492,30 @@ public class Servlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		session.setAttribute("alimento", alimento);
+	}
+	
+	private void editarDoador(HttpServletRequest request, HttpServletResponse response) 
+			throws  ServletException,  IOException {
+		
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
+		
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		String celular = request.getParameter("celular");
+		String senha = request.getParameter("senha");
+		
+		System.out.println(nome);
+		doador.setNome(nome);
+		doador.setSenha(senha);
+		contato.setCelular(celular);
+		contato.setEmail(email);
+		
+		contatoDAO.atualizarContato(contato);
+		usuarioDAO.atualizarUsuario(doador);
+		
+		response.sendRedirect("perfil-doador");
 	}
 }
