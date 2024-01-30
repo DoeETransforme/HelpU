@@ -16,4 +16,8 @@ public interface UsuarioDAO {
 	List<Contato> listaContatos();
 	
 	List<Usuario> listaUsuarios();
+	
+	boolean verificarUsuario(String email, String senha);
+	
+	Usuario recuperarUsuarioEmail(String email);
 }
