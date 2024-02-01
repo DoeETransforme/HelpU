@@ -12,7 +12,7 @@
 </head>
 <body>
 
-   <%@ include file="menu.jsp"%>
+   <%@ include file="menu-doador.jsp"%>
 
     <img src="link_da_imagem" alt="Imagem de Perfil">
 
