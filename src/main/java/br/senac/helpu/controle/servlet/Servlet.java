@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAO;
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAOImpl;
+import br.senac.helpu.modelo.dao.conquista.ConquistaDAO;
+import br.senac.helpu.modelo.dao.conquista.ConquistaDAOImpl;
 import br.senac.helpu.modelo.dao.contato.ContatoDAO;
 import br.senac.helpu.modelo.dao.contato.ContatoDAOImpl;
 import br.senac.helpu.modelo.dao.doador.DoadorDAO;
@@ -30,6 +32,7 @@ import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAOImpl;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
+import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
@@ -47,22 +50,25 @@ public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO usuarioDAO;
 	private ContatoDAO contatoDAO;
+	private DoadorDAO doadorDAO;
 	private EnderecoDAO enderecoDAO;
 	private PedidoDoacaoDAO pedidoDoacaoDAO;
 	private PropostaDoacaoDAO propostaDoacaoDAO;
 	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
-	private DoadorDAO doadorDAO;
+	private ConquistaDAO conquistaDAO;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
 		contatoDAO = new ContatoDAOImpl();
+		doadorDAO = new DoadorDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
 		pedidoDoacaoDAO = new PedidoDoacaoDAOImpl();
 		propostaDoacaoDAO = new PropostaDoacaoDAOImpl();
 		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
-		doadorDAO = new DoadorDAOImpl();
+		conquistaDAO = new ConquistaDAOImpl();
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -182,6 +188,10 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-ongsegundo":
 				mostrarCadastroOngP2(request, response);
 				break;
+				
+			case "/cadastro-conquista":
+				mostrarCadastroConquista(request, response);
+				break;
 
 			case "/inserir-doador":
 				inserirDoador(request, response);
@@ -209,6 +219,10 @@ public class Servlet extends HttpServlet {
 
 			case "/inserir-alimento":
 				inserirAlimento(request, response);
+				break;
+				
+			case "/inserir-conquista":
+				inserirConquista(request, response);
 				break;
 				
 			case "/doador-editado":
@@ -398,7 +412,13 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-alimento.jsp");
 		dispatcher.forward(request, response);
 	}
-
+	
+	private void mostrarCadastroConquista(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-conquista.jsp");
+		dispatcher.forward(request, response);
+	}
+	
 	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -573,6 +593,20 @@ public class Servlet extends HttpServlet {
 		alimentoDAO.inserirAlimento(alimento);
 
 		response.sendRedirect("cadastro-proposta");
+	}
+	
+	private void inserirConquista(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		Conquista conquista = null;
+		
+		String nome = request.getParameter("nome");
+		String descricao = request.getParameter("descricao");
+		
+		conquista = new Conquista(nome, descricao);		
+		
+		conquistaDAO.inserirConquista(conquista);
+		
+		response.sendRedirect("perfil-doador");
 	}
 	
 	private void editarDoador(HttpServletRequest request, HttpServletResponse response) 
