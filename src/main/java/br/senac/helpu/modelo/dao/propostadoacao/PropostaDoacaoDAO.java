@@ -40,4 +40,6 @@ public interface PropostaDoacaoDAO {
 	List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusData(Doador doador, StatusProposta statusProposta,
 			LocalDate dataInicial, LocalDate datafinal);
 
+    List<PropostaDoacao> recuperarTodasPropostaDoacaoOngStatusFetch(Ong ong, StatusProposta statusProposta);
+
 }

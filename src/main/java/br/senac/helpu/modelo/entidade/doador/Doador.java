@@ -80,5 +80,14 @@ public class Doador extends Usuario implements Serializable {
 	public void removeConquista(Conquista conquista) {
 		conquistas.remove(conquista);
 	}	
+	
+	public void addProposta(PropostaDoacao propostaDoacao) {
+		propostas.add(propostaDoacao);
+  }
+	
+	public void removeProposta(PropostaDoacao propostaDoacao) {
+		propostas.remove(propostaDoacao);
+	}	
+
 
 }
