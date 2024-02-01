@@ -25,6 +25,8 @@ import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
 import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
+import br.senac.helpu.modelo.dao.ong.OngDAO;
+import br.senac.helpu.modelo.dao.ong.OngDAOImpl;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAO;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAOImpl;
 import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAO;
@@ -57,6 +59,7 @@ public class Servlet extends HttpServlet {
 	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
 	private ConquistaDAO conquistaDAO;
+	private OngDAO ongDAO;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -68,6 +71,7 @@ public class Servlet extends HttpServlet {
 		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
+		ongDAO = new OngDAOImpl();
 
 	}
 
@@ -227,6 +231,10 @@ public class Servlet extends HttpServlet {
 
 			case "/doador-editado":
 				editarDoador(request, response);
+				break;
+
+			case "/ong-editada":
+				editarOng(request, response);
 				break;
 
 			case "/logout":
@@ -637,11 +645,66 @@ public class Servlet extends HttpServlet {
 		response.sendRedirect("perfil-doador");
 	}
 
+	private void editarOng(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		Ong ong = ongDAO.recuperarOngId(usuario.getId());
+		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
+		Endereco endereco = enderecoDAO.recuperarEnderecoId(usuario.getId());
+
+		// endereco
+		String cidade = request.getParameter("cidade");
+		String cep = request.getParameter("cep");
+		String logradouro = request.getParameter("logradouro");
+		String complemento = request.getParameter("complemento");
+		String unidadeFederativa = request.getParameter("uf");
+		String bairro = request.getParameter("bairro");
+		int numero = Integer.parseInt(request.getParameter("numero"));
+
+		// ong
+		String nome = request.getParameter("nome");
+		String senha = request.getParameter("senha");
+		String cnpj = request.getParameter("cnpj");
+
+		// contato
+		String email = request.getParameter("email");
+		String celular = request.getParameter("celular");
+
+		// endereco setters
+		endereco.setCidade(cidade);
+		endereco.setCep(cep);
+		endereco.setLogradouro(logradouro);
+		endereco.setComplemento(complemento);
+		endereco.setUnidadeFederativa(unidadeFederativa);
+		endereco.setBairro(bairro);
+		endereco.setNumero(numero);
+
+		// ong setters
+		ong.setNome(nome);
+		ong.setSenha(senha);
+		ong.setCnpj(cnpj);
+
+		// contato setters
+		contato.setEmail(email);
+		contato.setCelular(celular);
+
+		enderecoDAO.atualizarEndereco(endereco);
+		contatoDAO.atualizarContato(contato);
+		usuarioDAO.atualizarUsuario(ong);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/perfil-ong.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.getSession().invalidate();
-		
-		response.sendRedirect("home");
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
 
 	}
 }

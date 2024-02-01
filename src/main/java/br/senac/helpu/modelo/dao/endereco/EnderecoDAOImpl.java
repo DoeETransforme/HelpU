@@ -9,6 +9,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
+import br.senac.helpu.modelo.entidade.endereco.Endereco_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
 public class EnderecoDAOImpl implements EnderecoDAO {
@@ -107,6 +108,46 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 					sessao.close();
 				}
 			}
+		}
+		
+		public Endereco recuperarEnderecoId(Long id) {
+			Session sessao = null;
+			Endereco enderecoRecuperado = null;
+ 
+			try {
+				sessao = fabrica.getConexao().openSession();
+				sessao.beginTransaction();
+ 
+				CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+ 
+				CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
+ 
+				Root<Endereco> raizEndereco = criteria.from(Endereco.class);
+ 
+				criteria.select(raizEndereco);
+ 
+				criteria.where(construtor.equal(raizEndereco.get(Endereco_.id), id));
+ 
+				enderecoRecuperado = sessao.createQuery(criteria).getSingleResult();
+ 
+				sessao.getTransaction().commit();
+			} catch (Exception sqlException) {
+ 
+				sqlException.printStackTrace();
+ 
+				if (sessao.getTransaction() != null) {
+					sessao.getTransaction().rollback();
+ 
+				}
+			} finally {
+ 
+				if (sessao != null) {
+					sessao.close();
+				}
+			}
+ 
+			return enderecoRecuperado;
+ 
 		}
 			
 	}
