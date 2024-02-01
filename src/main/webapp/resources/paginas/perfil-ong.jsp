@@ -10,18 +10,7 @@
 </head>
 <body>
     <div>
-        <header>
-            <div>
-                <picture>
-                    <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
-                </picture>
-                <input type="text" placeholder="Pesquisar">
-            </div>
-            <nav>
-                <a href="./login.jsp">Login</a>
-            <a href="./Cadastro.jsp">Cadastro</a>
-        </header>
-
+        <%@ include file="menu-doador.jsp"%>
         <main>
             <section>
                 <div>
