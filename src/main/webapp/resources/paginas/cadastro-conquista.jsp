@@ -8,9 +8,6 @@
 <body>
     <header>
         <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-            </picture>
             <input type="search" placeholder="Pesquisar">
         </div>
         <nav>
@@ -18,21 +15,18 @@
         </nav>
     </header>
     <main>
-        <form action="">
+        <form action="inserir-conquista" method="post">
             <div>
                 <h1>Cadastrar Conquista</h1>
             </div>
             <div>
-                <input type="text" class="padrao_input" name="titulo_conquista" placeholder="Titulo">
+                <input type="text" class="padrao-input" name="nome" placeholder="Nome da Conquista">
             </div>
             <div>
-                <textarea name="descricao_conquista" id="descricao_conquista" class="padrao_input" placeholder="Descrição da Conquista!"></textarea>
+                <textarea name="descricao"  class="padrao-input" placeholder="Descri��o da Conquista!"></textarea>
             </div>
             <div>
-                <input type="image" alt="Enviar icone da conquista">
-            </div>
-            <div>
-                <button type="submit" class="botão_padrão"></button>
+                <button type="submit" class="botao-padrao">Cadastrar</button>
             </div>
         </form>
     </main>  
