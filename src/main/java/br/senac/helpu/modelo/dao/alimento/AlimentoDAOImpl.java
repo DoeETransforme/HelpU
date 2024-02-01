@@ -143,7 +143,7 @@ public class AlimentoDAOImpl implements AlimentoDAO {
 	public Alimento recuperarAlimentoId(Long id) {
 
 		Session sessao = null;
-		Alimento alimentoRecuperado = null;
+		Alimento alimento = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -157,8 +157,8 @@ public class AlimentoDAOImpl implements AlimentoDAO {
 			criteria.select(raizAlimento);
 
 			criteria.where(construtor.equal(raizAlimento.get(Alimento_.id), id));		
-			alimentoRecuperado = sessao.createQuery(criteria).getSingleResult();
-
+			alimento = sessao.createQuery(criteria).getSingleResult();
+			
 			sessao.getTransaction().commit();
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
@@ -170,6 +170,6 @@ public class AlimentoDAOImpl implements AlimentoDAO {
 				sessao.close();
 			}
 		}
-		return alimentoRecuperado;
+		return alimento;
 	}
 }

@@ -345,6 +345,9 @@ public class Servlet extends HttpServlet {
 		
 		List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
 		
+		request.setAttribute("alimentos", alimentos);
+
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-item.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -460,13 +463,15 @@ public class Servlet extends HttpServlet {
 
 	private void inserirItem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		Alimento alimento = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		
+		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
 		
 		Item item = null;
 
 		String quantidade = request.getParameter("quantidade");
+		
 
-		item = new Item(quantidade, alimento);
+		item = new Item(quantidade, alimentos);
 
 		itemDAO.inserirItem(item);
 
