@@ -346,12 +346,6 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-proposta.jsp");
-		dispatcher.forward(request, response);
-	}
-
 	private void mostrarCadastroPedido(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 			
@@ -360,6 +354,16 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("alimentos", alimentos);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-pedido.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
+		
+		request.setAttribute("alimentos", alimentos);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-proposta.jsp");
 		dispatcher.forward(request, response);
 	}
 
