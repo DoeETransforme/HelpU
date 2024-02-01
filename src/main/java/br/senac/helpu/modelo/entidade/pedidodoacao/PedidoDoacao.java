@@ -2,7 +2,6 @@ package br.senac.helpu.modelo.entidade.pedidodoacao;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -49,7 +48,7 @@ public class PedidoDoacao implements Serializable {
 	private StatusPedido statuspedido;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ong", nullable = false, unique = true)
+	@JoinColumn(name = "id_ong", nullable = true, unique = true)
 	private Ong ong;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -67,8 +66,6 @@ public class PedidoDoacao implements Serializable {
 		setDescricao(descricao);	
 		setStatusPedido(statusPedido);
 		setOng(ong);
-		itens = new ArrayList<>();
-		propostasDoacao = new ArrayList<>();
 	}
 
 	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong) {
@@ -77,8 +74,13 @@ public class PedidoDoacao implements Serializable {
 		setDescricao(descricao);
 		setStatusPedido(statusPedido);
 		setOng(ong);
-		itens = new ArrayList<>();
-		propostasDoacao = new ArrayList<>();
+	}
+	
+	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido) {
+		setData(data);
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
 	}
 
 	public Long getId() {

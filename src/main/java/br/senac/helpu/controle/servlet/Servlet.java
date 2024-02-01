@@ -23,6 +23,8 @@ import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
 import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
+import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAO;
+import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAOImpl;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
@@ -31,7 +33,9 @@ import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
+import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
+import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -40,6 +44,7 @@ public class Servlet extends HttpServlet {
 	private UsuarioDAO usuarioDAO;
 	private ContatoDAO contatoDAO;
 	private EnderecoDAO enderecoDAO;
+	private PedidoDoacaoDAO pedidoDoacaoDAO;
 	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
 	private DoadorDAO doadorDAO;
@@ -48,6 +53,7 @@ public class Servlet extends HttpServlet {
 		usuarioDAO = new UsuarioDAOImpl();
 		contatoDAO = new ContatoDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
+		pedidoDoacaoDAO = new PedidoDoacaoDAOImpl();
 		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
 		doadorDAO = new DoadorDAOImpl();
@@ -160,9 +166,9 @@ public class Servlet extends HttpServlet {
 				mostrarCadastroProposta(request, response);
 				break;
 
-//			case "/cadastro-pedido":
-//				mostrarCadastroPedido(request, response);
-//				break;
+			case "/cadastro-pedido":
+				mostrarCadastroPedido(request, response);
+				break;
 
 			case "/cadastro-alimento":
 				mostrarCadastroAlimento(request, response);
@@ -181,6 +187,10 @@ public class Servlet extends HttpServlet {
 
 			case "/inserir-endereco-ong":
 				inserirEnderecoOng(request, response);
+				break;
+				
+			case "/inserir-pedido":
+				inserirPedidoDoacao(request, response);
 				break;
 
 			case "/inserir-item":
@@ -342,11 +352,16 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-//	private void mostrarCadastroPedido(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-pedido.jsp");
-//		dispatcher.forward(request, response);
-//	}
+	private void mostrarCadastroPedido(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			
+		List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
+		
+		request.setAttribute("alimentos", alimentos);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-pedido.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	private void mostrarCadastroItem(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -467,6 +482,27 @@ public class Servlet extends HttpServlet {
 
 		response.sendRedirect("login");
 
+	}
+	
+	private void inserirPedidoDoacao(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+			
+		Item item = null;
+		PedidoDoacao pedidoDoacao = null;
+		
+		String titulo = request.getParameter("titulo");
+		String descricao = request.getParameter("descricao");
+		LocalDate data = LocalDate.parse(request.getParameter("data-validade"));
+		String quantidade = request.getParameter("quantidade");
+		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		
+		pedidoDoacao = new PedidoDoacao(titulo, descricao, data, StatusPedido.ATIVO);
+		item = new Item(quantidade, alimentos, pedidoDoacao);
+			
+		pedidoDoacaoDAO.inserirPedidoDoacao(pedidoDoacao);
+		itemDAO.inserirItem(item);
+		
+		response.sendRedirect("perfil-ong");	
 	}
 
 	private void inserirItem(HttpServletRequest request, HttpServletResponse response)
