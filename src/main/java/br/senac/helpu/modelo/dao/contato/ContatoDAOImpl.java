@@ -1,7 +1,5 @@
 package br.senac.helpu.modelo.dao.contato;
 
-
-
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -11,6 +9,9 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.contato.Contato;
+import br.senac.helpu.modelo.entidade.contato.Contato_;
+import br.senac.helpu.modelo.entidade.doador.Doador;
+import br.senac.helpu.modelo.entidade.doador.Doador_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
 public class ContatoDAOImpl implements ContatoDAO {
@@ -23,7 +24,7 @@ public class ContatoDAOImpl implements ContatoDAO {
 
 	public void inserirContato(Contato contato) {
 		Session sessao = null;
-		
+
 		try {
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
@@ -89,42 +90,79 @@ public class ContatoDAOImpl implements ContatoDAO {
 
 	}
 
-
 	public List<Contato> recuperarListaContatos() {
 
 		Session sessao = null;
 		List<Contato> listaRecuperada = null;
-		
+
 		try {
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-			
+
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-		
+
 			CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
 			Root<Contato> RaizContato = criteria.from(Contato.class);
-			
+
 			criteria.select(RaizContato);
-			
+
 			listaRecuperada = sessao.createQuery(criteria).getResultList();
-			
+
 			sessao.getTransaction().commit();
-			
-		}catch(Exception sqlException) {
+
+		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
-			
-			if(sessao.getTransaction() != null) {
+
+			if (sessao.getTransaction() != null) {
 				sessao.getTransaction().rollback();
 			}
-		}finally {
-			if(sessao != null) {
+		} finally {
+			if (sessao != null) {
 				sessao.close();
 			}
-			
+
 		}
 		return listaRecuperada;
 	}
 
-	
+	public Contato recuperarContatoId(Long id) {
+		Session sessao = null;
+		Contato contatoRecuperado = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
+
+			Root<Contato> raizContato = criteria.from(Contato.class);
+
+			criteria.select(raizContato);
+
+			criteria.where(construtor.equal(raizContato.get(Contato_.id), id));
+
+			contatoRecuperado = sessao.createQuery(criteria).getSingleResult();
+
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+
+		return contatoRecuperado;
+
+	}
 
 }

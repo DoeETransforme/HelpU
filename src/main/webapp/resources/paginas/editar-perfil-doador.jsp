@@ -30,19 +30,19 @@
         <form action="doador-editado" method="post">
             <div>
                 <label for="editarNome">Editar Nome:</label>
-                <input type="text" id="editarNomePF" name="editarNomePF" placeholder="Nome Atual do Usuário">
+                <input type="text" id="editarNomePF" name="nome" placeholder="Nome Atual do Usuário">
             </div>
             <div>
                 <label for="editarEmail">Editar Email:</label>
-                <input type="email" id="editarEmailPF" name="editarEmailPF" placeholder="EmailAtual@exemplo.com">
+                <input type="email" id="editarEmailPF" name="email" placeholder="EmailAtual@exemplo.com">
             </div>
             <div>
                 <label for="editarCelular">Editar Número de Celular:</label>
-                <input type="tel" id="editarCelularPF" name="editarCelularPF" placeholder="Número Atual do Usuário">
+                <input type="tel" id="editarCelularPF" name="celular" placeholder="Número Atual do Usuário">
             </div>
             <div>
                 <label for="editarSenha">Editar Senha:</label>
-                <input type="password" id="editarSenhaPF" name="editarSenhaPF" placeholder="Nova Senha">
+                <input type="password" id="editarSenhaPF" name="senha" placeholder="Nova Senha">
             </div>
                 </div>
 
