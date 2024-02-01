@@ -83,7 +83,7 @@ public class Servlet extends HttpServlet {
 
 		try {
 			switch (action) {
-			case "/":
+			case "/home":
 				mostrarIndex(request, response);
 				break;
 
@@ -252,6 +252,8 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPerfilDoador(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
 		dispatcher.forward(request, response);
 	}
