@@ -119,6 +119,39 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		}
 
 	}
+	
+	public PedidoDoacao recuperarPedidoDoacaoId(Long id) {
+
+		Session sessao = null;
+		PedidoDoacao pedidoDoacao = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
+			Root<PedidoDoacao> raizPedidoDoacao = criteria.from(PedidoDoacao.class);
+
+			criteria.select(raizPedidoDoacao);
+
+			criteria.where(construtor.equal(raizPedidoDoacao.get(PedidoDoacao_.id), id));		
+			pedidoDoacao = sessao.createQuery(criteria).getSingleResult();
+			
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return pedidoDoacao;
+	}
 
 	public List<PedidoDoacao> recuperarPedidosDoacao() {
 		Session sessao = null;
@@ -353,7 +386,5 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		return pedidos;
 	}
 
-	
-	
 
 }

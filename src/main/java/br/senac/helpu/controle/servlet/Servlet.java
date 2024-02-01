@@ -25,6 +25,8 @@ import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAO;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAOImpl;
+import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAO;
+import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAOImpl;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
@@ -34,8 +36,10 @@ import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
+import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
+import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -45,6 +49,7 @@ public class Servlet extends HttpServlet {
 	private ContatoDAO contatoDAO;
 	private EnderecoDAO enderecoDAO;
 	private PedidoDoacaoDAO pedidoDoacaoDAO;
+	private PropostaDoacaoDAO propostaDoacaoDAO;
 	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
 	private DoadorDAO doadorDAO;
@@ -54,6 +59,7 @@ public class Servlet extends HttpServlet {
 		contatoDAO = new ContatoDAOImpl();
 		enderecoDAO = new EnderecoDAOImpl();
 		pedidoDoacaoDAO = new PedidoDoacaoDAOImpl();
+		propostaDoacaoDAO = new PropostaDoacaoDAOImpl();
 		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
 		doadorDAO = new DoadorDAOImpl();
@@ -191,6 +197,10 @@ public class Servlet extends HttpServlet {
 				
 			case "/inserir-pedido":
 				inserirPedidoDoacao(request, response);
+				break;
+			
+			case "/inserir-proposta":
+				inserirPropostaDoacao(request, response);
 				break;
 
 			case "/inserir-item":
@@ -348,10 +358,10 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarCadastroPedido(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			
 		List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
 		
 		request.setAttribute("alimentos", alimentos);
+
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-pedido.jsp");
 		dispatcher.forward(request, response);
@@ -360,8 +370,12 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
+		List<Doador> doadores = doadorDAO.recuperarListaDoadores();
 		
 		request.setAttribute("alimentos", alimentos);
+		request.setAttribute("pedidos", pedidos);
+		request.setAttribute("doadores", doadores);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-proposta.jsp");
 		dispatcher.forward(request, response);
@@ -508,6 +522,27 @@ public class Servlet extends HttpServlet {
 		
 		response.sendRedirect("perfil-ong");	
 	}
+	
+	private void inserirPropostaDoacao(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		Item item = null;
+		PropostaDoacao propostaDoacao = null;
+		
+		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		Doador doadores = doadorDAO.recuperarDoadorId(Long.parseLong(request.getParameter("doador")));
+		PedidoDoacao pedidosDoacao = pedidoDoacaoDAO.recuperarPedidoDoacaoId(Long.parseLong(request.getParameter("pedido")));
+		String quantidade = request.getParameter("quantidade");
+		LocalDate data = LocalDate.parse(request.getParameter("data-validade"));
+				
+		propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doadores, data, pedidosDoacao);
+		item = new Item(quantidade, alimentos, propostaDoacao);
+		
+		propostaDoacaoDAO.inserirPropostaDoacao(propostaDoacao);
+		itemDAO.inserirItem(item);
+		
+		response.sendRedirect("perfil-doador");
+		
+	}
 
 	private void inserirItem(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
@@ -537,7 +572,7 @@ public class Servlet extends HttpServlet {
 
 		alimentoDAO.inserirAlimento(alimento);
 
-		response.sendRedirect("cadastro-item");
+		response.sendRedirect("cadastro-proposta");
 	}
 	
 	private void editarDoador(HttpServletRequest request, HttpServletResponse response) 
