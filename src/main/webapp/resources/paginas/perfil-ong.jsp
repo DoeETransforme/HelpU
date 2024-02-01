@@ -35,7 +35,7 @@
 					
 					
 
-					<p> <strong>Telefone:</strong> <c:out value="${ong.nome}" /></p>
+					<p> <strong>Telefone:</strong> <c:out value="${contato.usuario.celular}" /></p>
 					<p> <strong>Email:</strong> <c:out value="${ong.cnpj}" /> </p>
 	
 					
