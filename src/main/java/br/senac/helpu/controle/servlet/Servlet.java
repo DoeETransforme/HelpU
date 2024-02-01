@@ -302,10 +302,10 @@ public class Servlet extends HttpServlet {
 		PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO, ong);
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
 		PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ACEITO, doador, LocalDate.of(2022, 10, 10), pedido);
+		usuarioDAO.inserirUsuario(doador);
+		
 		propostaDoacaoDAO.inserirPropostaDoacao(proposta);
 		doador.addProposta(proposta);
-		usuarioDAO.inserirUsuario(doador);
-
 		List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong,
 				StatusProposta.ACEITO);
 
