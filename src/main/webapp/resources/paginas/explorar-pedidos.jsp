@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
 </head>
-
 <body>
     <header>
         <div>
@@ -17,7 +16,7 @@
         </div>
         <nav>
             <a href="./login.jsp">Conquistas</a>
-            <a href="./Cadastro.jsp">Minha Conta</a>
+            <a href="perfil-doador.jsp">Minha Conta</a>
         </nav>
     </header>
     <main>

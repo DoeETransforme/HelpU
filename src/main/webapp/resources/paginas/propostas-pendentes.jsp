@@ -19,7 +19,6 @@
             <a href="Minha Conta.html">Minha conta</a>
         </nav>
     </header>
-
     <main>
         <div>
             <div>
@@ -48,5 +47,4 @@
         </div>
     </main>
 </body>
-
 </html
