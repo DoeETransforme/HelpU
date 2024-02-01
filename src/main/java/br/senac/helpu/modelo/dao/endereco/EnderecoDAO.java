@@ -10,5 +10,7 @@ public interface EnderecoDAO {
 	void deletarEndereco(Endereco endereco);
  
 	void atualizarEndereco(Endereco endereco);
+	
+	Endereco recuperarEnderecoId(Long id);
 
 }
