@@ -53,7 +53,6 @@ import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 
-
 @WebServlet("/")
 public class Servlet extends HttpServlet {
 
@@ -66,14 +65,8 @@ public class Servlet extends HttpServlet {
 	private PropostaDoacaoDAO propostaDoacaoDAO;
 	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
-
 	private OngDAO ongDAO;
-
-
-
 	private ConquistaDAO conquistaDAO;
-
-
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -84,16 +77,14 @@ public class Servlet extends HttpServlet {
 		propostaDoacaoDAO = new PropostaDoacaoDAOImpl();
 		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
-
 		ongDAO = new OngDAOImpl();
-		
-
 		conquistaDAO = new ConquistaDAOImpl();
-	
-
-
 	}
-	
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -286,36 +277,25 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession sessao = request.getSession();
-		
+
 		Ong ong = new Ong("amiguinho", "1234", "varioscnpj");
 		usuarioDAO.inserirUsuario(ong);
-		Endereco endereco = new Endereco("ama","bairro da paz" , 10, "blumenau", "AM", "cepbolado", ong);
+		Endereco endereco = new Endereco("ama", "bairro da paz", 10, "blumenau", "AM", "cepbolado", ong);
 		enderecoDAO.inserirEndereco(endereco);
 		Contato contato = new Contato("213123", "email@bolado", ong);
 		contatoDAO.inserirContato(contato);
-		
+
 		Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(ong);
-		
-		Long id = ong.getId();
-	
-		
-		
+
 		Ong ongRecuperada = ongDAO.recuperarOngPorIdFetch(ong.getId());
-		
-		
+
 		request.setAttribute("ong", ongRecuperada);
-		request.setAttribute("contato" , contatoRecuperado);
-		
+		request.setAttribute("contato", contatoRecuperado);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
 		dispatcher.forward(request, response);
-		
-			
-		
-		
 
 	}
-
 
 	private void mostrarAvaliarProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -327,12 +307,6 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/confirmar-exclusao.jsp");
-		dispatcher.forward(request, response);
-	}
-
-	private void mostrarContaDesativada(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/conta-desativada.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -376,7 +350,7 @@ public class Servlet extends HttpServlet {
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
 		PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ACEITO, doador, LocalDate.of(2022, 10, 10), pedido);
 		usuarioDAO.inserirUsuario(doador);
-		
+
 		propostaDoacaoDAO.inserirPropostaDoacao(proposta);
 		doador.addProposta(proposta);
 		List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong,
@@ -392,28 +366,25 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarHistoricoPedidos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		Ong ong = new Ong("amiguinhos" , "123455", "2313123");
+
+		Ong ong = new Ong("amiguinhos", "123455", "2313123");
 		usuarioDAO.inserirUsuario(ong);
-		PedidoDoacao pedido = new PedidoDoacao("pedidodaong","descrição", LocalDate.now(), StatusPedido.ATIVO,ong);
-		PedidoDoacao pedido2 = new PedidoDoacao("terceiropedido","descrição3", LocalDate.now(), StatusPedido.ATIVO,ong);
-		PedidoDoacao pedido3 = new PedidoDoacao("segundopedido","descrição2", LocalDate.now(), StatusPedido.ATIVO,ong);
-		
+		PedidoDoacao pedido = new PedidoDoacao("pedidodaong", "descrição", LocalDate.now(), StatusPedido.ATIVO, ong);
+		PedidoDoacao pedido2 = new PedidoDoacao("terceiropedido", "descrição3", LocalDate.now(), StatusPedido.ATIVO,
+				ong);
+		PedidoDoacao pedido3 = new PedidoDoacao("segundopedido", "descrição2", LocalDate.now(), StatusPedido.ATIVO,
+				ong);
+
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedido3);
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedido2);
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
-		
+
 		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
-		
+
 		request.setAttribute("pedidos", pedidos);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/historico-pedidos.jsp");
 		dispatcher.forward(request, response);
-		
-		
-		
-		
-		
-		
+
 	}
 
 	private void mostrarPropostasAnalise(HttpServletRequest request, HttpServletResponse response)
@@ -586,20 +557,14 @@ public class Servlet extends HttpServlet {
 		contatoDAO.inserirContato(contato);
 
 		response.sendRedirect("cadastro-ongsegundo");
-	
+
 		HttpSession session = request.getSession();
 		session.setAttribute("ong", ong);
 
 	}
 
-	
-	
-	
-
-
 	private void inserirEnderecoOng(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
 
 		HttpSession session = request.getSession();
 		Ong ong = (Ong) session.getAttribute("ong");
@@ -712,7 +677,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		Usuario usuario = (Usuario) session.getAttribute("doador");
 		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
 
@@ -798,21 +763,20 @@ public class Servlet extends HttpServlet {
 
 	private void desativarConta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		
+
 		boolean existe = usuarioDAO.verificarUsuario(email, senha);
-		
+
 		if (existe) {
 			Usuario usuario = usuarioDAO.recuperarUsuarioEmail(email);
 			usuarioDAO.deletarUsuario(usuario);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/conta-desativada.jsp");
 			dispatcher.forward(request, response);
-		}
-		else {
+		} else {
 			response.sendRedirect("confirmar-exclusao");
 		}
-		
+
 	}
 }
