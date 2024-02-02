@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Root;
 
@@ -550,6 +551,48 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	    }
 
 	    return quantidadePropostas;
+	}
+	
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoOngStatusFetch(Ong ong, StatusProposta statusProposta) {
+		Session sessao = null;
+	    List<PropostaDoacao> propostas = null;
+	    
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+	        
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        
+	        CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+	        
+	        Root<PropostaDoacao> raizProposta = criteria.from(PropostaDoacao.class);
+	        raizProposta.fetch("pedidoDoacao", JoinType.LEFT).fetch("ong" , JoinType.LEFT); // Adicione o join fetch aqui
+	        raizProposta.fetch("doador", JoinType.LEFT);
+	        Join<PropostaDoacao, PedidoDoacao> juncaoPedido = raizProposta.join(PropostaDoacao_.pedidoDoacao);
+	        
+	        
+	        criteria.select(raizProposta);
+	        
+	        criteria.where(construtor.equal(raizProposta.get(PropostaDoacao_.statusProposta), statusProposta),
+					construtor.equal(juncaoPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()));
+			propostas = sessao.createQuery(criteria).getResultList();
+			sessao.getTransaction().commit();
+	        
+	       
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+	        
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    
+	    return propostas;
 	}}
+	
 
 
