@@ -6,6 +6,7 @@
 				<div class="dropdown-content">
 					<a href="<%=request.getContextPath()%>/perfil-doador">Meu Perfil</a>
 					<a href="<%=request.getContextPath()%>/editar-perfil-doador">Editar Conta</a>
+					<a href="<%=request.getContextPath()%>/desativar-conta">Sair</a>
 					<a href="<%=request.getContextPath()%>/logout">Sair</a>
 					
 				</div>
