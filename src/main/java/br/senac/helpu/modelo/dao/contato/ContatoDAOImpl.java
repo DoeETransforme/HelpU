@@ -163,7 +163,7 @@ public class ContatoDAOImpl implements ContatoDAO {
 			
 		}
 		return contato;
-
+	}
 	public Contato recuperarContatoId(Long id) {
 		Session sessao = null;
 		Contato contatoRecuperado = null;
