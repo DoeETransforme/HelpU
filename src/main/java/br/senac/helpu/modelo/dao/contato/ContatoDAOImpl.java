@@ -9,9 +9,13 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.contato.Contato;
+
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
+
 import br.senac.helpu.modelo.entidade.contato.Contato_;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.doador.Doador_;
+
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
 public class ContatoDAOImpl implements ContatoDAO {
@@ -125,6 +129,41 @@ public class ContatoDAOImpl implements ContatoDAO {
 		return listaRecuperada;
 	}
 
+
+	public  Contato recuperarContatoUsuario(Usuario usuario) {
+
+		Session sessao = null;
+		Contato contato = null;
+		
+		try {
+			sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        CriteriaQuery<Contato> criteria = construtor.createQuery(Contato.class);
+	        Root<Contato> raizContato = criteria.from(Contato.class);
+
+	        criteria.select(raizContato);
+	        criteria.where(construtor.equal(raizContato.get("usuario"), usuario));
+
+	        contato = sessao.createQuery(criteria).getSingleResult();
+
+	        sessao.getTransaction().commit();
+			
+		}catch(Exception sqlException) {
+			sqlException.printStackTrace();
+			
+			if(sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		}finally {
+			if(sessao != null) {
+				sessao.close();
+			}
+			
+		}
+		return contato;
+
 	public Contato recuperarContatoId(Long id) {
 		Session sessao = null;
 		Contato contatoRecuperado = null;
@@ -162,6 +201,7 @@ public class ContatoDAOImpl implements ContatoDAO {
 		}
 
 		return contatoRecuperado;
+
 
 	}
 

@@ -23,14 +23,18 @@ import br.senac.helpu.modelo.dao.doador.DoadorDAO;
 import br.senac.helpu.modelo.dao.doador.DoadorDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
+
 import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
+
 import br.senac.helpu.modelo.dao.ong.OngDAO;
 import br.senac.helpu.modelo.dao.ong.OngDAOImpl;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAO;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAOImpl;
+
 import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAO;
 import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAOImpl;
+
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
@@ -41,10 +45,14 @@ import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
+
+import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
+
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
+
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -58,8 +66,14 @@ public class Servlet extends HttpServlet {
 	private PropostaDoacaoDAO propostaDoacaoDAO;
 	private ItemDAO itemDAO;
 	private AlimentoDAO alimentoDAO;
-	private ConquistaDAO conquistaDAO;
+
 	private OngDAO ongDAO;
+
+
+
+	private ConquistaDAO conquistaDAO;
+
+
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -70,8 +84,13 @@ public class Servlet extends HttpServlet {
 		propostaDoacaoDAO = new PropostaDoacaoDAOImpl();
 		itemDAO = new ItemDAOImpl();
 		alimentoDAO = new AlimentoDAOImpl();
-		conquistaDAO = new ConquistaDAOImpl();
+
 		ongDAO = new OngDAOImpl();
+		
+
+		conquistaDAO = new ConquistaDAOImpl();
+	
+
 
 	}
 
@@ -272,9 +291,36 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		
+		Ong ong = new Ong("amiguinho", "1234", "varioscnpj");
+		usuarioDAO.inserirUsuario(ong);
+		Endereco endereco = new Endereco("ama","bairro da paz" , 10, "blumenau", "AM", "cepbolado", ong);
+		enderecoDAO.inserirEndereco(endereco);
+		Contato contato = new Contato("213123", "email@bolado", ong);
+		contatoDAO.inserirContato(contato);
+		
+		Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(ong);
+		
+		Long id = ong.getId();
+	
+		
+		
+		Ong ongRecuperada = ongDAO.recuperarOngPorIdFetch(ong.getId());
+		
+		
+		request.setAttribute("ong", ongRecuperada);
+		request.setAttribute("contato" , contatoRecuperado);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
 		dispatcher.forward(request, response);
+		
+			
+		
+		
+
 	}
+
 
 	private void mostrarAvaliarProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -332,8 +378,28 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarHistoricoPedidos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Ong ong = new Ong("amiguinhos" , "123455", "2313123");
+		usuarioDAO.inserirUsuario(ong);
+		PedidoDoacao pedido = new PedidoDoacao("pedidodaong","descrição", LocalDate.now(), StatusPedido.ATIVO,ong);
+		PedidoDoacao pedido2 = new PedidoDoacao("terceiropedido","descrição3", LocalDate.now(), StatusPedido.ATIVO,ong);
+		PedidoDoacao pedido3 = new PedidoDoacao("segundopedido","descrição2", LocalDate.now(), StatusPedido.ATIVO,ong);
+		
+		pedidoDoacaoDAO.inserirPedidoDoacao(pedido3);
+		pedidoDoacaoDAO.inserirPedidoDoacao(pedido2);
+		pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
+		
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
+		
+		request.setAttribute("pedidos", pedidos);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/historico-pedidos.jsp");
 		dispatcher.forward(request, response);
+		
+		
+		
+		
+		
+		
 	}
 
 	private void mostrarPropostasAnalise(HttpServletRequest request, HttpServletResponse response)
@@ -504,15 +570,21 @@ public class Servlet extends HttpServlet {
 		contatoDAO.inserirContato(contato);
 
 		response.sendRedirect("cadastro-ongsegundo");
-		// No método mostrarCadastroOng
+	
 		HttpSession session = request.getSession();
 		session.setAttribute("ong", ong);
 
 	}
 
+	
+	
+	
+
+
 	private void inserirEnderecoOng(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		// No método mostrarCadastroOngP2
+		
+
 		HttpSession session = request.getSession();
 		Ong ong = (Ong) session.getAttribute("ong");
 

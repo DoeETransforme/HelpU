@@ -3,6 +3,7 @@ package br.senac.helpu.modelo.dao.contato;
 import java.util.List;
 
 import br.senac.helpu.modelo.entidade.contato.Contato;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
 public interface ContatoDAO {
 
@@ -13,6 +14,7 @@ public interface ContatoDAO {
 	void atualizarContato(Contato contato);
 	
 	List<Contato>recuperarListaContatos();
+	Contato recuperarContatoUsuario(Usuario usuario);
 	
 	Contato recuperarContatoId(Long id);
 	

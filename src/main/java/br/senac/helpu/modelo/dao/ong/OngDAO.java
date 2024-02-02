@@ -9,5 +9,6 @@ public interface OngDAO {
 	Ong recuperarOng(Ong ong);
 	List<Ong> recuperarListaOng();
 	List<Endereco>recuperarListaEnderecos(Ong ong);
+	Ong recuperarOngPorIdFetch(Long id);
 	
 }
