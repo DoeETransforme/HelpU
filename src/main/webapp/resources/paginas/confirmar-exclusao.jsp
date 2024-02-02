@@ -31,9 +31,9 @@
             <div>
                 
                 <div>
-                    <form action="ContaDesativada_PF.html" method="post">
-                        <input type="email" id="LoginEmail" name="LoginEmail" placeholder="E-mail de login" required>
-                        <input type="password" id="LoginSenha" name="LoginSenha" placeholder="Senha de login" required>
+                    <form action="conta-desativada" method="post">
+                        <input type="email" id="LoginEmail" name="email" placeholder="E-mail de login" required>
+                        <input type="password" id="LoginSenha" name="senha" placeholder="Senha de login" required>
                         <input type="submit" name="DesativarConta" id="DesativarContaPF" value="confirmar">
                     </form>
                 </div>

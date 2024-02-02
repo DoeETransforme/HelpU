@@ -115,10 +115,6 @@ public class Servlet extends HttpServlet {
 				mostrarConfirmarExclusao(request, response);
 				break;
 
-			case "/conta-desativada":
-				mostrarContaDesativada(request, response);
-				break;
-
 			case "/descricao-pedido":
 				mostrarDescricaoPedido(request, response);
 				break;
@@ -135,8 +131,8 @@ public class Servlet extends HttpServlet {
 				mostrarEditarPerfilDoador(request, response);
 				break;
 
-			case "/excluir-conta-doador":
-				mostrarExcluirContaDoador(request, response);
+			case "/desativar-conta":
+				mostrarExcluirContaUsuario(request, response);
 				break;
 
 			case "/historico-pedidos":
@@ -241,6 +237,10 @@ public class Servlet extends HttpServlet {
 				logout(request, response);
 				break;
 
+			case "/conta-desativada":
+				desativarConta(request, response);
+				break;
+
 			default:
 				mostrarIndex(request, response);
 				break;
@@ -264,7 +264,6 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPerfilDoador(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession sessao = request.getSession();
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
 		dispatcher.forward(request, response);
@@ -318,9 +317,9 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarExcluirContaDoador(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarExcluirContaUsuario(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/excluir-conta-doador.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/excluir-conta-usuario.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -706,5 +705,25 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 
+	}
+
+	private void desativarConta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		String email = request.getParameter("email");
+		String senha = request.getParameter("senha");
+		
+		boolean existe = usuarioDAO.verificarUsuario(email, senha);
+		
+		if (existe) {
+			Usuario usuario = usuarioDAO.recuperarUsuarioEmail(email);
+			usuarioDAO.deletarUsuario(usuario);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/conta-desativada.jsp");
+			dispatcher.forward(request, response);
+		}
+		else {
+			response.sendRedirect("confirmar-exclusao");
+		}
+		
 	}
 }
