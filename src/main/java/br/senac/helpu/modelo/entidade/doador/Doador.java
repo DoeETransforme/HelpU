@@ -32,7 +32,7 @@ public class Doador extends Usuario implements Serializable {
 	private LocalDate dataNascimento;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doador", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<PropostaDoacao> propostas;
+	private List<PropostaDoacao> propostas = new ArrayList<>();;
 	
 	
 	@ManyToMany
