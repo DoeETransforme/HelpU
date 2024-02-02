@@ -231,14 +231,17 @@ public class Servlet extends HttpServlet{
 		Contato contato = new Contato("213123", "email@bolado", ong);
 		contatoDAO.inserirContato(contato);
 		
+		Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(ong);
+		
 		Long id = ong.getId();
 	
 		
 		
-		ongDAO.recuperarOngPorIdFetch(ong.getId());
+		Ong ongRecuperada = ongDAO.recuperarOngPorIdFetch(ong.getId());
 		
 		
-		request.setAttribute("ong", ong);
+		request.setAttribute("ong", ongRecuperada);
+		request.setAttribute("contato" , contatoRecuperado);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
 		dispatcher.forward(request, response);
