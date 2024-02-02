@@ -13,5 +13,6 @@ public interface AlimentoDAO {
 	void atualizarAlimento(Alimento alimento);
 	
 	List<Alimento> recuperarAlimentos();
+	Alimento recuperarAlimentoId(Long id);
 
 }

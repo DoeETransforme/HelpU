@@ -43,10 +43,6 @@
                         <input type="text" id="Bairro_Ong" name="bairro-ong" placeholder="Bairro" required>
                     </div>
                     <div>
-                        <label for="TipoLogadouro">Tipo de Logradouro</label>
-                        <input type="text" id="tipoLogadouro_Ong" name="tipo-logradouro" placeholder="Tipo Logradouro" required>
-                    </div>
-                    <div>
                         <label for="Número">Número</label>
                         <input type="number" id="Número_Ong" name="numero-ong" placeholder="Número" required>
                     </div>

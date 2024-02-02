@@ -1,74 +1,81 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Helpu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helpu</title>
 </head>
 
 <body>
 
-    <header>
-        <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-            <a href="Login.html">Login</a>
-            <a href="Cadastro.html">Cadastro</a>
-        </nav>
-    </header>
+	<header>
+		<div>
 
-    <main>
-        <section>
-            <div>
-                <h1>Fazer uma doação</h1>
-                <p>Para a ONG "Cantinho Inclusivo"</p>
+			<input type="search" placeholder="Pesquisar">
+		</div>
+		<nav>
+			<a href="Login.html">Login</a> <a href="Cadastro.html">Cadastro</a>
+		</nav>
+	</header>
 
-               
-                <form action="Prospota_realizada.html" method="post">
-                    <div>
-                        <label for="nomeUsuario">Nome</label>
-                        <input type="text" id="nomeUsuario" name="Nome" placeholder="Nome">
-                    </div>
-                    <div>
-                        <label for="SobrenomeUsuario">Sobrenome:</label>
-                        <input type="text" id="SobrenomeUsuario" name="Sobrenome" placeholder="Sobrenome">
-                    </div>
-                    <div>
-                        <label for="Celular">Número de Celular:</label>
-                        <input type="tel" id="Celular" name="Celular" placeholder="Celular">
-                    </div>
-                    <div>
-                        <label for="Email">Email</label>
-                        <input type="email" id="Email" name="Email" placeholder="Email">
-                    </div>
-               
+	<main>
+		<section>
+			<div>
+				<h1>Fazer uma doação</h1>
+				<form action="inserir-proposta" method="post">
+					<label>Para a ONG "Cantinho Inclusivo"</label> <label>O que
+						você gostaria de doar?</label>
 
-                    <div>
-                        <div>
-                            <h2>O que você gostaria de doar?</h2>
-                            <h3>Tipo de item</h3>
-                            <ul>
-                                <span id="Item">
-                                    <li>Alimento não perecível</li>
-                                </span>
-                            </ul>
-                          
-                        </div>
-                        <button>Adicionar mais itens</button>
-                    </div>
-                </form>
 
-                <input type="submit" value="Confirmar"></input>
-            </div>
-        </section>
-    </main>
+					<div>
+					<div>
+							<label>Doador</label> 
+							<select name="doador">
+								<c:forEach var="doador" items="${doadores}">
+									<option value="${doador.id}">${doador.nome}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div>
+							<label>Pedido</label> 
+							<select name="pedido">
+								<c:forEach var="pedido" items="${pedidos}">
+									<option value="${pedido.id}">${pedido.titulo}</option>
+								</c:forEach>
+							</select>
+						</div>
+						<div>
+							<label>Item</label> 
+							<select name="alimento">
+								<c:forEach var="alimento" items="${alimentos}">
+									<option value="${alimento.id}">${alimento.nome}</option>
+								</c:forEach>
+							</select>
+						</div>
+
+						<div>
+							<label>Quantidade</label>
+							<input type="text" name="quantidade"  placeholder="Quantidade" required>
+		     
+						</div>
+
+						<div>
+							<label>Validade</label>
+							<input type="date"  name="data-validade" required>	
+						</div>
+					</div>
+
+
+					<input type="submit" value="Confirmar">
+				</form>
+			</div>
+		</section>
+	</main>
 
 </body>
 

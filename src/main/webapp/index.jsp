@@ -18,7 +18,7 @@
                     <input type="search" placeholder="Pesquisar">
                 </div>
                 <nav>
-                    <a href="Login.html">Login</a>
+                    <a href="<%request.getServletContext();%>login">Login</a>
                     <a href="Cadastro.html">Cadastro</a>
                 </nav>
             </div>

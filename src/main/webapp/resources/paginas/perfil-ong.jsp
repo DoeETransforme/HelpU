@@ -12,15 +12,9 @@
 
 </head>
 <body>
+
 	<div>
-		<header>
-			<div>
-				
-				<input type="text" placeholder="Pesquisar">
-			</div>
-	
-				<a href="./login.jsp">Login</a> <a href="./Cadastro.jsp">Cadastro</a>
-		</header>
+		 <%@ include file="menu-ong.jsp"%>
 
 		<main>
 			<section>
@@ -43,6 +37,7 @@
 				</div>
 				<button>Histórico de pedidos</button>
 			</section>
+
 
 			<section>
 				<h1>Atualizações da ONG</h1>

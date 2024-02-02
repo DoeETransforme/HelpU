@@ -16,6 +16,8 @@ public interface PedidoDoacaoDAO {
 
 	void atualizarPedidoDoacao(PedidoDoacao pedidoDoacao);
 	
+	PedidoDoacao recuperarPedidoDoacaoId(Long id);
+	
 	List<PedidoDoacao> recuperarPedidosDoacao();
 
 	List<PedidoDoacao> recuperarPedidoDoacaoOng(Ong ong);
