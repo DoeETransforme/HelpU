@@ -10,18 +10,8 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-            <a href="./Perfil_pessoa.jsp">Minha conta</a>
-        </nav>
-    </header>
-    <main>
+    <%@ include file="menu.jsp"%>
+    
         <div>
             <h1>Editar Pedido de Doação</h1>
         </div>

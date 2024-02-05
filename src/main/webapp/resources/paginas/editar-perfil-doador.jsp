@@ -9,7 +9,7 @@
 </head>
 <body>
 
-        <img src="caminho_da_imagem_de_perfil" alt="Imagem de Perfil">
+       <%@ include file="menu.jsp"%>
 
         <h1>Editar Perfil</h1>
 

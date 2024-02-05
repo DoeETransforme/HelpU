@@ -15,15 +15,7 @@
 
 <body>
 
-	<header>
-		<div>
-			<a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-			<input type="search" placeholder="Pesquisar">
-			<nav>
-				<a href="./login.jsp">Login</a> <a href="./Cadastro.jsp">Cadastro</a>
-			</nav>
-		</div>
-	</header>
+	<%@ include file="menu.jsp"%>
 
 	<main>
 		<div>

@@ -10,17 +10,7 @@
 
     <body>
         <div>
-            <header>
-                <div>
-                    <picture>
-                        <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-                        <input type="search" placeholder="Pesquisar">
-                </div>
-                <nav>
-                    <a href="Login.html">Login</a>
-                    <a href="Cadastro.html">Cadastro</a>
-                </nav>
-            </header>
+   			<%@ include file="menu.jsp"%>
             <main>
                 <h1>Prospota Realizada com sucesso</h1>
                 <p>Você pode conferir o status de sua proposta em "minhas propostas"!</p>

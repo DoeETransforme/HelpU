@@ -9,6 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<%@ include file="menu.jsp"%>
+	
 	<h1>CADASTRAR SEU PEDIDO.</h1>
 		<form action="inserir-pedido" method="post">
 		

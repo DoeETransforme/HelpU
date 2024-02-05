@@ -7,12 +7,8 @@
 <title>HelpU</title>
 </head>
 <body>
-	<head>
-     <nav>
-          <a href="Conquista.html">Conquistas</a>
-          <a href="Minha conta.html">Minha conta</a>
-      </nav>
-</head>
+	<%@ include file="menu.jsp"%>
+	
 <body>
      <h1>Cadastre o Alimento.</h1>
      <form action="inserir-alimento" method="post">

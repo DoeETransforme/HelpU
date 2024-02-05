@@ -9,19 +9,8 @@
     <title>HelpU</title>
 </head>
 <body>
-    <header>
-        <div>
-            <picture>
-               
-                <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-            <a href="./login.jsp">Login</a>
-            <a href="./Cadastro.jsp">Cadastro</a>
-        </nav>
-    </header>
+
+    <%@ include file="menu.jsp"%>
 
     <main>
         <h1>Seu histórico de doações</h1>
