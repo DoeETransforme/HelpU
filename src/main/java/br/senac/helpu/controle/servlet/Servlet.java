@@ -324,6 +324,29 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarDescricaoPedido(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+
+
+		Ong ongRecuperada = ongDAO.recuperarOngId(usuario.getId());
+
+
+
+		//usuarioDAO.inserirUsuario(ong);
+		Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+		PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO, ongRecuperada);
+		pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
+		PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.of(2022, 10, 10),
+				pedido);
+		//doador.addProposta(proposta);
+		usuarioDAO.inserirUsuario(doador);
+		propostaDoacaoDAO.inserirPropostaDoacao(proposta);
+
+
+		PedidoDoacao pedidoRecuperado = pedidoDoacaoDAO.recuperarPedidoDoacaoId(pedido.getId());
+
+		request.setAttribute("pedidoDoacao", pedidoRecuperado);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-pedido.jsp");
 		dispatcher.forward(request, response);
 	}
