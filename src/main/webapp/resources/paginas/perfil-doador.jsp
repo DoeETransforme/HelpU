@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,10 +17,11 @@
 
     <img src="link_da_imagem" alt="Imagem de Perfil">
 
-    <h2><span id="doacoesRealizadas">0</span> doações realizadas</h2>
+    <h2><span id="doacoesRealizadas">0</span> Conquistas realizadas = <c:out value="${conquistas}" /></h2>
     <h2><span id="doacoesFeitas">0</span> doações feitas</h2>
 
-    <h1>Nome do Usuário</h1>
+    <h1>Nome do Usuário:</h1>
+      <p> Nome: <c:out value="${doador.nome}"/></p>
 
     <button onclick="exibirHistorico()">Histórico de Doações</button>
     <button onclick="exibirConquistas()">Exibir Conquistas</button>
