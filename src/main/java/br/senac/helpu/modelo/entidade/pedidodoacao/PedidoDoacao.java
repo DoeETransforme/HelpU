@@ -48,9 +48,7 @@ public class PedidoDoacao implements Serializable {
 	private StatusPedido statuspedido;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-
 	@JoinColumn(name = "id_ong", nullable = false, unique = false)
-
 	private Ong ong;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidoDoacao", cascade = CascadeType.ALL, orphanRemoval = true)

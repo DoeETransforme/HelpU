@@ -677,9 +677,13 @@ public class Servlet extends HttpServlet {
 
 	private void inserirPedidoDoacao(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-
-		Item item = null;
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		
+		Ong ong = ongDAO.recuperarOngId(usuario.getId());
 		PedidoDoacao pedidoDoacao = null;
+		Item item = null;
+		
 
 		String titulo = request.getParameter("titulo");
 		String descricao = request.getParameter("descricao");
@@ -687,7 +691,7 @@ public class Servlet extends HttpServlet {
 		String quantidade = request.getParameter("quantidade");
 		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
 
-		pedidoDoacao = new PedidoDoacao(titulo, descricao, data, StatusPedido.ATIVO);
+		pedidoDoacao = new PedidoDoacao(titulo, descricao, data, StatusPedido.ATIVO, ong);
 		item = new Item(quantidade, alimentos, pedidoDoacao);
 
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedidoDoacao);
