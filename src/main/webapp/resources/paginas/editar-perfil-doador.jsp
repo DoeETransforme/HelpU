@@ -9,20 +9,6 @@
 </head>
 <body>
 
-    <header>
-        <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-           <a href="./login.jsp">Login</a>
-            <a href="./Cadastro.jsp">Cadastro</a>
-        </nav>
-    </header>
-
-    <div>
         <img src="caminho_da_imagem_de_perfil" alt="Imagem de Perfil">
 
         <h1>Editar Perfil</h1>
@@ -40,11 +26,19 @@
                 <label for="editarCelular">Editar Número de Celular:</label>
                 <input type="tel" id="editarCelularPF" name="celular" placeholder="Número Atual do Usuário">
             </div>
+             <div>
+                <label for="editarCpf">Editar Cpf:</label>
+                <input type="text"  name="cpf" >
+            </div>
+             <div>
+                <label for="editarDataNascimento">Editar Data Nascimento:</label>
+                <input type="date"  name="data-nascimento" placeholder="Digite o Cpf">
+            </div>
             <div>
                 <label for="editarSenha">Editar Senha:</label>
                 <input type="password" id="editarSenhaPF" name="senha" placeholder="Nova Senha">
             </div>
-                </div>
+ 
 
                 <input type="submit" value="Salvar edições "></input>
         </form>

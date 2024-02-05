@@ -694,13 +694,17 @@ public class Servlet extends HttpServlet {
 		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
 
 		String nome = request.getParameter("nome");
+		String senha = request.getParameter("senha");
+		LocalDate data = LocalDate.parse(request.getParameter("data-nascimento"));
+		String cpf = request.getParameter("cpf");
 		String email = request.getParameter("email");
 		String celular = request.getParameter("celular");
-		String senha = request.getParameter("senha");
-
+		
 		System.out.println(nome);
 		doador.setNome(nome);
 		doador.setSenha(senha);
+		doador.setData(data);
+		doador.setCpf(cpf);
 		contato.setCelular(celular);
 		contato.setEmail(email);
 
