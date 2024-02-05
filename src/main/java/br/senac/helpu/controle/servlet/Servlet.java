@@ -689,7 +689,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		Usuario usuario = (Usuario) session.getAttribute("doador");
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
 
