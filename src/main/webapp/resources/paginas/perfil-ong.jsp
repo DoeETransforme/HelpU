@@ -1,6 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
 
 
 <!DOCTYPE html>
@@ -14,57 +15,67 @@
 <body>
 
 	<div>
-		 <%@ include file="menu-ong.jsp"%>
+		<%@ include file="menu-ong.jsp"%>
 
 		<main>
 			<section>
 				<div>
-					
+
 					<img src="imagem.com" alt="foto de perfil da ong">
 				</div>
 			</section>
 			<section>
 				<div>
 					<h1>Contatos</h1>
-					
-					
 
-					<p> <strong>Telefone:</strong> <c:out value="${contato.celular}" /></p>
-					<p> <strong>Email:</strong> <c:out value="${ong.cnpj}" /> </p>
-	
-					
+
+
+					<p>
+						<strong>Telefone:</strong>
+						<c:out value="${contato.celular}" />
+					</p>
+					<p>
+						<strong>Email:</strong>
+						<c:out value="${contato.email}" />
+					</p>
+
+
 
 				</div>
-				<button>Histórico de pedidos</button>
+
+
+					<a href="<%=request.getContextPath()%>/historico-pedidos"> <button>Historico de pedidos  </button></a>
+
 			</section>
 
 
 			<section>
+
 				<h1>Atualizações da ONG</h1>
-				<div>
+
+				<c:forEach var="pedidos" items="${pedidos}">
+
 					<div>
-						<img src="imagem.com" alt="ajudando uma criança">
 						<h2>
-							<a href="#">Cantilho inclusao atualizou uma campanha</a>
+							Doações para: <span id="Nome_Ong"><c:out
+									value="${pedidos.ong.nome}" /> </span>
 						</h2>
+							<h3>Titulo: <span id="titulo-pedido-perfil">${pedidos.titulo}</span></h3>
+						<h3>
+							Status: <span id="Status_Ong"><c:out
+									value="${pedidos.statusPedido}" /> </span>
+						</h3>
 						<p>
-							You say potato, I say starchy carbs. A vida é uma sucessão de
-							sucessivos que sucedem sucessivamente sem ce. <a href="#">Leia
-								mais</a>
+							Descrição do pedido:
+							<c:out value="${pedidos.descricao}" />
 						</p>
+						<img src="" alt="imagem de perfil da ong">
 					</div>
-					<div>
-						<img src="imagem.com" alt="doação de comida">
-						<h2>
-							<a href="#">Cantinho inclusao finalizou uma campanha</a>
-						</h2>
-						<p>
-							You say potato, I say starchy carbs. A vida é uma sucessão de
-							sucessivos que sucedem sucessivamente sem ce. <a href="#">Leia
-								mais</a>
-						</p>
-					</div>
-				</div>
+
+				</c:forEach>
+
+
+
 			</section>
 		</main>
 	</div>

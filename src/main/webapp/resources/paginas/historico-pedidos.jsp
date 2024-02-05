@@ -38,6 +38,7 @@
 							<h2>
 								Doações para <span id="Nome_Ong">${pedidos.ong.nome}</span>
 							</h2>
+							<h3>Titulo: <span id="titulo-pedido">${pedidos.titulo}</span></h3>
 							<h3>
 								Status: <span id="Status_Ong">${pedidos.statusPedido}</span>
 							</h3>

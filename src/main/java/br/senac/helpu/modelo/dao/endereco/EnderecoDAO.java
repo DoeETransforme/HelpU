@@ -1,8 +1,7 @@
 package br.senac.helpu.modelo.dao.endereco;
 
-import java.util.List;
-
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
+import br.senac.helpu.modelo.entidade.ong.Ong;
 
 public interface EnderecoDAO {
 	void inserirEndereco(Endereco endereco);
@@ -12,5 +11,6 @@ public interface EnderecoDAO {
 	void atualizarEndereco(Endereco endereco);
 	
 	Endereco recuperarEnderecoId(Long id);
+	Endereco RecuperarEnderecoPorOng( Ong ong);
 
 }

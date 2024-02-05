@@ -327,20 +327,32 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Ong) {
+			
+			Ong ong = (Ong) usuario;
 		
-			Ong ong = new Ong("amiguinho", "1234", "varioscnpj");
-			usuarioDAO.inserirUsuario(ong);
-			Endereco endereco = new Endereco("ama", "bairro da paz", 10, "blumenau", "AM", "cepbolado", ong);
-			enderecoDAO.inserirEndereco(endereco);
-			Contato contato = new Contato("213123", "email@bolado", ong);
-			contatoDAO.inserirContato(contato);
-	
+//			Ong ong = new Ong("amiguinho", "1234", "varioscnpj");
+//			usuarioDAO.inserirUsuario(ong);
+//			Endereco endereco = new Endereco("ama", "bairro da paz", 10, "blumenau", "AM", "cepbolado", ong);
+//			enderecoDAO.inserirEndereco(endereco);
+//			Contato contato = new Contato("213123", "email@bolado", ong);
+//			contatoDAO.inserirContato(contato);
+			
+			
+//	
 			Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(ong);
-	
 			Ong ongRecuperada = ongDAO.recuperarOngPorIdFetch(ong.getId());
-	
-			request.setAttribute("ong", ongRecuperada);
+			Endereco enderecoRecuperado = enderecoDAO.RecuperarEnderecoPorOng(ong);
+			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
+			
+			
+			
+			
+			request.setAttribute("pedidos", pedidos);
+			request.setAttribute("ong", ong);
 			request.setAttribute("contato", contatoRecuperado);
+			request.setAttribute("endereco", enderecoRecuperado);
+			
+			
 	
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
 			dispatcher.forward(request, response);
@@ -556,18 +568,19 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Ong) {
+			
+			Ong ong = (Ong)usuario;
 
-		Ong ong = new Ong("amiguinhos", "123455", "2313123");
-			usuarioDAO.inserirUsuario(ong);
-			PedidoDoacao pedido = new PedidoDoacao("pedidodaong", "descrição", LocalDate.now(), StatusPedido.ATIVO, ong);
-			PedidoDoacao pedido2 = new PedidoDoacao("terceiropedido", "descrição3", LocalDate.now(), StatusPedido.ATIVO,
-					ong);
-			PedidoDoacao pedido3 = new PedidoDoacao("segundopedido", "descrição2", LocalDate.now(), StatusPedido.ATIVO,
-					ong);
+//		
+//			PedidoDoacao pedido = new PedidoDoacao("pedidodaong", "descrição", LocalDate.now(), StatusPedido.ATIVO, ong);
+//			PedidoDoacao pedido2 = new PedidoDoacao("terceiropedido", "descrição3", LocalDate.now(), StatusPedido.ATIVO,
+//					ong);
+//			PedidoDoacao pedido3 = new PedidoDoacao("segundopedido", "descrição2", LocalDate.now(), StatusPedido.ATIVO,
+//					ong);
 	
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido3);
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido2);
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
+//			pedidoDoacaoDAO.inserirPedidoDoacao(pedido3);
+//			pedidoDoacaoDAO.inserirPedidoDoacao(pedido2);
+//			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
 	
 			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
 	
