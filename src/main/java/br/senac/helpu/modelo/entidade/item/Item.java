@@ -64,16 +64,17 @@ public class Item implements Serializable {
 		setAlimento(alimento);
 		setPedidoDoacao(pedido);
 	}
-	public Item(Long id, String quantidade, Alimento alimento, PropostaDoacao proposta) {
-		setId(id);
+	public Item( String quantidade, Alimento alimento, PropostaDoacao proposta) {
+		
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 		setPropostaDoacao(proposta);
 	}
-	public Item(String quantidade, Alimento alimento, PropostaDoacao proposta) {
+	public Item(String quantidade, Alimento alimento, PropostaDoacao proposta, PedidoDoacao pedido) {
 		setQuantidade(quantidade);
 		setAlimento(alimento);
 		setPropostaDoacao(proposta);
+		setPedidoDoacao(pedido);
 	}
 	public Item(String quantidade, Alimento alimento, PedidoDoacao pedido) {
 		setQuantidade(quantidade);
@@ -138,6 +139,7 @@ public class Item implements Serializable {
 	public void setPropostaDoacao(PropostaDoacao propostaDoacao) {
 		this.propostaDoacao = propostaDoacao;
 	}
+	
  
 }
 
