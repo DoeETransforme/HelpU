@@ -435,6 +435,26 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPropostasAnalise(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Ong ong = new Ong("amiguinho" , "38947612", "49378794");
+
+		usuarioDAO.inserirUsuario(ong);
+		Doador doador = new Doador( "eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+		PedidoDoacao pedido = new PedidoDoacao("pedidopedido","descricao", LocalDate.now(), StatusPedido.ATIVO, ong);
+		pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
+		PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.of(2022, 10, 10),pedido);
+		doador.addProposta(proposta);
+		usuarioDAO.inserirUsuario(doador);
+		propostaDoacaoDAO.inserirPropostaDoacao(proposta);
+
+
+
+
+		List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong, StatusProposta.ANALISE);
+
+
+		request.setAttribute("propostaDoacao", propostasDoacoes);
+		request.setAttribute("ong", ong);
+		request.setAttribute("doador", doador);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-analise.jsp");
 		dispatcher.forward(request, response);
