@@ -11,9 +11,9 @@
 
     <header>
         <div>
-            <picture>
+       
                 <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
-            </picture>
+          
             <input type="search" placeholder="Pesquisar">
         </div>
         <nav>
@@ -22,7 +22,7 @@
         </nav>
     </header>
 
-    <div>
+ 
         <img src="caminho_da_imagem_de_perfil" alt="Imagem de Perfil">
 
         <h1>Editar Perfil</h1>
@@ -44,8 +44,7 @@
                 <label for="editarSenha">Editar Senha:</label>
                 <input type="password" id="editarSenhaPF" name="senha" placeholder="Nova Senha">
             </div>
-                </div>
-
+             
                 <input type="submit" value="Salvar edições "></input>
         </form>
 
