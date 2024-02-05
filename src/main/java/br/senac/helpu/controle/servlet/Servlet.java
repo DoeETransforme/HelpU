@@ -23,18 +23,14 @@ import br.senac.helpu.modelo.dao.doador.DoadorDAO;
 import br.senac.helpu.modelo.dao.doador.DoadorDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
-
 import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
-
 import br.senac.helpu.modelo.dao.ong.OngDAO;
 import br.senac.helpu.modelo.dao.ong.OngDAOImpl;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAO;
 import br.senac.helpu.modelo.dao.pedidodoacao.PedidoDoacaoDAOImpl;
-
 import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAO;
 import br.senac.helpu.modelo.dao.propostadoacao.PropostaDoacaoDAOImpl;
-
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAO;
 import br.senac.helpu.modelo.dao.usuario.UsuarioDAOImpl;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
@@ -45,9 +41,6 @@ import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
-
-import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
-
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
@@ -104,6 +97,11 @@ public class Servlet extends HttpServlet {
 			case "/confirmar-login":
 				confirmarLogin(request, response);
 				break;
+			case "/validar-proposta":
+				validarProposta(request, response);
+				
+			case "/invalidar-proposta":
+				validarProposta(request, response);
 
 			case "/perfil-doador":
 				mostrarPerfilDoador(request, response);
@@ -256,6 +254,17 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
+	private void validarProposta(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./Propostas-analise.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	private void invalidarProposta(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./Propostas-analise.jsp");
+		dispatcher.forward(request, response);
+	}
+
 	private void mostrarIndex(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./index.jsp");
@@ -272,7 +281,7 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		Conquista conquista = new Conquista("50 doações", "faça 50 doações");
 		conquistaDAO.inserirConquista(conquista);
-		Doador doador  = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
+		Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
 		Contato contato = new Contato("3123123", "email@bolado", doador);
 		doador.addConquista(conquista);
 		usuarioDAO.inserirUsuario(doador);
@@ -280,7 +289,7 @@ public class Servlet extends HttpServlet {
 		Long id = doador.getId();
 		Doador doadorRecuperado = doadorDAO.recuperarDoadorId(id);
 		Long quantidade = conquistaDAO.recuperarQuantidadeConquistaDoador(doadorRecuperado);
-		
+
 		request.setAttribute("doador", doadorRecuperado);
 		request.setAttribute("conquistas", quantidade);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
@@ -311,6 +320,31 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarAvaliarProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		Alimento alimento = new Alimento("arroz", LocalDate.now());
+		alimentoDAO.inserirAlimento(alimento);
+		Ong ong = new Ong("nomebolado", "senhabolada", "23123");
+		usuarioDAO.inserirUsuario(ong);
+		Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
+		usuarioDAO.inserirUsuario(doador);
+		Contato contato = new Contato("3123123", "email@bolado", doador);
+		contatoDAO.inserirContato(contato);
+		PedidoDoacao pedido = new PedidoDoacao("titulobolado", "descricaobolada", LocalDate.now(), StatusPedido.ATIVO,
+				ong);
+		pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
+		PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.now(), pedido);
+		propostaDoacaoDAO.inserirPropostaDoacao(proposta);
+		Item item = new Item("10KG", alimento, proposta, pedido);
+		itemDAO.inserirItem(item);
+
+		usuarioDAO.inserirUsuario(doador);
+		contatoDAO.inserirContato(contato);
+
+		Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(doador);
+		Item itemRecuperado = itemDAO.recuperarItemPorProposta(proposta);
+		request.setAttribute("itemRecuperado", itemRecuperado);
+		request.setAttribute("contatoRecuperado", contatoRecuperado);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/avaliar-proposta.jsp");
 		dispatcher.forward(request, response);
 	}
