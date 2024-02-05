@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,12 +27,13 @@
 
     <main>
         <div>
-            <h1>
-                <id="titulo_pedido">Doações para Crianças PCDs</id>
-            </h1>
+           <h1>Titulo: </h1>
+               <p> <c:out value="${pedidoDoacao.titulo}"/> </p>
+                
+           
             <img src="Imagem.png" alt="" id="capa_pedido">
             <img src="" alt="" class="ImagemPerfil_PF">
-            <p>Por <span id="NomeCompletoOng">Cantinho Inclusão</span></p>
+            <p>Por <span id="NomeCompletoOng"> <c:out value="${pedidoDoacao.ong.nome}" /> </span></p>
         </div>
         <div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

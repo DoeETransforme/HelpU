@@ -134,6 +134,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedidoDoacao = criteria.from(PedidoDoacao.class);
+			raizPedidoDoacao.fetch("ong", JoinType.LEFT);
 
 			criteria.select(raizPedidoDoacao);
 
