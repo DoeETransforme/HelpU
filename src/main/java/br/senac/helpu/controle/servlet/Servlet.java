@@ -875,7 +875,8 @@ public class Servlet extends HttpServlet {
 
 		propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doador, data, pedidosDoacao);
 		item = new Item(quantidade, alimentos, propostaDoacao);
-
+		
+		propostaDoacao.addItem(item);
 		propostaDoacaoDAO.inserirPropostaDoacao(propostaDoacao);
 		itemDAO.inserirItem(item);
 
