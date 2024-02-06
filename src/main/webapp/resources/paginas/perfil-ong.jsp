@@ -1,6 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
 
 
 <!DOCTYPE html>
@@ -14,31 +15,36 @@
 <body>
 
 	<div>
-		 <%@ include file="menu.jsp"%>
+	<c:choose>
+<c:when test="${tipoUsuario == 2}">
+
+		<%@ include file="menu.jsp"%>
+		
+</c:when>
+</c:choose>
 
 		<main>
 			<section>
 				<div>
-					
+
 					<img src="imagem.com" alt="foto de perfil da ong">
 				</div>
 			</section>
 			<section>
 				<div>
 					<h1>Contatos</h1>
-					
-					
-
-					<p> <strong>Telefone:</strong> <c:out value="${contato.celular}" /></p>
-					<p> <strong>Email:</strong> <c:out value="${ong.cnpj}" /> </p>
-	
-					
+					<p>
+						<strong>Telefone:</strong>
+						<c:out value="${contato.celular}" />
+					</p>
+					<p>
+						<strong>Email:</strong>
+						<c:out value="${ong.cnpj}" />
+					</p>
 
 				</div>
 				<button>Histórico de pedidos</button>
 			</section>
-
-
 			<section>
 				<h1>Atualizações da ONG</h1>
 				<div>
