@@ -21,13 +21,13 @@
 						Alimento: <span id="nome_alimento">${alimentos.nome}</span><br>
 										
 						Data: <span id="data_alimento">${alimentos.dataValidade}</span>
+					</p>
 					<form action="editar-alimento" method="post">
                         <input type="submit" name="editar" id="EditarAlimento" value="Editar">
                     </form>
                     <form action="excluir-alimento" method="post">
                         <input type="submit" name="excluir" id="ExcluirAlimento" value="Excluir">
                     </form>
-					</p>
 				</div>
 			</c:forEach>
 
