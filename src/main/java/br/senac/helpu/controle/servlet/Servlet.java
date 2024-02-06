@@ -204,6 +204,10 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
+				
+			case "/mostrar-alimentos":
+				mostrarAlimentos(request, response);
+				break;
 
 			case "/inserir-doador":
 				inserirDoador(request, response);
@@ -916,8 +920,8 @@ public class Servlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		Alimento alimento = null;
 
-		String nome = request.getParameter("nome-alimento");
-		LocalDate data = LocalDate.parse(request.getParameter("data-validade"));
+		String nome = request.getParameter("nome");
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
 
 		alimento = new Alimento(nome, data);
 
@@ -1049,5 +1053,15 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("confirmar-exclusao");
 		}
 
+	}
+	
+	private void mostrarAlimentos(HttpServletRequest request, HttpServletResponse response)
+				throws ServletException, IOException {
+		
+		List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
+		request.setAttribute("alimentos", alimentos);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/mostrar-alimentos.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 }
