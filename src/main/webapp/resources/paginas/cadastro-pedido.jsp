@@ -27,7 +27,8 @@
 			 </select>
 			 
     	  	 <input type="text" name="quantidade"  placeholder="Quantidade" required>
-		     <input type="date"  name="data-validade" required>		     
+		     <input type="date"  name="data-validade" required>	
+		     <input type="text"  name="meta-doacoes" placeholder="Meta de Doações" required>		     
 		     <button type="submit" >Cadastro</button>
 	    </form>
 </body>
