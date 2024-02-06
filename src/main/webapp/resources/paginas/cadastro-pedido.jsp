@@ -10,7 +10,13 @@
 </head>
 <body>
 
-	<%@ include file="menu.jsp"%>
+	<c:choose>
+<c:when test="${tipoUsuario == 2}">
+ 
+		<%@ include file="menu.jsp"%>
+		
+</c:when>
+</c:choose>
 	
 	<h1>CADASTRAR SEU PEDIDO.</h1>
 		<form action="inserir-pedido" method="post">
