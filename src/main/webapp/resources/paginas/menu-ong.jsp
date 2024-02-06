@@ -8,8 +8,9 @@
 					<a href="<%=request.getContextPath()%>/editar-perfil-ong">Editar Conta</a>
 					<a href="<%=request.getContextPath()%>/desativar-conta">Desativar conta</a>
 					<a href="<%=request.getContextPath()%>/cadastro-pedido">cadastrar um pedido</a>
-					<a href="<%=request.getContextPath()%>/historico-pedido">Historico de pedido</a>
-						<a href="<%=request.getContextPath()%>/propostas-analise">Proposta em Análise</a>
+					<a href="<%=request.getContextPath()%>/historico-pedidos">Historico de pedido</a>
+					<a href="<%=request.getContextPath()%>/propostas-analise">Proposta em Análise</a>
+						<a href="<%=request.getContextPath()%>/cadastro-alimento">Cadastro Alimento</a>
 					<a href="<%=request.getContextPath()%>/logout">Sair</a>
 					
 				</div>
