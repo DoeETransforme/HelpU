@@ -12,8 +12,8 @@
 <body>
      <h1>Cadastre o Alimento.</h1>
      <form action="inserir-alimento" method="post">
-	     <input type="text" name="nome-alimento"  placeholder="Nome do alimento" required>
-	     <input type="date" name="data-validade" required>
+	     <input type="text" name="nome"  placeholder="Nome do alimento" required>
+	     <input type="date" name="data" required>
 	     <button type="submit" >Cadastro</button>
 	 </form>
 </body>
