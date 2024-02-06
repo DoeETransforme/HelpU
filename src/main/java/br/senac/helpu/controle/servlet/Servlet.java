@@ -858,19 +858,25 @@ public class Servlet extends HttpServlet {
 
 	private void inserirPropostaDoacao(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
+		
+		HttpSession session = request.getSession();
+		Usuario usuario = (Doador) session.getAttribute("usuario");
+		
+		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+		
 		Item item = null;
 		PropostaDoacao propostaDoacao = null;
 
 		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
-		Doador doadores = doadorDAO.recuperarDoadorId(Long.parseLong(request.getParameter("doador")));
 		PedidoDoacao pedidosDoacao = pedidoDoacaoDAO
 				.recuperarPedidoDoacaoId(Long.parseLong(request.getParameter("pedido")));
 		String quantidade = request.getParameter("quantidade");
 		LocalDate data = LocalDate.parse(request.getParameter("data-validade"));
 
-		propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doadores, data, pedidosDoacao);
+		propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doador, data, pedidosDoacao);
 		item = new Item(quantidade, alimentos, propostaDoacao);
-
+		
+		propostaDoacao.addItem(item);
 		propostaDoacaoDAO.inserirPropostaDoacao(propostaDoacao);
 		itemDAO.inserirItem(item);
 
