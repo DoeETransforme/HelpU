@@ -33,14 +33,6 @@
 
 
 					<div>
-					<div>
-							<label>Doador</label> 
-							<select name="doador">
-								<c:forEach var="doador" items="${doadores}">
-									<option value="${doador.id}">${doador.nome}</option>
-								</c:forEach>
-							</select>
-						</div>
 						<div>
 							<label>Pedido</label> 
 							<select name="pedido">
