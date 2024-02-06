@@ -14,7 +14,7 @@
 <body>
 
 	<div>
-		 <%@ include file="menu-ong.jsp"%>
+		 <%@ include file="menu.jsp"%>
 
 		<main>
 			<section>

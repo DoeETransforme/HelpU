@@ -10,19 +10,7 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="caminho/para/sua/imagem.jpg" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-           <a href="./login.jsp">Login</a>
-            <a href="./cadastro.jsp">Cadastro</a>
-        </nav>
-
-    </header>
+    <%@ include file="menu.jsp"%>
 
     <main>
 

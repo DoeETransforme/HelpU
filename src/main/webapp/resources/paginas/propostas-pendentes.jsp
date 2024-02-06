@@ -8,17 +8,9 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-            <a href="Minha Conta.html">Minha conta</a>
-        </nav>
-    </header>
+
+    <%@ include file="menu.jsp"%>
+    
     <main>
         <div>
             <div>

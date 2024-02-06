@@ -6,14 +6,9 @@
     <title>HelpU</title>
 </head>
 <body>
-    <header>
-        <div>
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-            <a href="Perfil_ONG.html">Minha conta</a>
-        </nav>
-    </header>
+
+    <%@ include file="menu.jsp"%>
+    
     <main>
         <form action="inserir-conquista" method="post">
             <div>

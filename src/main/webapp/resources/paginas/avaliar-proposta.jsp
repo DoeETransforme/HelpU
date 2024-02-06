@@ -10,19 +10,7 @@
 </head>
 <body>
 
-    <header>
-        <div>
-            
-                <a href="Pagina_I nicial.html"><img src="logo-imagem.com" alt="Logo"></a>
-        
-            <input type="search" placeholder="Pesquisar">
-        </div>
-        <nav>
-            <a href="./login.jsp">Login</a>
-            <a href="./Cadastro.jsp">Cadastro</a>
-        </nav>
-    </header>
-
+    <%@ include file="menu.jsp"%>
 
     <main>
 

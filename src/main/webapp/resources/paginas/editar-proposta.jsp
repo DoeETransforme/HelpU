@@ -7,6 +7,9 @@
     <title>HelpU</title>
 </head>
 <body>
+
+	<%@ include file="menu.jsp"%>
+
     <main>
         <form action="" method="post">
             <DIV>

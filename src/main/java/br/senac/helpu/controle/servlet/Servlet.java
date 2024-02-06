@@ -81,6 +81,18 @@ public class Servlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		
+		if (sessao.getAttribute("usuario") instanceof Doador) {
+			String tipoUsuario = "1";
+			request.setAttribute("tipoUsuario", tipoUsuario);
+		}
+
+		else if (sessao.getAttribute("usuario") instanceof Ong) {
+			String tipoUsuario = "2";
+			request.setAttribute("tipoUsuario", tipoUsuario);
+		}
 
 		String action = request.getServletPath();
 

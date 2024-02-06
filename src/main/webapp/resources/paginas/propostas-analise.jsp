@@ -11,19 +11,7 @@
 <title>Helpu</title>
 </head>
 <body>
-	<header>
-		<div>
-			<div>
-
-				<a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-
-				<input type="search" placeholder="Pesquisar">
-			</div>
-			<nav>
-				<a href="./Perfil_pessoa.jsp">Minha conta</a>
-			</nav>
-		</div>
-	</header>
+	<%@ include file="menu.jsp"%>
 
 	<main>
 		<div>
