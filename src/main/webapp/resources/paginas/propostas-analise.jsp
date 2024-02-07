@@ -18,16 +18,22 @@
 			<h1>Propostas em Análise.</h1>
 			<c:forEach var="propostaDoacao" items="${propostaDoacao}">
 				<div>
-					<h2>
-						Doação para: <span id="Nome_Ong">${propostaDoacao.pedidoDoacao.ong.nome}</span>
-					</h2>
-					<p>
-						Por: <span id="nomeUsuario">${propostaDoacao.doador.nome}</span>
-					</p>
-					<p>
-						Status: <span>${propostaDoacao.statusProposta}</span>
-					</p>
+					<a href="<%=request.getContextPath()%>/avaliar-proposta">
+
+
+						<h2>
+							Doação para: <span id="Nome_Ong">${propostaDoacao.pedidoDoacao.ong.nome}</span>
+						</h2>
+						<p>
+							Por: <span id="nomeUsuario">${propostaDoacao.doador.nome}</span>
+						</p>
+						<p>
+							Status: <span>${propostaDoacao.statusProposta}</span>
+						</p>
+
+					</a>
 				</div>
+
 			</c:forEach>
 
 		</div>

@@ -8,8 +8,11 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 
+import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.endereco.Endereco_;
+import br.senac.helpu.modelo.entidade.ong.Ong;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
 public class EnderecoDAOImpl implements EnderecoDAO {
@@ -149,6 +152,43 @@ public class EnderecoDAOImpl implements EnderecoDAO {
 			return enderecoRecuperado;
  
 		}
+
+
+		@Override
+		public Endereco RecuperarEnderecoPorOng(Ong ong) {
+			
+				Session sessao = null;
+				Endereco endereco = null;
+				
+				try {
+					sessao = fabrica.getConexao().openSession();
+			        sessao.beginTransaction();
+
+			        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			        CriteriaQuery<Endereco> criteria = construtor.createQuery(Endereco.class);
+			        Root<Endereco> raizEndereco = criteria.from(Endereco.class);
+
+			        criteria.select(raizEndereco);
+			        criteria.where(construtor.equal(raizEndereco.get("ong"), ong));
+
+			        endereco = sessao.createQuery(criteria).getSingleResult();
+
+			        sessao.getTransaction().commit();
+					
+				}catch(Exception sqlException) {
+					sqlException.printStackTrace();
+					
+					if(sessao.getTransaction() != null) {
+						sessao.getTransaction().rollback();
+					}
+				}finally {
+					if(sessao != null) {
+						sessao.close();
+					}
+					
+				}
+				return endereco;
+			}
 			
 	}
 	 
