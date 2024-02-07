@@ -592,7 +592,94 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	    }
 	    
 	    return propostas;
-	}}
+	}
+	
+
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoStatusFetch(StatusProposta statusProposta) {
+	    Session sessao = null;
+	    List<PropostaDoacao> propostas = null;
+	    
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+	        
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        
+	        CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+	        
+	        Root<PropostaDoacao> raizProposta = criteria.from(PropostaDoacao.class);
+	        raizProposta.fetch("pedidoDoacao", JoinType.LEFT).fetch("ong" , JoinType.LEFT);
+	        raizProposta.fetch("doador", JoinType.LEFT);
+	        Join<PropostaDoacao, PedidoDoacao> juncaoPedido = raizProposta.join(PropostaDoacao_.pedidoDoacao);
+	        
+	        criteria.select(raizProposta);
+	        
+	        criteria.where(
+	            construtor.equal(raizProposta.get(PropostaDoacao_.statusProposta), statusProposta)
+	        );
+	        
+	        propostas = sessao.createQuery(criteria).getResultList();
+	        sessao.getTransaction().commit();
+	        
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+	        
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    
+	    return propostas;
+	}
+
+	
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusFetch(Doador doador, StatusProposta statusProposta) {
+	    Session sessao = null;
+	    List<PropostaDoacao> propostas = null;
+	    
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+	        
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        
+	        CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+	        
+	        Root<PropostaDoacao> raizProposta = criteria.from(PropostaDoacao.class);
+	        raizProposta.fetch("pedidoDoacao", JoinType.LEFT).fetch("ong" , JoinType.LEFT);
+	        raizProposta.fetch("doador", JoinType.LEFT);
+	        Join<PropostaDoacao, PedidoDoacao> juncaoPedido = raizProposta.join(PropostaDoacao_.pedidoDoacao);
+	        
+	        criteria.select(raizProposta);
+	        
+	        criteria.where(
+	            construtor.equal(raizProposta.get(PropostaDoacao_.statusProposta), statusProposta),
+	            construtor.equal(raizProposta.get(PropostaDoacao_.doador), doador)
+	        );
+	        
+	        propostas = sessao.createQuery(criteria).getResultList();
+	        sessao.getTransaction().commit();
+	        
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+	        
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    
+	    return propostas;
+	}
+
+}
 	
 
 
