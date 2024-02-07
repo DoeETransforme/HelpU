@@ -29,4 +29,5 @@ public interface PedidoDoacaoDAO {
 	List<PedidoDoacao> recuperarPedidoDoacaoOngStatus(Ong ong, StatusPedido status);
 
 	List<PedidoDoacao> recuperarPedidoDoacaoOngStatusIntervalo(Ong ong, StatusPedido status,LocalDate datainicial, LocalDate datafinal);
+	List<PedidoDoacao> recuperarPedidoDoacaoMaisRecentes();
 }

@@ -388,6 +388,37 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		}
 		return pedidos;
 	}
+	public List<PedidoDoacao> recuperarPedidoDoacaoMaisRecentes() {
+	    Session sessao = null;
+	    List<PedidoDoacao> pedidos = null;
+
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
+	        Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
+
+	        criteria.select(raizPedido);
+	        criteria.orderBy(construtor.desc(raizPedido.get("data")));
+
+	        pedidos = sessao.createQuery(criteria).getResultList();
+
+	        sessao.getTransaction().commit();
+
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    return pedidos;
+	}
 
 
 }

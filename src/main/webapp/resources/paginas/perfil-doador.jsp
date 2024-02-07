@@ -17,11 +17,11 @@
 
     <img src="link_da_imagem" alt="Imagem de Perfil">
 
-    <h2><span id="doacoesRealizadas">0</span> Conquistas realizadas = <c:out value="${conquistas}" /></h2>
-    <h2><span id="doacoesFeitas">0</span> doações feitas</h2>
+    <h2><span id="doacoesRealizadas"></span> Conquistas realizadas = <c:out value="${conquistas}" /></h2>
+    <h2><span id="doacoesFeitas"></span> doações feitas = </h2>
 
-    <h1>Nome do Usuário:</h1>
-      <p> Nome: <c:out value="${doador.nome}"/></p>
+    <h1>Nome do Usuário:<c:out value="${doador.nome}"/></h1>
+     
 
     <button onclick="exibirHistorico()">Histórico de Doações</button>
     <button onclick="exibirConquistas()">Exibir Conquistas</button>
