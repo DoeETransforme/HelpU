@@ -13,7 +13,13 @@
 </head>
 
 <body>
-	<%@ include file="menu.jsp"%>
+	<c:choose>
+<c:when test="${tipoUsuario == 2}">
+ 
+		<%@ include file="menu.jsp"%>
+		
+</c:when>
+</c:choose>
 
 	<main>
 		<div>
