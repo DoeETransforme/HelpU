@@ -3,6 +3,7 @@ package br.senac.helpu.modelo.dao.item;
 import java.util.List;
 
 import br.senac.helpu.modelo.entidade.item.Item;
+import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 
 public interface ItemDAO {
@@ -14,6 +15,8 @@ public interface ItemDAO {
 	void atualizarItem(Item item);
 
 	Item recuperarItemPorProposta(PropostaDoacao propostaDoacao);
+	
+	Item recuperarItemPorPedido(PedidoDoacao pedidoDoacao);
 
 	List<Item> recuperarItem();
 
