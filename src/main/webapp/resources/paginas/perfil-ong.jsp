@@ -39,7 +39,7 @@
 					</p>
 					<p>
 						<strong>Email:</strong>
-						<c:out value="${ong.cnpj}" />
+						<c:out value="${contato.email}" />
 					</p>
 
 				</div>

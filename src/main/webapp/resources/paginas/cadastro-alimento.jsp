@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>HelpU</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<%@ include file="menu.jsp"%>
