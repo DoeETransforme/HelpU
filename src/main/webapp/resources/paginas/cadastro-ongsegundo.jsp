@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -14,40 +15,47 @@
 
     </header>
     <main>
-        <h1>Endereço</h1>
+        <div class="titulo">
+            <h1>Cadastro ONG</h1>
+            <p>Endereço</p>
+        </div>
+        <div class="header"> 
+            <p>Login</p>
+            <img src="../imagens/logo final.png" alt="imagem da ong">
+        </div>
         <div>
-            <form action="inserir-endereco-ong" method="post">
+            <form action="inserir-endereco-ong" method="post" class="forms">
                 <div>
                     <div>
-                        <label for="Cidade">Cidade</label>
-                        <input type="text" id="Cidade_Ong" name="cidade-ong" placeholder="Cidade" required>
+                        
+                        <input type="text" id="Cidade_Ong" name="cidade-ong" placeholder="Cidade" required class="padrao-input">
                     </div>
                     <div>
-                        <label for="CEP">CEP</label>
-                        <input type="text" id="CEP_ONG" name="cep-ong" placeholder="CEP" required>
+                     
+                        <input type="text" id="CEP_ONG" name="cep-ong" placeholder="CEP" required class="padrao-input">
                     </div>
                     <div>
-                        <label for="logadouro">Logradouro</label>
-                        <input type="text" id="logadouro_Ong" name="logradouro-ong" placeholder="Logradouro" required>
+                    
+                        <input type="text" id="logadouro_Ong" name="logradouro-ong" placeholder="Logradouro" required class="padrao-input">
                     </div>
                     <div>
-                        <label for="Complemento">Complemento</label>
-                        <input type="text" id="Complemnto_Ong" name="complemento-ong" placeholder="Complemento" required>
+                     
+                        <input type="text" id="Complemento_Ong" name="complemento-ong" placeholder="Complemento" required class="padrao-input">
                     </div>
                     <div>
-                        <label for="UF">UF</label>
-                        <input type="text" id="UF_ong" name="uf-ong" placeholder="unidade Federativa" required>
+                      
+                        <input type="text" id="UF_ong" name="uf-ong" placeholder="unidade Federativa" required class="padrao-input">
                     </div>
                     <div>
-                        <label for="bairro">Bairro</label>
-                        <input type="text" id="Bairro_Ong" name="bairro-ong" placeholder="Bairro" required>
+                      
+                        <input type="text" id="Bairro_Ong" name="bairro-ong" placeholder="Bairro" required class="padrao-input">
                     </div>
                     <div>
-                        <label for="Número">Número</label>
-                        <input type="number" id="Número_Ong" name="numero-ong" placeholder="Número" required>
+                    
+                        <input type="number" id="Número_Ong" name="numero-ong" placeholder="Número" required class="padrao-input">
                     </div>
-                    <input type="submit" value="Pronto ! "></input>
                 </div>
+                <input type="submit" value="Pronto ! " class="padrao-submit"></input>
             </form>
 
         </div>
