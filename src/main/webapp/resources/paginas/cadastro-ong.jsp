@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-    <link rel="stylesheet" href="style.css">
+    <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
     <div>
@@ -16,7 +17,7 @@
         </div>
         <div class="header"> 
             <p>Login</p>
-            <img src="../imagens/logo final.png" alt="imagem da ong">
+            <img src="../imagens/logo-final.png" alt="imagem da ong">
         </div>
         <form action="inserir-ong" method="post" class="forms">
             <div>

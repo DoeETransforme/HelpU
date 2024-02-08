@@ -12,11 +12,10 @@
 
     <header>
         <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
+            <div class="header"> 
+                <p>Login</p>
+                <img src="../imagens/logo-final.png" alt="imagem da ong">
+            </div>
         <nav>
             <a href="Login.html">Login</a>
             <a href="Cadastro.html">Cadastro</a>

@@ -6,12 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpu</title>
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
 
        <%@ include file="menu.jsp"%>
 
-        <h1>Editar Perfil</h1>
+        <div class="titulo">
+            <h1>Editar Perfil</h1>
+        </div>
 
         <form action="doador-editado" method="post">
             <div>
