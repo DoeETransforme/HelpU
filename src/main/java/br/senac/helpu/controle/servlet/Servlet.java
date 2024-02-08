@@ -341,47 +341,17 @@ public class Servlet extends HttpServlet {
 		
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-
-		if (sessao.getAttribute("usuario") instanceof Ong) {
 		
-			Ong ong = new Ong("amiguinho", "1234", "varioscnpj");
-			usuarioDAO.inserirUsuario(ong);
-			Endereco endereco = new Endereco("ama", "bairro da paz", 10, "blumenau", "AM", "cepbolado", ong);
-			enderecoDAO.inserirEndereco(endereco);
-			Contato contato = new Contato("213123", "email@bolado", ong);
-			contatoDAO.inserirContato(contato);
-	
-			Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(ong);
-	
-			Ong ongRecuperada = ongDAO.recuperarOngPorIdFetch(ong.getId());
-	
-			request.setAttribute("ong", ongRecuperada);
-			request.setAttribute("contato", contatoRecuperado);
-	
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
-			dispatcher.forward(request, response);
+		Ong ong = ongDAO.recuperarOngId(usuario.getId());
+		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
 		
-		}else if (sessao.getAttribute("usuario") instanceof Doador) {
-			
-			Ong ong = new Ong("amiguinho", "1234", "varioscnpj");
-			usuarioDAO.inserirUsuario(ong);
-			Endereco endereco = new Endereco("ama", "bairro da paz", 10, "blumenau", "AM", "cepbolado", ong);
-			enderecoDAO.inserirEndereco(endereco);
-			Contato contato = new Contato("213123", "email@bolado", ong);
-			contatoDAO.inserirContato(contato);
-
-			Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(ong);
-
-			Ong ongRecuperada = ongDAO.recuperarOngPorIdFetch(ong.getId());
-
-			request.setAttribute("ong", ongRecuperada);
-			request.setAttribute("contato", contatoRecuperado);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-ong.jsp");
-			dispatcher.forward(request, response);
-		}else {
-			response.sendRedirect("login");
-		}
+		request.setAttribute("pedidos", pedidos);
+		request.setAttribute("contato", contato);
+		request.setAttribute("ong", ong);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/perfil-ong.jsp");
+		dispatcher.forward(request, response);
 		
 	}
 
