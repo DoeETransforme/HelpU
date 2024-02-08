@@ -453,7 +453,6 @@ public class Servlet extends HttpServlet {
 	private void mostrarEditarPedido(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Ong) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-pedido.jsp");
@@ -538,31 +537,15 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarHistoricoPedidos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-
-		if (sessao.getAttribute("usuario") instanceof Ong) {
-
-		Ong ong = new Ong("amiguinhos", "123455", "2313123");
-			usuarioDAO.inserirUsuario(ong);
-			PedidoDoacao pedido = new PedidoDoacao("pedidodaong", "descrição", LocalDate.now(), StatusPedido.ATIVO, ong);
-			PedidoDoacao pedido2 = new PedidoDoacao("terceiropedido", "descrição3", LocalDate.now(), StatusPedido.ATIVO,
-					ong);
-			PedidoDoacao pedido3 = new PedidoDoacao("segundopedido", "descrição2", LocalDate.now(), StatusPedido.ATIVO,
-					ong);
-	
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido3);
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido2);
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
-	
-			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
-	
-			request.setAttribute("pedidos", pedidos);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/historico-pedidos.jsp");
-			dispatcher.forward(request, response);
-		}else {
-			response.sendRedirect("login");
-		}
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		
+		
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ongDAO.recuperarOngId(usuario.getId()));
+		request.setAttribute("pedidos", pedidos);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/historico-pedidos.jsp");
+		dispatcher.forward(request, response);
 
 	}
 
@@ -832,8 +815,9 @@ public class Servlet extends HttpServlet {
 		LocalDate data = LocalDate.parse(request.getParameter("data-validade"));
 		String quantidade = request.getParameter("quantidade");
 		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		int meta = Integer.parseInt(request.getParameter("meta-doacoes"));
 
-		pedidoDoacao = new PedidoDoacao(titulo, descricao, data, StatusPedido.ATIVO, ong);
+		pedidoDoacao = new PedidoDoacao(titulo, descricao, data, StatusPedido.ATIVO, meta, ong);
 		item = new Item(quantidade, alimentos, pedidoDoacao);
 
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedidoDoacao);

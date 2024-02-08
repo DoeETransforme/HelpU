@@ -47,6 +47,10 @@ public class PedidoDoacao implements Serializable {
 	@Enumerated ( EnumType.STRING)
 	private StatusPedido statuspedido;
 	
+	@Column(name = "meta_doacoes", nullable = true)
+	private int metaDoacoes;
+	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ong", nullable = false, unique = false)
 	private Ong ong;
@@ -59,15 +63,25 @@ public class PedidoDoacao implements Serializable {
 	
 	public PedidoDoacao() {}
 	
-	public PedidoDoacao(Long id, String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong) {
+	public PedidoDoacao(Long id, String titulo, String descricao, LocalDate data, StatusPedido statusPedido, int metaDoacoes, Ong ong) {
 		setId(id);
 		setData(data);
 		setTitulo(titulo);
 		setDescricao(descricao);	
 		setStatusPedido(statusPedido);
+		setMetaDoacoes(metaDoacoes);
 		setOng(ong);
 	}
 
+	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, int metaDoacoes, Ong ong) {
+		setData(data);
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		setMetaDoacoes(metaDoacoes);
+		setOng(ong);
+	}
+	
 	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong) {
 		setData(data);
 		setTitulo(titulo);
@@ -124,13 +138,20 @@ public class PedidoDoacao implements Serializable {
 	}
 
 	public StatusPedido getStatusPedido() {
-		return this.statuspedido;
+		return statuspedido;
 	}
 
 	public void setStatusPedido(StatusPedido statusPedido) {
 		this.statuspedido = statusPedido;
 	}
-	
+
+	public int getMetaDoacoes() {
+		return metaDoacoes;
+	}
+
+	public void setMetaDoacoes(int metaDoacoes) {
+		this.metaDoacoes = metaDoacoes;
+	}
 	
 	public void addItem(Item item) {
 		itens.add(item);

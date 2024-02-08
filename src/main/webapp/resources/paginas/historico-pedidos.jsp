@@ -22,21 +22,29 @@
 			<h1>Histórico de Pedidos da ONG</h1>
 
 
-			
+
 			<table>
 				<c:forEach var="pedidos" items="${pedidos}">
-				
+
 					<div>
-							<h2>
-								Doações para <span id="Nome_Ong">${pedidos.ong.nome}</span>
-							</h2>
-							<h3>
-								Status: <span id="Status_Ong">${pedidos.statusPedido}</span>
-							</h3>
-							<p>${pedidos.descricao}</p> 
-							<img src="" alt="imagem de perfil da ong">
-						</div>
-					
+						<h2>
+							Doações para <span id="Nome_Ong">${pedidos.ong.nome}</span>
+						</h2>
+						<h3>
+							Status: <span id="Status_Ong">${pedidos.statusPedido}</span> <br>
+							Meta de doações: <span id="Meta-Doacoes">${pedidos.metaDoacoes}</span>
+						</h3>
+						<form action="editar-pedido" method="post">
+							<input type="submit" name="editar" id="EditarPedido"
+								value="Editar">
+						</form>
+						<form action="excluir-pedido" method="post">
+							<input type="submit" name="excluir" id="ExcluirPedido"
+								value="Excluir">
+						</form>
+						<img src="" alt="imagem de perfil da ong">
+					</div>
+
 				</c:forEach>
 			</table>
 
