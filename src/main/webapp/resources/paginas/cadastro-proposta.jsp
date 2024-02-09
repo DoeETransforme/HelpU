@@ -9,6 +9,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link rel="stylesheet" href="../css/estilo.css">
 				<title>Helpu</title>
+				<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 			</head>
 
 			<body>

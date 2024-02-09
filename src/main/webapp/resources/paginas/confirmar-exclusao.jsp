@@ -8,6 +8,7 @@
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>HelpU</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
 </head>
 
 <body>
@@ -25,10 +26,10 @@
             </div>
             <div>
                 
-                <div>
-                    <form action="conta-desativada" method="post" class="forms">
-                        <div><input type="email" id="LoginEmail" name="email" placeholder="E-mail de login" required class="padrao-input"></div>
-                        <div><input type="password" id="LoginSenha" name="senha" placeholder="Senha de login" required class="padrao-input"></div>
+                <form action="conta-desativada" method="post" class="forms">
+                        <div>
+                       <input type="email" id="LoginEmail" name="email" placeholder="E-mail de login" required class="padrao-input">
+                        <input type="password" id="LoginSenha" name="senha" placeholder="Senha de login" required class="padrao-input">
                         <div><input type="submit" name="DesativarConta" id="DesativarContaPF" value="confirmar" class="padrao-submit"></div>
                     </form>
                 </div>

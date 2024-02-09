@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpu</title>
+        <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
     
 </head>
 <body>
