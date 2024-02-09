@@ -204,6 +204,10 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
+          
+			case "/mostrar-conquistas":
+				mostrarConquistas(request, response);
+				break;
 
 			case "/mostrar-alimentos":
 				mostrarAlimentos(request, response);
@@ -692,6 +696,16 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroConquista(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-conquista.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarConquistas(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		List<Conquista> conquistas = conquistaDAO.recuperarConquistas();
+		request.setAttribute("conquistas", conquistas);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-conquistas.jsp");
 		dispatcher.forward(request, response);
 	}
 
