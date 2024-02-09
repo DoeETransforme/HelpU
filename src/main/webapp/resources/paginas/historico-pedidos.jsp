@@ -34,14 +34,10 @@
 							Status: <span id="Status_Ong">${pedidos.statusPedido}</span> <br>
 							Meta de doações: <span id="Meta-Doacoes">${pedidos.metaDoacoes}</span>
 						</h3>
-						<form action="editar-pedido" method="post">
-							<input type="submit" name="editar" id="EditarPedido"
-								value="Editar">
-						</form>
-						<form action="excluir-pedido" method="post">
-							<input type="submit" name="excluir" id="ExcluirPedido"
-								value="Excluir">
-						</form>
+						<nav>
+							<a href="<%request.getServletContext();%>editar-pedido?id=<c:out value='${pedidos.id}'/>">Editar</a>
+							<a href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>">Excluir</a>
+						</nav>
 						<img src="" alt="imagem de perfil da ong">
 					</div>
 

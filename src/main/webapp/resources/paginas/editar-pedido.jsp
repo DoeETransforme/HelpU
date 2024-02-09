@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -17,24 +19,30 @@
         </div>
         <form action="pedido-editado" method="post"> 
         <div>
-            <input type="text" id="Nome_pedido" placeholder="Qual o título do pedido?" class="padrao_input">
+        	<c:if test="${pedido != null}">
+						<input type="hidden" name="id" value="<c:out value='${pedido.id}' />" />
+					</c:if>
+            <input type="text" id="Titulo_pedido" name="titulo" placeholder="Qual o título do pedido?" class="padrao_input">
         </div>
         <div>
-            <textarea placeholder="Escreva sobre o pedido!" maxlenght="10000" class="padrao_input"></textarea>
+            <textarea placeholder="Escreva sobre o pedido!" name="descricao" maxlenght="10000" class="padrao_input"></textarea>
         </div>
         <div>
             <label for="Status_pedido">Status do Pedido:</label>
-            <select name="Status_pedido" id="Status_pedido" class="padrao_input">
-                <option value="Ativo">Ativo</option>
-                <option value="Cancelado">Cancelado</option>
-                <option value="Concluido">Concluído</option>
+            <select name="status" id="Status_pedido" class="padrao_input">
+                <option value="ATIVO">Ativo</option>
+                <option value="CANCELADO">Cancelado</option>
+                <option value="CONCLUIDO">Concluído</option>
             </select>
-            <label for="item_requerido">Tipo de Item Requerido</label>
-            <select name="item_requerido" id="item_requerido" class="padrao_input">
-                <option value="item_alimento">Alimento Não-Perecivel</option>
-            </select>
-            <input type="number" id="meta_doações" placeholder="Meta de Doações" class="padrao_input">
-            <input type="date" id="data_final" placeholder="O pedido irá durar até dia..." class="padrao_input">
+            <select name="alimento">
+    			<c:forEach var="alimento" items="${alimentos}">
+        			<option value="${alimento.id}">${alimento.nome}</option>
+    			</c:forEach>
+			 </select>
+			 
+    	  	 <input type="number" id="QuantidadeDoacao" name="quantidade"  placeholder="Quantidade" required>
+            <input type="number" id="meta_doações" name="meta" placeholder="Meta de Doações" class="padrao_input">
+            <input type="date" id="data_final" name="data" placeholder="O pedido irá durar até dia..." class="padrao_input">
             <h2>Quais itens são necessários?</h2>
         </div>
         <div id="adicionar_mais_itens">
