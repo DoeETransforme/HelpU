@@ -173,6 +173,100 @@ body {
     
 }
 
+.item1-login { grid-area: header; }
+ 
+.item2-login { grid-area: main; }
+ 
+.item3-login { grid-area: right; }
+ 
+.item4-login { grid-area: footer; }
+ 
+.grid-container-login {
+ 
+  display: grid;
+ 
+  grid:
+ 
+  'header header header header header header'
+ 
+  'main main main right right right'
+ 
+  'footer footer footer footer footer footer';
+ 
+  grid-gap: 0px;
+ 
+  padding: 0px;
+ 
+}
+.imagem-login{
+    display: inline-block;
+
+    width: 650px;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    top: 150px;
+    left: 50px;
+
+}
+.barra-de-pesquisa{
+
+}
+
+.titulo-login{
+    position: relative;
+    left: 50px;
+    margin-bottom: 45px;
+}
+.padrao-login {
+ 
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FDE583; 
+    margin-bottom: 10px; 
+    margin: 10px;
+}
+
+.padrao-submit-login {
+   
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FDE583;
+    display: flex;
+    position: relative;
+    left: 75px;
+
+    
+}
+
+.forms-login {
+   
+    display: inline-block;
+   
+    max-width: 300px;
+}
+
+.position{
+   
+    border: 1px solid;
+}
+.esqueceu-senha-login{
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+
+}
+.tamanho{
+    display:flex;
+    float: right;
+    border: 1px solid red
+}
+
+
+
 
 
 #errorNomeCompleto,
