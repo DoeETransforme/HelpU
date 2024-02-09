@@ -1,0 +1,186 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.forms {
+    width: 40%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #ef111100;
+    border-radius: 8px;
+ 
+}
+
+.forms div {
+    margin-bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas */
+    gap: 10px; /* Espaçamento entre as colunas */
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #093762;
+}
+.titulo p{
+    margin-top: 40px;
+    margin-bottom: -30px;
+ 
+
+}
+.titulo h3{
+   font-size: 20;
+   display: flex;
+
+}
+.footer {
+    display: flex;
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    font-family: 'Times New Roman', Times, serif;
+    color: #093762;
+    height: 50vh; /* Define a altura da .footer como 100% da altura da janela de visualização */
+}
+
+.descricao {
+   
+    text-align: justify; /* Justifica o texto */
+    max-width: 600px; /* Define a largura máxima para o texto */
+    margin: px auto; /* Centraliza o elemento horizontalmente */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #093762;
+    
+}
+
+
+
+
+.header p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #093762;
+    position: absolute;
+    top: 30;
+    right: 60;
+}
+.header img {
+    width: 85px; /* Defina a largura desejada */
+    height: auto; /* Mantenha a proporção da imagem */
+    position: absolute; /* Define a posição absoluta */
+    top: 10; /* Posiciona a imagem no fundo */
+    left: 60; /* Posiciona a imagem à esquerda */
+}
+
+
+
+
+
+.padrao-textarea {
+    width: 200%; /* ou uma largura específica, se desejar */
+    position: relative;
+    left: -10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #FDE583;
+    margin: 20px;
+    margin-top: -10px;
+    resize: none; /* Impede o redimensionamento do textarea pelo usuário */
+    grid-row: 4; /* Define o número de linhas */
+    columns: 100; /* Define o número de colunas */
+}
+
+.padrao-input{
+    width: calc(0);
+    padding: 10px;
+    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border-radius: 5px;
+    background-color: #FDE583; /* Cor de fundo amarela */
+    margin: 10px;
+}
+
+
+.padrao-input::placeholder{
+    color: #093762; /* Cor do texto do placeholder */
+}
+.label-padrao {
+    display: block;
+    color: #093762;
+    text-align: right; /* Alinha o texto à direita */
+}
+
+
+
+
+
+.padrao-submit {
+    position: relative;
+    bottom: 10px;
+    left: 300px;
+    background-color: #FDE583;
+    color: #093762;
+    padding: 14px 20px;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+
+.padrao-submit:hover {
+    background-color: #093762;
+    color: #FDE583;
+}
+#data-nascimento{
+    width: 180%;
+  
+}
+#data-nascimento-cadastrar-pedido{
+    width: 180%;
+  
+}
+.data-nascimento-padrao{
+    width: 180%;
+    width: calc(0);
+    padding: 10px;
+    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border-radius: 5px;
+    background-color: #FDE583; /* Cor de fundo amarela */
+    margin: 10px;
+
+}
+.imagem-com-descricao{
+    text-align: center;
+    border-bottom: #093762;
+  
+}
+.imagem-com-descricao img{
+    width: 50;
+    
+}
+
+
+
+#errorNomeCompleto,
+#errorCPFOuCNPJ,
+#errorTelefone,
+#errorEmail,
+#errorConfirmarEmail,
+#errorSenha,
+#errorConfirmarSenha {
+    color: red;
+}

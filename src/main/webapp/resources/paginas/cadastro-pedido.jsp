@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css"><%@include file="/resources/css/estilo.css"%></style>
 </head>
 <body>
 
@@ -17,25 +18,34 @@
 		
 </c:when>
 </c:choose>
+	<%@ include file="menu.jsp"%>
+	<div class="header"> 
+		<p>Login</p>
+		<img src="../imagens/logo final.png" alt="imagem da ong">
+	</div>
 	
-	<h1>CADASTRAR SEU PEDIDO.</h1>
-		<form action="inserir-pedido" method="post">
+	<div class="titulo">
+		<h1>CADASTRAR SEU PEDIDO.</h1>
+	</div>
+		<form action="inserir-pedido" method="post" class="forms">
 		
-		   	 <input type="text"  name="titulo" placeholder="Qual e o titulo do pedido?" required>
-		     <textarea name="descricao" rows="4" cols="50" placeholder="Escreva sobre o pedido!"></textarea>
+		   	 <input type="text"  name="titulo" placeholder="Qual e o titulo do pedido?" required class="padrao-input">
+		     <textarea name="descricao" rows="4" cols="50" placeholder="Escreva sobre o pedido!" class="padrao-input"></textarea >
 		     
-		     <h4>O que voce deseja pedir?</h4>
+		     <div class="titulo">
+				<h4>O que voce deseja pedir?</h4>
+			 </div>
 		     
-		     <select name="alimento">
+		     <select name="alimento" class="padrao-input">
     			<c:forEach var="alimento" items="${alimentos}">
         			<option value="${alimento.id}">${alimento.nome}</option>
     			</c:forEach>
 			 </select>
 			 
-    	  	 <input type="text" name="quantidade"  placeholder="Quantidade" required>
-		     <input type="date"  name="data-validade" required>	
-		     <input type="text"  name="meta-doacoes" placeholder="Meta de Doações" required>		     
-		     <button type="submit" >Cadastro</button>
-	    </form>
+    	  	 <div><input type="text" name="quantidade"  placeholder="Quantidade" required class="padrao-input"></div>
+		     <div><input type="date"  name="data-validade" required class="padrao-input"></div>		
+			 <div><input type="text"  name="meta-doacoes" placeholder="Meta de Doações" required>  </div>   
+			 <button type="submit" class="padrao-submit">Cadastro</button>
+			</form>
 </body>
 </html>

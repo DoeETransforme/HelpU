@@ -46,6 +46,8 @@ import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 
+
+
 @WebServlet("/")
 public class Servlet extends HttpServlet {
 
