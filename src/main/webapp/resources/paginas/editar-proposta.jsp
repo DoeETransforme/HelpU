@@ -5,33 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+        <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 </head>
+
 <body>
 
-	<%@ include file="menu.jsp"%>
+    <%@ include file="menu.jsp" %>
 
-    <main>
-        <form action="" method="post">
-            <DIV>
+        <main>
+            <div class="titulo">
                 <h2>Editar Proposta</h2>
-            </DIV>
-            <div>
-                <select name="tipo-item" id="">
-                    <option value="alimento">Alimento Não-Perecivel</option>
-                </select>
             </div>
-            <br>
-            <div><input type="text" class="padrao_input" placeholder="Item"></div>
-            <br>
-            <div><input type="number" class="padrao_input" placdeholder="Quantidade">
+            <div class="header"> 
+                <p>Login</p>
+                <img src="../imagens/logo-final.png" alt="imagem da ong">
             </div>
-            <br>
-            <div></label><input type="date" class="padrao_input"></div>
-            <br>
-            <div><button type="button">Adicionar mais itens</button></div>
-            <br>
-            <div><button type="submit" class="botão_padrão">Salvar Proposta</button></div>
-        </form>
-    </main>
+            <form action="" method="post" class="forms">
+                <div>
+                    <label for="tipo-item">Tipo de Item:</label>
+                    <select name="tipo-item" id="tipo-item" class="padrao-input">
+                        <option value="alimento">Alimento Não-Perecível</option>
+                    </select>
+            
+                    <label for="item">Item:</label>
+                    <input type="text" id="item" name="item" class="padrao-input" placeholder="Item">
+            
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" name="quantidade" class="padrao-input" placeholder="Quantidade">
+            
+                    <label for="data-validade">Data de Validade:</label>
+                    <input type="date" id="data-validade" name="data-validade" class="data-nascimento-padrao">
+                </div>
+            
+                <button type="button" class="padrao-submit">Adicionar mais itens</button>
+                <button type="submit" class="padrao-submit">Salvar Proposta</button>
+            </form>
+            
+            
+        </main>
 </body>
+
 </html>

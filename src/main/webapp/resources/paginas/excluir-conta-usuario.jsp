@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>HelpU</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+        <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 </head>
 
 <body>
@@ -17,18 +19,18 @@
 
     <main>
 
-        <div>
+        <div class="titulo">
             <h1>Você realmente deseja desativar esse perfil?</h1>
-            <div>
-                <picture><img src="imagem.com" alt="imagem do usuario"></picture>
+        </div>
+            <div class="imagem-com-descricao">
+                <img src="imagem.com" alt="imagem do usuario">
+            </div>
                 <div>
-                    <a href="Perfil_Pessoa.html"><button>Voltar</button></a>
-                    <form action="confirmar-exclusao" method="post">
-                        <input type="submit" name="DesativarConta" id="DesativarContaPF" value="sim">
+                    <form action="confirmar-exclusao" method="post" class="forms">
+                    <a href="Perfil_Pessoa.html"><button class="">Voltar</button></a>
+                        <input type="submit" name="DesativarConta" id="DesativarContaPF" value="sim" class="">
                     </form>
                 </div>
-            </div>
-        </div>
     </main>
 </body>
 
