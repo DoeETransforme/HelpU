@@ -46,14 +46,15 @@ body {
    display: flex;
 
 }
-.footer{
+.footer {
     display: flex;
-
-    align-items: center; /* Centraliza os itens horizontalmente */
-    margin-top: 30px;
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
     font-family: 'Times New Roman', Times, serif;
     color: #093762;
+    height: 50vh; /* Define a altura da .footer como 100% da altura da janela de visualização */
 }
+
 .descricao {
    
     text-align: justify; /* Justifica o texto */
