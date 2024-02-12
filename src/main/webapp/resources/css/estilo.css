@@ -625,6 +625,7 @@ margin-top: 50px
        
         width: 100px;
         margin-right: 10px;
+       
       }
 
       .imagem-card img{
@@ -635,7 +636,8 @@ margin-top: 50px
         font-family: 'Inter', sans-serif;
         font-weight: 100;
         font-size: 14;
-        width: 100%; 
+        width: 100%;
+        
        
         
       }
@@ -646,6 +648,34 @@ margin-top: 50px
         text-align: center;
 
     
+      }
+      #titulo-historico{
+        text-align: justify;
+      }
+      #conteudo-historico{
+     margin-left: 40px;
+      }
+
+      #imagem-historico{
+        
+          width: 140px;
+      }
+      #div-imagem-card{
+      }
+
+     
+      
+      .conteudo a{
+        text-decoration: none;
+        float: right;
+        padding: 10px;
+        margin: 10px;
+        margin-bottom: 0;
+        background-color: #FDE583;
+        color: #093762;
+        border-radius: 15px;
+        
+
       }
      
       
