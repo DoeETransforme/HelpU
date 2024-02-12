@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
     <link rel="stylesheet" href="../css/estilo.css">
-        <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+        <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
 </head>
 
 <body>
@@ -23,23 +23,24 @@
             </div>
             <form action="" method="post" class="forms">
                 <div>
-                    <label for="tipo-item">Tipo de Item:</label>
+                   
                     <select name="tipo-item" id="tipo-item" class="padrao-input">
+                        <option value="" disabled selected>Selecione o tipo de item</option>
                         <option value="alimento">Alimento Não-Perecível</option>
                     </select>
             
-                    <label for="item">Item:</label>
+                  
                     <input type="text" id="item" name="item" class="padrao-input" placeholder="Item">
             
-                    <label for="quantidade">Quantidade:</label>
+                   
                     <input type="number" id="quantidade" name="quantidade" class="padrao-input" placeholder="Quantidade">
             
-                    <label for="data-validade">Data de Validade:</label>
-                    <input type="date" id="data-validade" name="data-validade" class="data-nascimento-padrao">
+                    
+                    <div><input type="date" id="data-validade" name="data-validade" class="data-nascimento-padrao"></div>
                 </div>
             
-                <button type="button" class="padrao-submit">Adicionar mais itens</button>
-                <button type="submit" class="padrao-submit">Salvar Proposta</button>
+                <button type="button" class="padrao-submit">Adicionar item</button>
+                <button type="submit" class="padrao-submit">Salvar edições</button>
             </form>
             
             

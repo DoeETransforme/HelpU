@@ -9,7 +9,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link rel="stylesheet" href="../css/estilo.css">
 				<title>Helpu</title>
-				<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+				<!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
 			</head>
 
 			<body>
@@ -38,17 +38,16 @@
 
 									<div>
 										<div>
-										
-									
 											<select name="pedido" class="padrao-input">
+												<option value="" disabled selected hidden>Selecione um pedido</option>
 												<c:forEach var="pedido" items="${pedidos}">
 													<option value="${pedido.id}">${pedido.titulo}</option>
 												</c:forEach>
 											</select>
 										</div>
 										<div>
-											
 											<select name="alimento" class="padrao-input">
+												<option value="" disabled selected hidden>Selecione um alimento</option>
 												<c:forEach var="alimento" items="${alimentos}">
 													<option value="${alimento.id}">${alimento.nome}</option>
 												</c:forEach>

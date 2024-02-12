@@ -43,6 +43,8 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
 }
 .padrao-submit:hover {
     background-color: #093762;
@@ -64,10 +66,25 @@ body {
  
 
 }
+
 .titulo h3{
    font-size: 20;
    display: flex;
 
+}
+.avaliar-proposta{
+    display: flex;
+ 
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #093762;
+
+}
+.avaliar-proposta img{
+    width: 50px;
 }
 .footer {
     display: flex;
@@ -78,15 +95,42 @@ body {
     height: 50vh; /* Define a altura da .footer como 100% da altura da janela de visualização */
 }
 
+
 .descricao {
-   
+    width: 100%;
     text-align: justify; /* Justifica o texto */
-    max-width: 600px; /* Define a largura máxima para o texto */
-    margin: px auto; /* Centraliza o elemento horizontalmente */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    color: #093762;
+    font-weight: 100;
+    font-family: 'Inter', sans-serif;
+margin-top: 50px
     
+
+}
+.validar-invalidar {
+    margin-top: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Posiciona os elementos na vertical */
+  }
+  
+
+#invalidar-proposta{
+    background-color:1B65AE;
+    color: FDE583;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    cursor: pointer;
+  
+}
+#validar-proposta{
+    cursor: pointer;
+ 
+
 }
 
 
@@ -133,6 +177,9 @@ body {
     border-radius: 5px;
     background-color: #FDE583; /* Cor de fundo amarela */
     margin: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    
 }
 
 
@@ -159,6 +206,9 @@ body {
 #data-nascimento-cadastrar-pedido{
     width: 180%;
   
+}
+#cadastrar-data-alimento{
+    width: 200px;
 }
 .data-nascimento-padrao{
     width: 180%;
@@ -437,6 +487,128 @@ body {
     font-family: 'Inter', sans-serif;
 
 }
+
+.editar-dados {
+    display: grid; /* Alterado para grid */
+    grid-template-columns: auto auto; /* Define duas colunas */
+    grid-gap: 10px; /* Espaçamento entre as colunas */
+  
+    padding: 20px;
+    justify-items: center; /* Centraliza os itens horizontalmente dentro das células */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza o grid horizontalmente na tela */
+}
+
+.editar-dados label {
+    text-align: right; /* Alinha o texto das labels à direita */
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    color: #093762;
+  
+
+}
+.cadastrar-alimento{
+    
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+#submit-cadastrar-alimento{
+    margin-top: 100px;
+}
+
+
+
+.editar-dados input {
+    width: 110%; /* Define a largura total dos inputs */
+    color: #093762;
+    background-color: #FDE583;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: -30px;
+
+}
+.submit-editar-dados {
+   
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    margin-top: 30px; /* Adiciona um espaço entre os campos e o botão */
+
+
+    }
+    .submit-editar-dados input {
+        background-color: #FDE583;
+        color: #093762;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        cursor: pointer;
+        transition: all 0.3s; /* Adicionando 's' para especificar segundos */
+    }
+    
+    .submit-editar-dados input:hover {
+        background-color: #093762;
+        color: #FDE583;
+        transform: scale(1.05);
+    }
+   
+    .excluir-conta-posicao {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        flex-direction: column; /* Altera a direção para coluna */
+    }
+    
+    .imagem-doador-excluir img {
+        width: 200px; /* Ajuste a largura da imagem conforme necessário */
+        height: auto; /* Mantém a proporção da imagem */
+        margin-bottom: 100px;
+        border-radius: 100px;
+        margin-top: 100px;
+    }
+    .excluir-conta-posicao form{
+        margin: 10px;
+    }
+    .excluir-conta-posicao a {
+        background-color: #093762;
+        color: #FDE583;
+        display: flex;
+        margin-bottom: 10px;
+        border: none;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        width: 100%;
+        align-self: flex-start; /* Alinha os links à posição inicial */
+    }
+    
+    .excluir-conta-posicao input {
+        display: flex;
+        background-color: #FDE583;
+        color: #093762;
+        border: none;
+        width: 100%;
+        text-decoration: none;
+        padding: 14px;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        align-self: flex-start; /* Alinha o input à posição inicial */
+        cursor: pointer;
+    }
+    
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
 #errorTelefone,

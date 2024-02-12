@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>HelpU</title>
 <link rel="stylesheet" href="../css/estilo.css">
-<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
 </head>
 <body>
 	
@@ -14,12 +14,16 @@
 			<h1>Editar Alimento</h1>
 		</div>
 		
-		<form action="alimento-editado" method="post" class="forms">
-		<div>
-			<div><input type="text" name="nome"  placeholder="Nome do alimento" required class="padrao-input"></div>
-					<div><input type="date" name="data" required class="padrao-input"></div>
-					<div><button type="submit" class="padrao-submit">Editar</button></div>
-		</div>
+		<form action="alimento-editado" method="post" >
+		
+			<div class="editar-dados">
+				<label for="">Editar nome do alimento: </label>
+				<input type="text" name="nome"  placeholder="Nome do alimento" required >
+				<label for="">Editar data do alimento:</label>
+				<input type="date" name="data" required  >
+			</div>
+			<div class="submit-editar-dados"><input type="submit" class=""></div>
+	
 		</form>
 	
 </body>

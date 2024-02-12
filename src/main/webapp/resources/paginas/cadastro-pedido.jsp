@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!--<style type="text/css"><%@include file="/resources/css/estilo.css"%></style>-->
+<link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
 
@@ -36,15 +37,18 @@
 				<h4>O que voce deseja pedir?</h4>
 			 </div>
 		     
-		     <select name="alimento" class="padrao-input">
-    			<c:forEach var="alimento" items="${alimentos}">
-        			<option value="${alimento.id}">${alimento.nome}</option>
-    			</c:forEach>
-			 </select>
+			 <select name="alimento" class="padrao-input">
+				<option value="" disabled selected hidden>Selecione um alimento</option>
+				<c:forEach var="alimento" items="${alimentos}">
+					<option value="${alimento.id}">${alimento.nome}</option>
+				</c:forEach>
+			</select>
+			
+			 
 			 
     	  	 <div><input type="text" name="quantidade"  placeholder="Quantidade" required class="padrao-input"></div>
 		     <div><input type="date"  name="data-validade" required class="padrao-input"></div>		
-			 <div><input type="text"  name="meta-doacoes" placeholder="Meta de Doações" required>  </div>   
+			 <div><input type="text"  name="meta-doacoes" placeholder="Meta de Doações" required class="padrao-input">  </div>   
 			 <button type="submit" class="padrao-submit">Cadastro</button>
 			</form>
 </body>
