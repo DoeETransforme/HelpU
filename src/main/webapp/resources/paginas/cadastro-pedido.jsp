@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css"><%@include file="/resources/css/estilo.css"%></style>
+<!--<style type="text/css"><%@include file="/resources/css/estilo.css"%></style>-->
 </head>
 <body>
 
