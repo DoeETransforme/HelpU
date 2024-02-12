@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 
 <body>
@@ -13,10 +14,10 @@
     
     <main>
         <div>
-            <div>
+            <div class="titulo">
                 <h1>Suas Propostas Pendentes</h1>
             </div>
-            <div></div>
+            
             <div>
                 <h4><span id="Quantidade">5kg</span> de <span id="item">Feijão</span> para <span
                         id="Nome_Ong">Cantinho Inclusão</span></h4>

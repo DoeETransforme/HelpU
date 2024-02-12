@@ -608,7 +608,48 @@ margin-top: 50px
         align-self: flex-start; /* Alinha o input à posição inicial */
         cursor: pointer;
     }
+
+    .propostas-doacao-analise {
+        border: 2px solid #1169BB;
+        width: 40%;
+        display: flex; 
+        flex-direction: row; 
+        margin: 0 auto;
+        height: auto;
+        padding: 25px;
+        margin-top: 30px;
+        border-radius: 30px;
+      }
+      
+      .imagem-card {
+       
+        width: 100px;
+        margin-right: 10px;
+      }
+
+      .imagem-card img{
+        width: 75px;
+
+      }
+      .conteudo{
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        font-size: 14;
+        width: 100%; 
+       
+        
+      }
+      .conteudo h2{
+        font-size:16 ;
+        font-weight: 1px;
     
+        text-align: center;
+
+    
+      }
+     
+      
+      
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
 #errorTelefone,
