@@ -206,6 +206,10 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
+          
+			case "/mostrar-conquistas":
+				mostrarConquistas(request, response);
+				break;
 
 			case "/mostrar-alimentos":
 				mostrarAlimentos(request, response);
@@ -297,52 +301,30 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void mostrarPerfilDoador(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-		HttpSession sessao = request.getSession();
-		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		private void mostrarPerfilDoador(HttpServletRequest request, HttpServletResponse response)
+				throws ServletException, IOException {
+			
+			HttpSession sessao = request.getSession();
+			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+			
+			
+			List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
+			
+	
+			long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
+	
+				
+			request.setAttribute("qntdConquistas", conquista);
 
-		if (sessao.getAttribute("usuario") instanceof Doador) {
-
-			Conquista conquista = new Conquista("50 doações", "faça 50 doações");
-			conquistaDAO.inserirConquista(conquista);
-			Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
-			Contato contato = new Contato("3123123", "email@bolado", doador);
-			doador.addConquista(conquista);
-			usuarioDAO.inserirUsuario(doador);
-			contatoDAO.inserirContato(contato);
-			Long id = doador.getId();
-			Doador doadorRecuperado = doadorDAO.recuperarDoadorId(id);
-			Long quantidade = conquistaDAO.recuperarQuantidadeConquistaDoador(doadorRecuperado);
-
-			request.setAttribute("doador", doadorRecuperado);
-			request.setAttribute("conquistas", quantidade);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
+			request.setAttribute("doador", doador);
+			request.setAttribute("conquistas", conquistas);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/perfil-doador.jsp");
 			dispatcher.forward(request, response);
-
-		} else if (sessao.getAttribute("usuario") instanceof Ong) {
-
-			Conquista conquista = new Conquista("50 doações", "faça 50 doações");
-			conquistaDAO.inserirConquista(conquista);
-			Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
-			Contato contato = new Contato("3123123", "email@bolado", doador);
-			doador.addConquista(conquista);
-			usuarioDAO.inserirUsuario(doador);
-			contatoDAO.inserirContato(contato);
-			Long id = doador.getId();
-			Doador doadorRecuperado = doadorDAO.recuperarDoadorId(id);
-			Long quantidade = conquistaDAO.recuperarQuantidadeConquistaDoador(doadorRecuperado);
-
-			request.setAttribute("doador", doadorRecuperado);
-			request.setAttribute("conquistas", quantidade);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
-			dispatcher.forward(request, response);
-
-		} else {
-			response.sendRedirect("login");
 		}
-	}
+	
 
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -716,6 +698,16 @@ public class Servlet extends HttpServlet {
 	private void mostrarCadastroConquista(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-conquista.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarConquistas(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		List<Conquista> conquistas = conquistaDAO.recuperarConquistas();
+		request.setAttribute("conquistas", conquistas);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-conquistas.jsp");
 		dispatcher.forward(request, response);
 	}
 
