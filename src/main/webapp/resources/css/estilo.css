@@ -17,6 +17,7 @@ body {
     max-width: 400px;
     margin: 50px auto;
     border-radius: 8px;
+
     
  
 }
@@ -677,6 +678,118 @@ margin-top: 50px
         
 
       }
+      .header-editar-proposta{
+     
+        display: flex;
+        width: 100%;
+
+
+      }
+      .header-imagem-editar img{
+        width: 75px;
+      }
+      .header-imagem-editar{
+
+        flex-wrap: nowrap;
+        flex:40%;
+        margin-left: 10%;
+
+      }
+      .header-p-editar {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        flex: 40%;
+        margin-right: 10%;
+
+    }
+    
+    .header-p-editar p {
+        text-align: right;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        position: relative;
+    }
+
+    .header-p-editar p:hover{
+        color: #093762;
+    }
+    .header-p-editar p::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #093762;
+        transition: width 0.3s ease; /* Adicione uma transição suave */
+      
+
+    }
+    .header-p-editar p:hover::before{
+        width: 100%;
+    }
+    .forms-editar-proposta {
+      
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        margin-top: 50px;
+    }
+    .conteudo-editar {
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Dispor os elementos verticalmente em uma coluna */
+    }
+    .conteudo-editar > *{
+        background-color: #FDE583;
+        border: none;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        color: #1169BB;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      
+
+    }
+    
+        
+    
+    .botoes-editar {
+        
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centraliza os botões horizontalmente */
+        align-items: center; /* Centraliza os botões verticalmente */
+        width: 100%; /* Define a largura dos botões ao conteúdo */
+    }
+    .botoes-editar button{
+        margin: 10px;
+    }
+    #conteudo-editar-ong {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Divide o conteúdo em duas colunas */
+        gap: 10px; /* Espaçamento entre os elementos */
+    }
+    
+    #conteudo-editar-ong input {
+        width: calc(100% - 20px); /* Define a largura dos inputs */
+        padding: 10px; /* Espaçamento interno dos inputs */
+    }
+    
+    
+
+    
      
       
       
