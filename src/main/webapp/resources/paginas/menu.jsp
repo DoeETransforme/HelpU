@@ -13,7 +13,7 @@
 									Conta</a> 
 									<a href="<%=request.getContextPath()%>/cadastro-proposta">Cadastro Proposta</a> 
 									<a href="<%=request.getContextPath()%>/editar-proposta">Editar Proposta</a> 
-									<a href="<%=request.getContextPath()%>/historico-doacoes">Histórico de Doações</a>
+									<a href="<%=request.getContextPath()%>/historico-doacoes">HistÃ³rico de DoaÃ§Ãµes</a>
 									<a href="<%=request.getContextPath()%>/propostas-realizadas">Propostas Realizadas</a>
 									<a href="<%=request.getContextPath()%>/propostas-pendentes">Propostas Pendentes</a>
 									<a href="<%=request.getContextPath()%>/logout">Sair</a>
@@ -39,7 +39,7 @@
 									<a href="<%=request.getContextPath()%>/cadastro-pedido">Cadastro Pedido</a> 
 									<a href="<%=request.getContextPath()%>/editar-pedido">Editar Pedido</a> 
 									<a href="<%=request.getContextPath()%>/explorar-pedidos">Explorar Pedidos</a> 
-									<a href="<%=request.getContextPath()%>/historico-pedidos">Histórico Pedidos</a>
+									<a href="<%=request.getContextPath()%>/historico-pedidos">HistÃ³rico Pedidos</a>
 									<a href="<%=request.getContextPath()%>/propostas-analise">Propostas em Analise</a>
 									<a href="<%=request.getContextPath()%>/cadastro-alimento">Cadastrar alimento</a>
 									<a href="<%=request.getContextPath()%>/logout">Sair</a>

@@ -10,6 +10,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.item.Item;
+import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
@@ -151,7 +152,42 @@ public class ItemDAOImpl implements ItemDAO {
 	    return item;
 	}
 
+	public Item recuperarItemPorPedido(PedidoDoacao pedidoDoacao) {
 
+	    Session sessao = null;
+	    Item item = null;
+
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        CriteriaQuery<Item> criteria = construtor.createQuery(Item.class);
+	        Root<Item> raizItem = criteria.from(Item.class);
+	      
+	        raizItem.fetch("pedidoDoacao", JoinType.LEFT);
+	        raizItem.fetch("alimento" , JoinType.LEFT);
+
+	        criteria.select(raizItem);
+	        criteria.where(construtor.equal(raizItem.get("pedidoDoacao"), pedidoDoacao));
+
+	        item = sessao.createQuery(criteria).getSingleResult();
+
+	        sessao.getTransaction().commit();
+
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    return item;
+	}
 	
 
 

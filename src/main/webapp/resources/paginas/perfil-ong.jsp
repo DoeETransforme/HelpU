@@ -15,13 +15,13 @@
 <body>
 
 	<div>
-	<c:choose>
-<c:when test="${tipoUsuario == 2}">
+		<c:choose>
+			<c:when test="${tipoUsuario == 2}">
 
-		<%@ include file="menu.jsp"%>
-		
-</c:when>
-</c:choose>
+				<%@ include file="menu.jsp"%>
+
+			</c:when>
+		</c:choose>
 
 		<main>
 			<section>
@@ -39,7 +39,7 @@
 					</p>
 					<p>
 						<strong>Email:</strong>
-						<c:out value="${ong.cnpj}" />
+						<c:out value="${contato.email}" />
 					</p>
 
 				</div>
@@ -47,30 +47,18 @@
 			</section>
 			<section>
 				<h1>Atualizações da ONG</h1>
+				<c:forEach var="pedidos" items="${pedidos}">
 				<div>
-					<div>
-						<img src="imagem.com" alt="ajudando uma criança">
-						<h2>
-							<a href="#">Cantilho inclusao atualizou uma campanha</a>
-						</h2>
-						<p>
-							You say potato, I say starchy carbs. A vida é uma sucessão de
-							sucessivos que sucedem sucessivamente sem ce. <a href="#">Leia
-								mais</a>
-						</p>
-					</div>
-					<div>
-						<img src="imagem.com" alt="doação de comida">
-						<h2>
-							<a href="#">Cantinho inclusao finalizou uma campanha</a>
-						</h2>
-						<p>
-							You say potato, I say starchy carbs. A vida é uma sucessão de
-							sucessivos que sucedem sucessivamente sem ce. <a href="#">Leia
-								mais</a>
-						</p>
-					</div>
+					<img src="imagem.com" alt="foto-ong">
+					<h2>
+						Titulo <span id="TituloPedido">${pedidos.titulo}</span>
+					</h2>
+					<p>
+						${pedidos.descricao}
+					</p>
 				</div>
+			</c:forEach>
+
 			</section>
 		</main>
 	</div>

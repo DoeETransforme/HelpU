@@ -34,7 +34,7 @@
 							</select>
 						</div>
 						<div>
-							<label>Item</label> 
+							<label>Alimento</label> 
 							<select name="alimento">
 								<c:forEach var="alimento" items="${alimentos}">
 									<option value="${alimento.id}">${alimento.nome}</option>

@@ -1,5 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +8,19 @@
 <title>HelpU</title>
 </head>
 <body>
-	<%@ include file="menu.jsp"%>
-	
+	<c:choose>
+		<c:when test="${tipoUsuario == 2}">
+
+			<%@ include file="menu.jsp"%>
+
+		</c:when>
+	</c:choose>
 <body>
-     <h1>Cadastre o Alimento.</h1>
-     <form action="inserir-alimento" method="post">
-	     <input type="text" name="nome"  placeholder="Nome do alimento" required>
-	     <input type="date" name="data" required>
-	     <button type="submit" >Cadastro</button>
-	 </form>
+	<h1>Cadastre o Alimento.</h1>
+	<form action="inserir-alimento" method="post">
+		<input type="text" name="nome" placeholder="Nome do alimento" required>
+		<input type="date" name="data" required>
+		<button type="submit">Cadastro</button>
+	</form>
 </body>
 </html>

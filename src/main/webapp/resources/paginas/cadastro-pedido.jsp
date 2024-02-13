@@ -10,7 +10,13 @@
 </head>
 <body>
 
-	<%@ include file="menu.jsp"%>
+	<c:choose>
+<c:when test="${tipoUsuario == 2}">
+ 
+		<%@ include file="menu.jsp"%>
+		
+</c:when>
+</c:choose>
 	
 	<h1>CADASTRAR SEU PEDIDO.</h1>
 		<form action="inserir-pedido" method="post">
@@ -27,7 +33,8 @@
 			 </select>
 			 
     	  	 <input type="text" name="quantidade"  placeholder="Quantidade" required>
-		     <input type="date"  name="data-validade" required>		     
+		     <input type="date"  name="data-validade" required>	
+		     <input type="text"  name="meta-doacoes" placeholder="Meta de Doações" required>		     
 		     <button type="submit" >Cadastro</button>
 	    </form>
 </body>

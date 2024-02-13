@@ -22,11 +22,12 @@
 			<h1>Histórico de Pedidos da ONG</h1>
 
 
-			
+
 			<table>
 				<c:forEach var="pedidos" items="${pedidos}">
-				
+
 					<div>
+
 							<h2>
 								Doações para <span id="Nome_Ong">${pedidos.ong.nome}</span>
 							</h2>
@@ -34,22 +35,14 @@
 							<h3>
 								Status: <span id="Status_Ong">${pedidos.statusPedido}</span>
 							</h3>
+          <h3>
+							Meta de doações: <span id="Meta-Doacoes">${pedidos.metaDoacoes}</span>
+						</h3>
 							<p>${pedidos.descricao}</p> 
 							<img src="" alt="imagem de perfil da ong">
 						</div>
-					
-				</c:forEach>
-			</table>
-
-
-			<!--                 <tr> -->
-			<!--                     <td> -->
-			<!--                         <h2>Doações para <span id="Nome_Ong">crianças PCD</span></h2> -->
-			<!--                         <h3>Status: <span id="Status_Ong">Ativo</span></h3> -->
-			<!--                         <img src="imagem.com" alt="imagem de perfil da ong"> -->
-			<!--                     </td> -->
-			<!--                 </tr> -->
-			</table>
+        <a href="<%request.getServletContext();%>editar-pedido?id=<c:out value='${pedidos.id}'/>">Editar</a>
+				<a href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>">Excluir</a>
 		</div>
 	</main>
 
