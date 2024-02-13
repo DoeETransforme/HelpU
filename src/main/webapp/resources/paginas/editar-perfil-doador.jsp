@@ -6,41 +6,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpu</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
 </head>
 <body>
 
        <%@ include file="menu.jsp"%>
 
-        <h1>Editar Perfil</h1>
+        <div class="titulo">
+            <h1>Editar Perfil</h1>
+        </div>
 
         <form action="doador-editado" method="post">
-            <div>
-                <label for="editarNome">Editar Nome:</label>
-                <input type="text" id="editarNomePF" name="nome" placeholder="Nome Atual do Usuário">
-            </div>
-            <div>
-                <label for="editarEmail">Editar Email:</label>
-                <input type="email" id="editarEmailPF" name="email" placeholder="EmailAtual@exemplo.com">
-            </div>
-            <div>
-                <label for="editarCelular">Editar Número de Celular:</label>
-                <input type="tel" id="editarCelularPF" name="celular" placeholder="Número Atual do Usuário">
-            </div>
-             <div>
-                <label for="editarCpf">Editar Cpf:</label>
-                <input type="text"  name="cpf" >
-            </div>
-             <div>
-                <label for="editarDataNascimento">Editar Data Nascimento:</label>
-                <input type="date"  name="data-nascimento" placeholder="Digite o Cpf">
-            </div>
-            <div>
-                <label for="editarSenha">Editar Senha:</label>
-                <input type="password" id="editarSenhaPF" name="senha" placeholder="Nova Senha">
-            </div>
- 
-
-                <input type="submit" value="Salvar edições "></input>
+          
+                <div class="editar-dados">
+                    <label for="editarNome">Editar Nome:</label>
+                    <input type="text" id="editarNomePF" name="nome" placeholder="Nome Atual do Usuário">
+                    <label for="editarEmail">Editar Email:</label>
+                    <input type="email" id="editarEmailPF" name="email" placeholder="EmailAtual@exemplo.com">
+                    <label for="editarCelular">Editar Número de Celular:</label>
+                    <input type="tel" id="editarCelularPF" name="celular" placeholder="Número Atual do Usuário">
+                    <label for="editarCpf" >Editar Cpf:</label>
+                    <input type="text"  name="cpf" placeholder="Digite o Cpf" >
+                    <label for="editarDataNascimento">Editar Data Nascimento:</label>
+                    <input type="date"  name="data-nascimento" >
+                    <label for="editarSenha">Editar Senha:</label>
+                    <input type="password" id="editarSenhaPF" name="senha" placeholder="Nova Senha">
+                </div>
+                <div class="submit-editar-dados"><input type="submit" value="Salvar edições "></input></div>
         </form>
 
 </body>

@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>HelpU</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
 </head>
 
 <body>
@@ -15,14 +17,20 @@
     <main>
 
         <div>
-            <h1>Para desativar sua conta</h1>
+            <div class="titulo">
+                <h1>Para desativar sua conta</h1>
+            </div>
+            <div class="header"> 
+                <p>Login</p>
+                <img src="../imagens/logo-final.png" alt="imagem da ong">
+            </div>
             <div>
                 
-                <div>
-                    <form action="conta-desativada" method="post">
-                        <input type="email" id="LoginEmail" name="email" placeholder="E-mail de login" required>
-                        <input type="password" id="LoginSenha" name="senha" placeholder="Senha de login" required>
-                        <input type="submit" name="DesativarConta" id="DesativarContaPF" value="confirmar">
+                <form action="conta-desativada" method="post" class="forms">
+                      
+                       <input type="email" id="LoginEmail" name="email" placeholder="E-mail de login" required class="padrao-input">
+                        <input type="password" id="LoginSenha" name="senha" placeholder="Senha de login" required class="padrao-input">
+                        <input type="submit" name="DesativarConta" id="DesativarContaPF" value="confirmar" class="padrao-submit">
                     </form>
                 </div>
             </div>

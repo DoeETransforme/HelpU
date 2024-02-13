@@ -1,0 +1,804 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   
+    background-color: #f2f2f2;
+}
+
+.forms {
+    width: 40%;
+    max-width: 400px;
+    margin: 50px auto;
+    border-radius: 8px;
+
+    
+ 
+}
+
+.forms div {
+    margin-bottom: 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide em duas colunas */
+    gap: 10px; /* Espaçamento entre as colunas */
+}
+.forms .padrao-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 100px;
+    margin-left: 155px;
+    
+}
+.padrao-submit{
+    background-color: #FDE583;
+    color: #093762;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+}
+.padrao-submit:hover {
+    background-color: #093762;
+    color: #FDE583;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #093762;
+}
+.titulo p{
+    margin-top: 40px;
+    margin-bottom: -30px;
+ 
+
+}
+
+.titulo h3{
+   font-size: 20;
+   display: flex;
+
+}
+.avaliar-proposta{
+    display: flex;
+ 
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #093762;
+
+}
+.avaliar-proposta img{
+    width: 50px;
+}
+.footer {
+    display: flex;
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    font-family: 'Times New Roman', Times, serif;
+    color: #093762;
+    height: 50vh; /* Define a altura da .footer como 100% da altura da janela de visualização */
+}
+
+
+.descricao {
+    width: 100%;
+    text-align: justify; /* Justifica o texto */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Inter', sans-serif;
+margin-top: 50px
+    
+
+}
+.validar-invalidar {
+    margin-top: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Posiciona os elementos na vertical */
+  }
+  
+
+#invalidar-proposta{
+    background-color:1B65AE;
+    color: FDE583;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    cursor: pointer;
+  
+}
+#validar-proposta{
+    cursor: pointer;
+ 
+
+}
+
+
+
+
+.header p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #093762;
+    position: absolute;
+    top: 30;
+    right: 60;
+}
+.header img {
+    width: 85px; /* Defina a largura desejada */
+    height: auto; /* Mantenha a proporção da imagem */
+    position: absolute; /* Define a posição absoluta */
+    top: 10; /* Posiciona a imagem no fundo */
+    left: 60; /* Posiciona a imagem à esquerda */
+}
+
+
+
+
+
+.padrao-textarea {
+    width: 200%; /* ou uma largura específica, se desejar */
+    position: relative;
+    left: -10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #FDE583;
+    margin: 20px;
+    margin-top: -10px;
+    resize: none; /* Impede o redimensionamento do textarea pelo usuário */
+    grid-row: 4; /* Define o número de linhas */
+    columns: 100; /* Define o número de colunas */
+}
+
+.padrao-input{
+    width: calc(0);
+    padding: 10px;
+    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border-radius: 5px;
+    background-color: #FDE583; /* Cor de fundo amarela */
+    margin: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    
+}
+
+
+.padrao-input::placeholder{
+    color: #093762; /* Cor do texto do placeholder */
+}
+.label-padrao {
+    display: block;
+    color: #093762;
+    text-align: right; /* Alinha o texto à direita */
+}
+
+
+
+
+
+
+
+
+#data-nascimento{
+    width: 180%;
+  
+}
+#data-nascimento-cadastrar-pedido{
+    width: 180%;
+  
+}
+#cadastrar-data-alimento{
+    width: 200px;
+}
+.data-nascimento-padrao{
+    width: 180%;
+    width: calc(0);
+    padding: 10px;
+    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border-radius: 5px;
+    background-color: #FDE583; /* Cor de fundo amarela */
+    margin: 10px;
+
+}
+.imagem-com-descricao{
+    text-align: center;
+    border-bottom: #093762;
+  
+}
+.imagem-com-descricao img{
+    width: 50;
+    
+}
+
+.item1-login { grid-area: header; }
+ 
+.item2-login { grid-area: main; }
+ 
+.item3-login { grid-area: right; }
+ 
+.item4-login { grid-area: footer; }
+ 
+.grid-container-login {
+ 
+  display: grid;
+ 
+  grid:
+ 
+  'header header header header header header'
+ 
+  'main main main right right right'
+ 
+  'footer footer footer footer footer footer';
+ 
+  grid-gap: 0px;
+ 
+  padding: 0px;
+ 
+}
+.imagem-login{
+    display: inline-block;
+
+    width: 650px;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    top: 150px;
+    left: 50px;
+
+}
+.barra-de-pesquisa{
+
+}
+
+.padrao-login{
+    border: 1px solid red;
+    width: 300px;
+    height: 50px;
+    margin: 10px;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border-radius: 5px;
+    background-color: #FDE583; /* Cor de fundo amarela */
+
+   
+}
+.forms-login{
+    align-items: center;
+
+    
+
+}
+.titulo-login{
+    text-align: center;
+    display: block;
+    position: relative;
+    bottom: 100px;
+    font-size: 100px;
+  
+   
+    color: 32383E;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    
+}
+.padrao-submit-login {
+    border: 1px solid red;
+    margin: 10px auto; /* Define margem superior e inferior como 10px e centraliza horizontalmente com 'auto' */
+    margin-top: 100px;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #FDE583;
+    display: block; /* Altera a exibição para 'block' para ocupar toda a largura */
+    width: 20%; /* Define a largura do botão como 50% */
+    transition: all 0.5s; /* Define a duração da animação de transição */
+}
+
+.padrao-submit-login:hover {
+    border-radius: 15px;
+    background-color: #093762;
+    color: #FDE583;
+}
+
+
+.position{
+   
+    
+}
+
+
+.esqueceu-senha-login{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: 32383E;
+   
+}
+.tamanho {
+   
+    align-items: center;
+    position: relative;
+    bottom: 250px;
+    right: 160px;
+    display: flex;
+    flex-direction: column; /* Altere a direção do flex para uma coluna */
+    width: 320px;
+    height: auto;
+    margin-top: 20px; /* Adicione uma margem superior para separar dos elementos acima */
+    float: right;
+}
+#overflow{
+    overflow: hidden;
+}
+
+.header-cadastro{
+   
+    height: 100px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo {
+    flex:20%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    
+
+    
+}
+.logo img{
+    width: 100px;
+   
+
+
+}
+
+.menu{
+    flex:80%;
+    
+    text-align: right;
+    padding: 10px;
+}
+.menu a {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: #32383E;
+    text-decoration: none;
+    margin-right: 10%;
+    position: relative; /* Adicione position relative para links */
+}
+.menu a:hover{
+    color: #093762;
+}
+
+.menu a::before { /* Adicione um pseudoelemento antes do link */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #093762;
+    transition: width 0.3s ease; /* Adicione uma transição suave */
+  
+}
+
+.menu a:hover::before {
+    width: 100%; /* Altere a largura para 100% ao passar o mouse */
+}
+.main{
+    
+   
+    display: flex;
+    flex-flow: row wrap;
+}
+.forms-cadastro{
+    flex:40%;
+    margin-left: 10%;
+    
+    
+}
+.imagem-cadastra-se{
+    margin-right: 10%;
+    flex:40%;
+    /* border:1px solid blue; */
+    text-align: center;
+
+}
+#imagem-cadastro{
+    max-width: 90%;
+
+}
+
+ 
+#cadastra-se{
+    font-weight: 700;
+    font-size: 70;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: 32383E;
+    margin-bottom: 100px;
+
+}
+.alinhamento {
+    text-align: center; /* Centraliza o conteúdo dos links */
+   
+}
+
+.alinhamento a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    color: #32383E;
+    text-decoration: none;
+    display: block; /* Transforma os links em blocos para que fiquem um embaixo do outro */
+    margin-right: 0; /* Remove a margem direita */
+    margin-bottom: 30px; /* Adiciona um espaçamento entre os links */
+    font-size: 20px;
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave para a cor de fundo */
+    background-color: #FDE583;
+    padding: 10px;
+    border-radius: 10px;
+   width: 400px;
+   height: 50px;
+   margin-left: 85px;
+   
+}
+
+.alinhamento a:hover {
+    background-color: #1169BB; /* Altera a cor de fundo no estado de hover */
+    color: #FDE583; /* Altera a cor do texto no estado de hover */
+}
+
+
+
+.tem-conta{
+    text-align: center;
+    margin-top: 40px;
+    color: 32383E;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.editar-dados {
+    display: grid; /* Alterado para grid */
+    grid-template-columns: auto auto; /* Define duas colunas */
+    grid-gap: 10px; /* Espaçamento entre as colunas */
+  
+    padding: 20px;
+    justify-items: center; /* Centraliza os itens horizontalmente dentro das células */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: center; /* Centraliza o grid horizontalmente na tela */
+}
+
+.editar-dados label {
+    text-align: right; /* Alinha o texto das labels à direita */
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    color: #093762;
+  
+
+}
+.cadastrar-alimento{
+    
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+#submit-cadastrar-alimento{
+    margin-top: 100px;
+}
+
+
+
+.editar-dados input {
+    width: 110%; /* Define a largura total dos inputs */
+    color: #093762;
+    background-color: #FDE583;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: -30px;
+
+}
+.submit-editar-dados {
+   
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    margin-top: 30px; /* Adiciona um espaço entre os campos e o botão */
+
+
+    }
+    .submit-editar-dados input {
+        background-color: #FDE583;
+        color: #093762;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        cursor: pointer;
+        transition: all 0.3s; /* Adicionando 's' para especificar segundos */
+    }
+    
+    .submit-editar-dados input:hover {
+        background-color: #093762;
+        color: #FDE583;
+        transform: scale(1.05);
+    }
+   
+    .excluir-conta-posicao {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        flex-direction: column; /* Altera a direção para coluna */
+    }
+    
+    .imagem-doador-excluir img {
+        width: 200px; /* Ajuste a largura da imagem conforme necessário */
+        height: auto; /* Mantém a proporção da imagem */
+        margin-bottom: 100px;
+        border-radius: 100px;
+        margin-top: 100px;
+    }
+    .excluir-conta-posicao form{
+        margin: 10px;
+    }
+    .excluir-conta-posicao a {
+        background-color: #093762;
+        color: #FDE583;
+        display: flex;
+        margin-bottom: 10px;
+        border: none;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        width: 100%;
+        align-self: flex-start; /* Alinha os links à posição inicial */
+    }
+    
+    .excluir-conta-posicao input {
+        display: flex;
+        background-color: #FDE583;
+        color: #093762;
+        border: none;
+        width: 100%;
+        text-decoration: none;
+        padding: 14px;
+        border-radius: 10px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        align-self: flex-start; /* Alinha o input à posição inicial */
+        cursor: pointer;
+    }
+
+    .propostas-doacao-analise {
+        border: 2px solid #1169BB;
+        width: 40%;
+        display: flex; 
+        flex-direction: row; 
+        margin: 0 auto;
+        height: auto;
+        padding: 25px;
+        margin-top: 30px;
+        border-radius: 30px;
+      }
+      
+      .imagem-card {
+       
+        width: 100px;
+        margin-right: 10px;
+       
+      }
+
+      .imagem-card img{
+        width: 75px;
+
+      }
+      .conteudo{
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        font-size: 14;
+        width: 100%;
+        
+       
+        
+      }
+      .conteudo h2{
+        font-size:16 ;
+        font-weight: 1px;
+    
+        text-align: center;
+
+    
+      }
+      #titulo-historico{
+        text-align: justify;
+      }
+      #conteudo-historico{
+     margin-left: 40px;
+      }
+
+      #imagem-historico{
+        
+          width: 140px;
+      }
+      #div-imagem-card{
+      }
+
+     
+      
+      .conteudo a{
+        text-decoration: none;
+        float: right;
+        padding: 10px;
+        margin: 10px;
+        margin-bottom: 0;
+        background-color: #FDE583;
+        color: #093762;
+        border-radius: 15px;
+        
+
+      }
+      .header-editar-proposta{
+     
+        display: flex;
+        width: 100%;
+
+
+      }
+      .header-imagem-editar img{
+        width: 75px;
+      }
+      .header-imagem-editar{
+
+        flex-wrap: nowrap;
+        flex:40%;
+        margin-left: 10%;
+
+      }
+      .header-p-editar {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        flex: 40%;
+        margin-right: 10%;
+
+    }
+    
+    .header-p-editar p {
+        text-align: right;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        position: relative;
+    }
+
+    .header-p-editar p:hover{
+        color: #093762;
+    }
+    .header-p-editar p::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #093762;
+        transition: width 0.3s ease; /* Adicione uma transição suave */
+      
+
+    }
+    .header-p-editar p:hover::before{
+        width: 100%;
+    }
+    .forms-editar-proposta {
+      
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        margin-top: 50px;
+    }
+    .conteudo-editar {
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Dispor os elementos verticalmente em uma coluna */
+    }
+    .conteudo-editar > *{
+        background-color: #FDE583;
+        border: none;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 10px;
+        color: #1169BB;
+        font-family: 'Inter', sans-serif;
+        font-weight: 100;
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      
+
+    }
+    
+        
+    
+    .botoes-editar {
+        
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centraliza os botões horizontalmente */
+        align-items: center; /* Centraliza os botões verticalmente */
+        width: 100%; /* Define a largura dos botões ao conteúdo */
+    }
+    .botoes-editar button{
+        margin: 10px;
+    }
+    #conteudo-editar-ong {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Divide o conteúdo em duas colunas */
+        gap: 10px; /* Espaçamento entre os elementos */
+    }
+    
+    #conteudo-editar-ong input {
+        width: calc(100% - 20px); /* Define a largura dos inputs */
+        padding: 10px; /* Espaçamento interno dos inputs */
+    }
+    
+    
+
+    
+     
+      
+      
+#errorNomeCompleto,
+#errorCPFOuCNPJ,
+#errorTelefone,
+#errorEmail,
+#errorConfirmarEmail,
+#errorSenha,
+#errorConfirmarSenha {
+    color: red;
+}

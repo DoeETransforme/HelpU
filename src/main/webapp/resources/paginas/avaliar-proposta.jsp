@@ -7,6 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
+    <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+    <link rel="stylesheet" href="../css/estilo.css">-->
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
 
@@ -14,26 +17,36 @@
 
     <main>
 
-        <img src="imagem.com" alt="Imagem de perfil do usuario" class="ImagemPerfil_PF">
+        <div class="avaliar-proposta">
+            <img src="../imagens/perfil-icon.png" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
+            <h2> Doação de: <c:out value="${ itemRecuperado.propostaDoacao.doador.nome}" /> </h2>
+        </div>
         
-        <h2> Doação de: <c:out value="${ itemRecuperado.propostaDoacao.doador.nome}" /> </h2>
-        <h3>Doação feita no pedido: <c:out value="${itemRecuperado.pedidoDoacao.titulo }" /> </h3>
-        <h3>Contato(telefone): <c:out value="${contatoRecuperado.celular}" /> </h3>
-        <h3>Contato(Email):  <c:out value="${contatoRecuperado.email}" /></h3>
-        <h3>Tipo de item doado: Alimento </h3>
-        <h3>Validade:<c:out value="${ itemRecuperado.alimento.dataValidade}" /></h3>
-        <h3>Quantidade Doada: <c:out value="${ itemRecuperado.quantidade}"/> </h3>
-        
-        <h2> Status da proposta: <c:out value="${itemRecuperado.propostaDoacao.statusProposta}" /> </h2>
-        
-        
-        <form action="validar-proposta" method="post">
-        <button>Validar Doação</button>
-        </form>
-         <form action="invalidar-proposta" method="post">
-        <button>Invalidar Doação</button>
-             </form>
-        
+       
+           
+                <div class="descricao">
+                    <div>
+                        <p>Doação feita no pedido: <c:out value="${itemRecuperado.pedidoDoacao.titulo }" /> </p>
+                        <p>Contato(telefone): <c:out value="${contatoRecuperado.celular}" /> </p>
+                        <p>Contato(Email):  <c:out value="${contatoRecuperado.email}" /></p>
+                        <p>Tipo de item doado: Alimento </h3>
+                        <p>Validade:<c:out value="${ itemRecuperado.alimento.dataValidade}" /></p>
+                        <p>Quantidade Doada: <c:out value="${ itemRecuperado.quantidade}"/> </p>
+                        <p> Status da proposta: <c:out value="${itemRecuperado.propostaDoacao.statusProposta}" /> </p>
+                
+                    </div>
+                
+                </div>
+                
+                
+                <div class="validar-invalidar">
+                    <form action="validar-proposta" method="post">
+                        <button type="submit" class="padrao-input" id="validar-proposta">Validar Doação</button>
+                    </form>
+                    <form action="invalidar-proposta" method="post">
+                        <button type="submit" class="padrao-input"  id="invalidar-proposta">Invalidar Doação</button>
+                    </form>
+                </div>
     </main>
     
 </body>

@@ -6,23 +6,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpu</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
     
 </head>
 <body>
 
     <header>
         <div>
-            <picture>
-                <a href="Pagina_Inicial.html"><img src="logo-imagem.com" alt="Logo"></a>
-            </picture>
-            <input type="search" placeholder="Pesquisar">
-        </div>
+            <div class="header"> 
+                <p>Login</p>
+                <img src="../imagens/logo-final.png" alt="imagem da ong">
+            </div>
         <nav>
             <a href="Login.html">Login</a>
             <a href="Cadastro.html">Cadastro</a>
         </nav>
     </header>
     <main>
-        <h1>Error 404</h1>
-        <p>Não pudemos encontrar a página. Atualize a página ou tente novamente mais tarde.</p>
+        <div class="titulo">
+            <h1>Error 404</h1>
+            <p>Não pudemos encontrar a página. Atualize a página ou tente novamente mais tarde.</p>
+        </div>
     </main>
