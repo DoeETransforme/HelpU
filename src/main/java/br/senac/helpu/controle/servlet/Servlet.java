@@ -204,7 +204,7 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
-          
+
 			case "/mostrar-conquistas":
 				mostrarConquistas(request, response);
 				break;
@@ -257,6 +257,18 @@ public class Servlet extends HttpServlet {
 				editarPedido(request, response);
 				break;
 
+			case "/propostas-pendentes":
+				mostrarPropostasPendentes(request, response);
+				break;
+
+			case "/editar-proposta":
+				mostrarEditarProposta(request, response);
+				break;
+
+			case "/proposta-editada":
+				editarProposta(request, response);
+				break;
+
 			case "/logout":
 				logout(request, response);
 				break;
@@ -299,30 +311,23 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	private void mostrarPerfilDoador(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		private void mostrarPerfilDoador(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			
-			HttpSession sessao = request.getSession();
-			Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
-			
-			
-			List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
-			
-	
-			long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
-	
-				
-			request.setAttribute("qntdConquistas", conquista);
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 
-			request.setAttribute("doador", doador);
-			request.setAttribute("conquistas", conquistas);
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/perfil-doador.jsp");
-			dispatcher.forward(request, response);
-		}
-	
+		List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
+		long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
+
+		request.setAttribute("qntdConquistas", conquista);
+		request.setAttribute("doador", doador);
+		request.setAttribute("conquistas", conquistas);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/perfil-doador.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -446,7 +451,7 @@ public class Servlet extends HttpServlet {
 			List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
 			Long id = Long.parseLong(request.getParameter("id"));
 			PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
-			
+
 			request.setAttribute("pedido", pedido);
 			request.setAttribute("alimentos", alimentos);
 
@@ -596,6 +601,24 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
+	private void mostrarPropostasPendentes(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Doador) {
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(
+					doadorDAO.recuperarDoadorId(usuario.getId()), StatusProposta.ANALISE);
+			request.setAttribute("propostas", propostas);
+			
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-pendentes.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
+	}
+
 	private void mostrarRecuperarSenha(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
@@ -698,13 +721,13 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/cadastro-conquista.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarConquistas(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		List<Conquista> conquistas = conquistaDAO.recuperarConquistas();
 		request.setAttribute("conquistas", conquistas);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-conquistas.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -993,19 +1016,19 @@ public class Servlet extends HttpServlet {
 
 	private void editarPedido(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		Long id = Long.parseLong(request.getParameter("id"));
 		String titulo = request.getParameter("titulo");
 		String descricao = request.getParameter("descricao");
 		StatusPedido status = StatusPedido.valueOf(request.getParameter("status"));
-		Alimento alimento =  alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		Alimento alimento = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
 		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 		int meta = Integer.parseInt(request.getParameter("meta"));
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		
+
 		PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
 		Item item = itemDAO.recuperarItemPorPedido(pedido);
-		
+
 		pedido.setData(data);
 		pedido.setDescricao(descricao);
 		pedido.setMetaDoacoes(meta);
@@ -1013,14 +1036,55 @@ public class Servlet extends HttpServlet {
 		pedido.setTitulo(titulo);
 		item.setAlimento(alimento);
 		item.setQuantidade(quantidade);
-		
+
 		pedidoDoacaoDAO.atualizarPedidoDoacao(pedido);
 		itemDAO.atualizarItem(item);
-		
-		
-		
+
 		response.sendRedirect("historico-pedidos");
-		
+
+	}
+
+	private void editarProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+		Item item = itemDAO.recuperarItemPorProposta(proposta);
+
+		item.setAlimento(alimentos);
+		item.setQuantidade(quantidade);
+
+		itemDAO.atualizarItem(item);
+		propostaDoacaoDAO.atualizarPropostaDoacao(proposta);
+
+		response.sendRedirect("propostas-pendentes");
+	}
+
+	private void mostrarEditarProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Doador) {
+			List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
+			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
+			List<Doador> doadores = doadorDAO.recuperarListaDoadores();
+			Long id = Long.parseLong(request.getParameter("id"));
+			PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+			request.setAttribute("proposta", proposta);
+			request.setAttribute("alimentos", alimentos);
+			request.setAttribute("pedidos", pedidos);
+			request.setAttribute("doadores", doadores);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-proposta.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
 	}
 
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
