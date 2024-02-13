@@ -34,8 +34,6 @@
 
 
 								<form action="inserir-proposta" method="post" class="forms">
-
-
 									<div>
 										<div>
 											<select name="pedido" class="padrao-input">

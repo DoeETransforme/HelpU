@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,31 +19,22 @@
     <%@ include file="menu.jsp"%>
     
     <main>
-        <div>
-            <div class="titulo">
-                <h1>Suas Propostas Pendentes</h1>
+              <c:forEach var="proposta" items="${propostas}">
+          <%-- 			<c:forEach var="item" items="${itens}"> --%>
+          <tr>
+    <%-- 			        	<td><c:out value="${item.quantidade}" /></td>
+                         <td><c:out value="${item.alimento.nome}" /></td> --%>
+                        <td><c:out value="${proposta.dataCriacao}" /></td>
+                        <td><c:out value="${proposta.statusProposta}" /></td>
+             <div>
+                <button type="button" class="botão_padrão"><a href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a></button>
+                <button type="button" class="botão_padrão"> <a href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a></button>
             </div>
-            
-            <div>
-                <h4><span id="Quantidade">5kg</span> de <span id="item">Feijão</span> para <span
-                        id="Nome_Ong">Cantinho Inclusão</span></h4>
-                <h5>Prazo para confirmar pedido: 01/02/2024</h5>
-            </div>
-            <div>
-                <button type="button" class="botão_padrão"><a href="editar-propsota.jsp">Editar</a></button>
-                <button type="button" class="botão_padrão"><a href="excluir-proposta.jsp">Excluir</a></button>
-            </div>
-            <br>
-            <div>
-                <h4><span id="Quantidade">2kg</span> de <span id="item">Café</span> para <span
-                        id="Nome_Ong">Humanidade em Ação</span></h4>
-                <h5>Prazo para confirmar pedido: 02/02/2024</h5>
-            </div>
-            <div>
-                <button type="button" class="botão_padrão"><a href="editar-propsota.jsp">Editar</a></button>
-                <button type="button" class="botão_padrão">Excluir</button>
-            </div>
+          </tr>
+    <%-- 			</c:forEach> --%>
+        </c:forEach>
         </div>
     </main>
+
 </body>
 </html>

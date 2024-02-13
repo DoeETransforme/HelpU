@@ -94,6 +94,39 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			}
 		}
 	}
+	
+	public PropostaDoacao recuperarPropostaDoacaoId(Long id) {
+
+		Session sessao = null;
+		PropostaDoacao propostaDoacao = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizPropostaDoacao = criteria.from(PropostaDoacao.class);
+
+			criteria.select(raizPropostaDoacao);
+
+			criteria.where(construtor.equal(raizPropostaDoacao.get(PropostaDoacao_.id), id));		
+			propostaDoacao = sessao.createQuery(criteria).getSingleResult();
+			
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return propostaDoacao;
+	}
 
 	public List<PropostaDoacao> recuperarTodasPropostaDoacao() {
 		Session sessao = null;
@@ -442,7 +475,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			criteria.select(raizConsulta);
 
 			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusProposta),
-					construtor.equal(raizConsulta.get(PropostaDoacao_.doador).get(Doador_.id), doador));
+					construtor.equal(raizConsulta.get(PropostaDoacao_.doador).get(Doador_.id), doador.getId()));
 
 			propostas = sessao.createQuery(criteria).getResultList();
 
