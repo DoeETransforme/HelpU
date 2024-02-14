@@ -16,6 +16,8 @@ import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.conquista.Conquista_;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.doador.Doador_;
+import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
+import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao_;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
 public class ConquistaDAOImpl implements ConquistaDAO {
@@ -119,6 +121,39 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 		return conquistas;
 
+	}
+	
+	public Conquista recuperarConquistaId(Long id) {
+
+		Session sessao = null;
+		Conquista conquista = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
+			Root<Conquista> raizConquista = criteria.from(Conquista.class);
+
+			criteria.select(raizConquista);
+
+			criteria.where(construtor.equal(raizConquista.get(Conquista_.id), id));		
+			conquista = sessao.createQuery(criteria).getSingleResult();
+			
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return conquista;
 	}
 
 	public Conquista recuperarConquistaPorNome(String nome) {

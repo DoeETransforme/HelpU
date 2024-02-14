@@ -12,6 +12,7 @@ import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
+import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
 
 @Entity
 @Table(name = "ong")
@@ -29,13 +30,13 @@ public class Ong extends Usuario implements Serializable {
 
 	public Ong() {}
 
-	public Ong(Long id, String nome, String senha, String cnpj) {
-		super(id, nome, senha);
+	public Ong(Long id, String nome, String senha, StatusUsuario status, String cnpj) {
+		super(id, nome, senha, status);
 		setCnpj(cnpj);
 	}
 
-	public Ong(String nome, String senha, String cnpj) {
-		super(nome, senha);
+	public Ong(String nome, String senha, StatusUsuario status, String cnpj) {
+		super(nome, senha, status);
 		setCnpj(cnpj);
 	}
 
