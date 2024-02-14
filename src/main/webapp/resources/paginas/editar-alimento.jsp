@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>HelpU</title>
 <link rel="stylesheet" href="../css/estilo.css">
-<!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 </head>
 <body>
 	

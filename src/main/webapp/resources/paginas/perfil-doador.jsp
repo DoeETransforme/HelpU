@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helpu</title>
 <link rel="stylesheet" href="../css/estilo.css">
- <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
+ <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
  
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
