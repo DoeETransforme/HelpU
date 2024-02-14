@@ -152,6 +152,10 @@ public class Servlet extends HttpServlet {
 			case "/editar-conquista":
 				mostrarEditarConquista(request, response);
 				break;
+				
+			case "/editar-alimento":
+				mostrarEditarAlimento(request, response);
+				break;
 
 			case "/desativar-conta":
 				mostrarExcluirContaUsuario(request, response);
@@ -265,6 +269,10 @@ public class Servlet extends HttpServlet {
 				
 			case "/conquista-editada":
 				editarConquista(request, response);
+				break;
+			
+			case "/alimento-editado":
+				editarAlimento(request, response);
 				break;
 
 			case "/propostas-pendentes":
@@ -1109,6 +1117,18 @@ public class Servlet extends HttpServlet {
 		
 	}
 	
+	private void mostrarEditarAlimento(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			Long id = Long.parseLong(request.getParameter("id"));
+			Alimento alimento = alimentoDAO.recuperarAlimentoId(id);
+			
+			request.setAttribute("alimento", alimento);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-alimento.jsp");
+			dispatcher.forward(request, response);
+		
+	}
+	
 	private void editarConquista(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		
@@ -1124,6 +1144,23 @@ public class Servlet extends HttpServlet {
 		conquistaDAO.atualizarConquista(conquista);
 
 		response.sendRedirect("mostrar-conquistas");
+	}
+	
+	private void editarAlimento(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Long id = Long.parseLong(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
+		
+		Alimento alimento = alimentoDAO.recuperarAlimentoId(id);
+		
+		alimento.setNome(nome);
+		alimento.setDataValidade(data);
+		
+		alimentoDAO.atualizarAlimento(alimento);
+
+		response.sendRedirect("mostrar-alimentos");
 	}
 
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
