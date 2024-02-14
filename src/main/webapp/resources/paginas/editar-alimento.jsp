@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +19,12 @@
 		<form action="alimento-editado" method="post" >
 		
 			<div class="editar-dados">
+			<div>
+              <c:if test="${alimento != null}">
+								<input type="hidden" name="id"
+									value="<c:out value='${alimento.id}' />" />
+							</c:if>
+               </div>
 				<label for="">Editar nome do alimento: </label>
 				<input type="text" name="nome"  placeholder="Nome do alimento" required >
 				<label for="">Editar data do alimento:</label>

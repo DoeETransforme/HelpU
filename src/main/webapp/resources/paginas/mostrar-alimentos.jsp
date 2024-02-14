@@ -24,12 +24,8 @@
 										
 						Data: <span id="data_alimento">${alimentos.dataValidade}</span>
 					</p>
-					<form action="editar-alimento" method="post">
-                        <input type="submit" name="editar" id="EditarAlimento" value="Editar">
-                    </form>
-                    <form action="excluir-alimento" method="post">
-                        <input type="submit" name="excluir" id="ExcluirAlimento" value="Excluir">
-                    </form>
+					<a href="<%=request.getContextPath()%>/editar-alimento?id=<c:out value='${alimentos.id}'/>">Editar</a>
+					<a href="<%=request.getContextPath()%>/excluir-alimento?id=<c:out value='${alimentos.id}'/>">Excluir</a>
 				</div>
 			</c:forEach>
 
