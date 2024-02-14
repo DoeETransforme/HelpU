@@ -774,7 +774,7 @@ margin-top: 50px
         width: 100%; /* Define a largura dos botões ao conteúdo */
     }
     .botoes-editar button{
-        margin: 10px;
+        margin: 10px;   
     }
     #conteudo-editar-ong {
         display: grid;
@@ -789,9 +789,204 @@ margin-top: 50px
     
     
 
-    
+    .imagem-do-pedido{
+        display: inline-block;
+        margin-top: 50px;
+        
+        width: 100%;
+       
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .imagem-do-pedido img{
+        width: 600px;
+        height: auto;
+        border-radius: 10px;
+
+    }
+    .informacao-pedido{
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
      
+
+    }
+    .informacao-pedido img{
+        width: 75px;
+    }
+    .informacao-pedido p{
+        margin-left: 10px;
+        
+    }
+    .descricao-pedido {
       
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        font-family: 'Inter', sans-serif;
+        font-weight: 200;
+        
+    }
+    
+    .descricao-pedido p {
+        text-align: center;
+        margin: 0; 
+        max-width: 70%; 
+        font-size: 18px;
+    }
+    .progresso-doacao {
+        width: 100%;
+    }
+    
+    .barra-progresso {
+     
+    }
+    
+    .progresso-doacao {
+        width: 100%;
+    }
+    
+    .barra-progresso {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    progress {
+        width: 70%;
+        height: 20px; 
+        appearance: none; 
+        border-radius: 10px;
+        
+    }
+    .titulo-progresso{
+        font-family: 'Inter', sans-serif;
+        color:#093762;
+        font-size: 30px;
+        justify-content: center;
+        display: flex;
+        margin: 15px;   
+        font-weight: 300;     
+    }
+    
+   
+    progress::-webkit-progress-value {
+        background-color: #1B65AE;
+        border-radius: 10px;
+    }
+    
+    
+    progress::-webkit-progress-bar {
+        background-color: #86ABD0; 
+        border-radius: 10px;
+    }
+    
+    
+    progress::-moz-progress-bar {
+        background-color: #007bff; 
+        border-radius: 10px;
+    }
+    
+    .status-pedido{
+        margin-top: 35px;
+        font-family: 'Inter', sans-serif;
+        color:#093762;
+
+    }
+    .ajude-pedido{
+        margin-top: 50px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        
+    }
+    .ajude-pedido button {
+        cursor: pointer;
+        transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+    }
+    
+    .ajude-pedido button:hover {
+        background-color: #093762;
+        color: #FDE583;
+        transform: scale(1.1); 
+    }
+    .doadores-pedido{
+        cursor: pointer;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Inter', sans-serif;
+        margin: 30px;
+    }
+    .doadores-pedido img{
+        width: 50px;
+    }
+    .doadores-pedido p{
+        margin-left: 15px;
+    }
+    
+    .conheca-pedidos {
+       
+        width: 100%;
+        display: flex;
+    }
+    
+    .conheca-pedidos img{
+        width: 100%;
+        height: auto;
+        border-radius: 30px;
+    }
+    .card-pedido {
+        border: 2px solid #007bff;
+        border-radius: 30px;
+        width: 20%;
+        margin: 5%;
+        margin-top: 5%;
+        height: auto;
+        padding: 10px;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        box-shadow: 0 4px 8px 0 #007bff;
+        display: flex;
+        flex-direction: column; /* Para alinhar o botão verticalmente */
+        align-items: center;
+        transition: width 0.5s ease; /* Adiciona transição suave ao mudar o tamanho */
+    }
+    
+    .card-pedido:hover {
+        border-color: #f8d504; /* Muda a cor da borda para amarelo */
+        width: 25%; /* Aumenta o tamanho do card */
+    }
+    
+    
+    .card-pedido p {
+        padding: 5px;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .card-pedido button {
+        background-color: #007bff;
+        color: #f2f2f2;
+        padding: 10px;
+        border: none;
+        border-radius: 20%;
+        width: 100px;
+        margin-top: auto;
+        font-family: 'Inter', sans-serif;
+        font-size: 12px; 
+        cursor: pointer;/* Para empurrar o botão para a parte inferior do card */
+    }
+    
+    
+    
+    
       
 #errorNomeCompleto,
 #errorCPFOuCNPJ,

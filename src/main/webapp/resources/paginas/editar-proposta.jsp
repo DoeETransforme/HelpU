@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
     <link rel="stylesheet" href="../css/estilo.css">
-    <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 
 </head>
 
@@ -40,6 +40,8 @@
 
                 <div class="conteudo-editar">                  
                   <c:forEach name="tipo-item" id="tipo-item" var="alimento" items="${alimentos}">
+                                       
+
 									      <option value="${alimento.id}">${alimento.nome}</option>
 								  </c:forEach>
                   
