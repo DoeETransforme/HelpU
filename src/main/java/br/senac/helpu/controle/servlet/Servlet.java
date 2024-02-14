@@ -148,6 +148,10 @@ public class Servlet extends HttpServlet {
 			case "/editar-perfil-doador":
 				mostrarEditarPerfilDoador(request, response);
 				break;
+				
+			case "/editar-conquista":
+				mostrarEditarConquista(request, response);
+				break;
 
 			case "/desativar-conta":
 				mostrarExcluirContaUsuario(request, response);
@@ -257,6 +261,10 @@ public class Servlet extends HttpServlet {
 
 			case "/pedido-editado":
 				editarPedido(request, response);
+				break;
+				
+			case "/conquista-editada":
+				editarConquista(request, response);
 				break;
 
 			case "/propostas-pendentes":
@@ -1088,6 +1096,35 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("login");
 		}
 	}
+	
+	private void mostrarEditarConquista(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			Long id = Long.parseLong(request.getParameter("id"));
+			Conquista conquista = conquistaDAO.recuperarConquistaId(id);
+			
+			request.setAttribute("conquista", conquista);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-conquista.jsp");
+			dispatcher.forward(request, response);
+		
+	}
+	
+	private void editarConquista(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Long id = Long.parseLong(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		String descricao = request.getParameter("descricao");
+		
+		Conquista conquista = conquistaDAO.recuperarConquistaId(id);
+		
+		conquista.setNome(nome);
+		conquista.setDescricao(descricao);
+		
+		conquistaDAO.atualizarConquista(conquista);
+
+		response.sendRedirect("mostrar-conquistas");
+	}
 
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -1126,4 +1163,6 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
+	
+	
 }
