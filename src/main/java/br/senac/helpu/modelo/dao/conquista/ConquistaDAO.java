@@ -12,6 +12,7 @@ public interface ConquistaDAO {
 		void atualizarConquista (Conquista conquista);
 		
 		List<Conquista> recuperarConquistas();
+		Conquista recuperarConquistaId(Long id);
 		List<Conquista> recuperarConquistasPorDoador(Doador doador);
 		Conquista recuperarConquistaPorNome(String nome);
 		Long recuperarQuantidadeConquistaDoador(Doador doador);	 
