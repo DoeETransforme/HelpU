@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-    <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-    <link rel="stylesheet" href="../css/estilo.css">-->
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
     <link rel="stylesheet" href="../css/estilo.css">
+   
 </head>
 <body>
 
@@ -18,7 +18,9 @@
     <main>
 
         <div class="avaliar-proposta">
-            <img src="../imagens/perfil-icon.png" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
+         <img src="<c:url value='/resources/imagens/perfil-icon.png' />" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
+
+
             <h2> Doação de: <c:out value="${ itemRecuperado.propostaDoacao.doador.nome}" /> </h2>
         </div>
         
