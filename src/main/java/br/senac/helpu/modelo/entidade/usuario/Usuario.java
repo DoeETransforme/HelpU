@@ -40,15 +40,17 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
  
-	public Usuario(Long id, String nome, String senha) {
+	public Usuario(Long id, String nome, String senha, StatusUsuario status) {
 		setId(id);
 		setNome(nome);
 		setSenha(senha);
+		setStatus(status);
 	}
  
-	public Usuario(String nome, String senha) {
+	public Usuario(String nome, String senha, StatusUsuario status) {
 		setNome(nome);
 		setSenha(senha);
+		setStatus(status);
 	}
  
 	public Long getId() {
