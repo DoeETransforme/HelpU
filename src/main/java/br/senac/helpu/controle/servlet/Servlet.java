@@ -1183,7 +1183,8 @@ public class Servlet extends HttpServlet {
 
 		if (existe) {
 			Usuario usuario = usuarioDAO.recuperarUsuarioEmail(email);
-			usuarioDAO.deletarUsuario(usuario);
+			usuario.setStatus(StatusUsuario.INATIVO);
+			usuarioDAO.atualizarUsuario(usuario);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/conta-desativada.jsp");
 			dispatcher.forward(request, response);
 		} else {
