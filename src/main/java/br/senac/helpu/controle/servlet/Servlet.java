@@ -45,6 +45,7 @@ import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
+import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
 
 
 
@@ -376,9 +377,9 @@ public class Servlet extends HttpServlet {
 
 			Alimento alimento = new Alimento("arroz", LocalDate.now());
 			alimentoDAO.inserirAlimento(alimento);
-			Ong ong = new Ong("nomebolado", "senhabolada", "23123");
+			Ong ong = new Ong("nomebolado", "senhabolada", StatusUsuario.ATIVO, "23123");
 			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("edeuardo", "1234", StatusUsuario.ATIVO, "37614237", LocalDate.of(2022, 10, 10));
 			usuarioDAO.inserirUsuario(doador);
 			Contato contato = new Contato("3123123", "email@bolado", doador);
 			contatoDAO.inserirContato(contato);
@@ -422,7 +423,7 @@ public class Servlet extends HttpServlet {
 			Ong ongRecuperada = ongDAO.recuperarOngId(usuario.getId());
 
 			// usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756", StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ongRecuperada);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -441,7 +442,7 @@ public class Servlet extends HttpServlet {
 			Ong ongRecuperada = ongDAO.recuperarOngId(usuario.getId());
 
 			// usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756", StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ongRecuperada);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -530,10 +531,10 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Doador) {
-			Ong ong = new Ong("amiguinho", "38947612", "49378794");
+			Ong ong = new Ong("amiguinho", "38947612", StatusUsuario.ATIVO, "49378794");
 
 			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756",StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ong);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -578,10 +579,10 @@ public class Servlet extends HttpServlet {
 
 		if (sessao.getAttribute("usuario") instanceof Ong) {
 
-			Ong ong = new Ong("amiguinho", "38947612", "49378794");
+			Ong ong = new Ong("amiguinho", "38947612", StatusUsuario.ATIVO, "49378794");
 
 			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756",StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ong);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -794,7 +795,7 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("celular");
 
-		doador = new Doador(nome, senha, cpf, data);
+		doador = new Doador(nome, senha, StatusUsuario.ATIVO, cpf, data);
 		contato = new Contato(telefone, email, doador);
 
 		usuarioDAO.inserirUsuario(doador);
@@ -816,7 +817,7 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email-ong");
 		String telefone = request.getParameter("tefelone-ong");
 
-		ong = new Ong(nome, senha, cnpj);
+		ong = new Ong(nome, senha, StatusUsuario.ATIVO, cnpj);
 		contato = new Contato(telefone, email, ong);
 
 		usuarioDAO.inserirUsuario(ong);

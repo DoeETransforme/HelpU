@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
+import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
 
 @Entity
 @Table(name = "doador")
@@ -44,15 +45,15 @@ public class Doador extends Usuario implements Serializable {
 
 	public Doador() {}
 
-	public Doador(Long id, String nome, String senha, String cpf, LocalDate data) {
-		super(id, nome, senha);
+	public Doador(Long id, String nome, String senha, StatusUsuario status, String cpf, LocalDate data) {
+		super(id, nome, senha, status);
 		setCpf(cpf);
 		setData(data);
 
 	}
 
-	public Doador(String nome, String senha, String cpf, LocalDate data) {
-		super(nome, senha);
+	public Doador(String nome, String senha, StatusUsuario status, String cpf, LocalDate data) {
+		super(nome, senha, status);
 		setCpf(cpf);
 		setData(data);
 	}
