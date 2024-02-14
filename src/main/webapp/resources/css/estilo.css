@@ -19,6 +19,11 @@ body {
  
 }
 
+
+.imagem-tela-inicial{
+}
+
+
 .forms div {
     margin-bottom: 0px;
     display: grid;
@@ -34,6 +39,11 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     color: #093762;
+}
+.titulo-tela-de-erro{
+    color: blue;
+
+    
 }
 .titulo p{
     margin-top: 40px;
@@ -184,3 +194,9 @@ body {
 #errorConfirmarSenha {
     color: red;
 }
+
+p.one {
+    border-style: solid;
+}
+
+
