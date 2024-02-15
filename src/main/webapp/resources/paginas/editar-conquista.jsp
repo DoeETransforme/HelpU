@@ -18,23 +18,23 @@
 
 	<main>
 		<form action="conquista-editada" method="post" class="forms">
-			 <div>
+			
               <c:if test="${conquista != null}">
 								<input type="hidden" name="id"
 									value="<c:out value='${conquista.id}' />" />
 							</c:if>
-               </div>
-			<div>
-				<input type="text" class="padrao-input" name="nome"
-					placeholder="Nome da Conquista">
-			</div>
-			<div>
-				<textarea name="descricao" class="padrao-textarea"
-					placeholder="Descri��o da Conquista!"></textarea>
-			</div>
-			<div>
+             
+		
+				<div>
+					<input type="text" class="padrao-input" name="nome"
+						placeholder="Nome da Conquista">
+					<textarea name="descricao" class="padrao-input" rows="1"
+						placeholder="Descricao da Conquista!"></textarea>
+				</div>
+			
+			
 				<button type="submit" class="padrao-submit">Confirmar</button>
-			</div>
+			
 		</form>
 	</main>
 </body>

@@ -14,8 +14,7 @@ body {
 
 .forms {
     width: 40%;
-    max-width: 400px;
-    margin: 50px auto;
+    margin: 5% auto;
     border-radius: 8px;
 
     
@@ -23,18 +22,29 @@ body {
 }
 
 .forms div {
-    margin-bottom: 0px;
+    margin-bottom: 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Divide em duas colunas */
-    gap: 10px; /* Espaçamento entre as colunas */
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+   
+}
+#div-titulo{
+    grid-column: span 2; text-align: center; 
+    display: block;
+    margin-bottom: 0;
+
 }
 .forms .padrao-submit{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    margin-top: 100px;
-    margin-left: 155px;
+    margin-top: 10px;
+    margin: 10px auto;
+  
+    
+}
+.forms h4{
     
 }
 .padrao-submit{
@@ -175,9 +185,9 @@ margin-top: 50px
     width: calc(0);
     padding: 10px;
     border: 1px solid #ccc; /* Defina a cor da borda aqui */
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #FDE583; /* Cor de fundo amarela */
-    margin: 10px;
+    margin: 10px ;
     font-family: 'Inter', sans-serif;
     font-weight: 100;
     
@@ -983,6 +993,7 @@ margin-top: 50px
         font-size: 12px; 
         cursor: pointer;/* Para empurrar o botão para a parte inferior do card */
     }
+   
     
     
     

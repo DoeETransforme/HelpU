@@ -8,7 +8,7 @@
 <meta charset="ISO-8859-1">
 <title>HelpU</title>
 <link rel="stylesheet" href="../css/estilo.css">
-<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> -->
 </head>
 <body>
 	
@@ -16,21 +16,21 @@
 			<h1>Editar Alimento</h1>
 		</div>
 		
-		<form action="alimento-editado" method="post" >
+		<form action="alimento-editado" method="post" class="forms" >
 		
-			<div class="editar-dados">
+			
+			<c:if test="${alimento != null}">
+				<input type="hidden" name="id"
+				value="<c:out value='${alimento.id}' />" />
+			</c:if>
+			
 			<div>
-              <c:if test="${alimento != null}">
-								<input type="hidden" name="id"
-									value="<c:out value='${alimento.id}' />" />
-							</c:if>
-               </div>
 				<label for="">Editar nome do alimento: </label>
-				<input type="text" name="nome"  placeholder="Nome do alimento" required >
+				<input type="text" name="nome"  placeholder="Nome do alimento" required class="padrao-input">
 				<label for="">Editar data do alimento:</label>
-				<input type="date" name="data" required  >
+				<input type="text" name="data" required class="padrao-input" placeholder="Data do alimento" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
 			</div>
-			<div class="submit-editar-dados"><input type="submit" class=""></div>
+			<input type="submit" class="padrao-submit">
 	
 		</form>
 	
