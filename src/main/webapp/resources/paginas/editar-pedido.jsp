@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HelpU</title>
         <link rel="stylesheet" href="../css/estilo.css">7
-        <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+        <!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> -->
     </head>
 
 <body>
@@ -24,34 +24,31 @@
         	<c:if test="${pedido != null}">
 						<input type="hidden" name="id" value="<c:out value='${pedido.id}' />" />
 					</c:if>
-            <div><input type="text" id="Titulo_pedido" name="titulo" placeholder="Qual o título do pedido?" class="padrao-input"></div>
-       
-        <div>
-            <textarea placeholder="Escreva sobre o pedido!" name="descricao" maxlenght="10000" class="padrao-textarea"></textarea>
-        </div>
-        
-            <label for="Status_pedido" class="titulo">Status do Pedido:</label>
-            <div>
-                <select name="status" id="Status_pedido" class="padrao-input">
-                    <option value="" disabled selected>Qual o  status atual?</option>
-                    <option value="ATIVO">Ativo</option>
-                    <option value="CANCELADO">Cancelado</option>
-                    <option value="CONCLUIDO">Concluído</option>
-                </select>
-            </div>
-            
-            <div>
-                <select name="alimento" class="padrao-input">
-                                <c:forEach var="alimento" items="${alimentos}">
-                        <option value="" disabled selected> Selecione o alimento</option>
-                                    <option value="${alimento.id}">${alimento.nome}</option>
-                                </c:forEach>
-                             </select>
-            </div>
-			 
-    	  	<div><input type="number" id="QuantidadeDoacao" name="quantidade"  placeholder="Quantidade" required class="padrao-input"></div>
-            <div><input type="number" id="meta_doações" name="meta" placeholder="Meta de Doações" class="padrao-input"></div>
-            <div><input type="date" id="data_final" name="data" placeholder="O pedido irá durar até dia..." class="padrao-input"></div>
+
+          <div>
+              <input type="text" id="Titulo_pedido" name="titulo" placeholder="Qual o título do pedido?" class="padrao-input">
+                <textarea placeholder="Escreva sobre o pedido!" name="descricao" rows="1" class="padrao-input"></textarea>
+    
+                    <select name="status" id="Status_pedido" class="padrao-input">
+                        <option value="" disabled selected>Qual o  status atual?</option>
+                        <option value="ATIVO">Ativo</option>
+                        <option value="CANCELADO">Cancelado</option>
+                        <option value="CONCLUIDO">Concluído</option>
+                    </select>
+              
+              
+                    <select name="alimento" class="padrao-input">
+                                    <c:forEach var="alimento" items="${alimentos}">
+                            <option value="" disabled selected> Selecione o alimento</option>
+                                        <option value="${alimento.id}">${alimento.nome}</option>
+                                    </c:forEach>
+                                 </select>
+                       
+                         
+                      <input type="number" id="QuantidadeDoacao" name="quantidade"  placeholder="Quantidade" required class="padrao-input">
+              <input type="number" id="meta_doações" name="meta" placeholder="Meta de Doações" class="padrao-input">
+               <input type="date" id="data_final" name="data" placeholder="O pedido irá durar até dia..." class="padrao-input">
+          </div>
             
             <h2 class="titulo">Quais itens são necessários?</h2>
             <div id="adicionar_mais_itens" class="titulo">
@@ -60,8 +57,8 @@
                 <li>Macarrão</li>
             </ul>
             <button type="button" id="adicionar_mais_itens" class="padrao-input">Solicitar mais itens +</button>
-        </div>
-        <br><br>
+            </div>
+     
             <button type="submit" id="alteração_pedido" class="padrao-submit">Pronto</button>
        
         </form>
