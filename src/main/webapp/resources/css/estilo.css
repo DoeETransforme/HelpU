@@ -73,7 +73,7 @@ body {
 .titulo {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza os itens horizontalmente */
+    align-items: center; 
     margin-top: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
@@ -94,7 +94,7 @@ body {
 .avaliar-proposta{
     display: flex;
  
-    align-items: center; /* Centraliza os itens horizontalmente */
+    align-items: center;
     justify-content: center;
     margin-top: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -107,20 +107,20 @@ body {
 }
 .footer {
     display: flex;
-    align-items: center; /* Centraliza os itens verticalmente */
-    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center;
+    justify-content: center;
     font-family: 'Times New Roman', Times, serif;
     color: var(--cor-principal);
-    height: 50vh; /* Define a altura da .footer como 100% da altura da janela de visualização */
+    height: 50vh; 
 }
 
 
 .descricao {
     width: 100%;
-    text-align: justify; /* Justifica o texto */
+    text-align: justify; 
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center;
+    align-items: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     font-weight: 100;
@@ -134,7 +134,7 @@ margin-top: 50px
     align-items: center;
     display: flex;
     justify-content: center;
-    flex-direction: column; /* Posiciona os elementos na vertical */
+    flex-direction: column; 
   }
   
 
@@ -163,11 +163,11 @@ margin-top: 50px
     right: 60;
 }
 .header img {
-    width: 85px; /* Defina a largura desejada */
-    height: auto; /* Mantenha a proporção da imagem */
-    position: absolute; /* Define a posição absoluta */
-    top: 10; /* Posiciona a imagem no fundo */
-    left: 60; /* Posiciona a imagem à esquerda */
+    width: 85px; 
+    height: auto;
+    position: absolute; 
+    top: 10; 
+    left: 60; 
 }
 
 
@@ -175,7 +175,7 @@ margin-top: 50px
 
 
 .padrao-textarea {
-    width: 200%; /* ou uma largura específica, se desejar */
+    width: 200%;
     position: relative;
     left: -10px;
     padding: 10px;
@@ -184,17 +184,17 @@ margin-top: 50px
     background-color: var(--cor-secundaria);
     margin: 20px;
     margin-top: -10px;
-    resize: none; /* Impede o redimensionamento do textarea pelo usuário */
-    grid-row: 4; /* Define o número de linhas */
-    columns: 100; /* Define o número de colunas */
+    resize: none;
+    grid-row: 4;
+    columns: 100; 
 }
 
 .padrao-input{
     width: calc(0);
     padding: 10px;
-    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: var(--cor-secundaria); /* Cor de fundo amarela */
+    background-color: var(--cor-secundaria); 
     margin: 10px ;
     font-family: 'Inter', sans-serif;
     font-weight: 100;
@@ -203,12 +203,12 @@ margin-top: 50px
 
 
 .padrao-input::placeholder{
-    color: var(--cor-principal); /* Cor do texto do placeholder */
+    color: var(--cor-principal); 
 }
 .label-padrao {
     display: block;
     color: var(--cor-principal);
-    text-align: right; /* Alinha o texto à direita */
+    text-align: right; 
 }
 
 
@@ -233,9 +233,9 @@ margin-top: 50px
     width: 180%;
     width: calc(0);
     padding: 10px;
-    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border: 1px solid #ccc; 
     border-radius: 5px;
-    background-color: var(--cor-secundaria); /* Cor de fundo amarela */
+    background-color: var(--cor-secundaria); 
     margin: 10px;
 
 }
@@ -297,9 +297,9 @@ margin-top: 50px
     margin: 10px;
     align-items: center;
     padding: 10px;
-    border: 1px solid #ccc; /* Defina a cor da borda aqui */
+    border: 1px solid #ccc; 
     border-radius: 5px;
-    background-color: var(--cor-secundaria); /* Cor de fundo amarela */
+    background-color: var(--cor-secundaria); 
 
    
 }
@@ -324,7 +324,7 @@ margin-top: 50px
 }
 .padrao-submit-login {
     border: 1px solid red;
-    margin: 10px auto; /* Define margem superior e inferior como 10px e centraliza horizontalmente com 'auto' */
+    margin: 10px auto; 
     margin-top: 100px;
     margin-bottom: 30px;
     align-items: center;
@@ -333,9 +333,9 @@ margin-top: 50px
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: var(--cor-secundaria);
-    display: block; /* Altera a exibição para 'block' para ocupar toda a largura */
-    width: 20%; /* Define a largura do botão como 50% */
-    transition: all 0.5s; /* Define a duração da animação de transição */
+    display: block; 
+    width: 20%; 
+    transition: all 0.5s; 
 }
 
 .padrao-submit-login:hover {
@@ -364,10 +364,10 @@ margin-top: 50px
     bottom: 250px;
     right: 160px;
     display: flex;
-    flex-direction: column; /* Altere a direção do flex para uma coluna */
+    flex-direction: column;
     width: 320px;
     height: auto;
-    margin-top: 20px; /* Adicione uma margem superior para separar dos elementos acima */
+    margin-top: 20px;
     float: right;
 }
 #overflow{
@@ -413,13 +413,13 @@ margin-top: 50px
     color: #32383E;
     text-decoration: none;
     margin-right: 10%;
-    position: relative; /* Adicione position relative para links */
+    position: relative; 
 }
 .menu a:hover{
     color: var(--cor-principal);
 }
 
-.menu a::before { /* Adicione um pseudoelemento antes do link */
+.menu a::before { 
     content: '';
     position: absolute;
     top: 0;
@@ -427,12 +427,12 @@ margin-top: 50px
     width: 0;
     height: 2px;
     background-color: var(--cor-principal);
-    transition: width 0.3s ease; /* Adicione uma transição suave */
+    transition: width 0.3s ease; 
   
 }
 
 .menu a:hover::before {
-    width: 100%; /* Altere a largura para 100% ao passar o mouse */
+    width: 100%; 
 }
 .main{
     
@@ -449,7 +449,7 @@ margin-top: 50px
 .imagem-cadastra-se{
     margin-right: 10%;
     flex:40%;
-    /* border:1px solid blue; */
+   
     text-align: center;
 
 }
@@ -469,7 +469,7 @@ margin-top: 50px
 
 }
 .alinhamento {
-    text-align: center; /* Centraliza o conteúdo dos links */
+    text-align: center; 
    
 }
 
@@ -478,11 +478,11 @@ margin-top: 50px
     font-weight: 100;
     color: #32383E;
     text-decoration: none;
-    display: block; /* Transforma os links em blocos para que fiquem um embaixo do outro */
-    margin-right: 0; /* Remove a margem direita */
-    margin-bottom: 30px; /* Adiciona um espaçamento entre os links */
+    display: block; 
+    margin-right: 0;
+    margin-bottom: 30px;
     font-size: 20px;
-    transition: background-color 0.3s ease; /* Adiciona uma transição suave para a cor de fundo */
+    transition: background-color 0.3s ease; 
     background-color: var(--cor-secundaria);
     padding: 10px;
     border-radius: 10px;
@@ -493,8 +493,8 @@ margin-top: 50px
 }
 
 .alinhamento a:hover {
-    background-color: var(--cor-principal); /* Altera a cor de fundo no estado de hover */
-    color: var(--cor-secundaria); /* Altera a cor do texto no estado de hover */
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria); 
 }
 
 
@@ -508,18 +508,18 @@ margin-top: 50px
 }
 
 .editar-dados {
-    display: grid; /* Alterado para grid */
-    grid-template-columns: auto auto; /* Define duas colunas */
-    grid-gap: 10px; /* Espaçamento entre as colunas */
+    display: grid; 
+    grid-template-columns: auto auto; 
+    grid-gap: 10px; 
   
     padding: 20px;
-    justify-items: center; /* Centraliza os itens horizontalmente dentro das células */
-    align-items: center; /* Centraliza os itens verticalmente */
-    justify-content: center; /* Centraliza o grid horizontalmente na tela */
+    justify-items: center; 
+    align-items: center; 
+    justify-content: center; 
 }
 
 .editar-dados label {
-    text-align: right; /* Alinha o texto das labels à direita */
+    text-align: right; 
     padding: 10px;
     margin: 10px;
     font-family: 'Inter', sans-serif;
@@ -543,7 +543,7 @@ margin-top: 50px
 
 
 .editar-dados input {
-    width: 110%; /* Define a largura total dos inputs */
+    width: 110%; 
     color: var(--cor-principal);
     background-color: var(--cor-secundaria);
     border: none;
@@ -556,8 +556,8 @@ margin-top: 50px
 .submit-editar-dados {
    
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    margin-top: 30px; /* Adiciona um espaço entre os campos e o botão */
+    justify-content: center; 
+    margin-top: 30px; 
 
 
     }
@@ -570,7 +570,7 @@ margin-top: 50px
         font-family: 'Inter', sans-serif;
         font-weight: 100;
         cursor: pointer;
-        transition: all 0.3s; /* Adicionando 's' para especificar segundos */
+        transition: all 0.3s; 
     }
     
     .submit-editar-dados input:hover {
@@ -585,12 +585,12 @@ margin-top: 50px
         align-items: center;
         justify-content: center;
         height: auto;
-        flex-direction: column; /* Altera a direção para coluna */
+        flex-direction: column; 
     }
     
     .imagem-doador-excluir img {
-        width: 200px; /* Ajuste a largura da imagem conforme necessário */
-        height: auto; /* Mantém a proporção da imagem */
+        width: 200px; 
+        height: auto; 
         margin-bottom: 100px;
         border-radius: 100px;
         margin-top: 100px;
@@ -610,7 +610,7 @@ margin-top: 50px
         font-family: 'Inter', sans-serif;
         font-weight: 100;
         width: 100%;
-        align-self: flex-start; /* Alinha os links à posição inicial */
+        align-self: flex-start; 
     }
     
     .excluir-conta-posicao input {
@@ -624,7 +624,7 @@ margin-top: 50px
         border-radius: 10px;
         font-family: 'Inter', sans-serif;
         font-weight: 100;
-        align-self: flex-start; /* Alinha o input à posição inicial */
+        align-self: flex-start; 
         cursor: pointer;
     }
 
@@ -740,7 +740,7 @@ margin-top: 50px
         width: 0;
         height: 2px;
         background-color: var(--cor-principal);
-        transition: width 0.3s ease; /* Adicione uma transição suave */
+        transition: width 0.3s ease;
       
 
     }
@@ -761,7 +761,7 @@ margin-top: 50px
     
         display: flex;
         flex-direction: column;
-        align-items: center; /* Dispor os elementos verticalmente em uma coluna */
+        align-items: center;
     }
     .conteudo-editar > *{
         background-color: var(--cor-secundaria);
@@ -787,22 +787,22 @@ margin-top: 50px
         margin-top: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centraliza os botões horizontalmente */
-        align-items: center; /* Centraliza os botões verticalmente */
-        width: 100%; /* Define a largura dos botões ao conteúdo */
+        justify-content: center; 
+        align-items: center; 
+        width: 100%; 
     }
     .botoes-editar button{
         margin: 10px;   
     }
     #conteudo-editar-ong {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Divide o conteúdo em duas colunas */
-        gap: 10px; /* Espaçamento entre os elementos */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
     }
     
     #conteudo-editar-ong input {
-        width: calc(100% - 20px); /* Define a largura dos inputs */
-        padding: 10px; /* Espaçamento interno dos inputs */
+        width: calc(100% - 20px); 
+        padding: 10px; 
     }
     
     
@@ -972,14 +972,14 @@ margin-top: 50px
         padding-left: 0;
         padding-right: 0;
         display: flex;
-        flex-direction: column; /* Para alinhar o botão verticalmente */
+        flex-direction: column; 
         align-items: center;
-        transition: width 0.5s ease; /* Adiciona transição suave ao mudar o tamanho */
+        transition: width 0.5s ease; 
     }
     
     .card-pedido:hover {
-        border-color: var(--cor-secundaria); /* Muda a cor da borda para amarelo */
-        width: 25%; /* Aumenta o tamanho do card */
+        border-color: var(--cor-secundaria); 
+        width: 25%; 
     }
     
     
