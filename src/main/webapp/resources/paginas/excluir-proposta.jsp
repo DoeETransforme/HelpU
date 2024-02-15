@@ -20,8 +20,8 @@
 				value="<c:out value='${proposta.id}' />" />
 		</c:if>
 	</div>
-	<a href="historico-propostas" class="Voltar" class=""> Voltar</a>
-	<a href="proposta-excluido" class="Voltar" class="">Confirmar</a>
+	<a href="<%=request.getContextPath()%>/perfil-doador?id=<c:out value='${proposta.id}'/>" class="Voltar"> Voltar</a>
+	<a href="<%=request.getContextPath()%>/proposta-excluida?id=<c:out value='${proposta.id}'/>" class="Voltar">Confirmar</a>
 
 
 </body>
