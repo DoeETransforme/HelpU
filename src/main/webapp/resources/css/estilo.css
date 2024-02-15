@@ -7,9 +7,17 @@
     box-sizing: border-box;
 }
 
+:root{
+    --cor-principal: #1B65AE;
+    --cor-secundaria: #FDE583;
+    --cor-background: #f2f2f2;
+    --cor-texto: #32383E;
+
+}
+
 body {
    
-    background-color: #f2f2f2;
+    background-color: var(--cor-background);
 }
 
 .forms {
@@ -48,8 +56,8 @@ body {
     
 }
 .padrao-submit{
-    background-color: #FDE583;
-    color: #093762;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
     padding: 10px;
     border: none;
     border-radius: 10px;
@@ -58,8 +66,8 @@ body {
     font-weight: 100;
 }
 .padrao-submit:hover {
-    background-color: #093762;
-    color: #FDE583;
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
 }
 
 .titulo {
@@ -69,7 +77,7 @@ body {
     margin-top: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    color: #093762;
+    color: var(--cor-texto);
 }
 .titulo p{
     margin-top: 40px;
@@ -91,7 +99,7 @@ body {
     margin-top: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    color: #093762;
+    color: var(--cor-principal);
 
 }
 .avaliar-proposta img{
@@ -102,7 +110,7 @@ body {
     align-items: center; /* Centraliza os itens verticalmente */
     justify-content: center; /* Centraliza os itens horizontalmente */
     font-family: 'Times New Roman', Times, serif;
-    color: #093762;
+    color: var(--cor-principal);
     height: 50vh; /* Define a altura da .footer como 100% da altura da janela de visualização */
 }
 
@@ -149,7 +157,7 @@ margin-top: 50px
 
 .header p {
     font-family: 'Times New Roman', Times, serif;
-    color: #093762;
+    color: var(--cor-principal);
     position: absolute;
     top: 30;
     right: 60;
@@ -173,7 +181,7 @@ margin-top: 50px
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #FDE583;
+    background-color: var(--cor-secundaria);
     margin: 20px;
     margin-top: -10px;
     resize: none; /* Impede o redimensionamento do textarea pelo usuário */
@@ -186,7 +194,7 @@ margin-top: 50px
     padding: 10px;
     border: 1px solid #ccc; /* Defina a cor da borda aqui */
     border-radius: 8px;
-    background-color: #FDE583; /* Cor de fundo amarela */
+    background-color: var(--cor-secundaria); /* Cor de fundo amarela */
     margin: 10px ;
     font-family: 'Inter', sans-serif;
     font-weight: 100;
@@ -195,11 +203,11 @@ margin-top: 50px
 
 
 .padrao-input::placeholder{
-    color: #093762; /* Cor do texto do placeholder */
+    color: var(--cor-principal); /* Cor do texto do placeholder */
 }
 .label-padrao {
     display: block;
-    color: #093762;
+    color: var(--cor-principal);
     text-align: right; /* Alinha o texto à direita */
 }
 
@@ -227,13 +235,13 @@ margin-top: 50px
     padding: 10px;
     border: 1px solid #ccc; /* Defina a cor da borda aqui */
     border-radius: 5px;
-    background-color: #FDE583; /* Cor de fundo amarela */
+    background-color: var(--cor-secundaria); /* Cor de fundo amarela */
     margin: 10px;
 
 }
 .imagem-com-descricao{
     text-align: center;
-    border-bottom: #093762;
+    border-bottom: var(--cor-principal);
   
 }
 .imagem-com-descricao img{
@@ -291,7 +299,7 @@ margin-top: 50px
     padding: 10px;
     border: 1px solid #ccc; /* Defina a cor da borda aqui */
     border-radius: 5px;
-    background-color: #FDE583; /* Cor de fundo amarela */
+    background-color: var(--cor-secundaria); /* Cor de fundo amarela */
 
    
 }
@@ -324,7 +332,7 @@ margin-top: 50px
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #FDE583;
+    background-color: var(--cor-secundaria);
     display: block; /* Altera a exibição para 'block' para ocupar toda a largura */
     width: 20%; /* Define a largura do botão como 50% */
     transition: all 0.5s; /* Define a duração da animação de transição */
@@ -332,8 +340,8 @@ margin-top: 50px
 
 .padrao-submit-login:hover {
     border-radius: 15px;
-    background-color: #093762;
-    color: #FDE583;
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
 }
 
 
@@ -408,7 +416,7 @@ margin-top: 50px
     position: relative; /* Adicione position relative para links */
 }
 .menu a:hover{
-    color: #093762;
+    color: var(--cor-principal);
 }
 
 .menu a::before { /* Adicione um pseudoelemento antes do link */
@@ -418,7 +426,7 @@ margin-top: 50px
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #093762;
+    background-color: var(--cor-principal);
     transition: width 0.3s ease; /* Adicione uma transição suave */
   
 }
@@ -475,7 +483,7 @@ margin-top: 50px
     margin-bottom: 30px; /* Adiciona um espaçamento entre os links */
     font-size: 20px;
     transition: background-color 0.3s ease; /* Adiciona uma transição suave para a cor de fundo */
-    background-color: #FDE583;
+    background-color: var(--cor-secundaria);
     padding: 10px;
     border-radius: 10px;
    width: 400px;
@@ -485,8 +493,8 @@ margin-top: 50px
 }
 
 .alinhamento a:hover {
-    background-color: #1169BB; /* Altera a cor de fundo no estado de hover */
-    color: #FDE583; /* Altera a cor do texto no estado de hover */
+    background-color: var(--cor-principal); /* Altera a cor de fundo no estado de hover */
+    color: var(--cor-secundaria); /* Altera a cor do texto no estado de hover */
 }
 
 
@@ -516,7 +524,7 @@ margin-top: 50px
     margin: 10px;
     font-family: 'Inter', sans-serif;
     font-weight: 100;
-    color: #093762;
+    color: var(--cor-principal);
   
 
 }
@@ -536,8 +544,8 @@ margin-top: 50px
 
 .editar-dados input {
     width: 110%; /* Define a largura total dos inputs */
-    color: #093762;
-    background-color: #FDE583;
+    color: var(--cor-principal);
+    background-color: var(--cor-secundaria);
     border: none;
     padding: 10px;
     border-radius: 10px;
@@ -554,8 +562,8 @@ margin-top: 50px
 
     }
     .submit-editar-dados input {
-        background-color: #FDE583;
-        color: #093762;
+        background-color: var(--cor-secundaria);
+        color: var(--cor-principal);
         padding: 10px;
         border: none;
         border-radius: 10px;
@@ -566,8 +574,8 @@ margin-top: 50px
     }
     
     .submit-editar-dados input:hover {
-        background-color: #093762;
-        color: #FDE583;
+        background-color: var(--cor-principal);
+        color: var(--cor-secundaria);
         transform: scale(1.05);
     }
    
@@ -591,8 +599,8 @@ margin-top: 50px
         margin: 10px;
     }
     .excluir-conta-posicao a {
-        background-color: #093762;
-        color: #FDE583;
+        background-color: var(--cor-principal);
+        color: var(--cor-secundaria);
         display: flex;
         margin-bottom: 10px;
         border: none;
@@ -607,8 +615,8 @@ margin-top: 50px
     
     .excluir-conta-posicao input {
         display: flex;
-        background-color: #FDE583;
-        color: #093762;
+        background-color: var(--cor-secundaria);
+        color: var(--cor-principal);
         border: none;
         width: 100%;
         text-decoration: none;
@@ -621,7 +629,7 @@ margin-top: 50px
     }
 
     .propostas-doacao-analise {
-        border: 2px solid #1169BB;
+        border: 2px solid var(--cor-principal);
         width: 40%;
         display: flex; 
         flex-direction: row; 
@@ -682,8 +690,8 @@ margin-top: 50px
         padding: 10px;
         margin: 10px;
         margin-bottom: 0;
-        background-color: #FDE583;
-        color: #093762;
+        background-color: var(--cor-secundaria);
+        color: var(--cor-principal);
         border-radius: 15px;
         
 
@@ -722,7 +730,7 @@ margin-top: 50px
     }
 
     .header-p-editar p:hover{
-        color: #093762;
+        color: var(--cor-principal);
     }
     .header-p-editar p::before{
         content: '';
@@ -731,7 +739,7 @@ margin-top: 50px
         left: 0;
         width: 0;
         height: 2px;
-        background-color: #093762;
+        background-color: var(--cor-principal);
         transition: width 0.3s ease; /* Adicione uma transição suave */
       
 
@@ -756,7 +764,7 @@ margin-top: 50px
         align-items: center; /* Dispor os elementos verticalmente em uma coluna */
     }
     .conteudo-editar > *{
-        background-color: #FDE583;
+        background-color: var(--cor-secundaria);
         border: none;
         padding: 10px;
         margin: 10px;
@@ -876,7 +884,7 @@ margin-top: 50px
     }
     .titulo-progresso{
         font-family: 'Inter', sans-serif;
-        color:#093762;
+        color:var(--cor-principal);
         font-size: 30px;
         justify-content: center;
         display: flex;
@@ -921,8 +929,8 @@ margin-top: 50px
     }
     
     .ajude-pedido button:hover {
-        background-color: #093762;
-        color: #FDE583;
+        background-color: var(--cor-principal);
+        color: var(--cor-secundaria);
         transform: scale(1.1); 
     }
     .doadores-pedido{
@@ -953,7 +961,7 @@ margin-top: 50px
         border-radius: 30px;
     }
     .card-pedido {
-        border: 2px solid #007bff;
+        border: 2px solid var(--cor-principal);
         border-radius: 30px;
         width: 20%;
         margin: 5%;
@@ -963,7 +971,6 @@ margin-top: 50px
         padding-top: 0;
         padding-left: 0;
         padding-right: 0;
-        box-shadow: 0 4px 8px 0 #007bff;
         display: flex;
         flex-direction: column; /* Para alinhar o botão verticalmente */
         align-items: center;
@@ -971,7 +978,7 @@ margin-top: 50px
     }
     
     .card-pedido:hover {
-        border-color: #f8d504; /* Muda a cor da borda para amarelo */
+        border-color: var(--cor-secundaria); /* Muda a cor da borda para amarelo */
         width: 25%; /* Aumenta o tamanho do card */
     }
     
@@ -982,8 +989,8 @@ margin-top: 50px
     }
     
     .card-pedido button {
-        background-color: #007bff;
-        color: #f2f2f2;
+        background-color: var(--cor-principal);
+        color: var(--cor-background);
         padding: 10px;
         border: none;
         border-radius: 20%;
