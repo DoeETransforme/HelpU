@@ -214,6 +214,10 @@ public class Servlet extends HttpServlet {
 			case "/mostrar-alimentos":
 				mostrarAlimentos(request, response);
 				break;
+				
+			case "/descricao-proposta":
+				mostrarDescricacaoProposta(request, response);
+				break;
 
 			case "/inserir-doador":
 				inserirDoador(request, response);
@@ -609,8 +613,10 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (usuario instanceof Doador) {
-			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(
-					doadorDAO.recuperarDoadorId(usuario.getId()), StatusProposta.ANALISE);
+			
+			Doador doador = (Doador) usuario;
+			
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador, StatusProposta.ANALISE);
 			request.setAttribute("propostas", propostas);
 			
 
@@ -731,6 +737,19 @@ public class Servlet extends HttpServlet {
 		request.setAttribute("conquistas", conquistas);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-conquistas.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	
+	private void mostrarDescricacaoProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		
+		
+		List<PropostaDoacao> proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(null)
+		request.setAttribute("proposta", proposta);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-proposta.jsp");
 		dispatcher.forward(request, response);
 	}
 

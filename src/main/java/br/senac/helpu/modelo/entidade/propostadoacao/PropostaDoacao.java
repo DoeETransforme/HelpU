@@ -48,38 +48,39 @@ public class PropostaDoacao implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_doador")
 	private Doador doador;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_pedido_doacao", nullable = false)
-	private PedidoDoacao pedidoDoacao;	
+	private PedidoDoacao pedidoDoacao;
 
-	public PropostaDoacao() {}
+	public PropostaDoacao() {
+	}
 
 	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao) {
-	    setId(id);
-	    setStatusProposta(statusProposta);
-	    setDoador(doador);
-	    setDataCriacao(dataCriacao);
-	    itens = new ArrayList<>();
+		setId(id);
+		setStatusProposta(statusProposta);
+		setDoador(doador);
+		setDataCriacao(dataCriacao);
+		itens = new ArrayList<>();
 	}
+
 	public PropostaDoacao(StatusProposta statusProposta, Doador doador, LocalDate dataCriacao, PedidoDoacao pedido) {
-	    setId(id);
-	    setStatusProposta(statusProposta);
-	    setDataCriacao(dataCriacao);
-	    setDoador(doador);
-	    setPedidoDoacao(pedido);
-	    itens = new ArrayList<>();
+		setId(id);
+		setStatusProposta(statusProposta);
+		setDataCriacao(dataCriacao);
+		setDoador(doador);
+		setPedidoDoacao(pedido);
+		itens = new ArrayList<>();
 	}
 
 	public PropostaDoacao(Long id, StatusProposta statusProposta, LocalDate dataCriacao, Doador doador) {
 		setId(id);
 		setStatusProposta(statusProposta);
 		setDataCriacao(dataCriacao);
-	    setDoador(doador);
-	    itens = new ArrayList<>();;
+		setDoador(doador);
+		itens = new ArrayList<>();
+		;
 	}
-
-	
 
 	public Long getId() {
 		return id;
@@ -97,6 +98,10 @@ public class PropostaDoacao implements Serializable {
 		this.statusProposta = statusProposta;
 	}
 
+	public List<Item> getItens() {
+		return itens;
+	}
+
 	public void addItem(Item item) {
 		itens.add(item);
 	}
@@ -112,6 +117,7 @@ public class PropostaDoacao implements Serializable {
 	public void setDoador(Doador doador) {
 		this.doador = doador;
 	}
+
 	public LocalDate getDataCriacao() {
 		return dataCriacao;
 	}
