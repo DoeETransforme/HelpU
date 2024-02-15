@@ -19,8 +19,8 @@
 			<input type="hidden" name="id" value="<c:out value='${pedido.id}' />" />
 		</c:if>
 	</div>
-	<a href="historico-pedidos" class="Voltar" class=""> Voltar</a>
-	<a href="pedido-excluido" class="Voltar" class="">Confirmar</a>
+	<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${pedido.id}'/>" class="Voltar" class=""> Voltar</a>
+	<a href="<%=request.getContextPath()%>/pedido-excluido?id=<c:out value='${pedido.id}'/>" class="Voltar" class="">Confirmar</a>
 
 
 </body>
