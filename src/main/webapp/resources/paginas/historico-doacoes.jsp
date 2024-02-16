@@ -8,12 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
 	<link rel="stylesheet" href="../css/estilo.css">
-	 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+ <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
+<script><%@include file="/resources/js/Script.js"%></script>
+
+	
+       
+   
 </head>
 <body>
+	
+	<div class="menu-hamburguer" id="menu-hamburguer">
+		<!-- Ícone do menu hamburguer -->
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
+					<c:when test="${tipoUsuario == 2}">
 
-    <%@ include file="menu.jsp"%>
-3
+						<%@ include file="menu.jsp" %>
+
+					</c:when>
+				</c:choose>
+	</div>
+	
+
     <main>
         <div class="titulo">
 			<h1>Seu histórico de doações</h1>
@@ -42,6 +61,9 @@
 <!--             <li>Doação de <span class="Quantidade">5kg</span> de <span class="Item">arroz</span> para ONG <span class="Nome_Ong">humanidade em ação</span></li> -->
 <!--             <li>Doação de <span class="Quantidade">5kg</span> de <span class="Item">arroz</span> para ONG <span class="Nome_Ong">humanidade em ação</span></li> -->
 <!--         </ol> -->
+
+<!-- <script src="../js/Script.js"></script> -->
+
     </main>
 </body>
 </html>

@@ -1001,7 +1001,61 @@ margin-top: 50px
         cursor: pointer;/* Para empurrar o botão para a parte inferior do card */
     }
    
+
+    .menu-lateral {
+        position: fixed;
+        top: 0;
+        left: -250px; 
+        width: 250px;
+        height: 100%;
+        background-color: var(--cor-principal);
+        transition: left 0.3s ease;
+    }
     
+    .menu-lateral.mostrar {
+        left: 0;
+    }
+    
+    .menu-lateral ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .menu-lateral ul li {
+        padding: 10px;
+        color: white;
+    }
+    .dropdown-content{
+        display: block;
+    }
+    .dropdown-content p {
+        text-decoration: none;
+        color: var(--cor-secundaria);
+        font-size: 16px;
+        display: block;
+        background-color: var(--cor-texto);
+        text-align: center;
+        margin: 10px;
+
+
+    }
+    .dropdown-content a {
+        text-decoration: none;
+        color: var(--cor-background);
+        display: flex;
+        padding: 10px;
+        margin-top: 10px;
+        padding-bottom: 0px;
+        border-bottom: 1px solid var(--cor-secundaria);
+        transition: all 0.3s ease; 
+    }
+    
+    .dropdown-content a:hover {
+        color: var(--cor-secundaria);
+        padding: 15px;
+     
+        transform: scale(1.1); 
+    }
     
     
     
