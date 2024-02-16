@@ -40,7 +40,7 @@ public class Item implements Serializable {
 	@JoinColumn(name = "id_proposta_doacao")
 	private PropostaDoacao propostaDoacao;
  
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_alimento")
 	private Alimento alimento;
  

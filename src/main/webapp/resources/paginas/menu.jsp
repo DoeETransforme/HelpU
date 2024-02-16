@@ -41,7 +41,6 @@
 									<a href="<%=request.getContextPath()%>/explorar-pedidos">Explorar Pedidos</a> 
 									<a href="<%=request.getContextPath()%>/historico-pedidos">Hist�rico Pedidos</a>
 									<a href="<%=request.getContextPath()%>/propostas-analise">Propostas em Analise</a>
-									<a href="<%=request.getContextPath()%>/propostas-pendentes">Propostas Pendentes</a>
 									<a href="<%=request.getContextPath()%>/logout">Sair</a>
 
 							</div>
