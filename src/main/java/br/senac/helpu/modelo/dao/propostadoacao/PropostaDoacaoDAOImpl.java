@@ -108,6 +108,9 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 			Root<PropostaDoacao> raizPropostaDoacao = criteria.from(PropostaDoacao.class);
+			
+			raizPropostaDoacao.fetch(PropostaDoacao_.PEDIDO_DOACAO, JoinType.LEFT).fetch("ong", JoinType.LEFT);
+			
 
 			criteria.select(raizPropostaDoacao);
 
@@ -384,6 +387,53 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
 			
 			Join<PropostaDoacao, Doador> juncaoDoador = raizConsulta.join(PropostaDoacao_.doador);
+			
+			ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
+			criteria.where(construtor.equal(juncaoDoador.get(Doador_.id), idDoador));
+			
+			propostas = sessao.createQuery(criteria).setParameter(idDoador, doador.getId()).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return propostas;
+
+	}
+	
+	public List<PropostaDoacao> recuperarPropostaDoacaoDoador(Doador doador) {
+		Session sessao = null;
+		List<PropostaDoacao> propostas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+			
+			Join<PropostaDoacao, Doador> juncaoDoador = raizConsulta.join(PropostaDoacao_.doador);
+			raizConsulta.fetch(PropostaDoacao_.ITENS,JoinType.LEFT).fetch("alimento", JoinType.LEFT);
+			
 			
 			ParameterExpression<Long> idDoador = construtor.parameter(Long.class);
 			criteria.where(construtor.equal(juncaoDoador.get(Doador_.id), idDoador));

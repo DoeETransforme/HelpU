@@ -9,6 +9,9 @@
 <title>HelpU</title>
 </head>
 <body>
+
+		<%@ include file="menu.jsp"%>
+		
 		   <main>
 
         <div class="avaliar-proposta">
@@ -20,13 +23,16 @@
            
                 <div class="descricao">
                     <div>
-                        <p>Doação feita no pedido: <c:out value="${itemRecuperado.pedidoDoacao.titulo }" /> </p>
-                        <p>Contato(telefone): <c:out value="${contatoRecuperado.celular}" /> </p>
-                        <p>Contato(Email):  <c:out value="${contatoRecuperado.email}" /></p>
+                        <p>Doação feita no pedido: <c:out value="${proposta.pedidoDoacao.titulo }" /> </p>
+                         <p> Status da proposta: <c:out value="${proposta.statusProposta}" /> </p>
                         <p>Tipo de item doado: Alimento </p>
-                        <p>Validade:<c:out value="${ itemRecuperado.alimento.dataValidade}" /></p>
-                        <p>Quantidade Doada: <c:out value="${ itemRecuperado.quantidade}"/> </p>
-                        <p> Status da proposta: <c:out value="${itemRecuperado.propostaDoacao.statusProposta}" /> </p>
+                        <c:forEach var="proposta" items="${propostas}">
+					   		 <c:forEach var="item" items="${proposta.itens}">
+						        <p>Quantidade Doada: <c:out value="${item.quantidade}"/> </p>
+						        <p>Validade: <c:out value="${item.alimento.dataValidade}" /></p>
+					   		 </c:forEach>
+						</c:forEach>
+						                      
                         
                         <button type="button" class="botão_padrão"><a href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a></button>
                 		<button type="button" class="botão_padrão"> <a href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a></button>                

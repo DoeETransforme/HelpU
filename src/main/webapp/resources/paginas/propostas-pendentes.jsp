@@ -25,7 +25,7 @@
                         <td><c:out value="${propostas.dataCriacao}" /></td>
                         <td><c:out value="${propostas.statusProposta}" /></td>
              <div>
-                <button type="button" class="botão_padrão"><a href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${proposta.id}'/>">Descricao</a></button>
+                <button type="button" class="botão_padrão"><a href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostas.id}'/>">Descricao</a></button>
             </div>
           </tr>
 			</c:forEach>

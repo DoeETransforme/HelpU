@@ -749,14 +749,24 @@ public class Servlet extends HttpServlet {
 	
 	private void mostrarDescricacaoProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Doador) {
+			
+		Doador doador = (Doador) usuario;
 		
+		Long id = Long.parseLong(request.getParameter("id"));
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 		
+		List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarPropostaDoacaoDoador(doador);
 		
-		List<PropostaDoacao> proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(null)
 		request.setAttribute("proposta", proposta);
+		request.setAttribute("propostas", propostas);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-proposta.jsp");
 		dispatcher.forward(request, response);
+		}
 	}
 
 	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response)
