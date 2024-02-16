@@ -3,7 +3,9 @@ package br.senac.helpu.controle.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,8 +48,6 @@ import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
-
-
 
 @WebServlet("/")
 public class Servlet extends HttpServlet {
@@ -149,11 +149,11 @@ public class Servlet extends HttpServlet {
 			case "/editar-perfil-doador":
 				mostrarEditarPerfilDoador(request, response);
 				break;
-				
+
 			case "/editar-conquista":
 				mostrarEditarConquista(request, response);
 				break;
-				
+
 			case "/editar-alimento":
 				mostrarEditarAlimento(request, response);
 				break;
@@ -223,6 +223,10 @@ public class Servlet extends HttpServlet {
 			case "/mostrar-alimentos":
 				mostrarAlimentos(request, response);
 				break;
+				
+			case "/descricao-proposta":
+				mostrarDescricacaoProposta(request, response);
+				break;
 
 			case "/inserir-doador":
 				inserirDoador(request, response);
@@ -267,11 +271,19 @@ public class Servlet extends HttpServlet {
 			case "/pedido-editado":
 				editarPedido(request, response);
 				break;
+          
+			case "/excluir-pedido":
+				mostrarExcluirPedido(request, response);
+				break;
+				
+			case "/pedido-excluido":
+				excluirPedido(request, response);
+				break;
 				
 			case "/conquista-editada":
 				editarConquista(request, response);
 				break;
-			
+
 			case "/alimento-editado":
 				editarAlimento(request, response);
 				break;
@@ -284,8 +296,16 @@ public class Servlet extends HttpServlet {
 				mostrarEditarProposta(request, response);
 				break;
 
+			case "/excluir-proposta":
+				mostrarExcluirProposta(request, response);
+				break;
+
 			case "/proposta-editada":
 				editarProposta(request, response);
+				break;
+
+			case "/proposta-excluida":
+				excluirProposta(request, response);
 				break;
 
 			case "/logout":
@@ -534,7 +554,7 @@ public class Servlet extends HttpServlet {
 			Ong ong = new Ong("amiguinho", "38947612", StatusUsuario.ATIVO, "49378794");
 
 			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756",StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756", StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ong);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -576,7 +596,6 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-
 		if (usuario instanceof Ong) {
 
 			Ong ong = (Ong) usuario;
@@ -615,10 +634,11 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (usuario instanceof Doador) {
-			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(
-					doadorDAO.recuperarDoadorId(usuario.getId()), StatusProposta.ANALISE);
-			request.setAttribute("propostas", propostas);
 			
+			Doador doador = (Doador) usuario;
+			
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador, StatusProposta.ANALISE);
+			request.setAttribute("propostas", propostas);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-pendentes.jsp");
 			dispatcher.forward(request, response);
@@ -738,6 +758,29 @@ public class Servlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-conquistas.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	
+	private void mostrarDescricacaoProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Doador) {
+		
+		Long id = Long.parseLong(request.getParameter("id"));
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+		
+		List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarPropostasDoacoesItemId(id);
+		
+		request.setAttribute("proposta", proposta);
+		request.setAttribute("propostas", propostas);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-proposta.jsp");
+		dispatcher.forward(request, response);
+		}else {
+			response.sendRedirect("login");
+		}
 	}
 
 	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response)
@@ -887,7 +930,6 @@ public class Servlet extends HttpServlet {
 		propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doador, data, pedidosDoacao);
 		item = new Item(quantidade, alimentos, propostaDoacao);
 
-		
 		propostaDoacaoDAO.inserirPropostaDoacao(propostaDoacao);
 		itemDAO.inserirItem(item);
 
@@ -1051,6 +1093,31 @@ public class Servlet extends HttpServlet {
 		response.sendRedirect("historico-pedidos");
 
 	}
+	
+	private void mostrarExcluirPedido(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
+
+		request.setAttribute("pedido", pedido);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/excluir-pedido.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	private void excluirPedido(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
+
+		pedidoDoacaoDAO.deletarPedidoDoacao(pedido);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/historico-pedidos.jsp");
+		dispatcher.forward(request, response);
+		
+	}
 
 	private void editarProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -1094,60 +1161,82 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("login");
 		}
 	}
-	
+
+	private void mostrarExcluirProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+		request.setAttribute("proposta", proposta);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/excluir-proposta.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	private void excluirProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+		propostaDoacaoDAO.deletarPropostaDoacao(proposta);
+
+	}
+
 	private void mostrarEditarConquista(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			Long id = Long.parseLong(request.getParameter("id"));
-			Conquista conquista = conquistaDAO.recuperarConquistaId(id);
-			
-			request.setAttribute("conquista", conquista);
+		Long id = Long.parseLong(request.getParameter("id"));
+		Conquista conquista = conquistaDAO.recuperarConquistaId(id);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-conquista.jsp");
-			dispatcher.forward(request, response);
-		
+		request.setAttribute("conquista", conquista);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-conquista.jsp");
+		dispatcher.forward(request, response);
+
 	}
-	
+
 	private void mostrarEditarAlimento(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			Long id = Long.parseLong(request.getParameter("id"));
-			Alimento alimento = alimentoDAO.recuperarAlimentoId(id);
-			
-			request.setAttribute("alimento", alimento);
+		Long id = Long.parseLong(request.getParameter("id"));
+		Alimento alimento = alimentoDAO.recuperarAlimentoId(id);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-alimento.jsp");
-			dispatcher.forward(request, response);
-		
+		request.setAttribute("alimento", alimento);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-alimento.jsp");
+		dispatcher.forward(request, response);
+
 	}
-	
+
 	private void editarConquista(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
-		
+
 		Conquista conquista = conquistaDAO.recuperarConquistaId(id);
-		
+
 		conquista.setNome(nome);
 		conquista.setDescricao(descricao);
-		
+
 		conquistaDAO.atualizarConquista(conquista);
 
 		response.sendRedirect("mostrar-conquistas");
 	}
-	
+
 	private void editarAlimento(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		
+
 		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		
+
 		Alimento alimento = alimentoDAO.recuperarAlimentoId(id);
-		
+
 		alimento.setNome(nome);
 		alimento.setDataValidade(data);
-		
+
 		alimentoDAO.atualizarAlimento(alimento);
 
 		response.sendRedirect("mostrar-alimentos");
@@ -1191,6 +1280,5 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
-	
-	
+
 }

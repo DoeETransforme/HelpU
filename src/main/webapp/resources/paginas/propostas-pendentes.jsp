@@ -19,21 +19,18 @@
     <%@ include file="menu.jsp"%>
     
     <main>
-              <c:forEach var="proposta" items="${propostas}">
-          <%-- 			<c:forEach var="item" items="${itens}"> --%>
-          <tr>
-    <%-- 			        	<td><c:out value="${item.quantidade}" /></td>
-                         <td><c:out value="${item.alimento.nome}" /></td> --%>
-                        <td><c:out value="${proposta.dataCriacao}" /></td>
-                        <td><c:out value="${proposta.statusProposta}" /></td>
+              <c:forEach var="propostas" items="${propostas}">  	
+          <tr>			
+          				<td><c:out value="${propostas.pedidoDoacao.ong.nome}" /></td>
+                        <td><c:out value="${propostas.dataCriacao}" /></td>
+                        <td><c:out value="${propostas.statusProposta}" /></td>
              <div>
-                <button type="button" class="botão_padrão"><a href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a></button>
-                <button type="button" class="botão_padrão"> <a href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a></button>
+                <button type="button" class="botão_padrão"><a href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostas.id}'/>">Descricao</a></button>
             </div>
           </tr>
-    <%-- 			</c:forEach> --%>
-        </c:forEach>
-        </div>
+			</c:forEach>
+     
+       
     </main>
 
 </body>
