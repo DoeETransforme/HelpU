@@ -42,7 +42,7 @@ public class PropostaDoacao implements Serializable {
 	@Column(name = "data_proposta", length = 10, nullable = false, unique = false)
 	private LocalDate dataCriacao;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "propostaDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "propostaDoacao", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> itens;
 
 	@ManyToOne(fetch = FetchType.LAZY)

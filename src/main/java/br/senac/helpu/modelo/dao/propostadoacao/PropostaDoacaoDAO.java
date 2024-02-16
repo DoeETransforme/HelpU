@@ -19,6 +19,8 @@ public interface PropostaDoacaoDAO {
 	List<PropostaDoacao> recuperarTodasPropostaDoacao();
 	
 	PropostaDoacao recuperarPropostaDoacaoId(Long id);
+	
+	List<PropostaDoacao> recuperarPropostasDoacoesItemId(Long id);
 
 	List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong);
 

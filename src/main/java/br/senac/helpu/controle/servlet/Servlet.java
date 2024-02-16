@@ -3,7 +3,9 @@ package br.senac.helpu.controle.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -759,7 +761,7 @@ public class Servlet extends HttpServlet {
 		Long id = Long.parseLong(request.getParameter("id"));
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 		
-		List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarPropostaDoacaoDoador(doador);
+		List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarPropostasDoacoesItemId(id);
 		
 		request.setAttribute("proposta", proposta);
 		request.setAttribute("propostas", propostas);

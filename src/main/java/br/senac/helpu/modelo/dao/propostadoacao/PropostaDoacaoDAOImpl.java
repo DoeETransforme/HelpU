@@ -130,6 +130,42 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 		}
 		return propostaDoacao;
 	}
+	
+	public List<PropostaDoacao> recuperarPropostasDoacoesItemId(Long id) {
+
+		Session sessao = null;
+		List<PropostaDoacao> propostaDoacao = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizPropostaDoacao = criteria.from(PropostaDoacao.class);
+			
+			raizPropostaDoacao.fetch(PropostaDoacao_.ITENS, JoinType.LEFT).fetch("alimento", JoinType.LEFT);
+			
+
+			criteria.select(raizPropostaDoacao).distinct(true);
+
+			criteria.where(construtor.equal(raizPropostaDoacao.get(PropostaDoacao_.id), id));		
+			propostaDoacao = sessao.createQuery(criteria).getResultList();
+			
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return propostaDoacao;
+	}
 
 	public List<PropostaDoacao> recuperarTodasPropostaDoacao() {
 		Session sessao = null;
