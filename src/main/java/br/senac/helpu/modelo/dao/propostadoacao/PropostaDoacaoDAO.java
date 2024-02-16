@@ -17,6 +17,8 @@ public interface PropostaDoacaoDAO {
 	void atualizarPropostaDoacao(PropostaDoacao propostaDoacao);
 
 	List<PropostaDoacao> recuperarTodasPropostaDoacao();
+	
+	PropostaDoacao recuperarPropostaDoacaoId(Long id);
 
 	List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong);
 

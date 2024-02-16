@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-    <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+    <!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> -->
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
@@ -20,45 +20,29 @@
             <img src="../imagens/logo-final.png" alt="imagem da ong">
         </div>
         <form action="inserir-ong" method="post" class="forms">
-            <div>
-                <div>
+           
+               
                    
-                    <input type="text" id="NomeCompletoOng" name="nome-ong" placeholder="Nome da ONG" required class="padrao-input">
-                    <span id="erroNomeCompleto"></span>
-                </div>
-                <div>
-                 
-                    <input type="text" id="CPFOuCNPJ_Ong" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required class="padrao-input">
-                    <span id="erroCPFOuCNPJ"></span>
-                </div>
-                <div>
+                    <div >
+                        <input type="text" id="NomeCompletoOng" name="nome-ong" placeholder="Nome da ONG" required class="padrao-input">
+                      
+                        <input type="text" id="CPFOuCNPJ_Ong" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required class="padrao-input">
                     
-                    <input type="text" id="TelefoneOng" name="tefelone-ong" placeholder="Telefone da ONG" required class="padrao-input">
-                    <span id="erroTelefone"></span>
-                </div>
-                <div>
-                 
-                    <input type="email" id="EmailDaOng" name="email-ong" placeholder="Email da ONG" required class="padrao-input">
-                    <span id="erroEmail"></span>
-                </div>
-                <div>
+                        
+                        <input type="text" id="TelefoneOng" name="tefelone-ong" placeholder="Telefone da ONG" required class="padrao-input">
+                    
+                        <input type="email" id="EmailDaOng" name="email-ong" placeholder="Email da ONG" required class="padrao-input">
+                      
+                        <input type="email" id="ConfirmarEmailOng" name="ConfirmarEmailOng" placeholder="Confirmar Email da ONG" required class="padrao-input">
+                       
+                        <input type="password" id="SenhaOng" name="senha-ong" placeholder="Senha da ONG" required class="padrao-input">
+                     
+                        <input type="password" id="ConfirmarSenhaOng" name="ConfirmarSenhaOng" placeholder="Confirmar Senha" required class="padrao-input">
+                        
+                    </div>
+                    
                 
-                    <input type="email" id="ConfirmarEmailOng" name="ConfirmarEmailOng" placeholder="Confirmar Email da ONG" required class="padrao-input">
-                    <span id="erroConfirmarEmail"></span>
-                </div>
-                <div>
-                 
-                    <input type="password" id="SenhaOng" name="senha-ong" placeholder="Senha da ONG" required class="padrao-input">
-                    <span id="erroSenha"></span>
-                </div>
-                <div>
-                 
-                    <input type="password" id="ConfirmarSenhaOng" name="ConfirmarSenhaOng" placeholder="Confirmar Senha" required class="padrao-input">
-                    <span id="erroConfirmarSenha"></span>
-                </div>
-            </div>
-
-            <input type="submit" value="Continuar >" class="padrao-submit">
+                <input type="submit" value="Continuar >" class="padrao-submit">
         </form>
 
         

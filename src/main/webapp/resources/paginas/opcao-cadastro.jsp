@@ -1,44 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="pt-br">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+	<!DOCTYPE html>
+	<html lang="pt-br">
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Helpu</title>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Helpu</title>
+		<link rel="stylesheet" href="../css/estilo.css">
+		<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+	</head>
 
-<body>
-	<div>
-		<header>
-			<div>
-				<picture> <a href="Pagina_Inicial.html"><img
-					src="caminho/para/sua/imagem.jpg" alt="Logo"></a> </picture>
-				<input type="search" placeholder="Pesquisar">
-			</div>
-			<nav>
-			<a href="./login.jsp">Login</a>
-			<a href="./Cadastro.jsp">Cadastro</a>
-			</nav>
+	<body>
+
+		<header class="header-cadastro">
+
+			<div class="logo"><img src="../imagens/logo-final.png" alt=""></div>
+			<div class="menu"><a href="#"> Login</a></div>
+
 		</header>
 
-		<main>
-			<div>
-				<h1>cadastrar-se</h1>
-				<div>
-					<a href="CadastroOngPrimeiroPasso.jsp"><button>Sou ONG</button></a>
-					<a href="CadastroUsuario.jsp"><button>Sou pessoa
-							física</button></a>
+		<main class="main">
+			<div class="forms-cadastro">
+				<h1 id="cadastra-se">Cadastrar-se</h1>
+				<div class="alinhamento">
+					<a href="CadastroOngPrimeiroPasso.jsp"> Cadastra-se como ONG</a>
+					<a href="CadastroUsuario.jsp">Cadastra-se como pessoa Fisica</a>
 
 				</div>
+				<div class="tem-conta">
+					<label>Já tem uma conta? <a href="Login.html" target="_self">Faça
+							login!</a></label>
+				</div>
 			</div>
-			<div>
-				<label>Já tem uma conta? <a href="Login.html" target="_self">Faça
-						login!</a></label>
+
+			<div class="imagem-cadastra-se">
+				<img src="../imagens/imagem cadastra-se.png" alt="" id="imagem-cadastro">
 			</div>
 		</main>
-	</div>
-</body>
+		</div>
+	</body>
 
-</html>
+	</html>

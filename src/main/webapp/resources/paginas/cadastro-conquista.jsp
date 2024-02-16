@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-   <style type="text/css"><%@include file="/resources/css/estilo.css"%></style>">
+   <style type="text/css"><%@include file="/resources/css/estilo.css"%></style>
    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <input type="text" class="padrao-input" name="nome" placeholder="Nome da Conquista">
             </div>
             <div>
-                <textarea name="descricao"  class="padrao-textarea" placeholder="Descriï¿½ï¿½o da Conquista!"></textarea>
+                <textarea name="descricao"  class="padrao-textarea" placeholder="Descrição da Conquista!"></textarea>
             </div>
             <div>
                 <button type="submit" class="padrao-submit">Cadastrar</button>

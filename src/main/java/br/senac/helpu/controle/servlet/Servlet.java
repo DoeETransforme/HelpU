@@ -45,6 +45,7 @@ import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
+import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
 
 
 
@@ -148,6 +149,14 @@ public class Servlet extends HttpServlet {
 			case "/editar-perfil-doador":
 				mostrarEditarPerfilDoador(request, response);
 				break;
+				
+			case "/editar-conquista":
+				mostrarEditarConquista(request, response);
+				break;
+				
+			case "/editar-alimento":
+				mostrarEditarAlimento(request, response);
+				break;
 
 			case "/desativar-conta":
 				mostrarExcluirContaUsuario(request, response);
@@ -207,6 +216,10 @@ public class Servlet extends HttpServlet {
 				mostrarCadastroConquista(request, response);
 				break;
 
+			case "/mostrar-conquistas":
+				mostrarConquistas(request, response);
+				break;
+
 			case "/mostrar-alimentos":
 				mostrarAlimentos(request, response);
 				break;
@@ -253,6 +266,26 @@ public class Servlet extends HttpServlet {
 
 			case "/pedido-editado":
 				editarPedido(request, response);
+				break;
+				
+			case "/conquista-editada":
+				editarConquista(request, response);
+				break;
+			
+			case "/alimento-editado":
+				editarAlimento(request, response);
+				break;
+
+			case "/propostas-pendentes":
+				mostrarPropostasPendentes(request, response);
+				break;
+
+			case "/editar-proposta":
+				mostrarEditarProposta(request, response);
+				break;
+
+			case "/proposta-editada":
+				editarProposta(request, response);
 				break;
 
 			case "/logout":
@@ -302,46 +335,17 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 
-		if (sessao.getAttribute("usuario") instanceof Doador) {
+		List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
+		long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
 
-			Conquista conquista = new Conquista("50 doações", "faça 50 doações");
-			conquistaDAO.inserirConquista(conquista);
-			Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
-			Contato contato = new Contato("3123123", "email@bolado", doador);
-			doador.addConquista(conquista);
-			usuarioDAO.inserirUsuario(doador);
-			contatoDAO.inserirContato(contato);
-			Long id = doador.getId();
-			Doador doadorRecuperado = doadorDAO.recuperarDoadorId(id);
-			Long quantidade = conquistaDAO.recuperarQuantidadeConquistaDoador(doadorRecuperado);
+		request.setAttribute("qntdConquistas", conquista);
+		request.setAttribute("doador", doador);
+		request.setAttribute("conquistas", conquistas);
 
-			request.setAttribute("doador", doadorRecuperado);
-			request.setAttribute("conquistas", quantidade);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
-			dispatcher.forward(request, response);
-
-		} else if (sessao.getAttribute("usuario") instanceof Ong) {
-
-			Conquista conquista = new Conquista("50 doações", "faça 50 doações");
-			conquistaDAO.inserirConquista(conquista);
-			Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
-			Contato contato = new Contato("3123123", "email@bolado", doador);
-			doador.addConquista(conquista);
-			usuarioDAO.inserirUsuario(doador);
-			contatoDAO.inserirContato(contato);
-			Long id = doador.getId();
-			Doador doadorRecuperado = doadorDAO.recuperarDoadorId(id);
-			Long quantidade = conquistaDAO.recuperarQuantidadeConquistaDoador(doadorRecuperado);
-
-			request.setAttribute("doador", doadorRecuperado);
-			request.setAttribute("conquistas", quantidade);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/perfil-doador.jsp");
-			dispatcher.forward(request, response);
-
-		} else {
-			response.sendRedirect("login");
-		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/perfil-doador.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
@@ -373,9 +377,9 @@ public class Servlet extends HttpServlet {
 
 			Alimento alimento = new Alimento("arroz", LocalDate.now());
 			alimentoDAO.inserirAlimento(alimento);
-			Ong ong = new Ong("nomebolado", "senhabolada", "23123");
+			Ong ong = new Ong("nomebolado", "senhabolada", StatusUsuario.ATIVO, "23123");
 			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("edeuardo", "1234", "37614237", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("edeuardo", "1234", StatusUsuario.ATIVO, "37614237", LocalDate.of(2022, 10, 10));
 			usuarioDAO.inserirUsuario(doador);
 			Contato contato = new Contato("3123123", "email@bolado", doador);
 			contatoDAO.inserirContato(contato);
@@ -419,7 +423,7 @@ public class Servlet extends HttpServlet {
 			Ong ongRecuperada = ongDAO.recuperarOngId(usuario.getId());
 
 			// usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756", StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ongRecuperada);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -438,7 +442,7 @@ public class Servlet extends HttpServlet {
 			Ong ongRecuperada = ongDAO.recuperarOngId(usuario.getId());
 
 			// usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756", StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ongRecuperada);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -466,7 +470,7 @@ public class Servlet extends HttpServlet {
 			List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
 			Long id = Long.parseLong(request.getParameter("id"));
 			PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
-			
+
 			request.setAttribute("pedido", pedido);
 			request.setAttribute("alimentos", alimentos);
 
@@ -527,10 +531,10 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Doador) {
-			Ong ong = new Ong("amiguinho", "38947612", "49378794");
+			Ong ong = new Ong("amiguinho", "38947612", StatusUsuario.ATIVO, "49378794");
 
 			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
+			Doador doador = new Doador("eduardo", "238756",StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
 			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
 					ong);
 			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
@@ -569,31 +573,20 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarPropostasAnalise(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		if (sessao.getAttribute("usuario") instanceof Ong) {
 
-			Ong ong = new Ong("amiguinho", "38947612", "49378794");
+		if (usuario instanceof Ong) {
 
-			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", "986437", LocalDate.of(2022, 10, 10));
-			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
-					ong);
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
-			PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.of(2022, 10, 10),
-					pedido);
-			doador.addProposta(proposta);
-			usuarioDAO.inserirUsuario(doador);
-			propostaDoacaoDAO.inserirPropostaDoacao(proposta);
+			Ong ong = (Ong) usuario;
 
 			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong,
 					StatusProposta.ANALISE);
 
-			request.setAttribute("propostaDoacao", propostasDoacoes);
+			request.setAttribute("propostasDoacoes", propostasDoacoes);
+
 			request.setAttribute("ong", ong);
-			request.setAttribute("doador", doador);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-analise.jsp");
 			dispatcher.forward(request, response);
@@ -610,6 +603,24 @@ public class Servlet extends HttpServlet {
 		if (sessao.getAttribute("usuario") instanceof Doador) {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-realizadas.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
+	}
+
+	private void mostrarPropostasPendentes(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Doador) {
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(
+					doadorDAO.recuperarDoadorId(usuario.getId()), StatusProposta.ANALISE);
+			request.setAttribute("propostas", propostas);
+			
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-pendentes.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("login");
@@ -719,6 +730,16 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	private void mostrarConquistas(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		List<Conquista> conquistas = conquistaDAO.recuperarConquistas();
+		request.setAttribute("conquistas", conquistas);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-conquistas.jsp");
+		dispatcher.forward(request, response);
+	}
+
 	private void confirmarLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -763,7 +784,7 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("celular");
 
-		doador = new Doador(nome, senha, cpf, data);
+		doador = new Doador(nome, senha, StatusUsuario.ATIVO, cpf, data);
 		contato = new Contato(telefone, email, doador);
 
 		usuarioDAO.inserirUsuario(doador);
@@ -785,7 +806,7 @@ public class Servlet extends HttpServlet {
 		String email = request.getParameter("email-ong");
 		String telefone = request.getParameter("tefelone-ong");
 
-		ong = new Ong(nome, senha, cnpj);
+		ong = new Ong(nome, senha, StatusUsuario.ATIVO, cnpj);
 		contato = new Contato(telefone, email, ong);
 
 		usuarioDAO.inserirUsuario(ong);
@@ -866,7 +887,7 @@ public class Servlet extends HttpServlet {
 		propostaDoacao = new PropostaDoacao(StatusProposta.ANALISE, doador, data, pedidosDoacao);
 		item = new Item(quantidade, alimentos, propostaDoacao);
 
-		propostaDoacao.addItem(item);
+		
 		propostaDoacaoDAO.inserirPropostaDoacao(propostaDoacao);
 		itemDAO.inserirItem(item);
 
@@ -1003,19 +1024,19 @@ public class Servlet extends HttpServlet {
 
 	private void editarPedido(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		Long id = Long.parseLong(request.getParameter("id"));
 		String titulo = request.getParameter("titulo");
 		String descricao = request.getParameter("descricao");
 		StatusPedido status = StatusPedido.valueOf(request.getParameter("status"));
-		Alimento alimento =  alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		Alimento alimento = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
 		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 		int meta = Integer.parseInt(request.getParameter("meta"));
 		LocalDate data = LocalDate.parse(request.getParameter("data"));
-		
+
 		PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
 		Item item = itemDAO.recuperarItemPorPedido(pedido);
-		
+
 		pedido.setData(data);
 		pedido.setDescricao(descricao);
 		pedido.setMetaDoacoes(meta);
@@ -1023,14 +1044,113 @@ public class Servlet extends HttpServlet {
 		pedido.setTitulo(titulo);
 		item.setAlimento(alimento);
 		item.setQuantidade(quantidade);
-		
+
 		pedidoDoacaoDAO.atualizarPedidoDoacao(pedido);
 		itemDAO.atualizarItem(item);
-		
-		
-		
+
 		response.sendRedirect("historico-pedidos");
+
+	}
+
+	private void editarProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
+		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+		Item item = itemDAO.recuperarItemPorProposta(proposta);
+
+		item.setAlimento(alimentos);
+		item.setQuantidade(quantidade);
+
+		itemDAO.atualizarItem(item);
+		propostaDoacaoDAO.atualizarPropostaDoacao(proposta);
+
+		response.sendRedirect("propostas-pendentes");
+	}
+
+	private void mostrarEditarProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Doador) {
+			List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
+			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
+			List<Doador> doadores = doadorDAO.recuperarListaDoadores();
+			Long id = Long.parseLong(request.getParameter("id"));
+			PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+			request.setAttribute("proposta", proposta);
+			request.setAttribute("alimentos", alimentos);
+			request.setAttribute("pedidos", pedidos);
+			request.setAttribute("doadores", doadores);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-proposta.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("login");
+		}
+	}
+	
+	private void mostrarEditarConquista(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			Long id = Long.parseLong(request.getParameter("id"));
+			Conquista conquista = conquistaDAO.recuperarConquistaId(id);
+			
+			request.setAttribute("conquista", conquista);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-conquista.jsp");
+			dispatcher.forward(request, response);
 		
+	}
+	
+	private void mostrarEditarAlimento(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			Long id = Long.parseLong(request.getParameter("id"));
+			Alimento alimento = alimentoDAO.recuperarAlimentoId(id);
+			
+			request.setAttribute("alimento", alimento);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/editar-alimento.jsp");
+			dispatcher.forward(request, response);
+		
+	}
+	
+	private void editarConquista(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Long id = Long.parseLong(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		String descricao = request.getParameter("descricao");
+		
+		Conquista conquista = conquistaDAO.recuperarConquistaId(id);
+		
+		conquista.setNome(nome);
+		conquista.setDescricao(descricao);
+		
+		conquistaDAO.atualizarConquista(conquista);
+
+		response.sendRedirect("mostrar-conquistas");
+	}
+	
+	private void editarAlimento(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		
+		Long id = Long.parseLong(request.getParameter("id"));
+		String nome = request.getParameter("nome");
+		LocalDate data = LocalDate.parse(request.getParameter("data"));
+		
+		Alimento alimento = alimentoDAO.recuperarAlimentoId(id);
+		
+		alimento.setNome(nome);
+		alimento.setDataValidade(data);
+		
+		alimentoDAO.atualizarAlimento(alimento);
+
+		response.sendRedirect("mostrar-alimentos");
 	}
 
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -1052,7 +1172,8 @@ public class Servlet extends HttpServlet {
 
 		if (existe) {
 			Usuario usuario = usuarioDAO.recuperarUsuarioEmail(email);
-			usuarioDAO.deletarUsuario(usuario);
+			usuario.setStatus(StatusUsuario.INATIVO);
+			usuarioDAO.atualizarUsuario(usuario);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/conta-desativada.jsp");
 			dispatcher.forward(request, response);
 		} else {
@@ -1070,4 +1191,6 @@ public class Servlet extends HttpServlet {
 		dispatcher.forward(request, response);
 
 	}
+	
+	
 }

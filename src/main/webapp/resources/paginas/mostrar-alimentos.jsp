@@ -7,6 +7,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>HelpU</title>
+<link rel="stylesheet" href="../css/estilo.css">
+ <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 </head>
 <body>
 	
@@ -22,12 +24,8 @@
 										
 						Data: <span id="data_alimento">${alimentos.dataValidade}</span>
 					</p>
-					<form action="editar-alimento" method="post">
-                        <input type="submit" name="editar" id="EditarAlimento" value="Editar">
-                    </form>
-                    <form action="excluir-alimento" method="post">
-                        <input type="submit" name="excluir" id="ExcluirAlimento" value="Excluir">
-                    </form>
+					<a href="<%=request.getContextPath()%>/editar-alimento?id=<c:out value='${alimentos.id}'/>">Editar</a>
+					<a href="<%=request.getContextPath()%>/excluir-alimento?id=<c:out value='${alimentos.id}'/>">Excluir</a>
 				</div>
 			</c:forEach>
 

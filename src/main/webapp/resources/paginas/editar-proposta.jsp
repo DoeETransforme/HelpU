@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,44 +10,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
     <link rel="stylesheet" href="../css/estilo.css">
-        <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> -->
+
 </head>
 
 <body>
 
     <%@ include file="menu.jsp" %>
 
-        <main>
-            <div class="titulo">
-                <h2>Editar Proposta</h2>
-            </div>
-            <div class="header"> 
-                <p>Login</p>
-                <img src="../imagens/logo-final.png" alt="imagem da ong">
-            </div>
-            <form action="" method="post" class="forms">
-                <div>
-                    <label for="tipo-item">Tipo de Item:</label>
-                    <select name="tipo-item" id="tipo-item" class="padrao-input">
-                        <option value="alimento">Alimento Não-Perecível</option>
-                    </select>
-            
-                    <label for="item">Item:</label>
-                    <input type="text" id="item" name="item" class="padrao-input" placeholder="Item">
-            
-                    <label for="quantidade">Quantidade:</label>
-                    <input type="number" id="quantidade" name="quantidade" class="padrao-input" placeholder="Quantidade">
-            
-                    <label for="data-validade">Data de Validade:</label>
-                    <input type="date" id="data-validade" name="data-validade" class="data-nascimento-padrao">
-                </div>
-            
-                <button type="button" class="padrao-submit">Adicionar mais itens</button>
-                <button type="submit" class="padrao-submit">Salvar Proposta</button>
-            </form>
-            
-            
-        </main>
+
+       <main>
+		<section>
+			<div>
+				<div class="titulo">
+					<h1>Editar Proposta</h1>
+				</div>
+				<p class="titulo">Para a ONG "Cantinho Inclusivo"</p> <p class="titulo">O que
+					você gostaria de doar?</p>
+				<form action="proposta-editada" method="post" class="forms">
+
+
+				
+							<c:if test="${proposta != null}">
+								<input type="hidden" name="id"
+									value="<c:out value='${proposta.id}' />" />
+							</c:if>
+
+					
+					<div>
+						
+								<label>Alimento</label>
+								 <select name="alimento" class="padrao-input">
+									<c:forEach var="alimento" items="${alimentos}">
+										<option value="" disabled selected> Selecione o alimento</option>
+										<option value="${alimento.id}">${alimento.nome}</option>
+									</c:forEach>
+								</select>
+						
+						
+								<label>Quantidade</label> 
+								<input type="text" name="quantidade"
+									placeholder="Quantidade" required class="padrao-input">
+					</div>
+
+						
+
+				
+
+
+					<input type="submit" value="Confirmar" class="padrao-submit">
+				</form>
+			</div>
+		</section>
+	</main>
+
+
 </body>
 
 </html>
