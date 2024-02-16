@@ -755,8 +755,6 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (usuario instanceof Doador) {
-			
-		Doador doador = (Doador) usuario;
 		
 		Long id = Long.parseLong(request.getParameter("id"));
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
@@ -768,6 +766,8 @@ public class Servlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-proposta.jsp");
 		dispatcher.forward(request, response);
+		}else {
+			response.sendRedirect("login");
 		}
 	}
 
