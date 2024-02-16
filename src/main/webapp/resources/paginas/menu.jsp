@@ -4,7 +4,8 @@
 			<header>
 				<nav>
 					<ul>
-						<li class="dropdown"><a href="#" class="dropbtn">Doador</a>
+						<li class="dropdown">
+							<p href="#" class="dropbtn">Doador</p>
 							<div class="dropdown-content">
 								<a href="<%=request.getContextPath()%>/perfil-doador">Meu
 									Perfil</a> <a
@@ -13,7 +14,7 @@
 									Conta</a> 
 									<a href="<%=request.getContextPath()%>/cadastro-proposta">Cadastro Proposta</a> 
 									<a href="<%=request.getContextPath()%>/editar-proposta">Editar Proposta</a> 
-									<a href="<%=request.getContextPath()%>/historico-doacoes">Histórico de Doações</a>
+									<a href="<%=request.getContextPath()%>/historico-doacoes">Histï¿½rico de Doaï¿½ï¿½es</a>
 									<a href="<%=request.getContextPath()%>/propostas-pendentes">Propostas Pendentes</a>
 									<a href="<%=request.getContextPath()%>/logout">Sair</a>
 
@@ -28,7 +29,7 @@
 			<header>
 				<nav>
 					<ul>
-						<li class="dropdown"><a href="#" class="dropbtn">Ong</a>
+						<li class="dropdown"><p href="#" class="dropbtn">Ong</p>
 							<div class="dropdown-content">
 								<a href="<%=request.getContextPath()%>/perfil-ong">Meu
 									Perfil</a> <a
@@ -38,7 +39,7 @@
 									<a href="<%=request.getContextPath()%>/cadastro-pedido">Cadastro Pedido</a> 
 									<a href="<%=request.getContextPath()%>/editar-pedido">Editar Pedido</a> 
 									<a href="<%=request.getContextPath()%>/explorar-pedidos">Explorar Pedidos</a> 
-									<a href="<%=request.getContextPath()%>/historico-pedidos">Histórico Pedidos</a>
+									<a href="<%=request.getContextPath()%>/historico-pedidos">Histï¿½rico Pedidos</a>
 									<a href="<%=request.getContextPath()%>/propostas-analise">Propostas em Analise</a>
 									<a href="<%=request.getContextPath()%>/propostas-pendentes">Propostas Pendentes</a>
 									<a href="<%=request.getContextPath()%>/logout">Sair</a>
