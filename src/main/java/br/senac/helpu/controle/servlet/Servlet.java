@@ -373,7 +373,8 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-
+		
+		if(usuario instanceof Ong) {
 		Ong ong = ongDAO.recuperarOngId(usuario.getId());
 		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
 		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
@@ -384,6 +385,7 @@ public class Servlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/perfil-ong.jsp");
 		dispatcher.forward(request, response);
+		}
 
 	}
 
