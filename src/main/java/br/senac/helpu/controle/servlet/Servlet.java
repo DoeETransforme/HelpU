@@ -265,7 +265,15 @@ public class Servlet extends HttpServlet {
 			case "/pedido-editado":
 				editarPedido(request, response);
 				break;
-
+          
+			case "/excluir-pedido":
+				mostrarExcluirPedido(request, response);
+				break;
+				
+			case "/pedido-excluido":
+				excluirPedido(request, response);
+				break;
+				
 			case "/conquista-editada":
 				editarConquista(request, response);
 				break;
@@ -1053,6 +1061,31 @@ public class Servlet extends HttpServlet {
 
 		response.sendRedirect("historico-pedidos");
 
+	}
+	
+	private void mostrarExcluirPedido(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
+
+		request.setAttribute("pedido", pedido);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/excluir-pedido.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	private void excluirPedido(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Long id = Long.parseLong(request.getParameter("id"));
+		PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
+
+		pedidoDoacaoDAO.deletarPedidoDoacao(pedido);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/historico-pedidos.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	private void editarProposta(HttpServletRequest request, HttpServletResponse response)
