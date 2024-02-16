@@ -31,7 +31,7 @@
 				</c:choose>
 	</div>
  
-	<div class="editar-perfil-doador">
+	<div class="perfil-doador">
 		
 		
 		<div class="informacoes-doador">
@@ -44,13 +44,13 @@
 				</div>
 		</div>
 
-		<div class="botoes-doador">
-			<div>
-				<button onclick="exibirHistorico()">Histórico de Doações</button>
-				<button onclick="exibirConquistas()">Exibir Conquistas</button>
+		<div class="main-doador">
+			<div class="botoes-doador">
+				<button onclick="exibirHistorico()" class="padrao-input">Histórico de Doações</button>
+				<button onclick="exibirConquistas()" class="padrao-input">Exibir Conquistas</button>
 				<a href="">Editar Perfil</a>
 			</div>
-			<div>
+			<div class="ultimas-doacoes">
 				<h2>Últimas Doações</h2>
 
 				<div>
