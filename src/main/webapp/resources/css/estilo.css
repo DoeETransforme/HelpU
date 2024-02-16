@@ -1059,6 +1059,39 @@ margin-top: 50px
     
     
     
+    .editar-perfil-doador{
+        border: 1px solid red;
+        height: auto;
+        justify-content: center;
+        width: 100%;
+       margin-top: 100px;
+    }
+    .informacoes-doador{
+        border: 1px solid green;
+        display: flex;
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+        
+        
+    }
+    .informacoes-doador img{
+        width: 150px;
+      
+      
+    }
+    .nome-doador{
+        text-align: left;
+        justify-content: center;
+        margin-left: 100px;
+        font-size: 20px;
+        font-family: 'Inter', sans-serif;
+    }
+    .nome-doador p{
+        margin-top: 20px;
+    }
+   
       
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
