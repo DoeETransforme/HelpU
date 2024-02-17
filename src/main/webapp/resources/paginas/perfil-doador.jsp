@@ -51,14 +51,32 @@
 				<a href="">Editar Perfil</a>
 			</div>
 			<div class="ultimas-doacoes">
-				<h2>Últimas Doações</h2>
+				<div class="titulo" id="titulo-doador">
+					<h2>Últimas Doações:</h2>
+				</div>
 
-				<div>
-					<p>Doação para: humanidade Acionada</p>
-					<p>feito em: </p>
-
-
-					<button>ver mais</button>
+				<div class="posicao-cards">
+					<div class="card-doacoes-doador">
+						<div class="titulo">
+							<h3>Doação para: humanidade Acionada</h3>
+						</div>
+						<p>feito em: </p>
+						<button>Ver mais</button>
+					</div>
+					<div class="card-doacoes-doador">
+						<div class="titulo">
+							<h3>Doação para: humanidade Acionada</h3>
+						</div>
+						<p>feito em: </p>
+						<button>Ver mais</button>
+					</div>
+					<div class="card-doacoes-doador">
+						<div class="titulo">
+							<h3>Doação para: humanidade Acionada</h3>
+						</div>
+						<p>feito em: </p>
+						<button>Ver mais</button>
+					</div>
 				</div>
 			</div>
 

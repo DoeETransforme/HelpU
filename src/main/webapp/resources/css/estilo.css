@@ -1129,12 +1129,15 @@ progress::-moz-progress-bar {
 
 
 .perfil-doador {
+    width: 80%;
 
-    height: auto;
-    justify-content: center;
-    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
     margin-top: 100px;
-    border: 1px solid green;
+    flex-direction: column; 
 }
 
 .informacoes-doador {
@@ -1144,14 +1147,14 @@ progress::-moz-progress-bar {
     margin: 0 auto;
     text-align: center;
     align-items: center;
-    border: 1px solid red;
+   
 
 
 }
 
-.imagem-doador{
+.imagem-doador {
     flex: 20%;
-    border: 1px solid red;
+  
 }
 
 .informacoes-doador img {
@@ -1163,61 +1166,110 @@ progress::-moz-progress-bar {
 .nome-doador {
     text-align: left;
     justify-content: center;
-  
+
     font-size: 20px;
-   
+
     flex: 80%;
-    border: 1px solid black;
+   
     font-family: 'Inter', sans-serif;
 }
 
 
-.nome-doador p,h1 {
+.nome-doador p,
+h1 {
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 10%;
 }
 
-.main-doador{
+.main-doador {
     display: flex;
-   
-    border: 1px solid blue;
+
+  
     width: 70%;
     margin: 0 auto;
 }
 
 .botoes-doador {
     display: grid;
-    border: 1px solid red;
-  width: 20%;
-  justify-content: center;
-  
-  
-    grid-template-colwumns: 1fr;
-    gap: 10px;
-    
-  
-    
    
+    width: 20%;
+    justify-content: center;
+    height: 150px;
+    text-align: center;
+    margin-top: 40px;
 }
 
-.botoes-doador button,a {
+.botoes-doador button,
+.botoes-doador a {
     display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%;
     font-family: 'Inter', sans-serif;
     font-weight: 300;
-  
-    justify-self: end;
-  
+    text-align: center;
+    justify-self: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    
+}
+
+.botoes-doador button:hover{
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+
 }
 
 
-.ultimas-doacoes{
+.ultimas-doacoes {
     width: 80%;
-    border: 1px solid black;
-   
-   
+ 
+    display: flex;
+    /* Centralizar os itens horizontalmente */
+    align-items: flex-start; /* Alinhar os itens no topo */
+    flex-wrap: wrap; /* Permitir que os itens quebrem para a próxima linha */
+    
 }
 
+#titulo-doador {
+    width: 100%; 
+    text-align: center; 
+    margin: 20px 0; 
+}
 
+.card-doacoes-doador {
+    border: 3px solid var(--cor-principal);
+    width: 30%;
+   margin: 15px;
+   margin-left: 0;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card-doacoes-doador p, .card-doacoes-doador h3 {
+    margin-bottom: 20px;
+}
+
+.card-doacoes-doador button {
+    background-color: var(--cor-secundaria);
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 90%;
+    font-size: 16px;
+}
+
+.card-doacoes-doador button:hover {
+    background-color: var(--cor-principal);
+}
+.posicao-cards{
+    display: flex;
+    margin-left: 10%;
+}
 
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
