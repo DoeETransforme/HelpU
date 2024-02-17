@@ -13,13 +13,6 @@
 		<%@ include file="menu.jsp"%>
 		
 		   <main>
-
-        <div class="avaliar-proposta">
-            <img src="../imagens/perfil-icon.png" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
-            <h2> Doação de: <c:out value="${ itemRecuperado.propostaDoacao.doador.nome}" /> </h2>
-        </div>
-        
-       
            
                 <div class="descricao">
                     <div>

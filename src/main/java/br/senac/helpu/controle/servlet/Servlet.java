@@ -396,31 +396,16 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Ong) {
-
-			Alimento alimento = new Alimento("arroz", LocalDate.now());
-			alimentoDAO.inserirAlimento(alimento);
-			Ong ong = new Ong("nomebolado", "senhabolada", StatusUsuario.ATIVO, "23123");
-			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("edeuardo", "1234", StatusUsuario.ATIVO, "37614237", LocalDate.of(2022, 10, 10));
-			usuarioDAO.inserirUsuario(doador);
-			Contato contato = new Contato("3123123", "email@bolado", doador);
-			contatoDAO.inserirContato(contato);
-			PedidoDoacao pedido = new PedidoDoacao("titulobolado", "descricaobolada", LocalDate.now(),
-					StatusPedido.ATIVO, ong);
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
-			PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ANALISE, doador, LocalDate.now(), pedido);
-			propostaDoacaoDAO.inserirPropostaDoacao(proposta);
-			Item item = new Item(10, alimento, proposta, pedido);
-			itemDAO.inserirItem(item);
-
-			usuarioDAO.inserirUsuario(doador);
-			contatoDAO.inserirContato(contato);
-
-			Contato contatoRecuperado = contatoDAO.recuperarContatoUsuario(doador);
-			Item itemRecuperado = itemDAO.recuperarItemPorProposta(proposta);
-			request.setAttribute("itemRecuperado", itemRecuperado);
-			request.setAttribute("contatoRecuperado", contatoRecuperado);
-
+			Ong ong = (Ong) usuario;
+			
+			Long id = Long.parseLong(request.getParameter("id"));
+			
+			PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+			PropostaDoacao propostaContato = propostaDoacaoDAO.recuperarPropostaDoacaoContatoId(id);
+			
+			request.setAttribute("proposta", proposta);
+			request.setAttribute("propostaContato", propostaContato);
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/avaliar-proposta.jsp");
 			dispatcher.forward(request, response);
 
@@ -601,11 +586,13 @@ public class Servlet extends HttpServlet {
 		if (usuario instanceof Ong) {
 
 			Ong ong = (Ong) usuario;
+			
+			
 
-			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong,
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong,
 					StatusProposta.ANALISE);
 
-			request.setAttribute("propostasDoacoes", propostasDoacoes);
+			request.setAttribute("propostas", propostas);
 
 			request.setAttribute("ong", ong);
 
@@ -773,10 +760,7 @@ public class Servlet extends HttpServlet {
 		Long id = Long.parseLong(request.getParameter("id"));
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 		
-		List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarPropostasDoacoesItemId(id);
-		
 		request.setAttribute("proposta", proposta);
-		request.setAttribute("propostas", propostas);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-proposta.jsp");
 		dispatcher.forward(request, response);
