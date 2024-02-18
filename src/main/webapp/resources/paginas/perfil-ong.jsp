@@ -17,13 +17,8 @@
 <body>
 
 	<div>
-		<c:choose>
-			<c:when test="${tipoUsuario == 2}">
-
 				<%@ include file="menu.jsp"%>
 
-			</c:when>
-		</c:choose>
 
 		<main>
 			<section>
@@ -57,7 +52,7 @@
 =						 <span id="TituloPedido">${pedidos.data}</span>
 					<span>${pedidos.descricao}</span>
 				</div>
-				<button type="button" class="botao-padrao"><a href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedido.id}'/>">Ver Mais</a></button>
+				<button type="button" class="botao-padrao"><a href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver Mais</a></button>
 			</c:forEach>
 
 			</section>
