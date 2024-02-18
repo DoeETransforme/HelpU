@@ -28,7 +28,7 @@
 					</c:when>
 				</c:choose>
 	</div>
-				<%@ include file="menu.jsp" %>
+			
 					<div class="header">
 						<p>Login</p>
 						<img src="../imagens/logo final.png" alt="imagem da ong">
