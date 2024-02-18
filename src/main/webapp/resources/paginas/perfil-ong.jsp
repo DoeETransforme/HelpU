@@ -33,6 +33,7 @@
 	</div>
 
 
+
 		<main>
 			<section>
 				<div>
@@ -56,17 +57,16 @@
 				<button>Histórico de pedidos</button>
 			</section>
 			<section>
-				<h1>Atualizações da ONG</h1>
+				<h1>Ultimos Pedidos</h1>
 				<c:forEach var="pedidos" items="${pedidos}">
 				<div>
 					<img src="imagem.com" alt="foto-ong">
-					<h2>
-						Titulo <span id="TituloPedido">${pedidos.titulo}</span>
-					</h2>
-					<p>
-						${pedidos.descricao}
-					</p>
+=						<h1>Titulo</h1>
+						 <span id="TituloPedido">${pedidos.titulo}</span>
+=						 <span id="TituloPedido">${pedidos.data}</span>
+					<span>${pedidos.descricao}</span>
 				</div>
+				<button type="button" class="botao-padrao"><a href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver Mais</a></button>
 			</c:forEach>
 
 			</section>

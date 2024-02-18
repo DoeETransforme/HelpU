@@ -30,6 +30,11 @@ body {
 
 }
 
+
+.imagem-tela-inicial{
+}
+
+
 .forms div {
     margin-bottom: 100px;
     display: grid;
@@ -86,7 +91,14 @@ body {
     color: var(--cor-texto);
 }
 
+
 .titulo p {
+.titulo-tela-de-erro{
+    color: blue;   
+}
+  
+.titulo p{
+
     margin-top: 40px;
     margin-bottom: -30px;
 
@@ -611,6 +623,7 @@ body {
     cursor: pointer;
     transition: all 0.3s;
 }
+
 
 .submit-editar-dados input:hover {
     background-color: var(--cor-principal);
@@ -1282,3 +1295,8 @@ h1 {
 #errorConfirmarSenha {
     color: red;
 }
+=======
+p.one {
+    border-style: solid;
+}
+
