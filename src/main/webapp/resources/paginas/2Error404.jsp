@@ -8,7 +8,6 @@
     <title>Helpu</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-    <script><%@include file="/resources/js/Script.js"%></script>
     
 </head>
 <body>
@@ -16,7 +15,7 @@
     <header>
         <div>
             <div class="header"> 
-                <p>Login</p>
+
                 <img src="../imagens/logo-final.png" alt="imagem da ong">
             </div>
         <nav>
@@ -27,6 +26,10 @@
     <main>
         <div class="titulo">
             <h1>Error 404</h1>
-            <p>Não pudemos encontrar a página. Atualize a página ou tente novamente mais tarde.</p>
+            <p> <h2> Error de conexão.</h2>
+                <br>
+            (problemas de conexão com o servidor)
+            </p>
         </div>
+        <img src="imagen" alt="" class="">
     </main>

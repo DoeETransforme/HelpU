@@ -8,7 +8,6 @@
     <title>Helpu</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-    <script><%@include file="/resources/js/Script.js"%></script>
     
 </head>
 <body>
@@ -16,7 +15,6 @@
     <header>
         <div>
             <div class="header"> 
-                <p>Login</p>
                 <img src="../imagens/logo-final.png" alt="imagem da ong">
             </div>
         <nav>
@@ -25,8 +23,19 @@
         </nav>
     </header>
     <main>
-        <div class="titulo">
+        <div class= "titulo" >
             <h1>Error 404</h1>
-            <p>Não pudemos encontrar a página. Atualize a página ou tente novamente mais tarde.</p>
+            <p> <h2> Erro de validação de formulário. </h2>
+                <br>
+            (Dados inseridos inválidos.)
+            </p>
         </div>
     </main>
+
+
+
+
+
+
+
+

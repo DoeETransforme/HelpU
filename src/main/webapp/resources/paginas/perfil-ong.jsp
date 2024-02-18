@@ -11,19 +11,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helpu</title>
 <link rel="stylesheet" href="../css/estilo.css">
- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+ <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
+<script><%@include file="/resources/js/Script.js"%></script>
 
 </head>
 <body>
 
-	<div>
+	<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
 		<c:choose>
-			<c:when test="${tipoUsuario == 2}">
+					<c:when test="${tipoUsuario == 2}">
 
-				<%@ include file="menu.jsp"%>
+						<%@ include file="menu.jsp" %>
 
-			</c:when>
-		</c:choose>
+					</c:when>
+				</c:choose>
+	</div>
+
+
 
 		<main>
 			<section>
@@ -57,7 +66,7 @@
 =						 <span id="TituloPedido">${pedidos.data}</span>
 					<span>${pedidos.descricao}</span>
 				</div>
-				<button type="button" class="botao-padrao"><a href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedido.id}'/>">Ver Mais</a></button>
+				<button type="button" class="botao-padrao"><a href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver Mais</a></button>
 			</c:forEach>
 
 			</section>

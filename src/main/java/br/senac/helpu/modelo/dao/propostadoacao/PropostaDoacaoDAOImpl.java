@@ -540,7 +540,8 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 		} finally {
 
-			if (sessao != null) {
+			if (sessao != null) 
+        
 				sessao.close();
 
 			}
@@ -724,6 +725,47 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	    return propostas;
 	}
 	
+
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoPedido(PedidoDoacao pedido) {
+		Session sessao = null;
+	    List<PropostaDoacao> propostas = null;
+	    
+	    try {
+	        sessao = fabrica.getConexao().openSession();
+	        sessao.beginTransaction();
+	        
+	        CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+	        
+	        CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+	        
+	        Root<PropostaDoacao> raizProposta = criteria.from(PropostaDoacao.class);
+	        raizProposta.fetch(PropostaDoacao_.ITENS,JoinType.LEFT).fetch("alimento", JoinType.LEFT);
+	        raizProposta.fetch("doador", JoinType.LEFT);	       
+	        Join<PropostaDoacao, PedidoDoacao> juncaoPedido = raizProposta.join(PropostaDoacao_.pedidoDoacao);
+	           
+	        criteria.select(raizProposta).distinct(true);
+	        
+	        criteria.where(construtor.equal(juncaoPedido.get(PedidoDoacao_.id), pedido.getId()));
+					
+			propostas = sessao.createQuery(criteria).getResultList();
+			sessao.getTransaction().commit();
+	        
+	       
+	    } catch (Exception sqlException) {
+	        sqlException.printStackTrace();
+	        
+	        if (sessao.getTransaction() != null) {
+	            sessao.getTransaction().rollback();
+	        }
+	    } finally {
+	        if (sessao != null) {
+	            sessao.close();
+	        }
+	    }
+	    
+	    return propostas;
+	}
+
 }
 	
 
