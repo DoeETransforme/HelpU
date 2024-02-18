@@ -24,7 +24,7 @@
 	
 	<div class="menu-lateral" id="menu-lateral">
 		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
+					<c:when test="${tipoUsuario == 1}">
 
 						<%@ include file="menu.jsp" %>
 
@@ -33,6 +33,9 @@
 	</div>
     
     <main>
+    <div class="titulo">
+    <h3> Suas propostas Pendentes:</h3>
+    </div>
               <c:forEach var="propostas" items="${propostas}">  	
           <tr>			
           				<td><c:out value="${propostas.pedidoDoacao.ong.nome}" /></td>

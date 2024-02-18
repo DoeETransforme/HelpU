@@ -19,7 +19,7 @@
 	
 	<div class="menu-lateral" id="menu-lateral">
 		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
+					<c:when test="${tipoUsuario == 1}">
 
 						<%@ include file="menu.jsp" %>
 
