@@ -10,7 +10,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helpu</title>
 <link rel="stylesheet" href="../css/estilo.css">
- <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
+ <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!--  <script src="../js/Script.js"></script> -->
+<script><%@include file="/resources/js/Script.js"%></script>
  
 
 </head>
@@ -39,8 +41,8 @@
 				
 				
 				<div class="nome-doador">
-					<h1>Fernanda dos santos</h1>
-					<p>Quantidade de conquistas: 0</p>
+					<h1><c:out value="${doador.nome}" /></h1>
+					<p>Quantidade de conquistas: <c:out value="${qntdConquistas}" /></p>
 				</div>
 		</div>
 

@@ -8,11 +8,25 @@
     <meta name="viewport" content="width= , initial-scale=1.0">
     <title>HelpU</title>
     <link rel="stylesheet" href="../css/estilo.css">
-  <!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> -->
+  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
+  <script><%@include file="/resources/js/Script.js"%></script>
 </head>
 
 <body>
-    <%@ include file="menu.jsp"%>
+  <div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
+					<c:when test="${tipoUsuario == 2}">
+
+						<%@ include file="menu.jsp" %>
+
+					</c:when>
+				</c:choose>
+	</div>
 
     <main>
 

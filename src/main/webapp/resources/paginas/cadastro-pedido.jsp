@@ -7,19 +7,27 @@
 			<head>
 				<meta charset="UTF-8">
 				<title>Insert title here</title>
-				<!-- <style type="text/css"><%@include file="/resources/css/estilo.css"%></style> -->
+			<style type="text/css"><%@include file="/resources/css/estilo.css"%></style> 
 				<link rel="stylesheet" href="../css/estilo.css">
+				<script><%@include file="/resources/js/Script.js"%></script>
 			</head>
 
 			<body>
 
-				<c:choose>
+				<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
 					<c:when test="${tipoUsuario == 2}">
 
 						<%@ include file="menu.jsp" %>
 
 					</c:when>
 				</c:choose>
+	</div>
 				<%@ include file="menu.jsp" %>
 					<div class="header">
 						<p>Login</p>

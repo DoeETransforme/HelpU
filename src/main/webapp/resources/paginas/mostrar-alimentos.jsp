@@ -9,6 +9,7 @@
 <title>HelpU</title>
 <link rel="stylesheet" href="../css/estilo.css">
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+ <script><%@include file="/resources/js/Script.js"%></script>
 </head>
 <body>
 	

@@ -24,6 +24,7 @@ body {
     width: 40%;
     margin: 5% auto;
     border-radius: 8px;
+    
 
 
 
@@ -34,6 +35,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+    
 
 }
 
@@ -78,7 +80,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     color: var(--cor-texto);
@@ -92,7 +94,7 @@ body {
 }
 
 .titulo h3 {
-    font-size: 20;
+    font-size: 40px;
     display: flex;
 
 }

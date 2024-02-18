@@ -8,16 +8,24 @@
 <title>HelpU</title>
 <style type="text/css"><%@include file="/resources/css/estilo.css"%></style>
 <link rel="stylesheet" href="../css/estilo.css">
+<script><%@include file="/resources/js/Script.js"%></script>
 
 </head>
 <body>
-	<c:choose>
-		<c:when test="${tipoUsuario == 2}">
+	<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
+					<c:when test="${tipoUsuario == 2}">
 
-			<%@ include file="menu.jsp"%>
+						<%@ include file="menu.jsp" %>
 
-		</c:when>
-	</c:choose>
+					</c:when>
+				</c:choose>
+	</div>
 <body>
 	<div class="header"> 
 		<p>Login</p>
@@ -25,7 +33,7 @@
 	</div>
 
 	<div class="titulo">
-		<h1>Cadastre o alimento</h1>
+		<h3>Cadastre o alimento</h3>
 	</div>
 	<form action="inserir-alimento" method="post" class="cadastrar-alimento">
 	
