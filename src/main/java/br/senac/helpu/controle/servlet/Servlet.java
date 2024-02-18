@@ -355,6 +355,8 @@ public class Servlet extends HttpServlet {
 
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+		
+		if(usuario instanceof Doador) {
 		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 
 		List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
@@ -366,6 +368,7 @@ public class Servlet extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/perfil-doador.jsp");
 		dispatcher.forward(request, response);
+		}
 	}
 
 	private void mostrarPerfilOng(HttpServletRequest request, HttpServletResponse response)
@@ -1249,21 +1252,40 @@ public class Servlet extends HttpServlet {
 	}
 
 	private void desativarConta(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException {		
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
+		if (usuario instanceof Doador) {
+			String email = request.getParameter("email");
+			String senha = request.getParameter("senha");
 
-		boolean existe = usuarioDAO.verificarUsuario(email, senha);
+			boolean existe = usuarioDAO.verificarUsuario(email, senha);
 
-		if (existe) {
-			Usuario usuario = usuarioDAO.recuperarUsuarioEmail(email);
-			usuario.setStatus(StatusUsuario.INATIVO);
-			usuarioDAO.atualizarUsuario(usuario);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/conta-desativada.jsp");
-			dispatcher.forward(request, response);
-		} else {
+			if (existe) {
+				usuario = usuarioDAO.recuperarUsuarioEmail(email);
+				usuario.setStatus(StatusUsuario.INATIVO);
+				usuarioDAO.atualizarUsuario(usuario);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/conta-desativada.jsp");
+				dispatcher.forward(request, response);
+			} else {
 			response.sendRedirect("confirmar-exclusao");
+			}
+	    }else if(usuario instanceof Ong) {
+	    	String email = request.getParameter("email");
+			String senha = request.getParameter("senha");
+
+			boolean existe = usuarioDAO.verificarUsuario(email, senha);
+
+			if (existe) {
+			    usuario = usuarioDAO.recuperarUsuarioEmail(email);
+				usuario.setStatus(StatusUsuario.INATIVO);
+				usuarioDAO.atualizarUsuario(usuario);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/conta-desativada.jsp");
+				dispatcher.forward(request, response);
+			} else {
+			response.sendRedirect("confirmar-exclusao");
+			}
 		}
 
 	}
