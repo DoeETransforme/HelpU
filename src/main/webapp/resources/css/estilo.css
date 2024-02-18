@@ -96,6 +96,7 @@ body {
 .titulo-tela-de-erro{
     color: blue;   
 }
+}
   
 .titulo p{
 
@@ -1295,7 +1296,7 @@ h1 {
 #errorConfirmarSenha {
     color: red;
 }
-=======
+
 p.one {
     border-style: solid;
 }
