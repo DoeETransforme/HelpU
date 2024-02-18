@@ -13,8 +13,8 @@
 </head>
 
 <body>
+			<%@ include file="menu.jsp" %>
     <header>
-      
         
         <div class="header"> 
             <p>Login</p>
@@ -23,7 +23,7 @@
         
         
     </header>
-    
+    	
     <main>
 
         <div class="titulo">

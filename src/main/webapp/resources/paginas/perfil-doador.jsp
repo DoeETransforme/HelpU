@@ -24,13 +24,8 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 1}">
-
 						<%@ include file="menu.jsp" %>
 
-					</c:when>
-				</c:choose>
 	</div>
  
 	<div class="perfil-doador">
