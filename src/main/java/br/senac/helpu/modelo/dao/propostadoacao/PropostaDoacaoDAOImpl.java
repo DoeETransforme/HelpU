@@ -540,17 +540,15 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 		} finally {
 
-			if (sessao != null) 
+			if (sessao != null) {
         
 				sessao.close();
-
+				}
 			}
-
-		}
-
+		
 		return propostas;
-
-	}
+		
+		}
 
 	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatus(Doador doador, StatusProposta statusProposta) {
 		Session sessao = null;
