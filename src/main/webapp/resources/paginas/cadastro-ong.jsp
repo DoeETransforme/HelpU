@@ -30,7 +30,7 @@
                         <input type="text" id="CPFOuCNPJ_Ong" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required class="padrao-input">
                     
                         
-                        <input type="text" id="TelefoneOng" name="tefelone-ong" placeholder="Telefone da ONG" required class="padrao-input">
+                        <input type="text" id="TelefoneOng" name="telefone-ong" placeholder="Telefone da ONG" required class="padrao-input">
                     
                         <input type="email" id="EmailDaOng" name="email-ong" placeholder="Email da ONG" required class="padrao-input">
                       

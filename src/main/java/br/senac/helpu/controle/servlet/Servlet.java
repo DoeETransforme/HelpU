@@ -358,10 +358,12 @@ public class Servlet extends HttpServlet {
 		
 		if(usuario instanceof Doador) {
 		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
-
+		
 		List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
 		long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
-
+		List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(doador, StatusProposta.ACEITO);
+		
+		request.setAttribute("propostas", propostas);
 		request.setAttribute("qntdConquistas", conquista);
 		request.setAttribute("doador", doador);
 		request.setAttribute("conquistas", conquistas);
@@ -847,7 +849,7 @@ public class Servlet extends HttpServlet {
 		Contato contato = null;
 
 		String email = request.getParameter("email-ong");
-		String telefone = request.getParameter("tefelone-ong");
+		String telefone = request.getParameter("telefone-ong");
 
 		ong = new Ong(nome, senha, StatusUsuario.ATIVO, cnpj);
 		contato = new Contato(telefone, email, ong);
