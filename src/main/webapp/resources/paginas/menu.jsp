@@ -34,8 +34,7 @@
 								<a href="<%=request.getContextPath()%>/perfil-ong">Meu
 									Perfil</a> <a
 									href="<%=request.getContextPath()%>/editar-perfil-ong">Editar
-									Conta</a> <a href="<%=request.getContextPath()%>/desativar-conta">Desativar Conta</a>
-									<a href="<%=request.getContextPath()%>/avaliar-proposta">Avaliar Proposta</a> 
+									Conta</a> <a href="<%=request.getContextPath()%>/desativar-conta">Desativar Conta</a> 
 									<a href="<%=request.getContextPath()%>/cadastro-pedido">Cadastro Pedido</a> 
 									<a href="<%=request.getContextPath()%>/editar-pedido">Editar Pedido</a> 
 									<a href="<%=request.getContextPath()%>/explorar-pedidos">Explorar Pedidos</a> 
