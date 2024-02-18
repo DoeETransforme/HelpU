@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>HelpU</title>
+<script><%@include file="/resources/js/Script.js"%></script>
 </head>
 <body>
 	<div>

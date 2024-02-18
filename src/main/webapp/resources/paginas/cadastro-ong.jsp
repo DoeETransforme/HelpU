@@ -8,11 +8,12 @@
     <title>HelpU</title>
     <!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> -->
     <link rel="stylesheet" href="../css/estilo.css">
+    <script><%@include file="/resources/js/Script.js"%></script>
 </head>
 <body>
     <div>
         <div class="titulo">
-            <h1>Cadastro ONG</h1>
+            <h3>Cadastro ONG</h3>
             <p>informações pessoais</p>
         </div>
         <div class="header"> 
