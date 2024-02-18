@@ -14,6 +14,8 @@ import org.hibernate.Session;
 
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.alimento.Alimento_;
+import br.senac.helpu.modelo.entidade.contato.Contato;
+import br.senac.helpu.modelo.entidade.contato.Contato_;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.doador.Doador_;
 import br.senac.helpu.modelo.entidade.item.Item;
@@ -24,6 +26,7 @@ import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao_;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao_;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 import br.senac.helpu.modelo.factory.conexao.ConexaoFactory;
 
@@ -110,6 +113,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Root<PropostaDoacao> raizPropostaDoacao = criteria.from(PropostaDoacao.class);
 			
 			raizPropostaDoacao.fetch(PropostaDoacao_.PEDIDO_DOACAO, JoinType.LEFT).fetch("ong", JoinType.LEFT);
+			raizPropostaDoacao.fetch("doador", JoinType.LEFT);
 			
 
 			criteria.select(raizPropostaDoacao);
@@ -131,10 +135,10 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 		return propostaDoacao;
 	}
 	
-	public List<PropostaDoacao> recuperarPropostasDoacoesItemId(Long id) {
+	public PropostaDoacao recuperarPropostaDoacaoContatoId(Long id) {
 
 		Session sessao = null;
-		List<PropostaDoacao> propostaDoacao = null;
+		PropostaDoacao propostaDoacao = null;
 
 		try {
 			sessao = fabrica.getConexao().openSession();
@@ -144,14 +148,16 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 			Root<PropostaDoacao> raizPropostaDoacao = criteria.from(PropostaDoacao.class);
+			Root<Contato> raizContato = criteria.from(Contato.class);
 			
-			raizPropostaDoacao.fetch(PropostaDoacao_.ITENS, JoinType.LEFT).fetch("alimento", JoinType.LEFT);
+			raizPropostaDoacao.fetch(PropostaDoacao_.DOADOR, JoinType.LEFT).fetch("contato", JoinType.LEFT);
+			Join<Contato, Usuario> joinUsuario = raizContato.join(Contato_.USUARIO);
 			
 
-			criteria.select(raizPropostaDoacao).distinct(true);
+			criteria.select(raizPropostaDoacao);
 
 			criteria.where(construtor.equal(raizPropostaDoacao.get(PropostaDoacao_.id), id));		
-			propostaDoacao = sessao.createQuery(criteria).getResultList();
+			propostaDoacao = sessao.createQuery(criteria).getSingleResult();
 			
 			sessao.getTransaction().commit();
 		} catch (Exception sqlException) {
@@ -166,6 +172,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 		}
 		return propostaDoacao;
 	}
+	
 
 	public List<PropostaDoacao> recuperarTodasPropostaDoacao() {
 		Session sessao = null;
@@ -533,7 +540,8 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 
 		} finally {
 
-			if (sessao != null) {
+			if (sessao != null) 
+        
 				sessao.close();
 
 			}
@@ -768,6 +776,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	    return propostas;
 	}
 	
+
 	public List<PropostaDoacao> recuperarTodasPropostaDoacaoPedido(PedidoDoacao pedido) {
 		Session sessao = null;
 	    List<PropostaDoacao> propostas = null;
@@ -807,6 +816,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	    
 	    return propostas;
 	}
+
 }
 	
 
