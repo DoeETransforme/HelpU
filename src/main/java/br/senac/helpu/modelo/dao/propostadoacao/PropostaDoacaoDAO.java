@@ -49,6 +49,8 @@ public interface PropostaDoacaoDAO {
 
     List<PropostaDoacao> recuperarTodasPropostaDoacaoOngStatusFetch(Ong ong, StatusProposta statusProposta);
     
+    List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(Doador doador, StatusProposta statusProposta);
+    
     List<PropostaDoacao> recuperarTodasPropostaDoacaoPedido(PedidoDoacao pedido);
 
 }

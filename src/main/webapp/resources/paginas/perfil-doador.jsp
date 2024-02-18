@@ -51,29 +51,19 @@
 				<div class="titulo" id="titulo-doador">
 					<h2>Últimas Doações:</h2>
 				</div>
-
-				<div class="posicao-cards">
-					<div class="card-doacoes-doador">
-						<div class="titulo">
-							<h3>Doação para: humanidade Acionada</h3>
+				
+				<c:forEach var="proposta" items="${propostas}">
+					<div class="posicao-cards">
+						<div class="card-doacoes-doador">
+							<div class="titulo">
+								<h3><a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /></a></h3>
+							</div>
+							<p>feito em: <c:out value="${proposta.dataCriacao}" /></p>
+							<span><a href="<%=request.getContextPath()%>/historico-doacoes?id=<c:out value='${proposta.id}'/>">Ver mais</a></span>
 						</div>
-						<p>feito em: </p>
-						<button>Ver mais</button>
-					</div>
-					<div class="card-doacoes-doador">
-						<div class="titulo">
-							<h3>Doação para: humanidade Acionada</h3>
-						</div>
-						<p>feito em: </p>
-						<button>Ver mais</button>
-					</div>
-					<div class="card-doacoes-doador">
-						<div class="titulo">
-							<h3>Doação para: humanidade Acionada</h3>
-						</div>
-						<p>feito em: </p>
-						<button>Ver mais</button>
-					</div>
+					</div>	
+				</c:forEach>	
+				
 				</div>
 			</div>
 

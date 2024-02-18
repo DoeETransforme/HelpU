@@ -592,6 +592,57 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 		return propostas;
 
 	}
+	
+	public List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(Doador doador, StatusProposta statusProposta) {
+		Session sessao = null;
+		List<PropostaDoacao> propostas = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizConsulta = criteria.from(PropostaDoacao.class);
+			
+			
+			raizConsulta.fetch(PropostaDoacao_.PEDIDO_DOACAO, JoinType.LEFT).fetch("ong", JoinType.LEFT);
+			raizConsulta.fetch(PropostaDoacao_.ITENS,JoinType.LEFT).fetch("alimento", JoinType.LEFT);
+
+			criteria.select(raizConsulta).distinct(true);
+
+			criteria.where(construtor.equal(raizConsulta.get(PropostaDoacao_.statusProposta), statusProposta),
+					construtor.equal(raizConsulta.get(PropostaDoacao_.doador).get(Doador_.id), doador.getId()));
+			
+			criteria.orderBy(construtor.desc(raizConsulta.get(PropostaDoacao_.dataCriacao)));
+			
+			propostas = sessao.createQuery(criteria).setMaxResults(3).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+
+			}
+
+		}
+
+		return propostas;
+
+	}
 
 	@Override
 	public List<PropostaDoacao> recuperarPropostaDoacaoStatus(StatusProposta status) {
