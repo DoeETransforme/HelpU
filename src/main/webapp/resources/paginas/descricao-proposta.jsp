@@ -7,19 +7,27 @@
 <head>
 <meta charset="UTF-8">
 <title>HelpU</title>
+<script><%@include file="/resources/js/Script.js"%></script>
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
 </head>
 <body>
 
-		<%@ include file="menu.jsp"%>
+	<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
+					<c:when test="${tipoUsuario == 1}">
+
+						<%@ include file="menu.jsp" %>
+
+					</c:when>
+				</c:choose>
+	</div>
 		
 		   <main>
-
-        <div class="avaliar-proposta">
-            <img src="../imagens/perfil-icon.png" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
-            <h2> Doação de: <c:out value="${ itemRecuperado.propostaDoacao.doador.nome}" /> </h2>
-        </div>
-        
-       
            
                 <div class="descricao">
                     <div>

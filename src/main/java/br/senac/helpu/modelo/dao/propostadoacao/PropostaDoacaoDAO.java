@@ -6,6 +6,7 @@ import java.util.List;
 import br.senac.helpu.modelo.entidade.alimento.Alimento;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.ong.Ong;
+import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 
@@ -20,7 +21,7 @@ public interface PropostaDoacaoDAO {
 	
 	PropostaDoacao recuperarPropostaDoacaoId(Long id);
 	
-	List<PropostaDoacao> recuperarPropostasDoacoesItemId(Long id);
+	PropostaDoacao recuperarPropostaDoacaoContatoId(Long id);
 
 	List<PropostaDoacao> recuperarPropostaDoacaoOng(Ong ong);
 
@@ -47,5 +48,9 @@ public interface PropostaDoacaoDAO {
 			LocalDate dataInicial, LocalDate datafinal);
 
     List<PropostaDoacao> recuperarTodasPropostaDoacaoOngStatusFetch(Ong ong, StatusProposta statusProposta);
+    
+    List<PropostaDoacao> recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(Doador doador, StatusProposta statusProposta);
+    
+    List<PropostaDoacao> recuperarTodasPropostaDoacaoPedido(PedidoDoacao pedido);
 
 }

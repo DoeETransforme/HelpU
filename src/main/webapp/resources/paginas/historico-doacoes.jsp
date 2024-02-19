@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
 	<link rel="stylesheet" href="../css/estilo.css">
+	<script><%@include file="/resources/js/Script.js"%></script>
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
 <script><%@include file="/resources/js/Script.js"%></script>
 
@@ -24,7 +25,7 @@
 	
 	<div class="menu-lateral" id="menu-lateral">
 		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
+					<c:when test="${tipoUsuario == 1}">
 
 						<%@ include file="menu.jsp" %>
 

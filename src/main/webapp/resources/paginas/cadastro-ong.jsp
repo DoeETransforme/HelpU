@@ -8,11 +8,12 @@
     <title>HelpU</title>
     <!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> -->
     <link rel="stylesheet" href="../css/estilo.css">
+    <script><%@include file="/resources/js/Script.js"%></script>
 </head>
 <body>
     <div>
         <div class="titulo">
-            <h1>Cadastro ONG</h1>
+            <h3>Cadastro ONG</h3>
             <p>informações pessoais</p>
         </div>
         <div class="header"> 
@@ -29,7 +30,7 @@
                         <input type="text" id="CPFOuCNPJ_Ong" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required class="padrao-input">
                     
                         
-                        <input type="text" id="TelefoneOng" name="tefelone-ong" placeholder="Telefone da ONG" required class="padrao-input">
+                        <input type="text" id="TelefoneOng" name="telefone-ong" placeholder="Telefone da ONG" required class="padrao-input">
                     
                         <input type="email" id="EmailDaOng" name="email-ong" placeholder="Email da ONG" required class="padrao-input">
                       

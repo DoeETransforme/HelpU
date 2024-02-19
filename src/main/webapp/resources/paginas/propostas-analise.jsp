@@ -11,29 +11,49 @@
 <title>Helpu</title>
 <link rel="stylesheet" href="../css/estilo.css">
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+ <script><%@include file="/resources/js/Script.js"%></script>
 </head>
 <body>
-	<%@ include file="menu.jsp"%>
+	<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
+					<c:when test="${tipoUsuario == 2}">
+
+						<%@ include file="menu.jsp" %>
+
+					</c:when>
+				</c:choose>
+	</div>
 
 	<main>
 		<div>
 			<div class="titulo">
 				<h1>Propostas em Análise.</h1>
 			</div>
-			<c:forEach var="propostaDoacao" items="${propostasDoacoes}">
+			
+			<c:forEach var="proposta" items="${propostas}">	
+				
 				<div class="propostas-doacao-analise">
 					<div class="imagem-card"><img src="../imagens/perfil-icon.png" alt=""></div>
+					
 					<div class="conteudo">				
 						<p>
-							Doação Por: <span id="nomeUsuario">${propostaDoacao.doador.nome}</span>
+							Doação Por: <span id="nomeUsuario">${proposta.doador.nome}</span>
 						</p>
 						<p>
-							No Pedido: <span id="titulo-pedido">${propostaDoacao.pedidoDoacao.titulo}</span>
+							No Pedido: <span id="titulo-pedido">${proposta.pedidoDoacao.titulo}</span>
 						</p>
 						<p>
-							Status: <span>${propostaDoacao.statusProposta}</span>
+							Status: <span>${proposta.statusProposta}</span>
 						</p>
+						<a href="<%=request.getContextPath()%>/avaliar-proposta?id=<c:out value='${proposta.id}'/>">Ver Mais</a>
+						
 					</div>
+					
 				</div>
 				
 			</c:forEach>

@@ -10,25 +10,34 @@
     , initial-scale=1.0">
 				<title>HelpU</title>
 				<link rel="stylesheet" href="../css/estilo.css">
-				 <!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> --> 
+				 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>  
+				 <script><%@include file="/resources/js/Script.js"%></script>
 
 			</head>
 
 			<body>
-				<c:choose>
+
+				<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
 					<c:when test="${tipoUsuario == 2}">
 
 						<%@ include file="menu.jsp" %>
 
 					</c:when>
 				</c:choose>
+	</div>
 
 				<main>
 
 					<div class="titulo">
 						<h1>
 							Titulo:
-							<c:out value="${pedidoDoacao.titulo}" />
+							<c:out value="${pedido.titulo}" />
 						</h1>
 					</div>
 
@@ -39,7 +48,7 @@
 							<img src="../imagens/perfil-icon.png" alt="">
 							<p>
 								de: <span id="NomeCompletoOng">
-									<c:out value="${pedidoDoacao.ong.nome}" />
+									<c:out value="${pedido.ong.nome}" />
 								</span>
 								em:
 							</p>
@@ -72,66 +81,43 @@
 						</div>
 
 						<div class="status-pedido">
-							<h4>Status do Pedido: <p>
-									<c:out value="${pedidoDoacao.StatusPedido }" />
-								</p>
-							</h4>
+							<h4>Status do Pedido: </h4>
+							<c:out value="${pedido.statusPedido}" />						
 						</div>
 
 
 					</div>
 					<div class="ajude-pedido">
-
-						<a href="Cadastro_proposta.jsp">
-							<button type="button" class="padrao-input">Ajude e doe
-								agora mesmo!</button>
-						</a>
+							<button type="button" class="botao-padrao"><a href="<%=request.getContextPath()%>/cadastro-proposta?id=<c:out value='${pedido.id}'/>">Cadastrar Proposta</a></button>
 
 					</div>
 
 					<div class="titulo">
 						<h2>Doadores:</h2>
 					</div>
-
-					<div class="doadores-pedido">
-						<img src="../imagens/perfil-icon.png" alt="Foto de Perfil">
-						<p>Enya Lohana doou <strong>5kg</strong> de <strong>arroz</strong></p>
-					</div>
-					<div class="doadores-pedido">
-						<img src="../imagens/perfil-icon.png" alt="Foto de Perfil">
-						<p>Enya Lohana doou <strong>5kg</strong> de <strong>arroz</strong></p>
-					</div>
-					<br>
-
-					<div class="titulo">
-						<h3>Conheça outros projetos de doações:</h3>
-					</div>
-
-
-					<div class="conheca-pedidos">
-						<div class="card-pedido">
-							<img src="../imagens/Sem título.png" alt="capa de projeto" id="capa_pedido">
-							<div class="conteudo-pedido">
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab possimus itaque veniam natus saepem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, vero aspernatur? Aliquam, optio necessitatibus ab ullam aspernatur atque repudiandae dolorem, dolorum voluptatum numquam itaque facilis nisi omnis alias quaerat eveniet.</p>
-							</div>
-							<button> Connheça</button>
-						</div>
-						<div class="card-pedido">
-							<img src="../imagens/Sem título.png" alt="capa de projeto" id="capa_pedido">
-							<div class="conteudo-pedido">
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab possimus itaque veniam natus saepem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, vero aspernatur? Aliquam, optio necessitatibus ab ullam aspernatur atque repudiandae dolorem, dolorum voluptatum numquam itaque facilis nisi omnis alias quaerat eveniet.</p>
-							</div>
-							<button> Connheça</button>
-						</div>
-						<div class="card-pedido">
-							<img src="../imagens/Sem título.png" alt="capa de projeto" id="capa_pedido">
-							<div class="conteudo-pedido">
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab possimus itaque veniam natus saepem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, vero aspernatur? Aliquam, optio necessitatibus ab ullam aspernatur atque repudiandae dolorem, dolorum voluptatum numquam itaque facilis nisi omnis alias quaerat eveniet.</p>
-							</div>
-							<button> Connheça</button>
-						</div>
-					</div>
 					
+							
+							<c:forEach var="propostas" items="${propostas}">  
+								<a href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostas.id}'/>">	
+          							<tr>			
+				          				<td><c:out value="${propostas.doador.nome}" /></td>				          								          			                   
+          							</tr>
+          							
+          							<c:forEach var="item" items="${propostas.itens}">
+								            <span> <c:out value="${item.quantidade}" /></span>
+								            <span><c:out value="${item.alimento.dataValidade}" /></span>
+	           						</c:forEach>             							 
+          						</a>
+							</c:forEach>
+							
+							<h1> Veja outros pedidos ativos:</h1>
+												
+							<c:forEach var="pedido" items="${pedidos}">
+								            <span> <c:out value="${pedido.titulo}" /></span>
+								            <span> <c:out value="${pedido.descricao}" /></span>
+								            <span> <c:out value="${pedido.data}" /></span>
+								            <span> <c:out value="${pedido.metaDoacoes}" /></span>
+	           				</c:forEach>         
 					
 					<div class="">
 						<img src="imagem.jpg" alt="capa de projeto" id="capa_pedido">

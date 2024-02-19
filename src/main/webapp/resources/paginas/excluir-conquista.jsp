@@ -7,9 +7,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Excluir Conquista</title>
+<script><%@include file="/resources/js/Script.js"%></script>
 </head>
 <body>
-	<%@ include file="menu.jsp"%>
+	<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
+					<c:when test="${tipoUsuario == 2}">
+
+						<%@ include file="menu.jsp" %>
+
+					</c:when>
+				</c:choose>
+	</div>
 	<h1>Tem certeza que deseja excluir essa conquista?</h1>
 
 	<div>

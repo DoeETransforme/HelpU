@@ -8,7 +8,6 @@
     <title>Helpu</title>
     <link rel="stylesheet" href="../css/estilo.css">
     <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-    <script><%@include file="/resources/js/Script.js"%></script>
     
 </head>
 <body>
@@ -27,6 +26,11 @@
     <main>
         <div class="titulo">
             <h1>Error 404</h1>
-            <p>Não pudemos encontrar a página. Atualize a página ou tente novamente mais tarde.</p>
+            <p> <h2> Erro de tempo limite. </h2>
+                <br>
+            (Tempo máximo de uso expirado.)
+            </p>
         </div>
     </main>
+
+   
