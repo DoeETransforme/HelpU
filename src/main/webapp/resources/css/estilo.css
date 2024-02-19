@@ -1464,12 +1464,26 @@ h1 {
     text-decoration: none;
     color: var(--cor-texto);
     border-radius: 10px;
+}
 
+.botao-link {
+   background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    text-decoration: none;
+    margin: 20px auto 10px;
+    text-align: center;
+}
 
-  
-  
-  
-
+.linha {
+  margin: 20px auto 10px;
+  width: 60%;
+  border-bottom: 1px solid #B7B7B7;
+  border-radius: 10px;
 }
 
 

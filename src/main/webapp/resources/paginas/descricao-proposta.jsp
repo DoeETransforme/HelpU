@@ -27,13 +27,16 @@
 		
 		   <main>
            
-                <div class="descricao">
+                <div class="descricao-proposta">
                     <div>
                         
 					    <div class="avaliar-proposta">
 					        <img src="../imagens/perfil-icon.png" alt="Imagem de perfil do usuário" id="imagem-PF-avaliarProposta">
 					          <h2>Doação de: <c:out value="${proposta.doador.nome}" /></h2> 
 						</div>
+						
+						<div class="linha" ></div>
+						
 					    <div >
 					         <span class="descricao-span">Doação feita no pedido: ${proposta.pedidoDoacao.titulo}></span>  
 					         <span class="descricao-span">Status da proposta: ${proposta.statusProposta}</span>
@@ -42,15 +45,21 @@
 					         <c:forEach var="item" items="${proposta.itens}">
 						     	<span class="descricao-span">Quantidade Doada:${item.quantidade}</span>
 						        <span class="descricao-span">Validade:${item.alimento.dataValidade}</span>
-					         </c:forEach>  
-					
-					        <a href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
-					        <a href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
+					         </c:forEach>
 					    </div>
+					           <div class="linha" ></div>
+						<div class="botoes-align">
+					        <a class="botao-link" href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
+					        <a class="botao-link" href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
+						</div>
+					</div>	
+				</div>	
+							
+					    
 		  
-              	    </div>
+              	    
                 
-              </div>
+              
                 
                 
     </main>
