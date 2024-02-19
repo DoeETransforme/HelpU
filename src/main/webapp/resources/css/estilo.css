@@ -1334,7 +1334,7 @@ h1 {
 .informacoes-ong {
     display: flex;
     width: 100%;
-    border: 1px solid red;
+
   
  
 }
@@ -1350,7 +1350,7 @@ h1 {
 }
 
 .butoes-ong{
-    border: 1px solid black;
+   
     flex: 30%;
     align-items: center;
     
