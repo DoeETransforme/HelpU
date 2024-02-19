@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+
+
+.descricao-span {
+    grid-column: span 2;
+    text-align: left;
+    display: block;
+    margin-bottom: 0;
+}
