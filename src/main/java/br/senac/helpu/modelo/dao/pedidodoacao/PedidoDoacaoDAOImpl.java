@@ -407,6 +407,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			Join<PedidoDoacao, Item> juncaoItem = raizPedido.join(PedidoDoacao_.itens);
 			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
+			raizPedido.fetch(PedidoDoacao_.ong);
 
 			List<Predicate> predicados = new ArrayList<>();
 

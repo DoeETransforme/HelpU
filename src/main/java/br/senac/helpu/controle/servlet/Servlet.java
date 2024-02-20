@@ -214,7 +214,11 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
-
+				
+//			case "/mostrar-resultado-pesquisa":
+//				mostrarResultadoPesquisa(request,response);
+//				break;
+				
 			case "/mostrar-conquistas":
 				mostrarConquistas(request, response);
 				break;
@@ -711,6 +715,7 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("login");
 		}
 	}
+
 
 	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -1271,8 +1276,9 @@ public class Servlet extends HttpServlet {
 		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.filtrarPedidos(statusop, nomeop, dataInicialop, dataFinalop,
 				alimentoop);
 		request.setAttribute("pedidos", pedidos);
+		request.setAttribute("status", statusop );
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultados-pesquisa.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultado-pesquisa.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -1335,4 +1341,13 @@ public class Servlet extends HttpServlet {
 
 	}
 
+	private void mostrarResultadoPesquisa(HttpServletRequest request , HttpServletResponse response)
+			throws ServletException, IOException{
+		
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
+		request.setAttribute("pedidos", pedidos);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/");
+ 	
+}
 }
