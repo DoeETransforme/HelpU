@@ -393,7 +393,6 @@ body {
 }
 
 .tamanho {
-
     align-items: center;
     bottom: 250px;
     right: 160px;
@@ -401,9 +400,13 @@ body {
     flex-direction: column;
     width: 320px;
     height: auto;
-    margin-top: 120px;
+    margin-top: 60px;
     margin-right: 300px;
     float: right;
+}
+
+.negrito{
+	font-weight: bold;
 }
 
 #overflow {
