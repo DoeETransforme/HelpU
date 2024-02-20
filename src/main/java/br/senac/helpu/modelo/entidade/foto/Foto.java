@@ -11,9 +11,10 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="foto")
+@Table(name = "foto")
 public class Foto implements Serializable {
-	private static final long serialVersionUID = -5786556278275043519L;
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,16 +22,22 @@ public class Foto implements Serializable {
 	private Long id;
 
 	@Lob
-	@Column(name = "binario_foto", nullable = false, unique = true)
+	@Column(name = "binario_foto", nullable = false)
 	private Byte[] binario;
 
-	@Column(name = "extensao_foto", nullable = false, unique = true)
+	@Column(name = "extensao_foto", nullable = false)
 	private String extensao;
 
-	public Foto() {}
-	
+	public Foto() {
+	}
+
 	public Foto(Long id, Byte[] binario, String extensao) {
 		setId(id);
+		setBinario(binario);
+		setExtensao(extensao);
+	}
+
+	public Foto(Byte[] binario, String extensao) {
 		setBinario(binario);
 		setExtensao(extensao);
 	}
@@ -60,4 +67,3 @@ public class Foto implements Serializable {
 	}
 
 }
-
