@@ -553,35 +553,22 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
-
+ 
 		if (sessao.getAttribute("usuario") instanceof Doador) {
-			Ong ong = new Ong("amiguinho", "38947612", StatusUsuario.ATIVO, "49378794");
-
-			usuarioDAO.inserirUsuario(ong);
-			Doador doador = new Doador("eduardo", "238756", StatusUsuario.ATIVO, "986437", LocalDate.of(2022, 10, 10));
-			PedidoDoacao pedido = new PedidoDoacao("pedidopedido", "descricao", LocalDate.now(), StatusPedido.ATIVO,
-					ong);
-			pedidoDoacaoDAO.inserirPedidoDoacao(pedido);
-			PropostaDoacao proposta = new PropostaDoacao(StatusProposta.ACEITO, doador, LocalDate.of(2022, 10, 10),
-					pedido);
-			usuarioDAO.inserirUsuario(doador);
-
-			propostaDoacaoDAO.inserirPropostaDoacao(proposta);
-			doador.addProposta(proposta);
-			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong,
+			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+ 
+			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
 					StatusProposta.ACEITO);
-
-			request.setAttribute("propostaDoacao", propostasDoacoes);
-			request.setAttribute("ong", ong);
-			request.setAttribute("doador", doador);
-
+ 
+			request.setAttribute("propostasDoacoes", propostasDoacoes);
+ 
+ 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/historico-doacoes.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}
 	}
-
 	private void mostrarHistoricoPedidos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
