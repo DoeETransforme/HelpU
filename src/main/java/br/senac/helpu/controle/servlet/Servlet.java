@@ -215,9 +215,9 @@ public class Servlet extends HttpServlet {
 				mostrarCadastroConquista(request, response);
 				break;
 				
-//			case "/mostrar-resultado-pesquisa":
-//				mostrarResultadoPesquisa(request,response);
-//				break;
+			case "/mostrar-resultado-pesquisa":
+				mostrarResultadoPesquisa(request,response);
+				break;
 				
 			case "/mostrar-conquistas":
 				mostrarConquistas(request, response);
@@ -1276,7 +1276,7 @@ public class Servlet extends HttpServlet {
 		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.filtrarPedidos(statusop, nomeop, dataInicialop, dataFinalop,
 				alimentoop);
 		request.setAttribute("pedidos", pedidos);
-		request.setAttribute("status", statusop );
+
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultado-pesquisa.jsp");
 		dispatcher.forward(request, response);
@@ -1347,7 +1347,8 @@ public class Servlet extends HttpServlet {
 		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
 		request.setAttribute("pedidos", pedidos);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/resultado-pesquisa");
+		dispatcher.forward(request, response);
  	
 }
 }
