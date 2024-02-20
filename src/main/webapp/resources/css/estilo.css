@@ -1472,6 +1472,11 @@ h1 {
 
 }
 
+.hamburguer{
+	width: 60px;
+	height: 60px;
+}
+
 
 #errorNomeCompleto,
 #errorCPFOuCNPJ,

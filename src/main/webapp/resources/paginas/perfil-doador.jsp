@@ -18,15 +18,8 @@
 </head>
 <body>
  
-	<div class="menu-hamburguer" id="menu-hamburguer">
-	
-		<div class="hamburguer" onclick="toggleMenu()">☰</div>
-	</div>
-	
-	<div class="menu-lateral" id="menu-lateral">
 						<%@ include file="../cabecalhos/menu.jsp" %>
 
-	</div>
  
 	<div class="perfil-doador">
 		
