@@ -19,13 +19,7 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
-
-						<%@ include file="menu.jsp" %>
-
-					</c:when>
-				</c:choose>
+		<%@ include file="../cabecalhos/menu.jsp" %>
 	</div>
 
             </header>

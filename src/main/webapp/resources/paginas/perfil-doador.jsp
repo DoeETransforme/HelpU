@@ -24,7 +24,7 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-						<%@ include file="menu.jsp" %>
+						<%@ include file="../cabecalhos/menu.jsp" %>
 
 	</div>
  

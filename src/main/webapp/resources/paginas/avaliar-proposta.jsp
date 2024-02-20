@@ -23,7 +23,7 @@
     <c:choose>
                 <c:when test="${tipoUsuario == 2}">
 
-                    <%@ include file="menu.jsp" %>
+                    <%@ include file="../cabecalhos/menu.jsp" %>
 
                 </c:when>
             </c:choose>

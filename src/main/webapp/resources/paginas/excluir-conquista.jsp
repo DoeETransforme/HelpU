@@ -16,13 +16,7 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
-
-						<%@ include file="menu.jsp" %>
-
-					</c:when>
-				</c:choose>
+		<%@ include file="../cabecalhos/menu.jsp" %>
 	</div>
 	<h1>Tem certeza que deseja excluir essa conquista?</h1>
 

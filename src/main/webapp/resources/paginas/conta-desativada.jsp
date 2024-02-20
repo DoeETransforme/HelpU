@@ -13,7 +13,7 @@
 </head>
 
 <body>
-			<%@ include file="menu.jsp" %>
+			<%@ include file="../cabecalhos/menu.jsp" %>
     <header>
         
         <div class="header"> 
