@@ -103,6 +103,10 @@ public class Servlet extends HttpServlet {
 			case "/home":
 				mostrarIndex(request, response);
 				break;
+				
+			case "/mostrar-cadastro":
+				mostrarCadastro(request, response);
+				break;
 
 			case "/login":
 				mostrarLogin(request, response);
@@ -354,6 +358,12 @@ public class Servlet extends HttpServlet {
 	private void mostrarLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/login.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void mostrarCadastro(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-cadastro.jsp");
 		dispatcher.forward(request, response);
 	}
 
