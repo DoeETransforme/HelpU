@@ -347,9 +347,9 @@ body {
 
 .titulo-login {
     text-align: center;
-    display: block;
+    display: flex;
     position: relative;
-    bottom: 100px;
+    bottom: 50px;
     font-size: 100px;
 
 
@@ -395,14 +395,14 @@ body {
 .tamanho {
 
     align-items: center;
-    position: relative;
     bottom: 250px;
     right: 160px;
     display: flex;
     flex-direction: column;
     width: 320px;
     height: auto;
-    margin-top: 20px;
+    margin-top: 120px;
+    margin-right: 300px;
     float: right;
 }
 
