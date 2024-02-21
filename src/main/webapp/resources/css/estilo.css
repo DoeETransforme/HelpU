@@ -490,6 +490,9 @@ body {
 .forms-cadastro {
     flex: 40%;
     margin-left: 10%;
+  
+    align-items: center;
+    text-align: center;
 
 
 }
@@ -518,9 +521,14 @@ body {
 
 }
 
-.alinhamento {
+.alinhamento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
     text-align: center;
-
+  
+    
 }
 
 .alinhamento a {
@@ -538,7 +546,7 @@ body {
     border-radius: 10px;
     width: 400px;
     height: 50px;
-    margin-left: 85px;
+ 
 
 }
 
