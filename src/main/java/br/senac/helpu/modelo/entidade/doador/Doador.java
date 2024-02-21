@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.conquista.Conquista;
+import br.senac.helpu.modelo.entidade.foto.Foto;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
@@ -56,6 +57,20 @@ public class Doador extends Usuario implements Serializable {
 		super(nome, senha, status);
 		setCpf(cpf);
 		setData(data);
+	}
+	
+	public Doador(Long id, String nome, String senha, StatusUsuario status, Foto fotoUsuario,String cpf, LocalDate data) {
+		super(id, nome, senha, status, fotoUsuario);
+		setCpf(cpf);
+		setData(data);
+
+	}
+	
+	public Doador(String nome, String senha, StatusUsuario status, Foto fotoUsuario,String cpf, LocalDate data) {
+		super(nome, senha, status, fotoUsuario);
+		setCpf(cpf);
+		setData(data);
+
 	}
 
 	public String getCpf() {

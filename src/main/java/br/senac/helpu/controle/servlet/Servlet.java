@@ -8,11 +8,13 @@ import java.util.Optional;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAO;
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAOImpl;
@@ -24,6 +26,8 @@ import br.senac.helpu.modelo.dao.doador.DoadorDAO;
 import br.senac.helpu.modelo.dao.doador.DoadorDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
+import br.senac.helpu.modelo.dao.foto.FotoDAO;
+import br.senac.helpu.modelo.dao.foto.FotoDAOImpl;
 import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
 import br.senac.helpu.modelo.dao.ong.OngDAO;
@@ -39,6 +43,7 @@ import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
+import br.senac.helpu.modelo.entidade.foto.Foto;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
@@ -47,7 +52,9 @@ import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
+import br.senac.helpu.util.ConversorImagem;
 
+@MultipartConfig
 @WebServlet("/")
 public class Servlet extends HttpServlet {
 
@@ -62,6 +69,7 @@ public class Servlet extends HttpServlet {
 	private AlimentoDAO alimentoDAO;
 	private OngDAO ongDAO;
 	private ConquistaDAO conquistaDAO;
+	private FotoDAO fotoDAO;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -74,6 +82,7 @@ public class Servlet extends HttpServlet {
 		alimentoDAO = new AlimentoDAOImpl();
 		ongDAO = new OngDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
+		fotoDAO = new FotoDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -94,7 +103,7 @@ public class Servlet extends HttpServlet {
 		else if (sessao.getAttribute("usuario") instanceof Ong) {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
-		}else {
+		} else {
 			String tipoUsuario = "3";
 			request.setAttribute(tipoUsuario, tipoUsuario);
 		}
@@ -106,7 +115,7 @@ public class Servlet extends HttpServlet {
 			case "/home":
 				mostrarIndex(request, response);
 				break;
-				
+
 			case "/mostrar-cadastro":
 				mostrarCadastro(request, response);
 				break;
@@ -118,11 +127,7 @@ public class Servlet extends HttpServlet {
 			case "/confirmar-login":
 				confirmarLogin(request, response);
 				break;
-			case "/validar-proposta":
-				validarProposta(request, response);
-
-			case "/invalidar-proposta":
-				invalidarProposta(request, response);
+			
 
 			case "/perfil-doador":
 				mostrarPerfilDoador(request, response);
@@ -221,11 +226,11 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
-				
+
 			case "/mostrar-resultado-pesquisa":
-				mostrarResultadoPesquisa(request,response);
+				mostrarResultadoPesquisa(request, response);
 				break;
-				
+
 			case "/mostrar-conquistas":
 				mostrarConquistas(request, response);
 				break;
@@ -333,6 +338,22 @@ public class Servlet extends HttpServlet {
 			case "/conta-desativada":
 				desativarConta(request, response);
 				break;
+				
+			case "/validar-proposta":
+				mostrarValidarProposta(request, response);
+				break;
+ 
+			case "/invalidar-proposta":
+				mostrarInvalidarProposta(request, response);
+				break;
+				
+			case "/proposta-aceita":
+				validarProposta(request, response);
+				break;
+ 
+			case "/proposta-recusada":
+				invalidarProposta(request, response);
+				break;
 
 			default:
 				mostrarIndex(request, response);
@@ -343,17 +364,70 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	private void validarProposta(HttpServletRequest request, HttpServletResponse response)
+	private void mostrarInvalidarProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./Propostas-analise.jsp");
+		Long id = Long.parseLong(request.getParameter("id"));
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+		request.setAttribute("proposta", proposta);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/invalidar-proposta.jsp");
 		dispatcher.forward(request, response);
 
 	}
 
+	private void mostrarValidarProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Long id = Long.parseLong(request.getParameter("id"));
+		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+		request.setAttribute("proposta", proposta);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/validar-proposta.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+	private void validarProposta(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Ong) {
+
+			Long id = Long.parseLong(request.getParameter("id"));
+			PropostaDoacao propostaDoacao = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+			propostaDoacao.setStatusProposta(StatusProposta.ACEITO);
+			propostaDoacaoDAO.atualizarPropostaDoacao(propostaDoacao);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/proposta-aceita.jsp");
+			dispatcher.forward(request, response);
+		} else if (usuario instanceof Doador) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./login.jsp");
+			dispatcher.forward(request, response);
+
+		}
+	}
+
 	private void invalidarProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./Propostas-analise.jsp");
-		dispatcher.forward(request, response);
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
+		if (usuario instanceof Ong) {
+
+			Long id = Long.parseLong(request.getParameter("id"));
+			PropostaDoacao propostaDoacao = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+
+			propostaDoacao.setStatusProposta(StatusProposta.RECUSADO);
+			propostaDoacaoDAO.atualizarPropostaDoacao(propostaDoacao);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/proposta-recusada.jsp");
+			dispatcher.forward(request, response);
+		} else if (usuario instanceof Doador) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./login.jsp");
+			dispatcher.forward(request, response);
+
+		}
 	}
 
 	private void mostrarIndex(HttpServletRequest request, HttpServletResponse response)
@@ -367,7 +441,7 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/login.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarCadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-cadastro.jsp");
@@ -544,7 +618,8 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Doador) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/excluir-conta-usuario.jsp");
+			RequestDispatcher dispatcher = request
+					.getRequestDispatcher("./resources/paginas/excluir-conta-usuario.jsp");
 			dispatcher.forward(request, response);
 		} else if (sessao.getAttribute("usuario") instanceof Ong) {
 			RequestDispatcher dispatcher = request
@@ -560,22 +635,21 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
- 
 		if (usuario instanceof Doador) {
 			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
- 
+
 			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
 					StatusProposta.ACEITO);
- 
+
 			request.setAttribute("propostasDoacoes", propostasDoacoes);
- 
- 
+
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/historico-doacoes.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}
 	}
+
 	private void mostrarHistoricoPedidos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -716,7 +790,6 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-
 	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
@@ -815,17 +888,25 @@ public class Servlet extends HttpServlet {
 
 		String nome = request.getParameter("nome");
 		String senha = request.getParameter("senha");
-		LocalDate data = LocalDate.parse(request.getParameter("data-nascimento"));
+		String strData = request.getParameter("data-nascimento");
+		System.out.println(strData);
+		LocalDate data = LocalDate.parse(strData);
 		String cpf = request.getParameter("cpf");
+
+		Part partDoador = request.getPart("foto");
+		String extensao = partDoador.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partDoador);
+		Foto foto = new Foto(fotobyte, extensao);
 
 		Contato contato = null;
 
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("celular");
 
-		doador = new Doador(nome, senha, StatusUsuario.ATIVO, cpf, data);
+		doador = new Doador(nome, senha, StatusUsuario.ATIVO, foto, cpf, data);
 		contato = new Contato(telefone, email, doador);
 
+		fotoDAO.inserirFoto(foto);
 		usuarioDAO.inserirUsuario(doador);
 		contatoDAO.inserirContato(contato);
 
@@ -1277,7 +1358,6 @@ public class Servlet extends HttpServlet {
 				alimentoop);
 		request.setAttribute("pedidos", pedidos);
 
-
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultado-pesquisa.jsp");
 		dispatcher.forward(request, response);
 
@@ -1341,14 +1421,14 @@ public class Servlet extends HttpServlet {
 
 	}
 
-	private void mostrarResultadoPesquisa(HttpServletRequest request , HttpServletResponse response)
-			throws ServletException, IOException{
-		
+	private void mostrarResultadoPesquisa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
 		request.setAttribute("pedidos", pedidos);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/resultado-pesquisa");
 		dispatcher.forward(request, response);
- 	
-}
+
+	}
 }

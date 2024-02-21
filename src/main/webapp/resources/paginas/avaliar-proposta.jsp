@@ -1,6 +1,6 @@
-<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,19 +10,32 @@
 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
     <link rel="stylesheet" href="../css/estilo.css">
     <script><%@include file="/resources/js/Script.js"%></script>
-    <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
    
 </head>
 <body>
-
+ 
+    <div class="menu-hamburguer" id="menu-hamburguer">
+	
+    <div class="hamburguer" onclick="toggleMenu()">☰</div>
+</div>
+ 
+<div class="menu-lateral" id="menu-lateral">
+    <c:choose>
+                <c:when test="${tipoUsuario == 2}">
+ 
                     <%@ include file="../cabecalhos/menu.jsp" %>
-
+ 
+                </c:when>
+            </c:choose>
+</div>
+ 
+ 
     <main>
-
+ 
         <div class="avaliar-proposta">
          <img src="<c:url value='/resources/imagens/perfil-icon.png' />" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
-
-
+ 
+ 
             <h2> Doação de: <c:out value="${proposta.doador.nome}" /> </h2>
         </div>
         
@@ -36,9 +49,9 @@
                        
                         <p>Tipo de item doado: Alimento </p>
                         
-	                        <c:forEach var="item" items="${proposta.itens}">  		
-			          				<span>Validade: <c:out value="${item.alimento.dataValidade}" /></span> 
-		                        	<span>Quantidade Doada: <c:out value="${item.quantidade}"/> </span> 
+	                        <c:forEach var="item" items="${proposta.itens}">
+			          				<span>Validade: <c:out value="${item.alimento.dataValidade}" /></span>
+		                        	<span>Quantidade Doada: <c:out value="${item.quantidade}"/> </span>
 							</c:forEach>
 							
                 		 <p> Status da proposta: <c:out value="${proposta.statusProposta}" /> </p>
@@ -47,6 +60,7 @@
                 </div>
                 
                 
+
                 <div class="validar-invalidar">
                     <form  action="validar-proposta" method="post">
                         <button type="submit" id="validar-proposta">Validar Doação</button>
@@ -55,6 +69,7 @@
                         <button type="submit"  id="invalidar-proposta">Invalidar Doação</button>
                     </form>
                 </div>
+
     </main>
     
 </body>

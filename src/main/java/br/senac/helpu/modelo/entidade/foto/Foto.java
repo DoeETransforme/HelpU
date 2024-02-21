@@ -1,6 +1,7 @@
 package br.senac.helpu.modelo.entidade.foto;
 
 import java.io.Serializable;
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "foto")
 public class Foto implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,7 +24,7 @@ public class Foto implements Serializable {
 
 	@Lob
 	@Column(name = "binario_foto", nullable = false)
-	private Byte[] binario;
+	private byte[] binario;
 
 	@Column(name = "extensao_foto", nullable = false)
 	private String extensao;
@@ -31,13 +32,13 @@ public class Foto implements Serializable {
 	public Foto() {
 	}
 
-	public Foto(Long id, Byte[] binario, String extensao) {
+	public Foto(Long id, byte[] binario, String extensao) {
 		setId(id);
 		setBinario(binario);
 		setExtensao(extensao);
 	}
 
-	public Foto(Byte[] binario, String extensao) {
+	public Foto(byte[] binario, String extensao) {
 		setBinario(binario);
 		setExtensao(extensao);
 	}
@@ -50,11 +51,11 @@ public class Foto implements Serializable {
 		this.id = id;
 	}
 
-	public Byte[] getBinario() {
+	public byte[] getBinario() {
 		return binario;
 	}
 
-	public void setBinario(Byte[] binario) {
+	public void setBinario(byte[] binario) {
 		this.binario = binario;
 	}
 
@@ -64,6 +65,11 @@ public class Foto implements Serializable {
 
 	public void setExtensao(String extensao) {
 		this.extensao = extensao;
+	}
+	
+	public String urlFoto() {
+		String urlFoto =("data:" + this.extensao + ";base64," + Base64.getEncoder().encodeToString(this.binario));
+		return urlFoto;
 	}
 
 }

@@ -11,7 +11,7 @@
 
 	<img alt="imagem-correto-proposta-excluida.png" src="Imagem sinal correto">
 	<p>Proposta aceita com sucesso!</p>
-	<a href="avaliar-proposta" class="Voltar"> Voltar</a>
+	<a href="propostas-analise" class="Voltar">Voltar</a>
 	
 	
 
