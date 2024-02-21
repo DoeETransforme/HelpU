@@ -14,6 +14,7 @@
     --cor-principal: #1B65AE;
     --cor-secundaria: #FDE583;
     --cor-background: #f2f2f2;
+    --cor-background-input: #e0e0e0;
     --cor-texto: #32383E;
     --fonte-texto:"DM Sans", sans-serif;
     --cor-background-tela: #FFFFFF;
@@ -1507,6 +1508,15 @@ h1 {
   width: 60%;
   border-bottom: 1px solid #B7B7B7;
   border-radius: 10px;
+}
+
+.hamburguer{
+	width: 60px;
+	height: 60px;
+}
+
+.template-grid input[type="search"] {
+        background-color: var(--cor-background-input);
 }
 
 
