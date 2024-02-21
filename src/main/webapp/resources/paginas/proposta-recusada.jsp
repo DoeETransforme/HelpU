@@ -8,9 +8,10 @@
 </head>
 <body>
 
-	<img alt="imagem-correto-proposta-excluida.png" src="Imagem sinal correto">
+	<img alt="imagem-correto-proposta-excluida.png"
+		src="Imagem sinal correto">
 	<p>Proposta recusada com sucesso!</p>
-	<a href="avaliar-proposta" class="Voltar"> Voltar</a>
+	<a href="propostas-analise" class="Voltar"> Voltar</a>
 
 
 
