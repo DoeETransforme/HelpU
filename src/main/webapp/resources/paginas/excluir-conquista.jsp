@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Excluir Conquista</title>
-<script><%@include file="/resources/js/Script.js"%></script>
+<link rel="stylesheet" href="../css/excluir-conquista.css">
+<!-- 
+<script><%@include file="/resources/js/Script.js"%></script> -->
 </head>
 <body>
 	<div class="menu-hamburguer" id="menu-hamburguer">
@@ -24,7 +26,9 @@
 					</c:when>
 				</c:choose>
 	</div>
-	<h1>Tem certeza que deseja excluir essa conquista?</h1>
+	<div class="titulo">
+		<h1>Tem certeza que deseja excluir essa conquista?</h1>
+	</div>
 
 	<div>
 
@@ -33,8 +37,10 @@
 				value="<c:out value='${conquista.id}' />" />
 		</c:if>
 	</div>
-	<a href="" class="Voltar" class=""> Voltar</a>
-	<a href="" class="Voltar" class="">Confirmar</a>
+	<div class="excluir-conquista">
+		<a href="" class="Voltar" class=""> Voltar</a>
+		<a href="" class="Voltar" class="">Confirmar</a>
+	</div>
 
 </body>
 </html>

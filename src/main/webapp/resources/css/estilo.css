@@ -34,11 +34,6 @@ body {
 
 }
 
-
-.imagem-tela-inicial{
-}
-
-
 .forms div {
     margin-bottom: 100px;
     display: grid;
@@ -67,7 +62,7 @@ body {
 
 }
 
-.forms h4 {}
+
 
 .padrao-submit {
     background-color: var(--cor-secundaria);
@@ -1013,7 +1008,13 @@ progress::-moz-progress-bar {
     justify-content: center;
 
 }
-
+.ajude-pedido a{
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+.ajude-pedido a:hover{
+    color: var(--cor-secundaria);
+}
 .ajude-pedido button {
     cursor: pointer;
     transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
