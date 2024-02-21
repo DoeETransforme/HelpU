@@ -1,7 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +7,10 @@
 <title>HelpU</title>
 <script><%@include file="/resources/js/Script.js"%></script>
 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
+<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 </head>
 <body>
-
-	<div class="menu-hamburguer" id="menu-hamburguer">
-	
-		<div class="hamburguer" onclick="toggleMenu()">☰</div>
-	</div>
-	
-	<div class="menu-lateral" id="menu-lateral">
 		<%@ include file="../cabecalhos/menu.jsp" %>
-	</div>
 		
 		   <main>
            

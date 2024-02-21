@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.template-grid {
+        display: flex;
+        align-items: center;
+}
+
+.template-grid .menu-hamburguer {
+		width: 50px;
+		height: 50px;
+		margin-top: 20px;
+		margin-left: 200px;
+        margin-right: 100px;
+    }
+
+.template-grid input[type="search"] {
+        margin: 0 auto; 
+        margin-left: 0px;
+        width: 900px;
+        height: 35px;
+        border-radius: 6px;
+        border: none;
+}

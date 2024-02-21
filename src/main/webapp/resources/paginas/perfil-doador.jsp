@@ -1,8 +1,5 @@
-
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,7 +10,7 @@
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 <!--  <script src="../js/Script.js"></script> -->
 <script><%@include file="/resources/js/Script.js"%></script>
- 
+<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 
 </head>
 <body>
