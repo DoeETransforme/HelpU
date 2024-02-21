@@ -147,30 +147,43 @@ body {
     font-size: 20px;
 
     font-family: 'Inter', sans-serif;
-    margin-top: 50px
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .validar-invalidar {
     margin-top: 30px;
     align-items: center;
+   
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: 20%;
+    margin: 0 auto;
 }
 
-
+.validar-invalidar form{
+    margin: 30px;
+}
 #invalidar-proposta {
-    background-color: 1B65AE;
-    color: FDE583;
-    font-family: 'Inter', sans-serif;
-
+    width: 150px;
+    background-color: var(--cor-secundaria);
+    border:none;
+    padding: 10px;
+    border-radius: 10px;
     cursor: pointer;
 
 }
 
 #validar-proposta {
-    cursor: pointer;
-
+    width: 150px;
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    
+  
 
 }
 
@@ -490,6 +503,9 @@ body {
 .forms-cadastro {
     flex: 40%;
     margin-left: 10%;
+  
+    align-items: center;
+    text-align: center;
 
 
 }
@@ -518,9 +534,14 @@ body {
 
 }
 
-.alinhamento {
+.alinhamento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
     text-align: center;
-
+  
+    
 }
 
 .alinhamento a {
@@ -538,7 +559,7 @@ body {
     border-radius: 10px;
     width: 400px;
     height: 50px;
-    margin-left: 85px;
+ 
 
 }
 

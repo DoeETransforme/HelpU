@@ -1,23 +1,36 @@
 @charset "UTF-8";
 
 .template-grid {
-        display: flex;
-        align-items: center;
-}
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    width: 80%;
+    margin: 0 auto;
 
+}
 .template-grid .menu-hamburguer {
 		width: 50px;
+	
 		height: 50px;
+		
 		margin-top: 20px;
 		margin-left: 200px;
         margin-right: 100px;
     }
 
 .template-grid input[type="search"] {
-        margin: 0 auto; 
+      
+  margin: 0 auto; 
         margin-left: 0px;
         width: 900px;
         height: 35px;
         border-radius: 6px;
         border: none;
+
+}
+
+.input-search {
+   
+  
+  
 }

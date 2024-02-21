@@ -60,9 +60,16 @@
                 </div>
                 
                 
-                <a href="<%=request.getContextPath()%>/validar-proposta?id=<c:out value='${proposta.id}'/>">Validar Proposta</a>
-                <a href="<%=request.getContextPath()%>/invalidar-proposta?id=<c:out value='${proposta.id}'/>">Invalidar Proposta</a>
-                
+
+                <div class="validar-invalidar">
+                    <form  action="validar-proposta" method="post">
+                        <button type="submit" id="validar-proposta">Validar Doação</button>
+                    </form>
+                    <form action="invalidar-proposta" method="post">
+                        <button type="submit"  id="invalidar-proposta">Invalidar Doação</button>
+                    </form>
+                </div>
+
     </main>
     
 </body>

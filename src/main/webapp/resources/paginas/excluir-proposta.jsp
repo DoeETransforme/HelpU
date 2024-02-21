@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Excluir proposta</title>
 <link rel="stylesheet" href="../css/excluir-proposta.css">
-<!-- <script><%@include file="/resources/js/Script.js"%></script> -->
+<script><%@include file="/resources/js/Script.js"%></script> 
 </head>
 <body>
 	<div class="menu-hamburguer" id="menu-hamburguer">

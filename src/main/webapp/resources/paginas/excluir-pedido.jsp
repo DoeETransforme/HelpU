@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Excluir pedido</title>
 <link rel="stylesheet" href="../css/excluir-pedido.css">
-<!-- <script><%@include file="/resources/js/Script.js"%></script> -->
+<script><%@include file="/resources/js/Script.js"%></script> z
 </head>
 <body>
 	<div class="menu-hamburguer" id="menu-hamburguer">
