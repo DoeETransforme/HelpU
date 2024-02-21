@@ -35,7 +35,7 @@
 							<div class="dropdown-content">
 								<a href="<%=request.getContextPath()%>/perfil-ong">Meu
 									Perfil</a> <a
-									href="<%=request.getContextPath()%>/editar-perfil-ong">EditarConta</a> 
+									href="<%=request.getContextPath()%>/editar-perfil-ong">Editar Conta</a> 
 									<a href="<%=request.getContextPath()%>/desativar-conta">Desativar Conta</a> 
 									<a href="<%=request.getContextPath()%>/cadastro-pedido">Cadastro Pedido</a> 
 									<a href="<%=request.getContextPath()%>/historico-pedidos">Historico Pedidos</a>
