@@ -35,7 +35,9 @@
 								de: <span id="NomeCompletoOng">
 									<c:out value="${pedido.ong.nome}" />
 								</span>
-								em:
+								em: <span id="DataPedido">
+									<c:out value="${pedido.data}" />
+								</span>
 							</p>
 						</div>
 					</div>
@@ -46,14 +48,9 @@
 
 					<div class="descricao-pedido">
 						<h2 class="titulo">SOBRE O PEDIDO:</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatem autem sapiente error
-							quibusdam, temporibus placeat minima reprehenderit voluptatibus perspiciatis veritatis
-							mollitia facilis omnis commodi? Veniam animi vel porro placeat Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Aspernatur excepturi illum saepe, sapiente ipsum culpa itaque
-							eligendi perspiciatis velit similique ea aperiam iure ut omnis optio repellendus facere
-							nihil ad. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt vitae neque unde
-							assumenda hic, ducimus earum. Enim consequuntur vero ipsum itaque esse? Officia voluptatum,
-							iusto perferendis quae dolorem ipsam nulla?</p>
+						<span id="DescricaoPedido">
+									<c:out value="${pedido.descricao}" />
+								</span>
 
 						<br>
 
