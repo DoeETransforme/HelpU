@@ -20,12 +20,11 @@
 		<section>
 			<!-- <div class="foto-capa-nome-ong">
 				<img src="../imagens/Capa de Perfil da Ong.png" alt="" id="capa-ong">
-
+ -->
 				<div class="foto-nome-ong">
 					<div class="foto-ong">
-						<img src="../imagens/foto de Perfil ong.png"
-							alt="foto de perfil da ong" id="foto-perfil-ong">
-					</div> -->
+						<img alt="foto do ong" id="foto" src="<c:out value='${ong.fotoUsuario.urlFoto()}'/>">
+					</div>
 					<div class="nome-ong">
 						<h2>
 

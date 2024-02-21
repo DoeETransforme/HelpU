@@ -94,6 +94,8 @@ public class OngDAOImpl implements OngDAO {
 			CriteriaQuery<Ong> criteria = construtor.createQuery(Ong.class);
 
 			Root<Ong> raizOng = criteria.from(Ong.class);
+			
+			raizOng.fetch(Ong_.fotoUsuario);
 
 			criteria.select(raizOng);
 

@@ -925,10 +925,19 @@ public class Servlet extends HttpServlet {
 
 		String email = request.getParameter("email-ong");
 		String telefone = request.getParameter("telefone-ong");
+		
+		Part partOng = request.getPart("foto");
+		String extensao = partOng.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partOng);
+		
+		Foto foto = new Foto(fotobyte, extensao);
+		
+		
 
-		ong = new Ong(nome, senha, StatusUsuario.ATIVO, cnpj);
+		ong = new Ong(nome, senha, StatusUsuario.ATIVO, foto ,cnpj);
 		contato = new Contato(telefone, email, ong);
 
+		fotoDAO.inserirFoto(foto);
 		usuarioDAO.inserirUsuario(ong);
 		contatoDAO.inserirContato(contato);
 
