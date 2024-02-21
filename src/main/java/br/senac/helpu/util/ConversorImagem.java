@@ -16,7 +16,7 @@ public class ConversorImagem {
 		return IOUtils.toByteArray(imagemInputStream);
 	}
 
-	public static String utlFoto(byte[] foto, String extensao) {
+	public static String urlFoto(byte[] foto, String extensao) {
 		String urlfoto = ("data:" + extensao + ";base64," + Base64.getEncoder().encodeToString(foto));
 		return urlfoto;
 

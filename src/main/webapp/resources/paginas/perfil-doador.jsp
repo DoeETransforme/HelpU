@@ -11,7 +11,7 @@
 <script><%@include file="/resources/js/Script.js"%></script>
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 <style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style>
-t
+
 
 </head>
 <body>
@@ -21,7 +21,10 @@ t
  
 	<div class="perfil-doador">	
 		<div class="informacoes-doador">
-			<div class="imagem-doador"><img src="../imagens/perfil-icon.png " alt="Imagem de Perfil"></div>
+			<div class="imagem-doador">
+				<img alt="foto do doador" id="foto" src="<c:out value='${doador.fotoUsuario.urlFoto()}'/>">
+
+			</div>
 				
 				
 				<div class="nome-doador">
