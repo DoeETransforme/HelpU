@@ -6,98 +6,89 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Helpu</title>
-        <link rel="stylesheet" href="../webapp/resources/css/estilo.css">
+        <link rel="stylesheet" href="../webapp/resources/css/index.css">
           <!--<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>-->
     </head>
 
     <body>
         <div>
             <header>
-                <div>
-                    <div>
-                        <a href="Pagina_Inicial.html"><img src="imagem.com" alt="Logo"></a>
-                        <input type="search" placeholder="Pesquisar">
+                <div class="menu-index">
+                    <div class="menu-logo">
+                        <img src="../webapp/resources/imagens/logo-final.png" alt="Logo">
                     </div>
-                    <nav>
-                        <a href="<%request.getServletContext();%>login">Login</a>
-                        <a href="<%request.getServletContext();%>mostrar-cadastro">Cadastro</a>
-                    </nav>
-                </div>
-            </header>
+                    <div class="opcoes">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Menu</a></li>
+                                <li><a href="#">Doe Aqui</a></li>
+                                <li><a href="#">Cadastrar-se</a></li>
+                                <li><a href="#">Entrar</a></li>
+                            </ul>
+                        </nav>
+                        <img src="../webapp/resources/imagens/perfil-icon.png" alt="Perfil do Doador" style="float: right;">
+                    </div>
+                    </div>      
+                </header>
 
             <main>
-                <img src="imagem.com" alt="Foto de uma ong">
-                <section>
-                    <div>
-                        <h1>Quem somos</h1>
-                        <p>You say potato, I say starchy carbs. A vida é uma sucessão de sucessivos que sucedem
-                            sucessivamente sem cessar.. Por que 'tudo junto' se escreve separado e 'separado' se escreve
-                            tudo junto?. A única mulher que andou na linha o trem pegou.. O povo unido é gente pra
-                            caramba..
-                        </p>
-                    </div>
-                    <figure>
-                        <img src="imagem.com" alt="Imagem ajudando uma pessoa">
-                    </figure>
-                </section>
-
-                <section>
-                    <h1>Pedidos de Doação em Alta</h1>
-                    <div>
-                        <div>
-                            <img src="imagem.com" alt="ajudando uma criança">
-                            <h2>Doações para crianças PCDs</h2>
-                            <button>Leia sobre</button>
-                        </div>
-                        <div>
-                            <img src="imagem.com" alt="doação de comida">
-                            <h2>Doação de comida para crianças carentes</h2>
-                            <button>Leia sobre!</button>
+                <div class="tela-inicial">
+                    <img src="../webapp/resources/imagens/background-index.png" alt="Imagem ajudando uma pessoa">
+                    <div class="texto-sobre-imagem">
+                        <h1>
+                            <span id="Fazer-index">Fazer</span> a Diferença
+                            nunca foi tão
+                            <span id="facil-index">fácil!</span>
+                        </h1>
+                        <div class="botoes-cadastro">
+                            <a href="<%request.getServletContext();%>cadastro-ong">Sou ONG</a>
+                            <a href="<%request.getServletContext();%>cadastro-doador">Sou Doador</a>
                         </div>
                     </div>
-                </section>
+            
+                 
+                </div>
             </main>
 
+            <div class="quem-somos">
+                <div class="quem-somos-conteudo">
+                    <h2>Quem somos</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo necessitatibus perferendis ullam odit sit accusantium rerum numquam eum ut earum. Magnam autem quas unde sed blanditiis dicta dolorem eaque porro.</p>
+                </div>
+                <div class="quem-somos-index">
+                    <img src="../webapp/resources/imagens/logo-final.png" alt="Logo">
+                </div>
+            </div>
+            
+
             <footer>
-                <div>
-                    <h1>Faça seu cadastro</h1>
-                    <div>
-
-                        <a href="<%request.getServletContext();%>cadastro-ong"><button>Sou ONG</button></a>
-                        <a href="<%request.getServletContext();%>cadastro-doador"><button>Sou pessoa fisica</button></a>
-
+                <div class="footer">
+                    <div class="column">
+                        <h2>HelpU</h2>
+                        <ul>
+                            <li><a href="#">Teste</a></li>
+                            <li><a href="#">Teste</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h2>Atendimento</h2>
+                        <ul>
+                            <li><a href="#">Teste</a></li>
+                            <li><a href="#">Teste</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h2>Dúvidas</h2>
+                        <ul>
+                            <li><a href="#">Teste</a></li>
+                            <li><a href="#">Teste</a></li>
+                        </ul>
                     </div>
                 </div>
 
-                <div>
-                    <h2>Redes sociais</h2>
-                    <div>
-                        <ol>
-                            <li><a href="link_twitter">Twitter</a></li>
-                            <li><a href="link_instagram">Instagram</a></li>
-                            <li><a href="link_facebook">Facebook</a></li>
-                        </ol>
-                    </div>
-                    <div>
-                        <h2>Outras informações</h2>
-                        <ol>
-                            <a href="./resources/paginas/TelaDeErro1">
-                                <li>Quem somos</li>
-                            </a>
-
-                            <a href="./resources/paginas/TelaDeErro1">
-                                <li>Equipe</li>
-                            </a>
 
 
-                            <a href="./resources/paginas/TelaDeErro1">
-                                <li>Impacto</li>
-                            </a>
 
-
-                        </ol>
-                    </div>
-                </div>
             </footer>
         </div>
         
