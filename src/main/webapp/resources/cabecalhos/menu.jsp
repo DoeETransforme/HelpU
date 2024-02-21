@@ -13,8 +13,9 @@
 										<%@ include file="../cabecalhos/barra-lateral.jsp" %>									
 							</div>		
 						</div>
-					
-						<input type="search" placeholder="   Pesquisar...">				
+					<div class="input-search">
+						<input type="search" placeholder="   Pesquisar...">	
+						</div>			
 			</header>
 		</nav>
 	</c:when>
