@@ -8,11 +8,13 @@ import java.util.Optional;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAO;
 import br.senac.helpu.modelo.dao.alimento.AlimentoDAOImpl;
@@ -24,6 +26,8 @@ import br.senac.helpu.modelo.dao.doador.DoadorDAO;
 import br.senac.helpu.modelo.dao.doador.DoadorDAOImpl;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAO;
 import br.senac.helpu.modelo.dao.endereco.EnderecoDAOImpl;
+import br.senac.helpu.modelo.dao.foto.FotoDAO;
+import br.senac.helpu.modelo.dao.foto.FotoDAOImpl;
 import br.senac.helpu.modelo.dao.item.ItemDAO;
 import br.senac.helpu.modelo.dao.item.ItemDAOImpl;
 import br.senac.helpu.modelo.dao.ong.OngDAO;
@@ -39,6 +43,7 @@ import br.senac.helpu.modelo.entidade.conquista.Conquista;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.doador.Doador;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
+import br.senac.helpu.modelo.entidade.foto.Foto;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
@@ -47,7 +52,9 @@ import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.pedido.StatusPedido;
 import br.senac.helpu.modelo.enumeracao.proposta.StatusProposta;
 import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
+import br.senac.helpu.util.ConversorImagem;
 
+@MultipartConfig
 @WebServlet("/")
 public class Servlet extends HttpServlet {
 
@@ -62,6 +69,7 @@ public class Servlet extends HttpServlet {
 	private AlimentoDAO alimentoDAO;
 	private OngDAO ongDAO;
 	private ConquistaDAO conquistaDAO;
+	private FotoDAO fotoDAO;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -74,6 +82,7 @@ public class Servlet extends HttpServlet {
 		alimentoDAO = new AlimentoDAOImpl();
 		ongDAO = new OngDAOImpl();
 		conquistaDAO = new ConquistaDAOImpl();
+		fotoDAO = new FotoDAOImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -106,7 +115,7 @@ public class Servlet extends HttpServlet {
 			case "/home":
 				mostrarIndex(request, response);
 				break;
-				
+
 			case "/mostrar-cadastro":
 				mostrarCadastro(request, response);
 				break;
@@ -367,7 +376,7 @@ public class Servlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/login.jsp");
 		dispatcher.forward(request, response);
 	}
-	
+
 	private void mostrarCadastro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/mostrar-cadastro.jsp");
@@ -815,17 +824,25 @@ public class Servlet extends HttpServlet {
 
 		String nome = request.getParameter("nome");
 		String senha = request.getParameter("senha");
-		LocalDate data = LocalDate.parse(request.getParameter("data-nascimento"));
+		String strData = request.getParameter("data-nascimento");
+		System.out.println(strData);
+		LocalDate data = LocalDate.parse(strData);
 		String cpf = request.getParameter("cpf");
+
+		Part partDoador = request.getPart("foto");
+		String extensao = partDoador.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partDoador);
+		Foto foto = new Foto(fotobyte, extensao);
 
 		Contato contato = null;
 
 		String email = request.getParameter("email");
 		String telefone = request.getParameter("celular");
 
-		doador = new Doador(nome, senha, StatusUsuario.ATIVO, cpf, data);
+		doador = new Doador(nome, senha, StatusUsuario.ATIVO, foto, cpf, data);
 		contato = new Contato(telefone, email, doador);
 
+		fotoDAO.inserirFoto(foto);
 		usuarioDAO.inserirUsuario(doador);
 		contatoDAO.inserirContato(contato);
 

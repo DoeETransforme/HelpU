@@ -59,7 +59,22 @@ public class Usuario implements Serializable {
 		setSenha(senha);
 		setStatus(status);
 	}
- 
+	
+	public Usuario(Long id, String nome, String senha, StatusUsuario status, Foto fotoUsuario) {
+		setId(id);
+		setNome(nome);
+		setSenha(senha);
+		setStatus(status);
+		setFotoUsuario(fotoUsuario);
+	}
+	
+	public Usuario(String nome, String senha, StatusUsuario status, Foto fotoUsuario) {
+		setNome(nome);
+		setSenha(senha);
+		setStatus(status);
+		setFotoUsuario(fotoUsuario);
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -90,6 +105,14 @@ public class Usuario implements Serializable {
 
 	public void setStatus(StatusUsuario status) {
 		this.status = status;
+	}
+	
+	public Foto getFotoUsuario() {
+		return fotoUsuario;
+	}
+
+	public void setFotoUsuario(Foto fotoUsuario) {
+		this.fotoUsuario = fotoUsuario;
 	}
  
 	public static long getSerialversionuid() {
