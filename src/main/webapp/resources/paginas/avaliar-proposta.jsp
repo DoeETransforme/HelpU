@@ -48,11 +48,11 @@
                 
                 
                 <div class="validar-invalidar">
-                    <form action="validar-proposta" method="post">
-                        <button type="submit" class="padrao-input" id="validar-proposta">Validar Doação</button>
+                    <form  action="validar-proposta" method="post">
+                        <button type="submit" id="validar-proposta">Validar Doação</button>
                     </form>
                     <form action="invalidar-proposta" method="post">
-                        <button type="submit" class="padrao-input"  id="invalidar-proposta">Invalidar Doação</button>
+                        <button type="submit"  id="invalidar-proposta">Invalidar Doação</button>
                     </form>
                 </div>
     </main>
