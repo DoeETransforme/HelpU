@@ -16,7 +16,8 @@
     --cor-background: #f2f2f2;
     --cor-texto: #32383E;
     --fonte-texto:"DM Sans", sans-serif;
-
+    --cor-background-tela: #FFFFFF;
+    --cor-background-card:  #E5E5E5 ;
 }
 
 body {
@@ -348,9 +349,9 @@ body {
 
 .titulo-login {
     text-align: center;
-    display: block;
+    display: flex;
     position: relative;
-    bottom: 100px;
+    bottom: 50px;
     font-size: 100px;
 
 
@@ -394,17 +395,20 @@ body {
 }
 
 .tamanho {
-
     align-items: center;
-    position: relative;
     bottom: 250px;
     right: 160px;
     display: flex;
     flex-direction: column;
     width: 320px;
     height: auto;
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-right: 300px;
     float: right;
+}
+
+.negrito{
+	font-weight: bold;
 }
 
 #overflow {
@@ -1209,7 +1213,7 @@ progress::-moz-progress-bar {
 .nome-doador p,
 h1 {
     margin-top: 20px;
-    margin-left: 10%;
+    margin-left: 4%;
 }
 
 .main-doador {
@@ -1222,7 +1226,6 @@ h1 {
 
 .botoes-doador {
     display: grid;
-   
     width: 20%;
     justify-content: center;
     height: 150px;
@@ -1232,6 +1235,7 @@ h1 {
 
 .botoes-doador button,
 .botoes-doador a {
+	
     display: flex;
     align-items: center; 
     justify-content: center; 
@@ -1246,8 +1250,8 @@ h1 {
 }
 
 .botoes-doador button:hover{
-    background-color: var(--cor-principal);
-    color: var(--cor-secundaria);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
 
 }
 
@@ -1283,7 +1287,7 @@ h1 {
 }
 
 .card-doacoes-doador button {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
     font-family: 'Inter', sans-serif;
 
     cursor: pointer;
@@ -1295,7 +1299,7 @@ h1 {
 }
 
 .card-doacoes-doador button:hover {
-    background-color: var(--cor-principal);
+    background-color: var(--cor-secundaria);
 }
 .posicao-cards{
     display: flex;
@@ -1483,12 +1487,26 @@ h1 {
     text-decoration: none;
     color: var(--cor-texto);
     border-radius: 10px;
+}
 
+.botao-link {
+   background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 100;
+    text-decoration: none;
+    margin: 20px auto 10px;
+    text-align: center;
+}
 
-  
-  
-  
-
+.linha {
+  margin: 20px auto 10px;
+  width: 60%;
+  border-bottom: 1px solid #B7B7B7;
+  border-radius: 10px;
 }
 
 

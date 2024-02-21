@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+.card-doacoes-doador {
+	border: none !important;
+}
+
+body {
+	background-color: var(--cor-background-tela);
+}
+
+.botao-editar-perfil {
+	color: var(--cor-texto) !important;
+	text-decoration: none;
+}
+
+.icone-editar-perfil {
+	width: 25px;
+	float: left;
+}
+span a {
+	text-decoration: none;
+}
+
+h3 a {
+	text-decoration: none !important;
+	color: var(--cor-principal) !important;
+	font-size: 20px;
+}
+.posicao-cards {
+	display: flex;
+    flex-wrap: nowrap !important; 
+}
+
+.card-doacoes-doador {
+	background-color: var(--cor-background-card) ;
+	width: 250px; 
+    height: 400px; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    transition: transform 0.5s ease;
+}
+
+button {
+	background-color: var(--cor-principal) !important;
+	color: var(--cor-background-tela);
+	font-weight: bold !important;
+	
+}
+
+button:hover {
+	background-color: var(--cor-secundaria) !important;
+    color: var(--cor-texto) !important;
+}
+
+.ultimas-doacoes {
+    display: flex !important;
+}
+
+.linha {
+  margin-top: 30px;
+  margin-left: 38%;
+  margin-right: 15%;
+  width: 60%;
+  border-bottom: 1px solid var(--cor-background-card);
+  border-radius: 10px;
+}
