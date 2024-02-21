@@ -33,7 +33,7 @@
     
     <main>
     <div class="titulo">
-    <h3> Suas propostas Pendentes:</h3>
+    <h1> Suas propostas Pendentes:</h1>
     </div>
               <c:forEach var="propostas" items="${propostas}">  	
 		          <div class="propostas-doacao-analise">

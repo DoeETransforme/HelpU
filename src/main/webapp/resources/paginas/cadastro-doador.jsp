@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../css/estilo.css">
         <script><%@include file="/resources/js/Script.js"%></script>
 
-        <!-- <style type="text/css"><%@include file="/resources/css/estilo.css"%></style> -->
+     <style type="text/css"><%@include file="/resources/css/estilo.css"%></style> 
     </head>
 
     <body>

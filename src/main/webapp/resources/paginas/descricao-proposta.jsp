@@ -8,8 +8,10 @@
 <meta charset="UTF-8">
 <title>HelpU</title>
 <script><%@include file="/resources/js/Script.js"%></script>
-<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
-<style type="text/css"> <%@include file="/resources/css/descricao-proposta.css"%></style>
+
+<style type="text/css"> <%@include file="/resources/css/descricao-proposta.css"%></style>  
+<link rel="stylesheet" href="../css/descricao-proposta.css">
+
 </head>
 <body>
 	<div class="menu-hamburguer" id="menu-hamburguer">

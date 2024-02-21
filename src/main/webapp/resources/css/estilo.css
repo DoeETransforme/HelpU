@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
 
 * {
     margin: 0;
@@ -12,11 +15,9 @@
     --cor-secundaria: #FDE583;
     --cor-background: #f2f2f2;
     --cor-texto: #32383E;
+    --fonte-texto:"DM Sans", sans-serif;
     --cor-background-tela: #FFFFFF;
     --cor-background-card:  #E5E5E5 ;
-
-;
-
 }
 
 body {
@@ -33,11 +34,6 @@ body {
 
 
 }
-
-
-.imagem-tela-inicial{
-}
-
 
 .forms div {
     margin-bottom: 100px;
@@ -67,7 +63,7 @@ body {
 
 }
 
-.forms h4 {}
+
 
 .padrao-submit {
     background-color: var(--cor-secundaria);
@@ -77,7 +73,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+
 }
 
 .padrao-submit:hover {
@@ -86,15 +82,19 @@ body {
 }
 
 .titulo {
-    display: flex;
-    flex-direction: column;
+   
+    display: block;
+    justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
     color: var(--cor-texto);
+  
 }
 
+.titulo h1 {
+    margin: 0; /* Remova as margens padrão do h1 */
+}
 
 
   
@@ -106,11 +106,9 @@ body {
 
 }
 
-.titulo h3 {
-    font-size: 40px;
-    display: flex;
 
-}
+
+
 
 .avaliar-proposta {
     display: flex;
@@ -146,7 +144,7 @@ body {
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    font-weight: 100;
+
     font-family: 'Inter', sans-serif;
     margin-top: 50px
 }
@@ -164,7 +162,7 @@ body {
     background-color: 1B65AE;
     color: FDE583;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+
     cursor: pointer;
 
 }
@@ -221,7 +219,7 @@ body {
     background-color: var(--cor-secundaria);
     margin: 10px;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+   
 
 }
 
@@ -526,7 +524,7 @@ body {
 
 .alinhamento a {
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+
     color: #32383E;
     text-decoration: none;
     display: block;
@@ -574,8 +572,9 @@ body {
     padding: 10px;
     margin: 10px;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
-    color: var(--cor-principal);
+    
+
+    color: var(--cor-texto);
 
 
 }
@@ -623,7 +622,7 @@ body {
     border: none;
     border-radius: 10px;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+  
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -636,12 +635,21 @@ body {
 }
 
 .excluir-conta-posicao {
+   
+    width: 80%;
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    
     height: auto;
     flex-direction: column;
+}
+
+.excluir-conta-botoes{
+ 
+    width: 100%;
+    flex: 50%;
 }
 
 .imagem-doador-excluir img {
@@ -666,9 +674,11 @@ body {
     padding: 10px;
     border-radius: 10px;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+    margin-left: 0;
     width: 100%;
-    align-self: flex-start;
+ 
+
+    
 }
 
 .excluir-conta-posicao input {
@@ -681,7 +691,7 @@ body {
     padding: 14px;
     border-radius: 10px;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+   
     align-self: flex-start;
     cursor: pointer;
 }
@@ -712,8 +722,8 @@ body {
 
 .conteudo {
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
-    font-size: 14;
+  
+    font-size: 18;
     width: 100%;
 
 
@@ -722,7 +732,7 @@ body {
 
 .conteudo h2 {
     font-size: 16;
-    font-weight: 1px;
+ 
 
     text-align: center;
 
@@ -791,7 +801,7 @@ body {
 .header-p-editar p {
     text-align: right;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+
     position: relative;
 }
 
@@ -842,7 +852,7 @@ body {
     border-radius: 10px;
     color: #1169BB;
     font-family: 'Inter', sans-serif;
-    font-weight: 100;
+ 
     width: 30%;
     justify-content: center;
     align-items: center;
@@ -925,7 +935,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: 'Inter', sans-serif;
-    font-weight: 200;
+
 
 }
 
@@ -967,7 +977,7 @@ progress {
     justify-content: center;
     display: flex;
     margin: 15px;
-    font-weight: 300;
+  
 }
 
 
@@ -1002,7 +1012,13 @@ progress::-moz-progress-bar {
     justify-content: center;
 
 }
-
+.ajude-pedido a{
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+.ajude-pedido a:hover{
+    color: var(--cor-secundaria);
+}
 .ajude-pedido button {
     cursor: pointer;
     transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
@@ -1225,7 +1241,7 @@ h1 {
     justify-content: center; 
     width: 100%;
     font-family: 'Inter', sans-serif;
-    font-weight: 300;
+
     text-align: center;
     justify-self: center;
     transition: background-color 0.3s ease;
@@ -1273,7 +1289,7 @@ h1 {
 .card-doacoes-doador button {
     background-color: var(--cor-principal);
     font-family: 'Inter', sans-serif;
-    font-weight: 200;
+
     cursor: pointer;
     padding: 10px;
     border: none;

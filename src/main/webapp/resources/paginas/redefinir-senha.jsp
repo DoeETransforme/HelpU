@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/redefinir-senha.css">
     <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
     <script><%@include file="/resources/js/Script.js"%></script>
 </head>
@@ -29,32 +29,30 @@
 				</c:choose>
 	</div>
   
+    <div class="titulo">
+        <h1>Para redefinir sua senha, siga os passos a seguir:</h1>
+    </div>
 
     <main>
-        <div>
-            <h1>Para redefinir sua senha, siga os passos a seguir:</h1>
-            <input class="padrao_input" type="password" class="padrao_input" id="novasenha"
-                placeholder="Cria uma nova senha" required>
-            <p> Sua nova senha deve possuir as seguintes regras:</p>
-        </div>
-        <div>
-            <ol>
-                <ul>
-                    <li>Letras maisuculas e minusculas</li>
-                    <li>Minimo de 10 carcteres</li>
-                    <li>Ter números</li>
-                    <li>Ter simbolos</li>
-                    <li>Sem sequencias numericas</li>
-                </ul>
-            </ol>
-        </div>
-        <div>
-            <input class="padrao_input" type="password" class="padrao_input" placeholder="Confirmar nova senha"
-                required>
-        </div>
-        <div>
-            <button type="submit" class="botão_padrão">Confirmar</button>
-        </div>
+        <div class="redefinir-senha">
+    <div>
+        <input class="padrao_input" type="password" id="novasenha" placeholder="Cria uma nova senha" required>
+       
+    </div>
+    <ol>
+        <ul>
+            <li>Letras maiúsculas e minúsculas</li>
+            <li>Mínimo de 10 caracteres</li>
+            <li>Ter números</li>
+            <li>Ter símbolos</li>
+            <li>Sem sequências numéricas</li>
+        </ul>
+    </ol>
+    <div><input class="padrao_input" type="password" placeholder="Confirmar nova senha" required></div>
+    <button type="submit" class="botão_padrão">Confirmar</button>
+</div>
+
+
     </main>
 </body>
 

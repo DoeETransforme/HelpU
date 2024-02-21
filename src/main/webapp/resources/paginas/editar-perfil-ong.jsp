@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="titulo">
-        <h3>Editar ong</h3>
+        <h1>Editar ong</h1>
     </div>
 
         <form action="ong-editada" method="post" class="forms-editar-proposta">
