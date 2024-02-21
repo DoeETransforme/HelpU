@@ -16,7 +16,7 @@
 		<header class="header-cadastro">
 
 			<div class="logo"><img src="../imagens/logo-final.png" alt=""></div>
-			<div class="menu"><a href="#"> Login</a></div>
+			<div class="menu"><a href="login"> Login</a></div>
 
 		</header>
 
@@ -24,12 +24,12 @@
 			<div class="forms-cadastro">
 				<h1 id="cadastra-se">Cadastrar-se</h1>
 				<div class="alinhamento">
-					<a href="CadastroOngPrimeiroPasso.jsp"> Cadastra-se como ONG</a>
-					<a href="CadastroUsuario.jsp">Cadastra-se como pessoa Fisica</a>
+					<a href="cadastro-ong"> Cadastra-se como ONG</a>
+					<a href="cadastro-doador">Cadastra-se como pessoa Fisica</a>
 
 				</div>
 				<div class="tem-conta">
-					<label>Já tem uma conta? <a href="Login.html" target="_self">Faça
+					<label>Já tem uma conta? <a href="login" target="_self">Faça
 							login!</a></label>
 				</div>
 			</div>

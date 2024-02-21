@@ -12,6 +12,7 @@
 	<script><%@include file="/resources/js/Script.js"%></script>
 	<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 
+
 </head>
 
 <body>
@@ -25,7 +26,7 @@
 				<div class="titulo">
 					<h1>Editar Proposta</h1>
 				</div>
-				<p class="titulo">Para a ONG "Cantinho Inclusivo"</p> <p class="titulo">O que
+				<p class="titulo">Para a ONG (nome da ong) <br>O que
 					você gostaria de doar?</p>
 				<form action="proposta-editada" method="post" class="forms">
 
@@ -39,19 +40,22 @@
 					
 					<div>
 						
-								<label>Alimento</label>
-								 <select name="alimento" class="padrao-input">
-									<c:forEach var="alimento" items="${alimentos}">
-										<option value="" disabled selected> Selecione o alimento</option>
-										<option value="${alimento.id}">${alimento.nome}</option>
-									</c:forEach>
-								</select>
+							
+									<label>Alimento:</label>
+									 <select name="alimento" class="padrao-input">
+										<c:forEach var="alimento" items="${alimentos}">
+											<option value="" disabled selected> Selecione o alimento</option>
+											<option value="${alimento.id}">${alimento.nome}</option>
+										</c:forEach>
+									</select>
+								
 						
-						
-								<label>Quantidade</label> 
-								<input type="text" name="quantidade"
+								
+									<label >Quantidade:</label>
+									<input type="text" name="quantidade"
 									placeholder="Quantidade" required class="padrao-input">
-					</div>
+									</div>
+							
 
 						
 

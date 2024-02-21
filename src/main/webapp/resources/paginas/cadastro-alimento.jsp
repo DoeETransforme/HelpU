@@ -27,7 +27,7 @@
 	</div>
 
 	<div class="titulo">
-		<h3>Cadastre o alimento</h3>
+		<h1>Cadastre o alimento</h1>
 	</div>
 	<form action="inserir-alimento" method="post" class="cadastrar-alimento">
 	

@@ -6,10 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>HelpU</title>
-<script><%@include file="/resources/js/Script.js"%></script>
+<!-- <script><%@include file="/resources/js/Script.js"%></script> -->
+<link rel="stylesheet" href="../css/excluir-alimento.css">
 </head>
 <body>
-	<div>
+	<div class="titulo">
 		<h1>Tem certeza que deseja excluir esse alimento?</h1>
 	</div>
 	<div>
@@ -18,7 +19,7 @@
 				value="<c:out value='${alimento.id}' />" />
 		</c:if>
 	</div>
-	<div>
+	<div class="excluir-alimento">
 		<a href="editar-alimento" class="Voltar"> Voltar</a> 
 		<a href="" class="Confirmar">Confirmar</a>
 	</div>

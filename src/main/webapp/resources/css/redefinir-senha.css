@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-principal: #1B65AE;
+    --cor-secundaria: #FDE583;
+    --cor-background: #f2f2f2;
+    --cor-texto: #32383E;
+    --fonte-texto:"DM Sans", sans-serif;
+
+}
+.titulo {
+   
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: var(--cor-texto);
+  
+}
+
+.titulo h1 {
+    margin: 0; /* Remova as margens padrão do h1 */
+}
+
+
+  
+.titulo p{
+
+    margin-top: 40px;
+    margin-bottom: -30px;
+
+
+}
+
+.redefinir-senha {
+    border: 1px solid red;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.redefinir-senha input {
+    background-color: var(--cor-secundaria);
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 250px
+}
+
+.redefinir-senha button {
+    background-color: var(--cor-secundaria);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%; /* Define a largura */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Adiciona transição suave */
+}
+
+.redefinir-senha button:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+}
+
+.redefinir-senha p {
+    text-align: left; /* Ajusta o alinhamento do parágrafo */
+    margin-top: 0; /* Remove a margem superior */
+}

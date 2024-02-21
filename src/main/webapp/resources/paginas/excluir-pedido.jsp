@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Excluir pedido</title>
-<script><%@include file="/resources/js/Script.js"%></script>
+<link rel="stylesheet" href="../css/excluir-pedido.css">
+<!-- <script><%@include file="/resources/js/Script.js"%></script> -->
 </head>
 <body>
 	<div class="menu-hamburguer" id="menu-hamburguer">
@@ -19,7 +20,9 @@
 		<%@ include file="../cabecalhos/menu.jsp" %>
 	</div>
 
-	<h1>Tem certeza que deseja excluir esse pedido?</h1>
+	<div class="titulo">
+		<h1>Tem certeza que deseja excluir esse pedido?</h1>
+	</div>
 
 
 	<div>
@@ -27,8 +30,10 @@
 			<input type="hidden" name="id" value="<c:out value='${pedido.id}' />" />
 		</c:if>
 	</div>
-	<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${pedido.id}'/>" class="Voltar" class=""> Voltar</a>
-	<a href="<%=request.getContextPath()%>/pedido-excluido?id=<c:out value='${pedido.id}'/>" class="Voltar" class="">Confirmar</a>
+	<div class="excluir-pedido">
+		<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${pedido.id}'/>" class="Voltar" class=""> Voltar</a>
+		<a href="<%=request.getContextPath()%>/pedido-excluido?id=<c:out value='${pedido.id}'/>" class="Voltar" class="">Confirmar</a>
+	</div>
 
 
 </body>

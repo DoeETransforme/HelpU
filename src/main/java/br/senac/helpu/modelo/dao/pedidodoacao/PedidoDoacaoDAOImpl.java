@@ -1,13 +1,17 @@
 package br.senac.helpu.modelo.dao.pedidodoacao;
 
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
@@ -120,7 +124,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		}
 
 	}
-	
+
 	public PedidoDoacao recuperarPedidoDoacaoId(Long id) {
 
 		Session sessao = null;
@@ -138,9 +142,9 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			criteria.select(raizPedidoDoacao);
 
-			criteria.where(construtor.equal(raizPedidoDoacao.get(PedidoDoacao_.id), id));		
+			criteria.where(construtor.equal(raizPedidoDoacao.get(PedidoDoacao_.id), id));
 			pedidoDoacao = sessao.createQuery(criteria).getSingleResult();
-			
+
 			sessao.getTransaction().commit();
 		} catch (Exception sqlException) {
 			sqlException.printStackTrace();
@@ -168,9 +172,9 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizConquista = criteria.from(PedidoDoacao.class);
-			
+
 			criteria.select(raizConquista);
-			
+
 			pedidos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -204,7 +208,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
-			raizPedido.fetch("ong" , JoinType.LEFT);
+			raizPedido.fetch("ong", JoinType.LEFT);
 
 			Join<PedidoDoacao, Ong> juncaoPedidos = raizPedido.join(PedidoDoacao_.ong);
 
@@ -231,21 +235,21 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		}
 		return pedidos;
 	}
+
 	public List<PedidoDoacao> recuperarPedidoDoacaoStatus(StatusPedido status) {
 		Session sessao = null;
 		List<PedidoDoacao> pedidos = null;
-		
+
 		try {
 			sessao = fabrica.getConexao().openSession();
 			sessao.beginTransaction();
-			
+
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<PedidoDoacao>criteria = construtor.createQuery(PedidoDoacao.class);
-			Root<PedidoDoacao>raizPedido = criteria.from(PedidoDoacao.class);
-			
-			
+			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
+			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
+
 			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status));
-			
+
 			pedidos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -266,8 +270,6 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		return pedidos;
 	}
 
-
-
 	public List<PedidoDoacao> recuperarPedidoDoacaoOngAlimento(Ong ong, Alimento alimento) {
 		Session sessao = null;
 		List<PedidoDoacao> pedidos = null;
@@ -283,12 +285,11 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			Join<PedidoDoacao, Item> juncaoItem = raizPedido.join(PedidoDoacao_.itens);
 			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
-			
+
 			criteria.select(raizPedido);
 			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()),
 					construtor.equal(juncaoAlimento.get(Alimento_.id), alimento.getId()));
 			pedidos = sessao.createQuery(criteria).getResultList();
-			
 
 			sessao.getTransaction().commit();
 
@@ -324,10 +325,10 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
 
 			criteria.select(raizPedido);
-			
+
 			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status),
 					construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()));
-			
+
 			pedidos = sessao.createQuery(criteria).getResultList();
 
 			sessao.getTransaction().commit();
@@ -362,9 +363,9 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
-			
+
 			criteria.where(construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.id), ong.getId()),
-					(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status)), 
+					(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status)),
 					(construtor.between(raizPedido.get(PedidoDoacao_.data), datainicial, datafinal)));
 
 			pedidos = sessao.createQuery(criteria).getResultList();
@@ -389,5 +390,63 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		return pedidos;
 	}
 
+	public List<PedidoDoacao> filtrarPedidos(Optional<StatusPedido> status, Optional<String> nome,
+			Optional<LocalDate> dataInicial, Optional<LocalDate> dataFinal, Optional<Alimento> alimento) {
+
+		Session sessao = null;
+		List<PedidoDoacao> pedidos = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
+			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
+
+			Join<PedidoDoacao, Item> juncaoItem = raizPedido.join(PedidoDoacao_.itens);
+			Join<Item, Alimento> juncaoAlimento = juncaoItem.join(Item_.alimento);
+			raizPedido.fetch(PedidoDoacao_.ong);
+
+			List<Predicate> predicados = new ArrayList<>();
+
+			status.ifPresent(statuspedido -> predicados
+					.add(construtor.equal(raizPedido.get(PedidoDoacao_.statuspedido), status.get())));
+			nome.ifPresent(nomepedido -> predicados
+					.add(construtor.equal(raizPedido.get(PedidoDoacao_.ong).get(Ong_.nome), nome.get())));
+			dataInicial.ifPresent(datacomeco -> {
+				predicados
+						.add(construtor.greaterThanOrEqualTo((raizPedido.get(PedidoDoacao_.data)), dataInicial.get()));
+				dataFinal.ifPresent(dataFim -> {
+					predicados.add(construtor.lessThanOrEqualTo(raizPedido.get(PedidoDoacao_.data), dataFinal.get()));
+				});
+			});
+			alimento.ifPresent(alimentopedido -> predicados.add(construtor.equal(juncaoAlimento, alimento.get())));
+			
+			if (!predicados.isEmpty()) {
+				criteria.where(construtor.and(predicados.toArray(new Predicate[predicados.size()])));
+				
+			}
+			
+			pedidos = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return pedidos;
+
+	}
 
 }

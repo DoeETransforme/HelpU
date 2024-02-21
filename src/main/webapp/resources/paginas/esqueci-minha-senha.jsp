@@ -5,28 +5,38 @@
 <head>
 <meta charset="UTF-8">
 <title>HelpU</title>
+<link rel="stylesheet" href="../css/editar-proposta.css">
 </head>
 <body>
-	<section>
-		<div>
-			<img src="imagem.com" alt="foto HelpU">
-		</div>
-	</section>
-	<section>
-		<div>
-			<img src="imagem.com" alt="foto voltar login">
-		</div>
-	</section>
+	<div class="menu-hamburguer" id="menu-hamburguer">
+	
+		<div class="hamburguer" onclick="toggleMenu()">☰</div>
+	</div>
+	
+	<div class="menu-lateral" id="menu-lateral">
+		<c:choose>
+					<c:when test="${tipoUsuario == 1}">
 
-	<a href="<%=request.getContextPath()%>/login"> Voltar para o Login</a>
+						<%@ include file="menu.jsp" %>
 
-	<h1>Esqueceu sua senha?</h1>
-	<p>Insira seu e-mail de cadastro e mandaremos um código de
-		confirmação com 6 digitos para você!</p>
-	<input class="padrao_input" id="emailReconfirmar" placeholder="Insira o Email" required />
-	<p>Se ocorrer de o código não chegar, reenvie a solicitação.</p>
+					</c:when>
+				</c:choose>
+	</div>
 
-	<button type="submit" class="padrao-input"  id="invalidar-proposta">Enviar Email</button>
+
+
+	<div class="titulo">
+		<h1>Esqueceu sua senha?</h1>
+		<p>Insira seu e-mail de cadastro e mandaremos um código de
+			confirmação com 6 digitos para você!</p>
+			<p>Se ocorrer de o código não chegar, reenvie a solicitação.</p>
+	</div>
+
+	<form action="" class="forms">
+	<div><input class="padrao-input" id="emailReconfirmar" placeholder="Insira o Email" required /></div>
+
+	<button type="submit" class="padrao-submit"  id="invalidar-proposta">Enviar Email</button>
+</form>
 	
 </body>
 

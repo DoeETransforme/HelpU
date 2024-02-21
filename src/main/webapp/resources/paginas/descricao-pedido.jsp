@@ -73,7 +73,7 @@
 
 					</div>
 					<div class="ajude-pedido">
-							<button type="button" class="botao-padrao"><a href="<%=request.getContextPath()%>/cadastro-proposta?id=<c:out value='${pedido.id}'/>">Cadastrar Proposta</a></button>
+							<button id="cadastrar-proposta-descricao"  type="button" class="padrao-submit"><a href="<%=request.getContextPath()%>/cadastro-proposta?id=<c:out value='${pedido.id}'/>">Cadastrar Proposta</a></button>
 
 					</div>
 

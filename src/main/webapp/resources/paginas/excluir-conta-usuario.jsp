@@ -18,7 +18,7 @@
             <main>
 
                 <div class="titulo">
-                    <h3>Você realmente deseja desativar esse perfil?</h3>
+                    <h1>Você realmente deseja desativar esse perfil?</h1>
                 </div>
 
 
@@ -28,11 +28,12 @@
                     <img src="../imagens/perfil-icon.png" alt="imagem do usuario">
                 </div>
 
-                    <form action="confirmar-exclusao" method="post">
-
-                        <a href="Perfil_Pessoa.html" class="voltar" class="">Voltar</a>
-
-                        <input type="submit" name="DesativarConta" id="DesativarContaPF" value="SIM" class="">
+                
+                <form action="confirmar-exclusao" method="post" >
+                <div class="excluir-conta-botoes">
+                    <a href="Perfil_Pessoa.html" >Voltar</a>
+                            <input type="submit" name="DesativarConta" id="DesativarContaPF" value="SIM" >
+                </div>
 
 
                     </form>

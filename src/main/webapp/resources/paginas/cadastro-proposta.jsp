@@ -26,7 +26,7 @@
 						<section>
 							<div>
 								<div class="titulo">
-									<h3>Fazer uma doação</h3>
+									<h1>Fazer uma doação</h1>
 									<p>
 										Para a ONG: <c:out value="${proposta.pedido.ong.nome}"></c:out>
 										<br>

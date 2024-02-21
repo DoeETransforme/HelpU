@@ -20,7 +20,7 @@
                     </div>
                     <nav>
                         <a href="<%request.getServletContext();%>login">Login</a>
-                        <a href="Cadastro.html">Cadastro</a>
+                        <a href="<%request.getServletContext();%>mostrar-cadastro">Cadastro</a>
                     </nav>
                 </div>
             </header>
