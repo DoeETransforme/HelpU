@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import br.senac.helpu.modelo.entidade.contato.Contato;
 import br.senac.helpu.modelo.entidade.endereco.Endereco;
+import br.senac.helpu.modelo.entidade.foto.Foto;
 import br.senac.helpu.modelo.entidade.pedidodoacao.PedidoDoacao;
 import br.senac.helpu.modelo.entidade.usuario.Usuario;
 import br.senac.helpu.modelo.enumeracao.usuario.StatusUsuario;
@@ -39,7 +40,13 @@ public class Ong extends Usuario implements Serializable {
 		super(nome, senha, status);
 		setCnpj(cnpj);
 	}
-
+	
+	public Ong(String nome, String senha, StatusUsuario status, Foto fotoUsuario ,String cnpj) {
+		super(nome, senha, status, fotoUsuario);
+		setCnpj(cnpj);
+		setFotoUsuario(fotoUsuario);
+	}
+	
 	public String getCnpj() {
 		return cnpj;
 	}
