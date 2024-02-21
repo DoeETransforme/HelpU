@@ -1,27 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>HelpU</title>
 <link rel="stylesheet" href="../css/editar-proposta.css">
+<link rel="stylesheet" href="../css/menu-topo.css">
 </head>
 <body>
-	<div class="menu-hamburguer" id="menu-hamburguer">
-	
-		<div class="hamburguer" onclick="toggleMenu()">☰</div>
-	</div>
-	
-	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 1}">
+	<%@ include file="../cabecalhos/menu.jsp" %>
 
-						<%@ include file="menu.jsp" %>
-
-					</c:when>
-				</c:choose>
-	</div>
 
 
 
