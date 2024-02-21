@@ -28,7 +28,7 @@
 					</div> -->
 					<div class="nome-ong">
 						<h2>
-							Cantinho Inclusão
+							
 							<c:out value="${ong.nome}" />
 						</h2>
 					</div>
