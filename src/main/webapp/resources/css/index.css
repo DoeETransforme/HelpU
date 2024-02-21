@@ -1,0 +1,250 @@
+.menu-index {
+    display: flex;
+    position: absolute;
+    width: 100%;
+}
+
+.menu-logo {
+
+    flex: 30%;
+    display: flex; /* Para alinhar verticalmente */
+    align-items: center; /* Para alinhar verticalmente */
+    margin-left: 5%
+}
+
+.menu-logo img {
+    width: 100px; /* Ajuste conforme necessário */
+}
+
+.opcoes {
+
+    display: flex;
+    justify-content: flex-end; /* Para alinhar à direita */
+    align-items: center; /* Para alinhar verticalmente */
+    flex: 70%;
+    margin-right: 5%;
+    font-size: 20px;
+}
+
+.opcoes nav ul {
+    list-style: none; /* Remove a estilização padrão da lista */
+    display: flex; /* Para alinhar horizontalmente */
+}
+
+.opcoes nav ul li {
+    margin-right: 10px; /* Adiciona margem entre os itens do menu */
+}
+
+.opcoes a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    transition: color 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.opcoes a:hover {
+    color: #FDE583; /* Muda a cor para amarelo quando em hover */
+}
+
+.opcoes img {
+    width: 50px;
+    margin-left: 50px; /* Ajuste conforme necessário */
+}
+
+
+
+.tela-inicial img {
+    width: 100%;
+    
+}
+
+.texto-sobre-imagem {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    font-size: 55px;
+}
+
+#Fazer-index {
+    color: #FDE583;
+}
+
+#facil-index {
+    color: #1B65AE;
+}
+
+.botoes-cadastro {
+    margin-top: 20px;
+   
+}
+
+.botoes-cadastro a {
+    display: inline-block; /* Para aplicar transform */
+    background-color: #1B65AE;
+    text-decoration: none;
+  text-align: center;
+  margin-right: 10%;
+
+    padding: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+    font-size: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Adicionando uma transição suave */
+}
+
+.botoes-cadastro a:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    color:#FDE583 ;
+    
+}
+
+
+.imagem-card-index img{
+    width: 100%;
+   
+}
+.pedidos-index{
+    width: 90%;
+   
+    margin:0 auto;
+}
+.todos-cards-index{
+    display: flex;
+margin-bottom: 100px;
+ 
+ 
+}
+
+.card-pedidos-index{
+   
+    width: 20%;
+    border-radius: 10px;
+    margin-right: 40px; 
+
+    background-color: #F4F2F0;
+}
+
+.pedidos-texto-index h2 {
+    font-size: 50px;
+    color: #32383E;
+}
+
+.pedidos-texto-index p {
+    font-size: 30px;
+    color: #32383E;
+}
+.conteudo p{
+    text-align: left;
+}
+
+.conteudo h2{
+    color: #1B65AE;
+    
+}
+
+.card-pedidos-index button{
+    background-color: #1B65AE;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 50%;
+    margin-left: 22%;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Adicionando uma transição suave */
+
+}
+
+.card-pedidos-index button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+}
+#nome-ong{
+    margin-top: -20px;
+}
+
+footer {
+    margin-top: 300px;
+    background-color: #1B65AE; /* Cor de fundo azul */
+    color: white; /* Cor do texto */
+    padding: 20px 0; /* Espaçamento interno superior e inferior */
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Divide o footer em três colunas */
+    gap: 20px; /* Espaçamento entre as colunas */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza o footer na página */
+}
+
+.column {
+    text-align: center; /* Alinha o conteúdo das colunas ao centro */
+}
+
+.column h2 {
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+.column ul {
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0; /* Remove o espaçamento interno */
+}
+
+.column ul li {
+    margin-bottom: 5px; /* Espaçamento entre os itens da lista */
+}
+
+.column ul li a {
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.column ul li a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse sobre os links */
+}
+
+.quem-somos {
+    background-color: #FDE583;
+    display: flex;
+    margin-top: 100px;
+   
+    align-items: center; /* Centraliza horizontalmente */
+    height: 500px;
+}
+
+.quem-somos-conteudo {
+    width: 70%;
+    margin-bottom: auto; /* Coloca o conteúdo no topo */
+    text-align: left; /* Alinha o texto ao centro */
+    padding-top: 20px; /* Espaçamento superior */
+    font-size: 40px;
+    margin-left: 5%;
+}
+
+.quem-somos-index {
+    background-color: white;
+    width: 300px; /* Defina uma largura fixa para a div */
+    height: 300px; /* Defina uma altura fixa para a div */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    border-radius: 50%; /* Utilize 50% para um círculo */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites da div */
+    margin-leftsss: 5%;
+}
+
+.quem-somos img {
+    width: 60%; /* Defina uma largura fixa para a imagem */
+    height: auto; /* Mantenha a proporção da imagem */
+    display: block; /* Remove espaços verticais extras */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+
