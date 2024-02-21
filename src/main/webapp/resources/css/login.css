@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.imagem-login{
+	background-position: left center;
+	width: 906.06px;
+	height: 400px;	
+}
+
+.corpo-login {
+	margin-top: 200px;
+	margin-left: 100px;
+}

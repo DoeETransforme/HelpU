@@ -218,7 +218,11 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
-
+				
+			case "/mostrar-resultado-pesquisa":
+				mostrarResultadoPesquisa(request,response);
+				break;
+				
 			case "/mostrar-conquistas":
 				mostrarConquistas(request, response);
 				break;
@@ -553,8 +557,9 @@ public class Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+
  
-		if (sessao.getAttribute("usuario") instanceof Doador) {
+		if (usuario instanceof Doador) {
 			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
  
 			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
@@ -708,6 +713,7 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("login");
 		}
 	}
+
 
 	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -1269,7 +1275,8 @@ public class Servlet extends HttpServlet {
 				alimentoop);
 		request.setAttribute("pedidos", pedidos);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultados-pesquisa.jsp");
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultado-pesquisa.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -1332,4 +1339,14 @@ public class Servlet extends HttpServlet {
 
 	}
 
+	private void mostrarResultadoPesquisa(HttpServletRequest request , HttpServletResponse response)
+			throws ServletException, IOException{
+		
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
+		request.setAttribute("pedidos", pedidos);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/resultado-pesquisa");
+		dispatcher.forward(request, response);
+ 	
+}
 }
