@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +8,7 @@
 <link rel="stylesheet" href="../css/estilo.css">
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
  <script><%@include file="/resources/js/Script.js"%></script>
+ <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 </head>
 <body>
 	<main>

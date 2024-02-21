@@ -1,7 +1,5 @@
+<%@ page isELIgnored="false" language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,25 +7,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helpu</title>
-<link rel="stylesheet" href="../css/estilo.css">
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
  <script><%@include file="/resources/js/Script.js"%></script>
+ <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 </head>
 <body>
-	<div class="menu-hamburguer" id="menu-hamburguer">
-	
-		<div class="hamburguer" onclick="toggleMenu()">☰</div>
-	</div>
-	
-	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
+		<%@ include file="../cabecalhos/menu.jsp" %>
 
-						<%@ include file="menu.jsp" %>
-
-					</c:when>
-				</c:choose>
-	</div>
 
 	<main>
 		<div>

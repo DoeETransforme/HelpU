@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
     <script><%@include file="/resources/js/Script.js"%></script>
+    <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 </head>
 
 <body>
-			<%@ include file="menu.jsp" %>
+			<%@ include file="../cabecalhos/menu.jsp" %>
     <header>
         
         <div class="header"> 
@@ -28,10 +29,11 @@
 
         <div class="titulo">
             <h1>Conta desativada com sucesso</h1>
-            <div >
+            <h2>Esperamos vê-lo novamente!</h2>
+            <div>
                 <p>Nossa equipe agradece por você ser uma pessoa sólidaria e contribuir para um bem social. <br>Sentiremos sua falta por aqui :) </p>
 
-                <p>Você terá até 60 dias para poder reativar sua conta. Agradecemos seu apoio até o momento</p>
+               
 
                 
                
@@ -40,9 +42,7 @@
 
     </main>
 
-    <footer class="footer">
-        <h1>Esperamos vê-lo novamente!</h1>
-    </footer>
+    
 </body>
 
 </html>

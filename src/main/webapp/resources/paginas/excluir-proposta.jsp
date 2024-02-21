@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Excluir proposta</title>
-<script><%@include file="/resources/js/Script.js"%></script>
+<link rel="stylesheet" href="../css/excluir-proposta.css">
+<!-- <script><%@include file="/resources/js/Script.js"%></script> -->
 </head>
 <body>
 	<div class="menu-hamburguer" id="menu-hamburguer">
@@ -16,16 +17,12 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
-
-						<%@ include file="menu.jsp" %>
-
-					</c:when>
-				</c:choose>
+		<%@ include file="../cabecalhos/menu.jsp" %>
 	</div>
-	<h1>Excluir Proposta</h1>
-	<h2>Tem certeza que deseja excluir essa proposta?</h2>
+	<div class="titulo">
+		<h1>Excluir Proposta</h1>
+		<h2>Tem certeza que deseja excluir essa proposta?</h2>
+	</div>
 
 
 	<div>
@@ -34,8 +31,10 @@
 				value="<c:out value='${proposta.id}' />" />
 		</c:if>
 	</div>
-	<a href="<%=request.getContextPath()%>/perfil-doador?id=<c:out value='${proposta.id}'/>" class="Voltar"> Voltar</a>
-	<a href="<%=request.getContextPath()%>/proposta-excluida?id=<c:out value='${proposta.id}'/>" class="Voltar">Confirmar</a>
+	<div class="excluir-proposta">
+		<a href="<%=request.getContextPath()%>/perfil-doador?id=<c:out value='${proposta.id}'/>" class="Voltar"> Voltar</a>
+		<a href="<%=request.getContextPath()%>/proposta-excluida?id=<c:out value='${proposta.id}'/>" class="Voltar">Confirmar</a>
+	</div>
 
 
 </body>

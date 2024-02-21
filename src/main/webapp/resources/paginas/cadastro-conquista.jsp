@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-   <style type="text/css"><%@include file="/resources/css/estilo.css"%></style>
+   <!-- <style type="text/css"><%@include file="/resources/css/estilo.css"%></style>
+   <script><%@include file="/resources/js/Script.js"%></script> -->
    <link rel="stylesheet" href="../css/estilo.css">
-   <script><%@include file="/resources/js/Script.js"%></script>
 </head>
 <body>
 
@@ -16,13 +16,9 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
 
-						<%@ include file="menu.jsp" %>
+						<%@ include file="../cabecalhos/menu.jsp" %>
 
-					</c:when>
-				</c:choose>
 	</div>
 	    <div class="titulo">
         <h1>Cadastrar Conquista</h1>
@@ -30,15 +26,13 @@
     
     <main>
         <form action="inserir-conquista" method="post" class="forms">
-            <div>
-                <input type="text" class="padrao-input" name="nome" placeholder="Nome da Conquista">
-            </div>
-            <div>
-                <textarea name="descricao"  class="padrao-textarea" placeholder="Descriï¿½ï¿½o da Conquista!"></textarea>
-            </div>
-            <div>
+          
+                <div>
+                    <input type="text" class="padrao-input" name="nome" placeholder="Nome da Conquista">
+                    <textarea name="descricao"  class="padrao-input" placeholder="Descricao da Conquista!"></textarea>
+                    
+                </div>
                 <button type="submit" class="padrao-submit">Cadastrar</button>
-            </div>
         </form>
     </main>  
 </body>

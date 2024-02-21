@@ -94,6 +94,9 @@ public class Servlet extends HttpServlet {
 		else if (sessao.getAttribute("usuario") instanceof Ong) {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
+		}else {
+			String tipoUsuario = "3";
+			request.setAttribute(tipoUsuario, tipoUsuario);
 		}
 
 		String action = request.getServletPath();
@@ -218,7 +221,11 @@ public class Servlet extends HttpServlet {
 			case "/cadastro-conquista":
 				mostrarCadastroConquista(request, response);
 				break;
-
+				
+			case "/mostrar-resultado-pesquisa":
+				mostrarResultadoPesquisa(request,response);
+				break;
+				
 			case "/mostrar-conquistas":
 				mostrarConquistas(request, response);
 				break;
@@ -537,8 +544,7 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (sessao.getAttribute("usuario") instanceof Doador) {
-			RequestDispatcher dispatcher = request
-					.getRequestDispatcher("./resources/paginas/excluir-conta-usuario.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/excluir-conta-usuario.jsp");
 			dispatcher.forward(request, response);
 		} else if (sessao.getAttribute("usuario") instanceof Ong) {
 			RequestDispatcher dispatcher = request
@@ -554,21 +560,22 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
+ 
 		if (usuario instanceof Doador) {
-
-			Doador doador = (Doador) usuario;
-
-			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
-					StatusProposta.ANALISE);
-			request.setAttribute("propostas", propostas);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-pendentes.jsp");
+			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+ 
+			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
+					StatusProposta.ACEITO);
+ 
+			request.setAttribute("propostasDoacoes", propostasDoacoes);
+ 
+ 
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/historico-doacoes.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}
 	}
-
 	private void mostrarHistoricoPedidos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -708,6 +715,7 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("login");
 		}
 	}
+
 
 	private void mostrarCadastroProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -1269,7 +1277,8 @@ public class Servlet extends HttpServlet {
 				alimentoop);
 		request.setAttribute("pedidos", pedidos);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultados-pesquisa.jsp");
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/resultado-pesquisa.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -1332,4 +1341,14 @@ public class Servlet extends HttpServlet {
 
 	}
 
+	private void mostrarResultadoPesquisa(HttpServletRequest request , HttpServletResponse response)
+			throws ServletException, IOException{
+		
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
+		request.setAttribute("pedidos", pedidos);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/resultado-pesquisa");
+		dispatcher.forward(request, response);
+ 	
+}
 }

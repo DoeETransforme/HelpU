@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.menu{
+	height: 0;
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}

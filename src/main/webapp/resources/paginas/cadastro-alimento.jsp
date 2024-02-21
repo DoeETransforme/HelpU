@@ -18,13 +18,7 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-		<c:choose>
-					<c:when test="${tipoUsuario == 2}">
-
-						<%@ include file="menu.jsp" %>
-
-					</c:when>
-				</c:choose>
+		<%@ include file="../cabecalhos/menu.jsp" %>
 	</div>
 <body>
 	<div class="header"> 
@@ -33,7 +27,7 @@
 	</div>
 
 	<div class="titulo">
-		<h3>Cadastre o alimento</h3>
+		<h1>Cadastre o alimento</h1>
 	</div>
 	<form action="inserir-alimento" method="post" class="cadastrar-alimento">
 	
