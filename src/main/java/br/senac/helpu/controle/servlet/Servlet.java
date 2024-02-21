@@ -558,21 +558,22 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
+ 
 		if (usuario instanceof Doador) {
-
-			Doador doador = (Doador) usuario;
-
-			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
-					StatusProposta.ANALISE);
-			request.setAttribute("propostas", propostas);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-pendentes.jsp");
+			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+ 
+			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
+					StatusProposta.ACEITO);
+ 
+			request.setAttribute("propostasDoacoes", propostasDoacoes);
+ 
+ 
+			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/historico-doacoes.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}
 	}
-
 	private void mostrarHistoricoPedidos(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
