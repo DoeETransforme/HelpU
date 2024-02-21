@@ -102,7 +102,9 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
 			Root<Conquista> raizConquista = criteria.from(Conquista.class);
-
+			
+			raizConquista.fetch(Conquista_.foto);
+			
 			criteria.select(raizConquista);
 
 			conquistas = sessao.createQuery(criteria).getResultList();
@@ -136,7 +138,9 @@ public class ConquistaDAOImpl implements ConquistaDAO {
 
 			CriteriaQuery<Conquista> criteria = construtor.createQuery(Conquista.class);
 			Root<Conquista> raizConquista = criteria.from(Conquista.class);
-
+			
+			raizConquista.fetch(Conquista_.foto);
+			
 			criteria.select(raizConquista);
 
 			criteria.where(construtor.equal(raizConquista.get(Conquista_.id), id));		

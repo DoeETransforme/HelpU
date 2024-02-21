@@ -932,7 +932,6 @@ public class Servlet extends HttpServlet {
 		
 		Foto foto = new Foto(fotobyte, extensao);
 		
-		
 
 		ong = new Ong(nome, senha, StatusUsuario.ATIVO, foto ,cnpj);
 		contato = new Contato(telefone, email, ong);
@@ -1059,9 +1058,16 @@ public class Servlet extends HttpServlet {
 
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
+		
+		Part partConquista = request.getPart("foto");
+		String extensao = partConquista.getContentType();
+		byte[] byteconquista = ConversorImagem.obterBytes(partConquista);
+		
+		Foto foto = new Foto(byteconquista, extensao);
 
-		conquista = new Conquista(nome, descricao);
-
+		conquista = new Conquista(nome, descricao, foto);
+		
+		fotoDAO.inserirFoto(foto);
 		conquistaDAO.inserirConquista(conquista);
 
 		response.sendRedirect("perfil-doador");
@@ -1300,11 +1306,18 @@ public class Servlet extends HttpServlet {
 		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
-
+		
+		Part partConquista = request.getPart("foto");
+		String extensao = partConquista.getContentType();
+		byte[] byteconquista = ConversorImagem.obterBytes(partConquista);
+		
+		Foto foto = new Foto(byteconquista, extensao);
+		
 		Conquista conquista = conquistaDAO.recuperarConquistaId(id);
 
 		conquista.setNome(nome);
 		conquista.setDescricao(descricao);
+		conquista.setFoto(foto);
 
 		conquistaDAO.atualizarConquista(conquista);
 
