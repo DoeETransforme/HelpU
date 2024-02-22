@@ -40,7 +40,7 @@
 		<div class="main-doador">
 			<div class="botoes-doador">
 				<a href="<%=request.getContextPath()%>/historico-doacoes">Histórico de Doações</a>
-				<a href="<%=request.getContextPath()%>/historico-conquistas">Histórico de Doações</a>
+				<a href="<%=request.getContextPath()%>/historico-conquistas">Histórico de conquistas</a>
 				<a class="botao-editar-perfil" href="<%=request.getContextPath()%>/editar-perfil-doador?id=<c:out value='${doador.id}'/>">
 					<svg class="icone-editar-perfil" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<rect width="50" height="50" fill="url(#pattern0)"/>
