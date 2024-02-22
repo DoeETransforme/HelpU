@@ -68,7 +68,7 @@
 	            <c:forEach var="pedido" items="${pedidos}">
 					<div class="card-pedidos">
 						<span class="titulo-card"><c:out value="${pedido.titulo}" /></span>
-						<span class="nome-card"><c:out value="${pedido.ong.nome}" /></span>
+						<span class="nome-card">Por <c:out value="${pedido.ong.nome}" /></span>
 						<span class="texto-card"><c:out value="${pedido.descricao}" /></span>
 						<a class="botao-pedido" href="<%request.getServletContext();%>/descricao-pedido">Leia Mais</a>
 					</div>
