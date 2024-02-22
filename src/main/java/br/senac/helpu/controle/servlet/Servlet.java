@@ -1117,7 +1117,8 @@ public class Servlet extends HttpServlet {
 		Ong ong = ongDAO.recuperarOngId(usuario.getId());
 		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
 		Endereco endereco = enderecoDAO.recuperarEnderecoId(usuario.getId());
-
+		Foto foto = fotoDAO.recuperarFotoUsuario(ong);
+		
 		// endereco
 		String cidade = request.getParameter("cidade");
 		String cep = request.getParameter("cep");
@@ -1135,6 +1136,15 @@ public class Servlet extends HttpServlet {
 		// contato
 		String email = request.getParameter("email");
 		String celular = request.getParameter("celular");
+		
+		//Foto
+		Part partDoador = request.getPart("foto");
+		String extensao = partDoador.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partDoador);
+		
+		//foto setters
+		foto.setBinario(fotobyte);
+		foto.setExtensao(extensao);
 
 		// endereco setters
 		endereco.setCidade(cidade);
@@ -1149,17 +1159,18 @@ public class Servlet extends HttpServlet {
 		ong.setNome(nome);
 		ong.setSenha(senha);
 		ong.setCnpj(cnpj);
+		ong.setFotoUsuario(foto);
 
 		// contato setters
 		contato.setEmail(email);
 		contato.setCelular(celular);
-
+		
+		fotoDAO.atualizarFoto(foto);
 		enderecoDAO.atualizarEndereco(endereco);
 		contatoDAO.atualizarContato(contato);
 		usuarioDAO.atualizarUsuario(ong);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/perfil-ong.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("perfil-ong");
 
 	}
 
