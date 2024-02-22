@@ -6,11 +6,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helpu</title>
- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
- 
+
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 <script><%@include file="/resources/js/Script.js"%></script>
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
-<style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style>
+<style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style> 
+<link rel="stylesheet" href="../css/estilo.css">
 
 
 </head>
@@ -64,11 +65,35 @@
 				<c:forEach var="proposta" items="${propostas}">
 					
 						<div class="card-doacoes-doador">
-							<div class="titulo">
-								<h3><a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /></a></h3>
-							</div>
-							 <c:out value="${proposta.pedidoDoacao.descricao}" />
+						
+								<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /> teste</a>
+							 
+							 <p>
+								<c:out value="${proposta.pedidoDoacao.descricao}" />
+								
+							 </p>
 						</div>
+
+						<div class="card-doacoes-doador">
+							
+								<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /></a>
+
+
+							 <c:out value="${proposta.pedidoDoacao.descricao}" />
+						</div>	
+						<div class="card-doacoes-doador">
+							
+								<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /></a>
+
+
+							 <c:out value="${proposta.pedidoDoacao.descricao}" />
+						</div>	
+						
+						
+						
+						
+						
+						
 						
 				</c:forEach>	
 				</div>
