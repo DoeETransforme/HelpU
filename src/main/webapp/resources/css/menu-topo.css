@@ -3,7 +3,7 @@
 .template-grid {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Alinha os itens à esquerda */
+    justify-content: flex-start;
     width: 80%;
     margin: 0 auto;
 
