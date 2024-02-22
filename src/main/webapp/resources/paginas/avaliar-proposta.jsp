@@ -7,23 +7,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-<!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-    <script><%@include file="/resources/js/Script.js"%></script> -->
-    <link rel="stylesheet" href="../css/estilo.css">
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!--  <script src="../js/Script.js"></script> -->
+<script><%@include file="/resources/js/Script.js"%></script>
+<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+<style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style>
+
+
    
 </head>
 <body>
-
-
     <%@ include file="../cabecalhos/menu.jsp" %>
 
     
 <div class="titulo">
     <h1>Editar Conquista</h1>
 </div>
-</div>
- 
- 
+
     <main>
  
         <div class="avaliar-proposta">
