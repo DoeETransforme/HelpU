@@ -1455,6 +1455,24 @@ width: 40%;
     margin-top: 5%;
     text-align: center;
 }
+
+.opcoes-ong a{
+    text-decoration: none;
+    background-color: var(--cor-secundaria);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+#historico-pedidos{
+    text-align: center; 
+    margin: 0 auto ;
+    background-color: var(--cor-secundaria);
+    padding: 1px;
+    width: 70%;
+    text-decoration: none;
+    color: var(--cor-texto);
+    border-radius: 10px;
+}
 .opcoes-ong img{
     width: 25px;
 }

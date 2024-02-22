@@ -74,13 +74,18 @@
 				</div>
 
 				<div class="opcoes-ong">
-					<button>Histórico de pedidos</button>
-					<div class="opcao-item">
-						<img src="../imagens/Lapis.png" alt=""> <a>Editar Perfil</a>
+				<div>
+					<a id="historico-pedidos"
+					href="<%=request.getContextPath()%>/historico-pedidos">Historico de Pedidos</a>
 					</div>
-					<div class="opcao-item">
-						<img src="../imagens/Mais.png" alt=""> <a>Criar novo
-							Pedido</a>
+					<div class="opcao-ong">
+					<a id="editar-perfil"
+						href="<%=request.getContextPath()%>/editar-perfil">Editar Perfil</a>
+					</div>
+					<div class="opcao-ong">
+						<a id="cadastro-pedido"
+						href="<%=request.getContextPath()%>/cadastro-pedido">Criar Novo Pedido</a>
+							
 					</div>
 				</div>
 
@@ -112,22 +117,6 @@
 						</div>
 					</div>
 
-					<div class="pedidos-doacao-perfil-ong">
-						<div class="imagem-pedido-perfil-ong">
-							<img src="../imagens/imagem-pedido.png" alt="foto-ong"
-								id="imagem-pedido-perfil-ong">
-						</div>
-						<div class="conteudo-pedido-perfil-ong">
-							<h3>
-								Titulo:<span id="TituloPedido">${pedidos.titulo}</span>
-							</h3>
-
-							<span id="TituloPedido">${pedidos.data}</span> <span>${pedidos.descricao}</span>
-							<a
-								href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver
-								Mais</a>
-						</div>
-					</div>
 					</c:forEach>
 					</div>
 		</div>
