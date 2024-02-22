@@ -1312,8 +1312,10 @@ public class Servlet extends HttpServlet {
 
 		propostaDoacaoDAO.deletarPropostaDoacao(proposta);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/proposta-excluida.jsp");
-		dispatcher.forward(request, response);
+
+		response.sendRedirect("propostas-pendentes");
+
+
 	}
 
 	private void mostrarEditarConquista(HttpServletRequest request, HttpServletResponse response)
