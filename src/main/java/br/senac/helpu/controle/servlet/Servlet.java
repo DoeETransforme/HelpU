@@ -355,8 +355,8 @@ public class Servlet extends HttpServlet {
 				invalidarProposta(request, response);
 				break;
 				
-			case"proposta-excluida":
-				mostrarPropostaExcluida(request, response);
+			case "/esqueci-minha-senha":
+				mostrarEsqueciMinhaSenha(request, response);
 				break;
 
 			default:
@@ -712,6 +712,14 @@ public class Servlet extends HttpServlet {
 		} else {
 			response.sendRedirect("login");
 		}
+	}
+	
+	private void mostrarEsqueciMinhaSenha(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/esqueci-minha-senha.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	private void mostrarPropostasPendentes(HttpServletRequest request, HttpServletResponse response)

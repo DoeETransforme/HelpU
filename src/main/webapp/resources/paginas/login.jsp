@@ -130,9 +130,11 @@ c154 -40 250 -74 416 -150 68 -31 147 -64 176 -73 58 -18 56 -12 69 -184 7
                     </div>
                 </form>
                 <div class="esqueceu-senha-login">
-                    <span>Não tem uma conta?</span> <span class="negrito" >Cadastra-se Agora!</span>
-                        <span class="negrito">Esqueceu a senha?</span>
+                    <span>Não tem uma conta?</span> <a href="<%=request.getContextPath()%>/mostrar-cadastro">Cadastra-se Agora!</a>
+                       <a href="<%=request.getContextPath()%>/esqueci-minha-senha"><span classstorico-doacoes="negrito">Esqueceu a senha?</span></a>
                 </div>
+                
+               
             </div>
 </div>
     </body>
