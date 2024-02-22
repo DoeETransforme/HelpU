@@ -354,6 +354,10 @@ public class Servlet extends HttpServlet {
 			case "/proposta-recusada":
 				invalidarProposta(request, response);
 				break;
+				
+			case"proposta-excluida":
+				mostrarPropostaExcluida(request, response);
+				break;
 
 			default:
 				mostrarIndex(request, response);
@@ -362,6 +366,16 @@ public class Servlet extends HttpServlet {
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 		}
+	}
+	
+	
+
+	private void mostrarPropostaExcluida(HttpServletRequest request, HttpServletResponse response) 
+		throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/proposta-excluida.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	private void mostrarInvalidarProposta(HttpServletRequest request, HttpServletResponse response)
@@ -932,7 +946,6 @@ public class Servlet extends HttpServlet {
 		
 		Foto foto = new Foto(fotobyte, extensao);
 		
-		
 
 		ong = new Ong(nome, senha, StatusUsuario.ATIVO, foto ,cnpj);
 		contato = new Contato(telefone, email, ong);
@@ -1059,9 +1072,16 @@ public class Servlet extends HttpServlet {
 
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
+		
+		Part partConquista = request.getPart("foto");
+		String extensao = partConquista.getContentType();
+		byte[] byteconquista = ConversorImagem.obterBytes(partConquista);
+		
+		Foto foto = new Foto(byteconquista, extensao);
 
-		conquista = new Conquista(nome, descricao);
-
+		conquista = new Conquista(nome, descricao, foto);
+		
+		fotoDAO.inserirFoto(foto);
 		conquistaDAO.inserirConquista(conquista);
 
 		response.sendRedirect("perfil-doador");
@@ -1117,7 +1137,8 @@ public class Servlet extends HttpServlet {
 		Ong ong = ongDAO.recuperarOngId(usuario.getId());
 		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
 		Endereco endereco = enderecoDAO.recuperarEnderecoId(usuario.getId());
-
+		Foto foto = fotoDAO.recuperarFotoUsuario(ong);
+		
 		// endereco
 		String cidade = request.getParameter("cidade");
 		String cep = request.getParameter("cep");
@@ -1135,6 +1156,15 @@ public class Servlet extends HttpServlet {
 		// contato
 		String email = request.getParameter("email");
 		String celular = request.getParameter("celular");
+		
+		//Foto
+		Part partDoador = request.getPart("foto");
+		String extensao = partDoador.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partDoador);
+		
+		//foto setters
+		foto.setBinario(fotobyte);
+		foto.setExtensao(extensao);
 
 		// endereco setters
 		endereco.setCidade(cidade);
@@ -1149,17 +1179,18 @@ public class Servlet extends HttpServlet {
 		ong.setNome(nome);
 		ong.setSenha(senha);
 		ong.setCnpj(cnpj);
+		ong.setFotoUsuario(foto);
 
 		// contato setters
 		contato.setEmail(email);
 		contato.setCelular(celular);
-
+		
+		fotoDAO.atualizarFoto(foto);
 		enderecoDAO.atualizarEndereco(endereco);
 		contatoDAO.atualizarContato(contato);
 		usuarioDAO.atualizarUsuario(ong);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/perfil-ong.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("perfil-ong");
 
 	}
 
@@ -1280,6 +1311,10 @@ public class Servlet extends HttpServlet {
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 
 		propostaDoacaoDAO.deletarPropostaDoacao(proposta);
+		
+
+		response.sendRedirect("propostas-pendentes");
+
 
 	}
 
@@ -1313,11 +1348,18 @@ public class Servlet extends HttpServlet {
 		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
-
+		
+		Part partConquista = request.getPart("foto");
+		String extensao = partConquista.getContentType();
+		byte[] byteconquista = ConversorImagem.obterBytes(partConquista);
+		
+		Foto foto = new Foto(byteconquista, extensao);
+		
 		Conquista conquista = conquistaDAO.recuperarConquistaId(id);
 
 		conquista.setNome(nome);
 		conquista.setDescricao(descricao);
+		conquista.setFoto(foto);
 
 		conquistaDAO.atualizarConquista(conquista);
 

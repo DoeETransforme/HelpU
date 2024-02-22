@@ -13,32 +13,21 @@
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 <style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style>
 
-    <link rel="stylesheet" href="../css/estilo.css">
-    <script><%@include file="/resources/js/Script.js"%></script>
+
    
 </head>
 <body>
- 
-    <div class="menu-hamburguer" id="menu-hamburguer">
-	
-    <div class="hamburguer" onclick="toggleMenu()">☰</div>
+    <%@ include file="../cabecalhos/menu.jsp" %>
+
+    
+<div class="titulo">
+    <h1>Editar Conquista</h1>
 </div>
- 
-<div class="menu-lateral" id="menu-lateral">
-    <c:choose>
-                <c:when test="${tipoUsuario == 2}">
- 
-                    <%@ include file="../cabecalhos/barra-lateral.jsp" %>
- 
-                </c:when>
-            </c:choose>
-</div>
- 
- 
+
     <main>
  
         <div class="avaliar-proposta">
-         <img src="<c:url value='/resources/imagens/perfil-icon.png' />" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
+            <img alt="foto do doador" id="foto-doador-proposta" src="<c:out value='${doador.fotoUsuario.urlFoto()}'/>">
  
  
             <h2> Doação de: <c:out value="${proposta.doador.nome}" /> </h2>
