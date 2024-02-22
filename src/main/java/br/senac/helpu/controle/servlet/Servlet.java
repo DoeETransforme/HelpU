@@ -103,10 +103,8 @@ public class Servlet extends HttpServlet {
 		else if (sessao.getAttribute("usuario") instanceof Ong) {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
-		} else {
-			String tipoUsuario = "3";
-			request.setAttribute(tipoUsuario, tipoUsuario);
-		}
+		} 
+		
 
 		String action = request.getServletPath();
 
@@ -446,6 +444,11 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarIndex(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacaoLimitTrace();
+		
+		request.setAttribute("pedidos", pedidos);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./index.jsp");
 		dispatcher.forward(request, response);
 	}
