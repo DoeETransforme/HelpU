@@ -53,10 +53,10 @@
 
 
 
-.tela-inicial img {
+/*.tela-inicial img {
     width: 100%;
     
-}
+}*/
 
 .texto-sobre-imagem {
     position: absolute;
@@ -237,7 +237,7 @@ footer {
     align-items: center; /* Centraliza verticalmente */
     border-radius: 50%; /* Utilize 50% para um círculo */
     overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites da div */
-    margin-leftsss: 5%;
+    margin-left: 5%;
 }
 
 .quem-somos img {
@@ -247,4 +247,49 @@ footer {
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
 }
 
+.imagem-logo {
+	width: 20wv;
+	height: 20vh;
+}
 
+.logo {
+	width: 10vw;
+	height: 10vh;
+}
+
+.titulo-index {
+	font-size: 4.5em;
+	align-items: left;
+	margin-left: 2.5ex;
+}
+
+span {
+	margin-left: 8ex;
+	margin-right: 50ex;
+	font-size: 1.5em;
+}
+
+.container {
+	flex-wrap: wrap;
+	display: flex;
+}
+
+.card-pedidos {
+	background-color: var(--cor-background-card) ;
+	width: 20vw; 
+    height: 50vh; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    transition: transform 0.5s ease;
+    display: flex;
+    margin-left: 12ex;
+    margin-top: 12ex;
+    border-radius: 10px;
+     
+}
+
+.imagem-inicial {
+	width: 100vw;
+	height: 118vh;
+	
+}
