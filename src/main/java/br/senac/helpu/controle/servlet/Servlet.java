@@ -354,6 +354,10 @@ public class Servlet extends HttpServlet {
 			case "/proposta-recusada":
 				invalidarProposta(request, response);
 				break;
+				
+			case"proposta-excluida":
+				mostrarPropostaExcluida(request, response);
+				break;
 
 			default:
 				mostrarIndex(request, response);
@@ -362,6 +366,16 @@ public class Servlet extends HttpServlet {
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 		}
+	}
+	
+	
+
+	private void mostrarPropostaExcluida(HttpServletRequest request, HttpServletResponse response) 
+		throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/proposta-excluida.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	private void mostrarInvalidarProposta(HttpServletRequest request, HttpServletResponse response)
@@ -932,7 +946,6 @@ public class Servlet extends HttpServlet {
 		
 		Foto foto = new Foto(fotobyte, extensao);
 		
-		
 
 		ong = new Ong(nome, senha, StatusUsuario.ATIVO, foto ,cnpj);
 		contato = new Contato(telefone, email, ong);
@@ -1059,9 +1072,16 @@ public class Servlet extends HttpServlet {
 
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
+		
+		Part partConquista = request.getPart("foto");
+		String extensao = partConquista.getContentType();
+		byte[] byteconquista = ConversorImagem.obterBytes(partConquista);
+		
+		Foto foto = new Foto(byteconquista, extensao);
 
-		conquista = new Conquista(nome, descricao);
-
+		conquista = new Conquista(nome, descricao, foto);
+		
+		fotoDAO.inserirFoto(foto);
 		conquistaDAO.inserirConquista(conquista);
 
 		response.sendRedirect("perfil-doador");
@@ -1281,7 +1301,9 @@ public class Servlet extends HttpServlet {
 
 		propostaDoacaoDAO.deletarPropostaDoacao(proposta);
 		
+
 		response.sendRedirect("propostas-pendentes");
+
 
 	}
 
@@ -1315,11 +1337,18 @@ public class Servlet extends HttpServlet {
 		Long id = Long.parseLong(request.getParameter("id"));
 		String nome = request.getParameter("nome");
 		String descricao = request.getParameter("descricao");
-
+		
+		Part partConquista = request.getPart("foto");
+		String extensao = partConquista.getContentType();
+		byte[] byteconquista = ConversorImagem.obterBytes(partConquista);
+		
+		Foto foto = new Foto(byteconquista, extensao);
+		
 		Conquista conquista = conquistaDAO.recuperarConquistaId(id);
 
 		conquista.setNome(nome);
 		conquista.setDescricao(descricao);
+		conquista.setFoto(foto);
 
 		conquistaDAO.atualizarConquista(conquista);
 
