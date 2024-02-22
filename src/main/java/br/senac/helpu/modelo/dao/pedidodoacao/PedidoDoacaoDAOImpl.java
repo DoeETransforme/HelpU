@@ -139,6 +139,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedidoDoacao = criteria.from(PedidoDoacao.class);
 			raizPedidoDoacao.fetch("ong", JoinType.LEFT);
+			raizPedidoDoacao.fetch(PedidoDoacao_.foto);
 
 			criteria.select(raizPedidoDoacao);
 
@@ -172,7 +173,10 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizConquista = criteria.from(PedidoDoacao.class);
-
+			
+			raizConquista.fetch(PedidoDoacao_.foto);
+			raizConquista.fetch(PedidoDoacao_.ong);
+			
 			criteria.select(raizConquista);
 
 			pedidos = sessao.createQuery(criteria).getResultList();
@@ -209,6 +213,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
 			raizPedido.fetch("ong", JoinType.LEFT);
+			raizPedido.fetch(PedidoDoacao_.foto);
 
 			Join<PedidoDoacao, Ong> juncaoPedidos = raizPedido.join(PedidoDoacao_.ong);
 

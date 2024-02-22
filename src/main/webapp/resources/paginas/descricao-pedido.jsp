@@ -27,7 +27,8 @@
 					</div>
 
 
-					<div class="imagem-do-pedido"><img src="../imagens/imagem-pedido.png" alt="" id="capa_pedido">
+					<div class="imagem-do-pedido">
+					<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedido.foto.urlFoto()}'/>">
 
 						<div class="informacao-pedido">
 							<img src="../imagens/perfil-icon.png" alt="">

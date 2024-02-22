@@ -1498,7 +1498,7 @@ public class Servlet extends HttpServlet {
 		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
 		request.setAttribute("pedidos", pedidos);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/resultado-pesquisa");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("resources/paginas/resultado-pesquisa.jsp");
 		dispatcher.forward(request, response);
 
 	}

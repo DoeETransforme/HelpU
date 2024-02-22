@@ -100,6 +100,7 @@
 								id="imagem-pedido-perfil-ong">
 						</div>
 						<div class="conteudo-pedido-perfil-ong">
+							<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
 							<h3>
 								Titulo:<span id="TituloPedido">${pedidos.titulo}</span>
 							</h3>
