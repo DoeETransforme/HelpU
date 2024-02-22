@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!--  <script src="../js/Script.js"></script> -->
+<script><%@include file="/resources/js/Script.js"%></script>
+<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+<style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style>
+
     <link rel="stylesheet" href="../css/estilo.css">
     <script><%@include file="/resources/js/Script.js"%></script>
    
@@ -23,7 +28,7 @@
     <c:choose>
                 <c:when test="${tipoUsuario == 2}">
  
-                    <%@ include file="../cabecalhos/menu.jsp" %>
+                    <%@ include file="../cabecalhos/barra-lateral.jsp" %>
  
                 </c:when>
             </c:choose>
