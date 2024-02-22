@@ -16,9 +16,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
+import br.senac.helpu.modelo.entidade.foto.Foto;
 import br.senac.helpu.modelo.entidade.item.Item;
 import br.senac.helpu.modelo.entidade.ong.Ong;
 import br.senac.helpu.modelo.entidade.propostadoacao.PropostaDoacao;
@@ -50,6 +51,8 @@ public class PedidoDoacao implements Serializable {
 	@Column(name = "meta_doacoes", nullable = true)
 	private int metaDoacoes;
 	
+	@OneToOne(fetch = FetchType.LAZY)
+	private Foto foto;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_ong", nullable = false, unique = false)
@@ -82,6 +85,16 @@ public class PedidoDoacao implements Serializable {
 		setOng(ong);
 	}
 	
+	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, int metaDoacoes, Ong ong, Foto foto) {
+		setData(data);
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		setMetaDoacoes(metaDoacoes);
+		setOng(ong);
+		setFoto(foto);
+	}
+	
 	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong) {
 		setData(data);
 		setTitulo(titulo);
@@ -90,11 +103,28 @@ public class PedidoDoacao implements Serializable {
 		setOng(ong);
 	}
 	
+	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Ong ong, Foto foto) {
+		setData(data);
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		setOng(ong);
+		setFoto(foto);
+	}
+	
 	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido) {
 		setData(data);
 		setTitulo(titulo);
 		setDescricao(descricao);
 		setStatusPedido(statusPedido);
+	}
+	
+	public PedidoDoacao(String titulo, String descricao, LocalDate data, StatusPedido statusPedido, Foto foto) {
+		setData(data);
+		setTitulo(titulo);
+		setDescricao(descricao);
+		setStatusPedido(statusPedido);
+		setFoto(foto);
 	}
 
 	public Long getId() {
@@ -167,5 +197,13 @@ public class PedidoDoacao implements Serializable {
 	
 	public void removePropostaDoacao(PropostaDoacao proposta) {
 		propostasDoacao.remove(proposta);
+	}
+	
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
 	}
 }

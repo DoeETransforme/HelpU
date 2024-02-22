@@ -999,10 +999,17 @@ public class Servlet extends HttpServlet {
 		int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 		Alimento alimentos = alimentoDAO.recuperarAlimentoId(Long.parseLong(request.getParameter("alimento")));
 		int meta = Integer.parseInt(request.getParameter("meta-doacoes"));
-
-		pedidoDoacao = new PedidoDoacao(titulo, descricao, data, StatusPedido.ATIVO, meta, ong);
+		
+		Part partDoador = request.getPart("foto");
+		String extensao = partDoador.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partDoador);
+		Foto foto = new Foto(fotobyte, extensao);
+		
+		
+		pedidoDoacao = new PedidoDoacao(titulo, descricao, data, StatusPedido.ATIVO, meta, ong, foto);
 		item = new Item(quantidade, alimentos, pedidoDoacao);
-
+		
+		fotoDAO.inserirFoto(foto);
 		pedidoDoacaoDAO.inserirPedidoDoacao(pedidoDoacao);
 		itemDAO.inserirItem(item);
 
