@@ -925,10 +925,19 @@ public class Servlet extends HttpServlet {
 
 		String email = request.getParameter("email-ong");
 		String telefone = request.getParameter("telefone-ong");
+		
+		Part partOng = request.getPart("foto");
+		String extensao = partOng.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partOng);
+		
+		Foto foto = new Foto(fotobyte, extensao);
+		
+		
 
-		ong = new Ong(nome, senha, StatusUsuario.ATIVO, cnpj);
+		ong = new Ong(nome, senha, StatusUsuario.ATIVO, foto ,cnpj);
 		contato = new Contato(telefone, email, ong);
 
+		fotoDAO.inserirFoto(foto);
 		usuarioDAO.inserirUsuario(ong);
 		contatoDAO.inserirContato(contato);
 
@@ -1065,22 +1074,35 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 		Contato contato = contatoDAO.recuperarContatoId(usuario.getId());
-
+		Foto foto = fotoDAO.recuperarFotoUsuario(usuario);
+		
 		String nome = request.getParameter("nome");
 		String senha = request.getParameter("senha");
-		LocalDate data = LocalDate.parse(request.getParameter("data-nascimento"));
+		LocalDate data = null;
+		if (request.getParameter("data-nascimento").trim().length() > 0) {
+			data = LocalDate.parse(request.getParameter("data-nascimento"));			
+		}
+		
 		String cpf = request.getParameter("cpf");
 		String email = request.getParameter("email");
 		String celular = request.getParameter("celular");
-
-		System.out.println(nome);
+		
+		Part partDoador = request.getPart("foto");
+		String extensao = partDoador.getContentType();
+		byte[] fotobyte = ConversorImagem.obterBytes(partDoador);
+		
+		
+		foto.setBinario(fotobyte);
+		foto.setExtensao(extensao);
 		doador.setNome(nome);
 		doador.setSenha(senha);
 		doador.setData(data);
 		doador.setCpf(cpf);
+		doador.setFotoUsuario(foto);
 		contato.setCelular(celular);
 		contato.setEmail(email);
-
+		
+		fotoDAO.atualizarFoto(foto);
 		contatoDAO.atualizarContato(contato);
 		usuarioDAO.atualizarUsuario(doador);
 

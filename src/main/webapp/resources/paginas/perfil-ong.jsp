@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/estilo.css">
 <title>Helpu</title>
-	<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-	<script><%@include file="/resources/js/Script.js"%></script>
-	<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+
+
 
 </head>
 
@@ -20,16 +20,18 @@
 		<section>
 			<!-- <div class="foto-capa-nome-ong">
 				<img src="../imagens/Capa de Perfil da Ong.png" alt="" id="capa-ong">
-
+ -->
 				<div class="foto-nome-ong">
 					<div class="foto-ong">
-						<img src="../imagens/foto de Perfil ong.png"
-							alt="foto de perfil da ong" id="foto-perfil-ong">
-					</div> -->
+						<img alt="foto do ong" id="foto" src="<c:out value='${ong.fotoUsuario.urlFoto()}'/>">
+					</div>
 					<div class="nome-ong">
 						<h2>
-							Cantinho Inclusão
+
+
+							
 							<c:out value="${ong.nome}" />
+
 						</h2>
 					</div>
 				</div>
@@ -94,8 +96,25 @@
 								Mais</a>
 						</div>
 					</div>
-			</div>
-			</c:forEach>
+
+					<div class="pedidos-doacao-perfil-ong">
+						<div class="imagem-pedido-perfil-ong">
+							<img src="../imagens/imagem-pedido.png" alt="foto-ong"
+								id="imagem-pedido-perfil-ong">
+						</div>
+						<div class="conteudo-pedido-perfil-ong">
+							<h3>
+								Titulo:<span id="TituloPedido">${pedidos.titulo}</span>
+							</h3>
+
+							<span id="TituloPedido">${pedidos.data}</span> <span>${pedidos.descricao}</span>
+							<a
+								href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver
+								Mais</a>
+						</div>
+					</div>
+					</c:forEach>
+					</div>
 		</div>
 
 		</div>

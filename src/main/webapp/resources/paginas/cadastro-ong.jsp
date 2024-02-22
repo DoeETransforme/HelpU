@@ -20,30 +20,24 @@
             <p>Login</p>
             <img src="../imagens/logo-final.png" alt="imagem da ong">
         </div>
-        <form action="inserir-ong" method="post" class="forms">
+        <form action="inserir-ong" method="post" class="forms" enctype="multipart/form-data">
            
                
                    
                     <div >
-                        <input type="text" id="NomeCompletoOng" name="nome-ong" placeholder="Nome da ONG" required class="padrao-input">
-                      
+                        <input type="text" id="NomeCompletoOng" name="nome-ong" placeholder="Nome da ONG" required class="padrao-input">   
                         <input type="text" id="CPFOuCNPJ_Ong" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required class="padrao-input">
-                    
-                        
                         <input type="text" id="TelefoneOng" name="telefone-ong" placeholder="Telefone da ONG" required class="padrao-input">
-                    
                         <input type="email" id="EmailDaOng" name="email-ong" placeholder="Email da ONG" required class="padrao-input">
-                      
                         <input type="email" id="ConfirmarEmailOng" name="ConfirmarEmailOng" placeholder="Confirmar Email da ONG" required class="padrao-input">
-                       
                         <input type="password" id="SenhaOng" name="senha-ong" placeholder="Senha da ONG" required class="padrao-input">
-                     
                         <input type="password" id="ConfirmarSenhaOng" name="ConfirmarSenhaOng" placeholder="Confirmar Senha" required class="padrao-input">
-                        
-                    </div>
+                        <label for="foto">Escolha uma foto:</label>
+                		<input type="file" id="foto" name="foto">
+		                <input type="submit" value="Continuar >" class="padrao-submit">
                     
                 
-                <input type="submit" value="Continuar >" class="padrao-submit">
+                    </div>
         </form>
 
         

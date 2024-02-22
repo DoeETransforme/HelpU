@@ -12,6 +12,7 @@
 						<li class="dropdown">
 							<p href="#" class="dropbtn">Doador</p>
 							<div class="dropdown-content">
+							<a href="<%=request.getContextPath()%>/cadastro">Tela Principal</a> 
 								<a href="<%=request.getContextPath()%>/perfil-doador">Meu Perfil</a> <a
 									href="<%=request.getContextPath()%>/editar-perfil-doador">Editar Conta</a> 
 									<a href="<%=request.getContextPath()%>/desativar-conta">Desativar Conta</a> 
@@ -33,9 +34,10 @@
 					<ul>
 						<li class="dropdown"><p href="#" class="dropbtn">Ong</p>
 							<div class="dropdown-content">
+									<a href="<%=request.getContextPath()%>/cadastro">Tela Principal</a> 
 								<a href="<%=request.getContextPath()%>/perfil-ong">Meu
 									Perfil</a> <a
-									href="<%=request.getContextPath()%>/editar-perfil-ong">EditarConta</a> 
+									href="<%=request.getContextPath()%>/editar-perfil-ong">Editar Conta</a> 
 									<a href="<%=request.getContextPath()%>/desativar-conta">Desativar Conta</a> 
 									<a href="<%=request.getContextPath()%>/cadastro-pedido">Cadastro Pedido</a> 
 									<a href="<%=request.getContextPath()%>/historico-pedidos">Historico Pedidos</a>

@@ -1,7 +1,9 @@
 package br.senac.helpu.modelo.dao.foto;
 
 import java.util.List;
+
 import br.senac.helpu.modelo.entidade.foto.Foto;
+import br.senac.helpu.modelo.entidade.usuario.Usuario;
 
 public interface FotoDAO {
 
@@ -10,7 +12,7 @@ public interface FotoDAO {
     void atualizarFoto(Foto foto);
 
     Foto recuperarFotoId(Long id);
-    Foto recuperarFotoNome(String nome);
+    Foto recuperarFotoUsuario(Usuario usuario);
     List<Foto> recuperarFotos();
 
 }

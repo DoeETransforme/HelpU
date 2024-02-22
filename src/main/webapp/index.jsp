@@ -22,7 +22,7 @@
                             <ul>
                                 <li><a href="#">Menu</a></li>
                                 <li><a href="#">Doe Aqui</a></li>
-                                <li><a href="cadastro-doador">Cadastrar-se</a></li>
+                                <li><a href="mostrar-cadastro">Cadastrar-se</a></li>
                                 <li><a href="login">Entrar</a></li>
                             </ul>
                         </nav>

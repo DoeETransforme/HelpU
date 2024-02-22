@@ -18,7 +18,7 @@
             <h1>Editar Perfil</h1>
         </div>
 
-        <form action="doador-editado" method="post">
+        <form action="doador-editado" method="post" enctype="multipart/form-data">
           
                 <div class="editar-dados">
                     <label for="editarNome">Editar Nome:</label>
@@ -33,6 +33,8 @@
                     <input type="date"  name="data-nascimento" >
                     <label for="editarSenha">Editar Senha:</label>
                     <input type="password" id="editarSenhaPF" name="senha" placeholder="Nova Senha">
+                    <label for="foto">Escolha uma foto:</label>
+                	<input type="file" id="foto" name="foto">
                 </div>
                 <div class="submit-editar-dados"><input type="submit" value="Salvar edições "></input></div>
         </form>

@@ -7,7 +7,7 @@
 <title>HelpU</title>
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 <script><%@include file="/resources/js/Script.js"%></script>
-<link rel="stylesheet" href="../css/menu-topo.css">
+<link rel="stylesheet" href="../css/esqueci-senha.css">
 </head>
 <body>
 	<%@ include file="../cabecalhos/menu.jsp" %>
@@ -23,7 +23,9 @@
 	</div>
 
 	<form action="" class="forms">
-	<div><input class="padrao-input" id="emailReconfirmar" placeholder="Insira o Email" required /></div>
+	<div>
+		<input class="padrao-input" id="emailReconfirmar" placeholder="Insira o Email" required />
+		</div>
 
 	<button type="submit" class="padrao-submit"  id="invalidar-proposta">Enviar Email</button>
 </form>
