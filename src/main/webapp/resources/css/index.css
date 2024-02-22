@@ -217,7 +217,7 @@ footer {
 }
 
 .quem-somos-conteudo {
-    width: 70%;
+    width: 99vw;
     margin-bottom: auto; /* Coloca o conteúdo no topo */
     text-align: left; /* Alinha o texto ao centro */
     padding-top: 20px; /* Espaçamento superior */
@@ -245,13 +245,14 @@ footer {
 }
 
 .imagem-logo {
-	width: 20wv;
-	height: 20vh;
+	width: 11vw;
+	height: 11vh;
 }
 
 .logo {
 	width: 10vw;
 	height: 10vh;
+	background-color: transparent !important;
 }
 
 .titulo-index {
@@ -268,7 +269,8 @@ span {
 .container {
 	flex-wrap: wrap;
 	display: flex;
-	margin-left: 4vw;
+	margin-left: 7em;
+
 }
 
 .card-pedidos {
@@ -288,17 +290,18 @@ span {
 }
 
 .imagem-inicial {
-	width: 99.3vw;
-	height: 118vh;
-	
+	width: 99.22vw;
+	height: 119.7vh;
+	border: none;
 }
 
 .ajuste-titulo {
 	margin-left: 2.5ex;
-	margin-right: 40rem;
+	margin-right: 70em;
 }
 
 .botao-pedido {
+	font-weight: bold;
 	display: inline-block;
     background-color: #1B65AE;
     text-decoration: none;
@@ -308,8 +311,8 @@ span {
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease; /* Adicionando uma transição suave */
-    height: 5vh;
-    width: 7vw;
+    height: 4vh;
+    width: 9vw;
     justify-content: center;
 }
 
