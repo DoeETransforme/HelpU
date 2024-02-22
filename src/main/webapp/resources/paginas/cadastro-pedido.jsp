@@ -43,7 +43,6 @@
 							
 							<input type="text" name="meta-doacoes" placeholder="Meta de Doações" required class="padrao-input">
 							<input type="file" id="foto" name="foto">
-		                	<input type="submit" value="Continuar >" class="padrao-submit">
 							
 							<button type="submit" class="padrao-submit">Cadastro</button>
 						</div>
