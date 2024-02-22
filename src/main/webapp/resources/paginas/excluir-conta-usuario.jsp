@@ -31,8 +31,8 @@
                 
                 <form action="confirmar-exclusao" method="post" >
                 <div class="excluir-conta-botoes">
-                    <a href="Perfil_Pessoa.html" >Voltar</a>
-                            <input type="submit" name="DesativarConta" id="DesativarContaPF" value="SIM" >
+                    <a href="<%=request.getContextPath()%>/perfil-doador" >Voltar</a>
+                            <input type="submit" name="DesativarConta" id="DesativarContaPF" value="SIM" > 
                 </div>
 
 
