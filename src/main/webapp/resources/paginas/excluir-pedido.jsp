@@ -8,17 +8,27 @@
 <meta charset="UTF-8">
 <title>Excluir pedido</title>
 <link rel="stylesheet" href="../css/excluir-pedido.css">
-<script><%@include file="/resources/js/Script.js"%></script> z
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!--  <script src="../js/Script.js"></script> -->
+<script><%@include file="/resources/js/Script.js"%></script>
+<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+
 </head>
 <body>
-	<div class="menu-hamburguer" id="menu-hamburguer">
+	    <div class="menu-hamburguer" id="menu-hamburguer">
 	
-		<div class="hamburguer" onclick="toggleMenu()">☰</div>
-	</div>
-	
-	<div class="menu-lateral" id="menu-lateral">
-		<%@ include file="../cabecalhos/menu.jsp" %>
-	</div>
+    <div class="hamburguer" onclick="toggleMenu()">☰</div>
+</div>
+ 
+<div class="menu-lateral" id="menu-lateral">
+    <c:choose>
+                <c:when test="${tipoUsuario == 2}">
+ 
+                    <%@ include file="../cabecalhos/barra-lateral.jsp" %>
+ 
+                </c:when>
+            </c:choose>
+            </div>
 
 	<div class="titulo">
 		<h1>Tem certeza que deseja excluir esse pedido?</h1>

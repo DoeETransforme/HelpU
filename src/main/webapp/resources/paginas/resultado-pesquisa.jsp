@@ -31,6 +31,8 @@
 	<div>
 
 		<c:forEach var="pedido" items="${pedidos}">
+			<div class="imagem-card" id="div-imagem-card">
+			<img alt="foto pedidos" id="imagem-pedidos" src="<c:out value='${pedido.foto.urlFoto()}'/>"></div>
 			<div>
 				<p>
 					<c:out value="${pedido.titulo}" />

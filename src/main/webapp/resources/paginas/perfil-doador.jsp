@@ -6,11 +6,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helpu</title>
- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-<!--  <script src="../js/Script.js"></script> -->
+
+<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 <script><%@include file="/resources/js/Script.js"%></script>
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
-<style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style>
+<style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style> 
+<link rel="stylesheet" href="../css/estilo.css">
 
 
 </head>
@@ -38,8 +39,8 @@
 		
 		<div class="main-doador">
 			<div class="botoes-doador">
-				<button onclick="exibirHistorico()" class="padrao-input">Histórico de Doações</button>
-				<button onclick="exibirConquistas()" class="padrao-input">Exibir Conquistas</button>
+				<a href="<%=request.getContextPath()%>/historico-doacoes">Histórico de Doações</a>
+				<a href="<%=request.getContextPath()%>/historico-conquistas">Histórico de conquistas</a>
 				<a class="botao-editar-perfil" href="<%=request.getContextPath()%>/editar-perfil-doador?id=<c:out value='${doador.id}'/>">
 					<svg class="icone-editar-perfil" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<rect width="50" height="50" fill="url(#pattern0)"/>
@@ -64,11 +65,35 @@
 				<c:forEach var="proposta" items="${propostas}">
 					
 						<div class="card-doacoes-doador">
-							<div class="titulo">
-								<h3><a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /></a></h3>
-							</div>
-							 <c:out value="${proposta.pedidoDoacao.descricao}" />
+						
+								<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /> teste</a>
+							 
+							 <p>
+								<c:out value="${proposta.pedidoDoacao.descricao}" />
+								
+							 </p>
 						</div>
+
+						<div class="card-doacoes-doador">
+							
+								<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /></a>
+
+
+							 <c:out value="${proposta.pedidoDoacao.descricao}" />
+						</div>	
+						<div class="card-doacoes-doador">
+							
+								<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Doação para: <c:out value="${proposta.pedidoDoacao.ong.nome}" /></a>
+
+
+							 <c:out value="${proposta.pedidoDoacao.descricao}" />
+						</div>	
+						
+						
+						
+						
+						
+						
 						
 				</c:forEach>	
 				</div>

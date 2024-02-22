@@ -19,7 +19,7 @@
 	</div>
 	
 	<div class="menu-lateral" id="menu-lateral">
-		<%@ include file="../cabecalhos/menu.jsp" %>
+		<%@ include file="../cabecalhos/barra-lateral.jsp" %>
 	</div>
     
         <div class="titulo">

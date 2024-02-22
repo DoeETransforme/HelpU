@@ -28,8 +28,8 @@
 							<c:forEach var="pedidos" items="${pedidos}">
 
 								<div class="propostas-doacao-analise">
-									<div class="imagem-card" id="div-imagem-card"><img src="../imagens/Sem título.png"
-											alt="imagem de perfil da ong" id="imagem-historico"></div>
+									<div class="imagem-card" id="div-imagem-card">
+									<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>"></div>
 									<div class="conteudo" id="conteudo-historico">
 										<h2 id="titulo-historico">
 											Doações para <span id="Nome_Ong">${pedidos.ong.nome}</span>
