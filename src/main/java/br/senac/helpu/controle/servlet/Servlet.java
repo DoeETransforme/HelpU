@@ -103,10 +103,8 @@ public class Servlet extends HttpServlet {
 		else if (sessao.getAttribute("usuario") instanceof Ong) {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
-		} else {
-			String tipoUsuario = "3";
-			request.setAttribute(tipoUsuario, tipoUsuario);
-		}
+		} 
+		
 
 		String action = request.getServletPath();
 

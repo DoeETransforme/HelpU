@@ -8,33 +8,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Helpu</title>
 		<style type="text/css"> <%@include file="/resources/css/index.css"%></style>
-       <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
+       <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+       <script><%@include file="/resources/js/Script.js"%></script>
+		<style type="text/css"> <%@include file="./resources/css/menu-topo.css"%></style> 
     </head>
 
     <body>
         <div>
-            <header>
-                <div class="menu-index">
-                    <div class="menu-logo">
-                    <!--Nao consegui fazer o fundo transparente funcionar  -->
-<%--  						<svg class="logo">
-                   		 <%@ include file="/resources/imagens/logo.jsp" %>
-						</svg>  --%>
-                    </div>
-                    <div class="opcoes">
-                        <nav>
-                            <ul>
-                                <li><a href="#">Menu</a></li>
-                                <li><a href="#">Doe Aqui</a></li>
-                                <li><a href="mostrar-cadastro">Cadastrar-se</a></li>
-                                <li><a href="login">Entrar</a></li>
-                            </ul>
-                        </nav>
-						
-                    </div>
-                    </div>      
-                </header>
-
+            
+			<%@include file="./resources/cabecalhos/menu-deslogado.jsp" %>
+			
             <main>
                 <div class="tela-inicial">
                 <svg class="imagem-inicial">
