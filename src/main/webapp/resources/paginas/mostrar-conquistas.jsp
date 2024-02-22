@@ -18,6 +18,8 @@
 			<c:forEach var="conquista" items="${conquistas}">
 				<div>
 					<p>
+						<img alt="foto da conquista" id="foto" src="<c:out value='${conquista.foto.urlFoto()}'/>">
+						
 						Nome: <span id="nome_conquista">${conquista.nome}</span><br>
 										
 						Descrição: <span id="descricao_conquista">${conquista.descricao}</span>

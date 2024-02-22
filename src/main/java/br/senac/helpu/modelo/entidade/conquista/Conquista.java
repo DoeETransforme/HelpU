@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.senac.helpu.modelo.entidade.doador.Doador;
+import br.senac.helpu.modelo.entidade.foto.Foto;
  
 @Entity
 @Table(name = "Conquista")
@@ -31,21 +34,27 @@ public class Conquista implements Serializable {
  
 	@ManyToMany(mappedBy = "conquistas")
 	private List<Doador> doadores;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	private Foto foto;
  
 	
+
 	public Conquista() {
 	}
  
-	public Conquista(String nome, String descricao) {
+	public Conquista(String nome, String descricao, Foto foto) {
 		setNome(nome);
 		setDescricao(descricao);
+		setFoto(foto);
  
 	}
  
-	public Conquista(Long id, String nome, String descricao) {
+	public Conquista(Long id, String nome, String descricao, Foto foto) {
 		setId(id);
 		setNome(nome);
 		setDescricao(descricao);
+		setFoto(foto);
 	}
  
 	public Long getId() {
@@ -70,6 +79,14 @@ public class Conquista implements Serializable {
  
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
 	}
  
  
