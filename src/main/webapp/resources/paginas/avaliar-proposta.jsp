@@ -7,33 +7,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpU</title>
-<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+<!-- <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+    <script><%@include file="/resources/js/Script.js"%></script> -->
     <link rel="stylesheet" href="../css/estilo.css">
-    <script><%@include file="/resources/js/Script.js"%></script>
    
 </head>
 <body>
- 
-    <div class="menu-hamburguer" id="menu-hamburguer">
-	
-    <div class="hamburguer" onclick="toggleMenu()">☰</div>
+
+
+    <%@ include file="../cabecalhos/menu.jsp" %>
+
+    
+<div class="titulo">
+    <h1>Editar Conquista</h1>
 </div>
- 
-<div class="menu-lateral" id="menu-lateral">
-    <c:choose>
-                <c:when test="${tipoUsuario == 2}">
- 
-                    <%@ include file="../cabecalhos/menu.jsp" %>
- 
-                </c:when>
-            </c:choose>
 </div>
  
  
     <main>
  
         <div class="avaliar-proposta">
-         <img src="<c:url value='/resources/imagens/perfil-icon.png' />" alt="Imagem de perfil do usuario" id="imagem-PF-avaliarProposta">
+            <img alt="foto do doador" id="foto-doador-proposta" src="<c:out value='${doador.fotoUsuario.urlFoto()}'/>">
  
  
             <h2> Doação de: <c:out value="${proposta.doador.nome}" /> </h2>
