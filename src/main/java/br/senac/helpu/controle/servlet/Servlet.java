@@ -354,6 +354,10 @@ public class Servlet extends HttpServlet {
 			case "/proposta-recusada":
 				invalidarProposta(request, response);
 				break;
+				
+			case"proposta-excluida":
+				mostrarPropostaExcluida(request, response);
+				break;
 
 			default:
 				mostrarIndex(request, response);
@@ -362,6 +366,16 @@ public class Servlet extends HttpServlet {
 		} catch (SQLException ex) {
 			throw new ServletException(ex);
 		}
+	}
+	
+	
+
+	private void mostrarPropostaExcluida(HttpServletRequest request, HttpServletResponse response) 
+		throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/proposta-excluida.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	private void mostrarInvalidarProposta(HttpServletRequest request, HttpServletResponse response)
@@ -1280,7 +1294,9 @@ public class Servlet extends HttpServlet {
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 
 		propostaDoacaoDAO.deletarPropostaDoacao(proposta);
-
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/proposta-excluida.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	private void mostrarEditarConquista(HttpServletRequest request, HttpServletResponse response)
