@@ -432,6 +432,11 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarIndex(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacaoLimitTrace();
+		
+		request.setAttribute("pedidos", pedidos);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("./index.jsp");
 		dispatcher.forward(request, response);
 	}

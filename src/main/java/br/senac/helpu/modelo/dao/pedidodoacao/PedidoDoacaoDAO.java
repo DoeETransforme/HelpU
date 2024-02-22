@@ -20,6 +20,8 @@ public interface PedidoDoacaoDAO {
 	PedidoDoacao recuperarPedidoDoacaoId(Long id);
 
 	List<PedidoDoacao> recuperarPedidosDoacao();
+	
+	List<PedidoDoacao> recuperarPedidosDoacaoLimitTrace();
 
 	List<PedidoDoacao> recuperarPedidoDoacaoOng(Ong ong);
 
