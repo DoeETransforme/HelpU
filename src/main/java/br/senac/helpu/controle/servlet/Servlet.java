@@ -1280,6 +1280,8 @@ public class Servlet extends HttpServlet {
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 
 		propostaDoacaoDAO.deletarPropostaDoacao(proposta);
+		
+		response.sendRedirect("propostas-pendentes");
 
 	}
 
