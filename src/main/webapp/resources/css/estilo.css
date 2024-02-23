@@ -18,7 +18,7 @@
     --cor-texto: #32383E;
     --fonte-texto:"DM Sans", sans-serif;
     --cor-background-tela: #FFFFFF;
-    --cor-background-card:  #E5E5E5 ;
+    --cor-background-card:  #EDEDED ;
 }
 
 body {
@@ -353,101 +353,12 @@ body {
 
 }
 
-.imagem-login {
-    display: inline-block;
-
-    width: 650px;
-    height: auto;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    top: 150px;
-    left: 50px;
-
-}
 
 .barra-de-pesquisa {}
-
-.padrao-login {
-    border: 1px solid red;
-    width: 300px;
-    height: 50px;
-    margin: 10px;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: var(--cor-secundaria);
-
-
-}
-
-.forms-login {
-    align-items: center;
-
-
-
-}
-
-.titulo-login {
-    text-align: center;
-    display: flex;
-    position: relative;
-    bottom: 50px;
-    font-size: 100px;
-
-
-    color: 32383E;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-
-}
-
-.padrao-submit-login {
-    border: 1px solid red;
-    margin: 10px auto;
-    margin-top: 100px;
-    margin-bottom: 30px;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: var(--cor-secundaria);
-    display: block;
-    width: 20%;
-    transition: all 0.5s;
-}
-
-.padrao-submit-login:hover {
-    border-radius: 15px;
-    background-color: var(--cor-principal);
-    color: var(--cor-secundaria);
-}
 
 
 .position {}
 
-
-.esqueceu-senha-login {
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    color: 32383E;
-
-}
-
-.tamanho {
-    align-items: center;
-    bottom: 250px;
-    right: 160px;
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    height: auto;
-    margin-top: 60px;
-    margin-right: 300px;
-    float: right;
-}
 
 .negrito{
 	font-weight: bold;

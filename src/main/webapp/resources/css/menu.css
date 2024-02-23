@@ -10,20 +10,3 @@
     z-index: 4;
 }
 
-.menu-index {
-    display: flex;
-    position: absolute;
-    width: 100%;
-}
-
-.menu-logo {
-
-    flex: 30%;
-    display: flex; /* Para alinhar verticalmente */
-    align-items: center; /* Para alinhar verticalmente */
-    margin-left: 5%
-}
-
-.menu-logo img {
-    width: 100px; /* Ajuste conforme necessário */
-}

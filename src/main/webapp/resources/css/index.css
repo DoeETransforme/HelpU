@@ -5,59 +5,6 @@
 	border: none;
 }
 
-.menu-index {
-    display: flex;
-    position: absolute;
-    width: 100%;
-}
-
-.menu-logo {
-
-    flex: 30%;
-    display: flex; /* Para alinhar verticalmente */
-    align-items: center; /* Para alinhar verticalmente */
-    margin-left: 5%
-}
-
-.menu-logo img {
-    width: 100px; /* Ajuste conforme necessário */
-}
-
-.opcoes {
-
-    display: flex;
-    justify-content: flex-end; /* Para alinhar à direita */
-    align-items: center; /* Para alinhar verticalmente */
-    flex: 70%;
-    margin-right: 5%;
-    font-size: 20px;
-}
-
-.opcoes nav ul {
-    list-style: none; /* Remove a estilização padrão da lista */
-    display: flex; /* Para alinhar horizontalmente */
-}
-
-.opcoes nav ul li {
-    margin-right: 10px; /* Adiciona margem entre os itens do menu */
-}
-
-.opcoes a {
-    text-decoration: none;
-    color: white;
-    margin-left: 30px;
-    transition: color 0.3s ease; /* Adiciona uma transição suave */
-}
-
-.opcoes a:hover {
-    color: #FDE583; /* Muda a cor para amarelo quando em hover */
-}
-
-.opcoes img {
-    width: 50px;
-    margin-left: 50px; /* Ajuste conforme necessário */
-}
-
 
 .texto-sobre-imagem {
 	position: absolute;

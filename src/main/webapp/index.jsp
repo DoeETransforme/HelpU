@@ -14,10 +14,9 @@
     </head>
 
     <body>
+    		<%@include file="./resources/cabecalhos/menu-deslogado.jsp" %>
         <div>
-            
-			<%@include file="./resources/cabecalhos/menu-deslogado.jsp" %>
-			
+            		
             <main>
                 <div class="tela-inicial">
                 <svg class="imagem-inicial">
