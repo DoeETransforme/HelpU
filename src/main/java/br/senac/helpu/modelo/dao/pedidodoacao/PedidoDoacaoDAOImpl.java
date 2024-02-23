@@ -201,43 +201,6 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		return pedidos;
 	}
 	
-	public List<PedidoDoacao> recuperarPedidosDoacaoOng() {
-		Session sessao = null;
-		List<PedidoDoacao> pedidos = null;
-
-		try {
-
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
-
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
-			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
-			Root<PedidoDoacao> raizConquista = criteria.from(PedidoDoacao.class);
-			
-			raizConquista.fetch(PedidoDoacao_.ong);
-			
-			criteria.select(raizConquista);
-
-			pedidos = sessao.createQuery(criteria).getResultList();
-
-			sessao.getTransaction().commit();
-
-		} catch (Exception sqlException) {
-
-			sqlException.printStackTrace();
-
-			if (sessao.getTransaction() != null) {
-				sessao.getTransaction().rollback();
-			}
-
-		} finally {
-
-			if (sessao != null) {
-				sessao.close();
-			}
-		}
-		return pedidos;
-	}
 	
 	public List<PedidoDoacao> recuperarPedidosDoacaoLimitTrace() {
 		Session sessao = null;

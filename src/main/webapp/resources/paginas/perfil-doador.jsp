@@ -62,9 +62,7 @@
 							 
 							 <span>Feito em: <c:out value="${proposta.dataCriacao}" /></span>
 							 
-							 <c:forEach var="item" items="${propostas.itens}">	
-							 	<span>Feito em: <c:out value="${proposta.itens.alimento.nome}" /></span>
-							 </c:forEach>
+							<a class="botao" id="botao-descricao" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${proposta.id}'/>">Descrição</a>	
 						</div>			
 						
 				</c:forEach>	

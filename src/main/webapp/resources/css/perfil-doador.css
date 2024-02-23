@@ -70,6 +70,15 @@ body {
 }
 
 
+#botao-descricao {
+	margin-left: 3em;
+	display: flex;
+	height: 2em;
+	width: 10em;
+	padding: 0.5em;
+}
+
+
 .perfil-doador {
     width: 95em;
     margin: 0 auto;

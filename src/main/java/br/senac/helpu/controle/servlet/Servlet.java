@@ -826,7 +826,7 @@ public class Servlet extends HttpServlet {
 
 		if (usuario instanceof Doador) {
 			List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
-			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacaoOng();
+			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
 			List<Doador> doadores = doadorDAO.recuperarListaDoadores();
 
 			request.setAttribute("alimentos", alimentos);
