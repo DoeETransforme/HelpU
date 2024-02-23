@@ -6,6 +6,7 @@
     justify-content: flex-start;
     width: 80%;
     margin: 0 auto;
+    margin-top: 0.5em;
 
 }
 .template-grid .menu-hamburguer {
@@ -22,12 +23,12 @@
       
   margin: 0 auto; 
         margin-left: 0px;
-        width: 900px;
-        height: 35px;
+        width: 67em;
+        height: 2.8em;
         border-radius: 6px;
         border: none;
-
 }
+
 
 .menu-index {
     display: flex;

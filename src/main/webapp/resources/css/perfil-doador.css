@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
-.card-doacoes-doador {
-	border: none !important;
+
+*{
+	text-decoration: none;
 }
 
 body {
@@ -11,50 +12,14 @@ body {
 .botao-editar-perfil {
 	color: var(--cor-texto) !important;
 	text-decoration: none;
+	
 }
 
 .icone-editar-perfil {
 	width: 25px;
 	float: left;
 }
-span a {
-	text-decoration: none;
-}
 
-h3 a {
-	text-decoration: none !important;
-	color: var(--cor-principal) !important;
-	font-size: 20px;
-}
-.posicao-cards {
-	display: flex;
-    flex-wrap: nowrap !important; 
-}
-
-.card-doacoes-doador {
-	background-color: var(--cor-background-card) ;
-	width: 250px; 
-    height: 400px; 
-    padding: 20px; 
-    box-sizing: border-box; 
-    transition: transform 0.5s ease;
-}
-
-button {
-	background-color: var(--cor-principal) !important;
-	color: var(--cor-background-tela);
-	font-weight: bold !important;
-	
-}
-
-button:hover {
-	background-color: var(--cor-secundaria) !important;
-    color: var(--cor-texto) !important;
-}
-
-.ultimas-doacoes {
-    display: flex !important;
-}
 
 .linha {
   margin-top: 30px;
@@ -64,3 +29,148 @@ button:hover {
   border-bottom: 1px solid var(--cor-background-card);
   border-radius: 10px;
 }
+
+.botao {
+	display: flex;
+	color: var(--cor-background-tela);
+	background-color: var(--cor-principal);
+	transition: all 0.5s;
+    font-weight: bold;
+    height: 2.2em;
+    margin-bottom: 2em;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.8);
+    border-radius: 7px;
+    justify-content: center;
+}
+
+.botao:hover {
+    border-radius: 8px;
+    color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+.botoes-doador {
+    flex-direction: column;
+    width: 20%;
+    justify-content: left;
+    height: 150px;
+    margin-top: 40px;
+}
+
+
+.botoes-doador a {
+    display: flex;
+    align-items: center; 
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    
+}
+
+
+.perfil-doador {
+    width: 95em;
+    margin: 0 auto;
+    margin-top: 1em !important;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 100px;
+    flex-direction: column; 
+}
+
+.informacoes-doador {
+
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+   
+
+
+}
+
+.imagem-doador {
+    flex: 20%;
+    width: 10vh;
+    border-radius: 50%;
+  
+}
+
+.informacoes-doador img {
+    width: 150px;
+
+
+}
+
+.nome-doador {
+    text-align: left;
+    justify-content: center;
+
+    font-size: 20px;
+
+    flex: 80%;
+   
+    font-family: 'Inter', sans-serif;
+}
+
+
+.nome-doador p,
+h1 {
+    margin-top: 20px;
+    margin-left: 4%;
+}
+
+.main-doador {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+}
+  
+
+.titulo-card{
+    text-decoration: none;
+    color: var(--cor-principal);
+ 	font-weight: bold;
+ 	font-size: 1.2em;
+  }
+
+.ultimas-doacoes {
+	display: flex;
+   	flex-direction: column;
+   	width: 50vw;
+   	
+  
+  }  
+
+.titulo { 
+	margin-top: 1em;
+	display: inline-block;
+    font-size: 1.4em;
+    
+}
+
+.posicao-cards {
+	display: flex; 
+	flex-wrap: wrap;
+	margin-left: 4em;
+}
+
+.card-doacoes-doador {
+	border-radius: 10px;
+	background-color: var(--cor-background-card) ;
+	width: 19em; 
+    height: 14em; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    transition: transform 0.5s ease;
+    margin: 2em;
+    text-align: center;
+    background-color: #F4F2F0;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4); /* Adds a shadow */
+    
+}
+

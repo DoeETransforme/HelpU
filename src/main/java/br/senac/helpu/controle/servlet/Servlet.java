@@ -95,12 +95,12 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		if (sessao.getAttribute("usuario") instanceof Doador) {
+		if (usuario instanceof Doador) {
 			String tipoUsuario = "1";
 			request.setAttribute("tipoUsuario", tipoUsuario);
 		}
 
-		else if (sessao.getAttribute("usuario") instanceof Ong) {
+		else if (usuario instanceof Ong) {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
 		} 
@@ -240,6 +240,14 @@ public class Servlet extends HttpServlet {
 			case "/descricao-proposta":
 				mostrarDescricacaoProposta(request, response);
 				break;
+				
+			case "/esqueci-minha-senha":
+				mostrarEsqueciMinhaSenha(request, response);
+				break;
+				
+			case "/mostrar-proposta-excluida":
+				mostrarPropostaExcluida(request, response);
+				break;
 
 			case "/inserir-doador":
 				inserirDoador(request, response);
@@ -353,9 +361,6 @@ public class Servlet extends HttpServlet {
 				invalidarProposta(request, response);
 				break;
 				
-			case "/esqueci-minha-senha":
-				mostrarEsqueciMinhaSenha(request, response);
-				break;
 
 			default:
 				mostrarIndex(request, response);
@@ -472,13 +477,12 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (usuario instanceof Doador) {
-			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+			Doador doador = doadorDAO.recuperarDoadorUnicamenteId(usuario.getId());
 
 			List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
-			long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
-			List<PropostaDoacao> propostas = propostaDoacaoDAO
-					.recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(doador, StatusProposta.ACEITO);
-
+			Long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(doador, StatusProposta.ACEITO);
+			
 			request.setAttribute("propostas", propostas);
 			request.setAttribute("qntdConquistas", conquista);
 			request.setAttribute("doador", doador);
@@ -820,9 +824,9 @@ public class Servlet extends HttpServlet {
 		HttpSession sessao = request.getSession();
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
-		if (sessao.getAttribute("usuario") instanceof Doador) {
+		if (usuario instanceof Doador) {
 			List<Alimento> alimentos = alimentoDAO.recuperarAlimentos();
-			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacao();
+			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidosDoacaoOng();
 			List<Doador> doadores = doadorDAO.recuperarListaDoadores();
 
 			request.setAttribute("alimentos", alimentos);
