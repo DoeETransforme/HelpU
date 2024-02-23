@@ -541,6 +541,7 @@ body {
 .imagem-cadastra-se {
     margin-right: 10%;
     flex: 40%;
+   
 
     text-align: center;
 
@@ -548,6 +549,7 @@ body {
 
 #imagem-cadastro {
     max-width: 90%;
+  
 
 }
 
@@ -1605,6 +1607,13 @@ width: 40%;
     width: 30px;
     float: left;
 }
+
+#imagem-confirmado-proposta{
+
+    width: 100;
+
+}
+
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
 #errorTelefone,
@@ -1615,7 +1624,60 @@ width: 40%;
     color: red;
 }
 
-p.one {
-    border-style: solid;
+
+.letra{
+color: #1B65AE;
+
 }
 
+.button{
+    background-color: #007bff;
+    color:white;
+}
+
+
+.meu-botao button {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none;
+    padding: 6px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 50%;
+    
+
+  }
+
+  .meu-botao a{
+    color: white;
+    text-decoration: none;
+  }
+
+
+  .imagem-nao-logado{
+    flex: 50%;
+  }
+  .imagem-nao-logado svg {
+  
+      
+        
+  
+}
+.botoes {
+  
+    width: 100%;
+    float: right;
+    
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+.nao-logado{
+
+    display: flex;
+}
+
+.img-nao {
+    margin-right: 25px; 
+}
