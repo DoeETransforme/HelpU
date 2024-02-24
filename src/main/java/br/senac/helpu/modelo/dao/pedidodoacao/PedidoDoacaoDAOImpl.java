@@ -201,6 +201,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 		return pedidos;
 	}
 	
+	
 	public List<PedidoDoacao> recuperarPedidosDoacaoLimitTrace() {
 		Session sessao = null;
 		List<PedidoDoacao> pedidos = null;
