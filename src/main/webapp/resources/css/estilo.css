@@ -1390,3 +1390,108 @@ p.one {
     border-style: solid;
 }
 
+
+.alimentos-cadastrados {
+
+
+   
+   
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: grid; /* Alterado para display grid */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas com largura igual */
+    gap: 20px; /* Define um espaçamento entre os elementos */
+}
+
+.card-alimento-cadastrado {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--cor-background-input);
+    
+    width: 100%;
+    padding: 10px;
+}
+
+.conteudo-card-alimento {
+    font-size: 20px;
+}
+
+.editar-excluir-alimento {
+    display: flex;
+    justify-content: space-between; /
+}
+
+.editar-excluir-alimento a {
+
+    text-decoration: none;
+    font-size: 16;
+ 
+    color: var(--cor-background-tela);
+    padding: 10px;
+    border-radius: 10px;
+   
+    background-color: var(--cor-principal);
+}
+
+.input-search input {
+    background-color: #F4F2F0;
+    border-radius: 10px;
+    border: none;
+    width: 50%;
+    margin-top: 1%;
+    padding: 10px;
+    color: var(--cor-texto);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adicionando uma sombra */
+}
+
+.todas-conquistas-cadastradas{
+    
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: grid; /* Alterado para display grid */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas com largura igual */
+    gap: 20px; /* Define um espaçamento entre os elementos */
+
+}
+
+.card-conquista{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--cor-background-input);
+    
+    width: 100%;
+    padding: 10px;
+    
+
+}
+.conteudo-card-conquista{
+    font-size: 20px;
+
+}
+.conteudo-card-conquista img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+  
+}
+
+.botoes-card-conquista {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.botoes-card-conquista a {
+
+    text-decoration: none;
+    font-size: 16;
+ 
+    color: var(--cor-background-tela);
+    padding: 10px;
+    border-radius: 10px;
+   
+    background-color: var(--cor-principal);
+}
