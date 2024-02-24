@@ -79,12 +79,10 @@
 					href="<%=request.getContextPath()%>/historico-pedidos">Historico de Pedidos</a>
 					</div>
 					<div class="opcao-ong">
-					<a id="editar-perfil"
-						href="<%=request.getContextPath()%>/editar-perfil">Editar Perfil</a>
+					<a id="editar-perfil" href="<%=request.getContextPath()%>/editar-perfil">Editar Perfil</a>
 					</div>
 					<div class="opcao-ong">
-						<a id="cadastro-pedido"
-						href="<%=request.getContextPath()%>/cadastro-pedido">Criar Novo Pedido</a>
+						<a id="cadastro-pedido" href="<%=request.getContextPath()%>/cadastro-pedido">Criar Novo Pedido</a>
 							
 					</div>
 				</div>
@@ -105,7 +103,7 @@
 								id="imagem-pedido-perfil-ong">
 						</div>
 						<div class="conteudo-pedido-perfil-ong">
-							<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
+							<img alt="foto pedido" id="imagem-pedido" <%-- src="<c:out value='${pedidos.foto.urlFoto()}'/>" --%>>
 							<h3>
 								Titulo:<span id="TituloPedido">${pedidos.titulo}</span>
 							</h3>

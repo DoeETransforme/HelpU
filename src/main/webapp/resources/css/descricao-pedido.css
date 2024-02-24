@@ -1,0 +1,221 @@
+@charset "UTF-8";
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.titulo {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1.5em;
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+    font-size: 1.7em;
+  
+}
+
+.imagem-do-pedido {
+    display: inline-block;
+    margin-top: 2em;
+    width: 90vw;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.imagem-do-pedido img {
+    width: 89vw;
+    height: 60vh;
+    border-radius: 10px;
+    margin-left: 5.8em;
+
+}
+
+.informacao-pedido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -6.5em;
+}
+
+.status-pedido {
+    margin-top: 35px;
+    font-family: 'Inter', sans-serif;
+    color: #093762;
+
+}
+
+.ajude-pedido {
+    margin-top: 50px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
+.ajude-pedido a{
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+.ajude-pedido a:hover{
+    color: var(--cor-secundaria);
+}
+.ajude-pedido button {
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+.ajude-pedido button:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    transform: scale(1.1);
+}
+
+.card-pedido {
+    border: 2px solid var(--cor-principal);
+    border-radius: 30px;
+    width: 20%;
+    margin: 5%;
+    margin-top: 5%;
+    height: auto;
+    padding: 10px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.5s ease;
+}
+
+.card-pedido:hover {
+    border-color: var(--cor-secundaria);
+    width: 25%;
+}
+
+
+.card-pedido p {
+    padding: 5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.card-pedido button {
+    background-color: var(--cor-principal);
+    color: var(--cor-background);
+    padding: 10px;
+    border: none;
+    border-radius: 20%;
+    width: 100px;
+    margin-top: auto;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    /* Para empurrar o botão para a parte inferior do card */
+}
+
+.descricao-pedido {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+
+
+}
+
+.descricao-pedido p {
+    text-align: center;
+    margin: 0;
+    max-width: 70%;
+    font-size: 18px;
+}
+
+
+
+
+
+.titulo-progresso {
+    font-family: 'Inter', sans-serif;
+    color: var(--cor-principal);
+    font-size: 30px;
+    justify-content: center;
+    display: flex;
+    margin: 15px;
+  
+}
+
+/*.progresso-doacao {
+    width: 100%;
+}
+.barra-progresso {}
+
+.progresso-doacao {
+    width: 100%;
+}
+
+.barra-progresso {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+progress {
+    width: 70%;
+    height: 20px;
+    appearance: none;
+    border-radius: 10px;
+
+}
+
+progress::-webkit-progress-value {
+    background-color: #1B65AE;
+    border-radius: 10px;
+}
+
+
+progress::-webkit-progress-bar {
+    background-color: #86ABD0;
+    border-radius: 10px;
+}
+
+
+progress::-moz-progress-bar {
+    background-color: #007bff;
+    border-radius: 10px;
+}*/
+
+.ong-box {
+	 display: flex;
+  	 flex-direction: column;
+  	 justify-content: center;
+  	 margin-left: 12em;
+}
+
+#foto-ong-pedido {
+	display: flex;
+	justify-content: center;
+	width: 20vw;
+	height: 20vh;
+	border-radius: 50%;
+	margin-left: 0;
+}
+
+#ativo {
+	display: flex;
+	justify-content: center;
+}
+
+#barra-progressao {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 1.5em;	
+	width: 41%;
+	border-radius: 20px;
+	background: linear-gradient(to right, rgb(86,204,246), rgb(47,128,237));
+}
+

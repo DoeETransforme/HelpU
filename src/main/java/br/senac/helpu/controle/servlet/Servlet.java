@@ -70,6 +70,7 @@ public class Servlet extends HttpServlet {
 	private OngDAO ongDAO;
 	private ConquistaDAO conquistaDAO;
 	private FotoDAO fotoDAO;
+	private String urlFoto = null;
 
 	public void init() {
 		usuarioDAO = new UsuarioDAOImpl();
@@ -104,6 +105,10 @@ public class Servlet extends HttpServlet {
 			String tipoUsuario = "2";
 			request.setAttribute("tipoUsuario", tipoUsuario);
 		} 
+		
+		if (usuario != null) {
+			request.getSession().setAttribute("urlFoto", urlFoto);
+		}
 		
 
 		String action = request.getServletPath();
@@ -567,7 +572,7 @@ public class Servlet extends HttpServlet {
 			Ong ong = (Ong) usuario;
 
 			Long id = Long.parseLong(request.getParameter("id"));
-
+			Ong ongFoto = ongDAO.recuperarOngId(usuario.getId());
 			PedidoDoacao pedido = pedidoDoacaoDAO.recuperarPedidoDoacaoId(id);
 			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoPedido(pedido);
 			List<PedidoDoacao> pedidos = pedidoDoacaoDAO.recuperarPedidoDoacaoOng(ong);
@@ -575,6 +580,7 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("pedido", pedido);
 			request.setAttribute("propostas", propostas);
 			request.setAttribute("pedidos", pedidos);
+			request.setAttribute("ongFoto", ongFoto);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-pedido.jsp");
 			dispatcher.forward(request, response);
