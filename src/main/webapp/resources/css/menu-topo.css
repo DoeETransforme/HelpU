@@ -31,54 +31,63 @@
 
 
 .menu-index {
+
     display: flex;
     position: absolute;
+   
     width: 100%;
+    margin-top: 10px;
 }
 
 .menu-logo {
 
     flex: 30%;
-    display: flex; /* Para alinhar verticalmente */
-    align-items: center; /* Para alinhar verticalmente */
+    display: flex; 
+    align-items: center; 
     margin-left: 5%
 }
 
 .menu-logo img {
-    width: 100px; /* Ajuste conforme necessário */
+    width: 50px; 
+}
+#imagem-logo{   
+    width: 50px; 
+    border: 1px solid red;
+
 }
 
 .opcoes {
 
     display: flex;
-    justify-content: flex-end; /* Para alinhar à direita */
-    align-items: center; /* Para alinhar verticalmente */
+    justify-content: flex-end; 
+    align-items: center; 
     flex: 70%;
     margin-right: 5%;
-    font-size: 20px;
+ 
+    font-size: 30px;
 }
 
 .opcoes nav ul {
-    list-style: none; /* Remove a estilização padrão da lista */
-    display: flex; /* Para alinhar horizontalmente */
+    list-style: none;
+    display: flex; 
 }
 
 .opcoes nav ul li {
-    margin-right: 10px; /* Adiciona margem entre os itens do menu */
+    margin-right: 10px;
 }
 
 .opcoes a {
     text-decoration: none;
     color: var(--cor-background-tela);
     margin-left: 30px;
-    transition: color 0.3s ease; /* Adiciona uma transição suave */
+    transition: color 0.3s ease;
 }
 
 .opcoes a:hover {
-    color: #FDE583; /* Muda a cor para amarelo quando em hover */
+    color: #FDE583; 
 }
 
 .opcoes img {
     width: 50px;
-    margin-left: 50px; /* Ajuste conforme necessário */
+    margin-left: 50px; 
 }
