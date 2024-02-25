@@ -482,7 +482,7 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (usuario instanceof Doador) {
-			Doador doador = doadorDAO.recuperarDoadorUnicamenteId(usuario.getId());
+			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 
 			List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
 			Long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
@@ -581,6 +581,7 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("propostas", propostas);
 			request.setAttribute("pedidos", pedidos);
 			request.setAttribute("ongFoto", ongFoto);
+			request.setAttribute("ong", ong);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-pedido.jsp");
 			dispatcher.forward(request, response);

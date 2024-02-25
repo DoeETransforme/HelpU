@@ -53,8 +53,9 @@
 						<span id="DescricaoPedido">
 									<c:out value="${pedido.descricao}" />
 								</span>
-
-						<br>
+								
+					<div class="linha"></div>
+					
 						<div class="status-pedido">
 							<h4>Status do Pedido: </h4>
 							<span id="ativo"><c:out value="${pedido.statusPedido}" /></span>						
@@ -62,50 +63,58 @@
 						
 						<div class="progresso-doacao">
 							<h4 class="titulo-progresso">Progressão da doação:</h4>
-							<div id="barra-progressao"></div>
-								<!-- <div class="barra-progresso">
+								<div class="barra-progresso">
 									<progress value="50" max="100"></progress>
-								</div> -->
+								</div>
 						</div>
 
 						
 
 					</div>
-					<div class="ajude-pedido">
-							<button id="cadastrar-proposta-descricao"  type="button" class="padrao-submit"><a href="<%=request.getContextPath()%>/cadastro-proposta?id=<c:out value='${pedido.id}'/>">Cadastrar Proposta</a></button>
-
+					<div class="botoes">
+	 					<c:if test="${usuario != ong}"><a class="botao" href="<%=request.getContextPath()%>/cadastro-proposta?id=<c:out value='${pedido.id}'/>">Ajude e doe agora mesmo!</a></c:if> 
+						<c:if test="${usuario == ong}"><a class="botao" href="<%=request.getContextPath()%>/editar-pedido?id=<c:out value='${pedido.id}'/>">Deseja editar o pedido?</a></c:if>
 					</div>
-
+					
+					<div class="linha"></div>
+					
 					<div class="titulo">
 						<h2>Doadores:</h2>
 					</div>
 					
 							
 							<c:forEach var="propostas" items="${propostas}">  
+								<div class=alinhamento-doadores>
 								<a href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostas.id}'/>">	
-          							<tr>			
-				          				<td><c:out value="${propostas.doador.nome}" /></td>				          								          			                   
-          							</tr>
-          							
-          							<c:forEach var="item" items="${propostas.itens}">
-								            <span> <c:out value="${item.quantidade}" /></span>
-								            <span><c:out value="${item.alimento.dataValidade}" /></span>
-	           						</c:forEach>             							 
+											<img alt="foto do ong" id="foto-descricao-proposta" src="<c:out value='${ongFoto.fotoUsuario.urlFoto()}'/>">
+											
+					          				<span><c:out value="${propostas.doador.nome}" /></span>				          								          			                   
+	          							
+		          							<c:forEach var="item" items="${propostas.itens}">
+										            <span> <c:out value="${item.quantidade}" /></span>
+										            <span><c:out value="${item.alimento.dataValidade}" /></span>
+			           						</c:forEach> 
+			           						 
+		           							         							 
           						</a>
+          						<div class="linha-doador"></div>  
+          						</div>
 							</c:forEach>
 							
 							<h1> Veja outros pedidos ativos:</h1>
 												
 							<c:forEach var="pedido" items="${pedidos}">
-								            <span> <c:out value="${pedido.titulo}" /></span>
-								            <span> <c:out value="${pedido.descricao}" /></span>
-								            <span> <c:out value="${pedido.data}" /></span>
-								            <span> <c:out value="${pedido.metaDoacoes}" /></span>
-	           				</c:forEach>         
+								<div class="card-pedidos">
+									<img alt="foto do ong" id="foto-descricao-pedido" src="<c:out value='${ongFoto.fotoUsuario.urlFoto()}'/>">
+									<div class="descricao-card">
+										<span class="titulo-card"><c:out value="${pedido.titulo}" /></span>
+										<span class="nome-card">Por <c:out value="${pedido.ong.nome}" /></span>
+										<span class="texto-card"><c:out value="${pedido.descricao}" /></span>
+										<a class="botao-pedido" href="<%request.getServletContext();%>/descricao-pedido">Leia Mais</a>
+									</div>
+								</div>
+							</c:forEach> 
 					
-					<div class="">
-						<img src="imagem.jpg" alt="capa de projeto" id="capa_pedido">
-					</div>
 				</main>
 			</body>
 

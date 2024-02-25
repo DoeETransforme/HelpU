@@ -8,7 +8,6 @@ public interface DoadorDAO {
 	List<Doador>recuperarListaDoadores();
 	List<Doador> recuperarDoadorPeloNome(String nome);
 	Doador recuperarDoadorId(Long id);
-	Doador recuperarDoadorUnicamenteId(Long id);
 	Doador recuperarDoador(Doador doador);
 
 }
