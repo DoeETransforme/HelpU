@@ -1,9 +1,18 @@
 @charset "UTF-8";
 
+
 :root {
-	--cor-texto-login:  #707478 ;
-	--cor-texto-cadastro: #1B65AE;
+    --cor-principal: #FFFFFF;
+    --cor-secundaria: #1B65AE;
+   
+    --cor-background: #f2f2f2;
+    --cor-background-input: #F4F2F0;
+    --cor-texto: #32383E;
+    --fonte-texto:"DM Sans", sans-serif;
+    --cor-background-tela: #FFFFFF;
+    --cor-background-card:  #EDEDED ;
 }
+
 
 *{
 	text-decoration: none;
@@ -51,8 +60,8 @@
 	display: inline-block;
     justify-content: center;
     border-radius: 8px;
-    background-color: var(--cor-principal);
-    color: var(--cor-background-tela);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
     display: block;
     width: 14em;
     height: 2.8em;
@@ -68,6 +77,8 @@
 .padrao-submit-login:hover {
     border-radius: 8px;
     color: var(--cor-secundaria);
+    border:1px solid var(--cor-secundaria);
+    background-color: var(--cor-principal);
     transform: scale(1.1);
 }
 
@@ -103,7 +114,7 @@ label {
 	justify-content: right;
 	margin-top: 0.01em;
 	text-decoration: none !important;
-	color: var(--cor-texto-login)
+	color: var(--cor-texto)
 }
 
 .forms-login {
@@ -123,7 +134,7 @@ label {
 
 #link-cadastrar{
 	font-weight: bold;
-	color: var(--cor-principal);
+	color: var(--cor-texto);
 }
 
 .ajuste-alinhamento {
