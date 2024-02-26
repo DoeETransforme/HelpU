@@ -56,12 +56,8 @@
                 
 
                 <div class="validar-invalidar">
-                    <form  action="validar-proposta" method="post">
-                        <button type="submit" id="validar-proposta">Validar Doação</button>
-                    </form>
-                    <form action="invalidar-proposta" method="post">
-                        <button type="submit"  id="invalidar-proposta">Invalidar Doação</button>
-                    </form>
+                    <a id="validar-proposta"  href="<%=request.getContextPath()%>/validar-proposta?id=<c:out value='${proposta.id}'/>">Validar Proposta</a>    
+     				<a id="invalidar-proposta" href="<%=request.getContextPath()%>/invalidar-proposta?id=<c:out value='${proposta.id}'/>">Invalidar Proposta</a>
                 </div>
 
     </main>
