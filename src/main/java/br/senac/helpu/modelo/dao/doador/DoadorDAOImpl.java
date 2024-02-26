@@ -165,53 +165,7 @@ public class DoadorDAOImpl implements DoadorDAO {
 			
 		
 		}
+}
 	
-	public Doador recuperarDoadorUnicamenteId(Long id) {
-		Session sessao = null;
-		Doador doadorRecuperado = null;
-		
-		try {
-			sessao = fabrica.getConexao().openSession();
-			sessao.beginTransaction();
-			
-			CriteriaBuilder construtor = sessao.getCriteriaBuilder();			
-			CriteriaQuery<Doador> criteria = construtor.createQuery(Doador.class);		
-			Root<Doador> raizDoador = criteria.from(Doador.class);
-			
-			
-			criteria.select(raizDoador);
-			
-			criteria.where(construtor.equal(raizDoador.get(Doador_.id), id));
-			
-			doadorRecuperado = sessao.createQuery(criteria).getSingleResult();
-			
-			sessao.getTransaction().commit();
-		}catch (Exception sqlException) {
-
-				sqlException.printStackTrace();
-
-				if (sessao.getTransaction() != null) {
-					sessao.getTransaction().rollback();
-
-				}
-			} finally {
-
-				if (sessao != null) {
-					sessao.close();
-				}
-			}
-
-			return doadorRecuperado;
-			
-		
-		}
-
-	}
- 
-	
-
-	
- 
- 
 	
  

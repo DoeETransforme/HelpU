@@ -80,12 +80,10 @@
 					href="<%=request.getContextPath()%>/historico-pedidos">Historico de Pedidos</a>
 					</div>
 					<div class="opcao-ong">
-					<a id="editar-perfil"
-						href="<%=request.getContextPath()%>/editar-perfil">Editar Perfil</a>
+					<a id="editar-perfil" href="<%=request.getContextPath()%>/editar-perfil">Editar Perfil</a>
 					</div>
 					<div class="opcao-ong">
-						<a id="cadastro-pedido"
-						href="<%=request.getContextPath()%>/cadastro-pedido">Criar Novo Pedido</a>
+						<a id="cadastro-pedido" href="<%=request.getContextPath()%>/cadastro-pedido">Criar Novo Pedido</a>
 							
 					</div>
 				</div>

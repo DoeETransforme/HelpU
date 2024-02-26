@@ -85,8 +85,8 @@ body {
 
 
 .padrao-submit {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-principal);
+    background-color: var(--cor-principal);
+    color: var(--cor-secundariaprincipal);
     padding: 10px;
     border: none;
     border-radius: 10px;
@@ -103,8 +103,8 @@ body {
 .excluir-pedido a{
     color: var(--cor-principal);
 }
-.titulo {
-   
+
+.titulo {   
     display: block;
     justify-content: center;
     align-items: center;
@@ -113,6 +113,7 @@ body {
     color: var(--cor-texto);
   
 }
+
 
 .titulo h1 {
     margin: 0; /* Remova as margens padrão do h1 */
@@ -127,10 +128,6 @@ body {
 
 
 }
-
-
-
-
 
 .avaliar-proposta {
     display: flex;
@@ -882,8 +879,6 @@ body {
     padding: 10px;
 }
 
-
-
 .imagem-do-pedido {
     display: inline-block;
     margin-top: 50px;
@@ -1173,16 +1168,11 @@ progress::-moz-progress-bar {
 .foto-capa-nome-ong{
     width: 100%;
 
-    
-    
-
 }
 
 .foto-capa-nome-ong img,s{
     width: 100%;
 
-    
-    
 
 }
 
@@ -1197,8 +1187,6 @@ progress::-moz-progress-bar {
 }
 .foto-ong{
     flex: 30%;
-  
-  
     text-align: center;
 }
 
@@ -1409,16 +1397,22 @@ progress::-moz-progress-bar {
     text-shadow: -1px -1px 0 #FF0000; /* Borda vermelha em cada letra */
   }
   
-  
-
-
-
-
 .icone-editar-perfil{
     width: 30px;
     float: left;
 }
 
+.botao {
+	color: var(--cor-background-tela) !important;
+	background-color: var(--cor-principal);
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.7);
+
+}
+
+.botao:hover {
+    color: var(--cor-secundaria);
+
+}
 
 #imagem-confirmado-proposta{
 
@@ -1504,15 +1498,11 @@ color: #1B65AE;
     text-decoration: none;
   }
 
-
-  .imagem-nao-logado{
+ .imagem-nao-logado{
     flex: 50%;
   }
-  .imagem-nao-logado svg {
-  
-      
-        
-  
+
+  .imagem-nao-logado svg {         
 }
 .botoes {
   
