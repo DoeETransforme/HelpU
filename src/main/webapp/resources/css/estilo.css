@@ -100,8 +100,9 @@ body {
     color: var(--cor-secundaria);
     border: 1px solid var(--cor-secundaria);
 }
-
-
+.excluir-pedido a{
+    color: var(--cor-principal);
+}
 .titulo {
    
     display: block;
@@ -488,7 +489,7 @@ body {
 .alinhamento a {
     font-family: 'Inter', sans-serif;
 
-    color: var(--cor-principal)
+    color: var(--cor-principal);
     text-decoration: none;
     display: block;
     margin-right: 0;
@@ -542,7 +543,10 @@ body {
 
 
 }
-
+#select-editar-proposta{
+    position: relative;
+    left: -5.0vh;
+}
 .cadastrar-alimento {
 
     justify-content: center;
@@ -1382,14 +1386,18 @@ progress::-moz-progress-bar {
   border-radius: 10px;
 }
 
-.hamburguer{
-	width: 60px;
-	height: 60px;
-}
 
-.template-grid input[type="search"] {
-        background-color: var(--cor-background-input);
-}
+.texto-dividido {
+
+    color: #0000FF;
+    padding: 5px 10px;
+    text-shadow: -1px -1px 0 #FF0000; /* Borda vermelha em cada letra */
+  }
+  
+  
+
+
+
 
 .icone-editar-perfil{
     width: 30px;

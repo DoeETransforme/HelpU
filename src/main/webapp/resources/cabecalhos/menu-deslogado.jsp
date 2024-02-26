@@ -1,4 +1,7 @@
 
+
+<link rel="stylesheet" href="../css/menu-topo.css">
+
 <header>
 	<div class="menu-index">
 		<div class="menu-logo">
