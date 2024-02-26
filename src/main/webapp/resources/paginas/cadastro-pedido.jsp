@@ -14,11 +14,6 @@
 
 			<body>
 		<%@ include file="../cabecalhos/menu.jsp" %>
-			
-					<div class="header">
-						<p>Login</p>
-						<img src="../imagens/logo final.png" alt="imagem da ong">
-					</div>
 
 					<div class="titulo">
 						<h1>CADASTRAR SEU PEDIDO.</h1>

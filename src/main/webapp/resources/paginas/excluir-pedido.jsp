@@ -9,9 +9,10 @@
 <title>Excluir pedido</title>
 <link rel="stylesheet" href="../css/excluir-pedido.css">
 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
-<!--  <script src="../js/Script.js"></script> -->
+<script src="../js/Script.js"></script> 
 <script><%@include file="/resources/js/Script.js"%></script>
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+<link rel="stylesheet" href="../css/estilo.css">
 
 </head>
 <body>
@@ -41,8 +42,8 @@
 		</c:if>
 	</div>
 	<div class="excluir-pedido">
-		<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${pedido.id}'/>" class="Voltar" class=""> Voltar</a>
-		<a href="<%=request.getContextPath()%>/pedido-excluido?id=<c:out value='${pedido.id}'/>" class="Voltar" class="">Confirmar</a>
+		<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${pedido.id}'/>" class="padrao-submit" > Voltar</a>
+		<a href="<%=request.getContextPath()%>/pedido-excluido?id=<c:out value='${pedido.id}'/>" class="padrao-submit">Confirmar</a>
 	</div>
 
 
