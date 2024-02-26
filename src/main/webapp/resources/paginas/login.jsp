@@ -16,7 +16,7 @@
     </head>
     <body>
 
-        <%@include file="../cabecalhos/menu-deslogado.jsp" %>
+     
         <div class="ajuste-alinhamento">
 	        <div class="corpo-login">            
 	                <svg class="imagem-login">
