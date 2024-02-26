@@ -18,29 +18,31 @@
 					<div class="titulo">
 						<h1>CADASTRAR SEU PEDIDO.</h1>
 					</div>
-					<form action="inserir-pedido" method="post" class="forms" enctype="multipart/form-data">
-						<div >
-							<input type="text" name="titulo" placeholder="Qual é o título do pedido?" required class="padrao-input">
-							<textarea name="descricao" rows="1" placeholder="Escreva sobre o pedido!" class="padrao-input"></textarea>
-							<div  id= "div-titulo">
-								<h4  class="titulo">O que você deseja pedir?</h4>
-							</div>
-							<select name="alimento" class="padrao-input">
-								<option value="" disabled selected hidden>Selecione um alimento</option>
-								<c:forEach var="alimento" items="${alimentos}">
-									<option value="${alimento.id}">${alimento.nome}</option>
-								</c:forEach>
-							</select>
-							<input type="text" name="quantidade" placeholder="Quantidade" required class="padrao-input">
+					<form action="inserir-pedido" method="post" class="forms-cadastrar-pedido" enctype="multipart/form-data">
+					
+							<div>
+								<input type="text" name="titulo" placeholder="Qual é o título do pedido?" required class="padrao-input">
+								<textarea name="descricao" rows="1" placeholder="Escreva sobre o pedido!" class="padrao-input"></textarea>
+								<div  id= "div-titulo">
+									<h4  class="titulo">O que você deseja pedir?</h4>
+								</div>
+								<select name="alimento" class="padrao-input">
+									<option value="" disabled selected hidden>Selecione um alimento</option>
+									<c:forEach var="alimento" items="${alimentos}">
+										<option value="${alimento.id}">${alimento.nome}</option>
+									</c:forEach>
+								</select>
+								<input type="text" name="quantidade" placeholder="Quantidade" required class="padrao-input">
+								<input type="text" name="data-validade" required class="padrao-input" placeholder="Data de validade" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+								
+								<input type="text" name="meta-doacoes" placeholder="Meta de Doações" required class="padrao-input">
+								</div>
 
-							<input type="text" name="data-validade" required class="padrao-input" placeholder="Data de validade" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
 
-							
-							<input type="text" name="meta-doacoes" placeholder="Meta de Doações" required class="padrao-input">
-							<input type="file" id="foto" name="foto">
-							
-							<button type="submit" class="padrao-submit">Cadastro</button>
-						</div>
+								<section class="section-pedido"><input id="input-foto-pedido2" type="file" name="foto" >
+								<button type="submit" class="padrao-submit" id="botao-cadastro-pedido">Cadastro</button></div>
+							</section>
+					
 					</form>
 					
 			</body>

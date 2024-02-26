@@ -16,6 +16,7 @@
     color: var(--cor-texto);
     font-family: var(--fonte-texto);
     font-size: 1.7em;
+    margin-bottom: 2em !important;
   
 }
 
@@ -231,15 +232,18 @@ progress::-moz-progress-bar {
 }
 
 .linha-doador {
-  margin: 20px auto 10px;
-  width: 20vw;
+  width: 13vw;
   border-bottom: 1px solid #B7B7B7;
   border-radius: 10px;
+  margin-left: -13.5em;
+  margin-top: -5em;
+  padding-top: -5em;
 }
 
 h1 {
 	display: flex;
 	justify-content: center;	
+	margin-top: 2em;
 }
 .card-pedidos {
 	display: flex;
@@ -273,6 +277,7 @@ h1 {
 .ajuste-titulo {
 	margin-left: 2.5ex;
 	margin-right: 70em;
+	
 }
 
 .botao-pedido {
@@ -289,7 +294,7 @@ h1 {
     height: 4vh;
     width: 9vw;
     justify-content: center;
-    margin-left: 2em;
+    margin-left: 2.8em;
 }
 
 .botao-pedido:hover {
@@ -313,9 +318,10 @@ h1 {
 	font-size: 1.2em;
 }
 
-.alinhamento-doadores {
+.container {
 	display: flex;
 	flex-direction: column;
+	margin-left: 45em;
 }
 
 #foto-descricao-proposta {
@@ -325,5 +331,23 @@ h1 {
 	border-radius: 50%;
 }
 
+.alinhamento-descricao-proposta {
+	display: flex;
+	flex-wrap: nowrap;
+}
 
+.alinhamento-nome {
+	display: flex;
+	align-items: center;
+	margin-left: 1.5em;
+}
 
+.alinhamento-item {
+	display: flex;
+	align-items: center;
+	margin-left: 0.6em;
+}
+
+span {
+	font-size: 1.4em;
+}
