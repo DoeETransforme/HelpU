@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --cor-principal: #1B65AE;
+    --cor-secundaria: #FDE583;
+    --cor-background: #f2f2f2;
+    --cor-background-input: #e0e0e0;
+    --cor-texto: #32383E;
+    --fonte-texto:"DM Sans", sans-serif;
+    --cor-background-tela: #FFFFFF;
+    --cor-background-card:  #E5E5E5 ;
+}
+.body{
+    background-color: var(--cor-background-tela);
+
+}
+
+.perfil-ong{
+   
+    width: 90%;
+    margin:0 auto;
+    margin-top: 10vh;
+
+}
+
+.foto-capa-nome-ong{
+    width: 100%;
+
+    margin-bottom: 10%;
+}
+.foto-capa-nome-ong svg{
+    width: 100%;
+
+}
+
+.foto-nome-ong{
+background-color: var(--cor-background-tela);
+    position: absolute  ;
+    top: 40%;
+    text-align: center;
+    left: 10%;
+   
+    
+
+
+}
+.foto-nome-ong img{
+    width: 15vh;
+    border-radius: 50%;
+    
+}
+
+.nome-ong{
+ 
+}
+
+.informacoes-ong{
+    display: flex;
+    
+}
+.butoes-ong{
+
+    flex: 20%;
+
+}
+.contato-ong h2{
+    font-weight: 100;
+}
+
+.contato-item{
+    display: flex;
+
+    text-align: center;
+    align-items: center;
+ 
+    margin: 1vh;
+}
+.contato-item img{
+    width: 30px;
+
+}
+
+.contato-item p {
+    margin-left: 1vh;
+    text-align: center;
+    
+
+}
+
+
+.opcoes-ong{
+    width: 100%;
+  
+    text-align: center;
+}
+
+.historico-pedidos{
+    text-decoration: none;
+    margin: 5vh;
+    
+}
+.historico-pedidos a {
+    text-decoration: none;
+    background-color: var(--cor-principal);
+    color: var(--cor-background-tela);
+    padding: 10px;
+    
+    border-radius: 10px;
+    box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra */
+}
+
+.opcao-ong a{
+    text-decoration: none;
+    text-align: left;
+    color: var(--cor-texto);
+    margin: 1vh;
+}
+.opcao-ong a:hover{
+    text-decoration: underline;
+    color: var(--cor-principal);
+}
+.ultimos-pedidos-ong{
+    flex: 80%;
+
+}
+.ultimos-pedidos-ong h3{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.pedidos-doacao-perfil-ong{
+ 
+    width: 40%;
+    max-width: 40%;
+  max-height: 100%;
+    margin: 5%;
+    border-radius: 10px;
+    background-color: #F4F2F0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); 
+   border: 1px solid #FFFFFF;
+}
+
+.conteudo-pedido-perfil-ong{
+    text-align: left;
+}
+.imagem-pedido-perfil-ong img{
+    width: 90%;
+}
+.conteudo-pedido-perfil-ong h3{
+    color: var(--cor-principal);
+}
+.conteudo-pedido-perfil-ong span{
+    text-align: center;
+}
+.conteudo-pedido-perfil-ong{
+    display: block;
+}
+
+.pedidos-doacao-perfil-ong{
+    text-align: center;
+}
+.link-ver-mais{
+    margin: 5vh;
+    
+}
+.link-ver-mais a {
+    text-decoration: none;
+    background-color: var(--cor-principal);
+    color: var(--cor-background-tela);
+    padding: 10px;
+    border-radius: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s; /* Define a transição para a propriedade transform */
+}
+
+.link-ver-mais a:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+}
+

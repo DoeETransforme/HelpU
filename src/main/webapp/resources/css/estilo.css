@@ -457,6 +457,7 @@ body {
 .imagem-cadastra-se {
     margin-right: 10%;
     flex: 40%;
+   
 
     text-align: center;
 
@@ -464,6 +465,7 @@ body {
 
 #imagem-cadastro {
     max-width: 90%;
+  
 
 }
 
@@ -1390,13 +1392,16 @@ progress::-moz-progress-bar {
     float: left;
 }
 
+
+#imagem-confirmado-proposta{
+
+    width: 100;
+}
 .descricao-proposta{
 
     width: 50%;
     margin: 0 auto;
-    margin-top: 5%;
-
-    
+    margin-top: 5%; 
 }
 .descricao-proposta-conteudo {
    
@@ -1423,9 +1428,6 @@ progress::-moz-progress-bar {
     
 }
 
-
-
-
 .botao-link {
     display: block;
     margin-bottom: 10px;
@@ -1433,6 +1435,7 @@ progress::-moz-progress-bar {
 #editar{
     background-color: var(--cor-principal);
     color: var(--cor-secundaria);
+
 }
 
 #errorNomeCompleto,
@@ -1445,16 +1448,66 @@ progress::-moz-progress-bar {
     color: red;
 }
 
-p.one {
-    border-style: solid;
+
+.letra{
+color: #1B65AE;
+
+}
+
+.button{
+    background-color: #007bff;
+    color:white;
 }
 
 
-.alimentos-cadastrados {
+.meu-botao button {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none;
+    padding: 6px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 50%;
+    
+
+  }
+
+  .meu-botao a{
+    color: white;
+    text-decoration: none;
+  }
 
 
-   
-   
+  .imagem-nao-logado{
+    flex: 50%;
+  }
+  .imagem-nao-logado svg {
+  
+      
+        
+  
+}
+.botoes {
+  
+    width: 100%;
+    float: right;
+    
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+.nao-logado{
+
+    display: flex;
+}
+
+
+.img-nao {
+    margin-right: 25px; 
+}
+
+.alimentos-cadastrados {  
     width: 80%;
     padding: 10px;
     margin: 0 auto;
