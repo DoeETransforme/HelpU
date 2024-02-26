@@ -15,7 +15,7 @@
 							<li><a href="mostrar-cadastro">Cadastrar-se</a></li>
 							<li><a href="login">Entrar</a></li>
 						</ul>
-					</nav
+					</nav>
 				</div>
 			</div>
 		</div>
