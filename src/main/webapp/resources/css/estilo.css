@@ -86,7 +86,7 @@ body {
 
 .padrao-submit {
     background-color: var(--cor-principal);
-    color: var(--cor-secundariaprincipal);
+    color: var(--cor-secundaria);
     padding: 10px;
     border: none;
     border-radius: 10px;
@@ -101,6 +101,8 @@ body {
     border: 1px solid var(--cor-secundaria);
 }
 .excluir-pedido a{
+    margin: 0 auto;
+    margin:25px;
     color: var(--cor-principal);
 }
 

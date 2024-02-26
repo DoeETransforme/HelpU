@@ -16,20 +16,7 @@
 
 </head>
 <body>
-	    <div class="menu-hamburguer" id="menu-hamburguer">
-	
-    <div class="hamburguer" onclick="toggleMenu()">☰</div>
-</div>
- 
-<div class="menu-lateral" id="menu-lateral">
-    <c:choose>
-                <c:when test="${tipoUsuario == 2}">
- 
-                    <%@ include file="../cabecalhos/barra-lateral.jsp" %>
- 
-                </c:when>
-            </c:choose>
-            </div>
+	   <%@ include file="../cabecalhos/menu.jsp" %>
 
 	<div class="titulo">
 		<h1>Tem certeza que deseja excluir esse pedido?</h1>
