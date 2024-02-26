@@ -16,7 +16,7 @@
 
 </head>
 <body>
-	   <%@ include file="../cabecalhos/menu.jsp" %>
+	 	<%@ include file="../cabecalhos/menu.jsp" %>
 
 	<div class="titulo">
 		<h1>Tem certeza que deseja excluir esse pedido?</h1>
