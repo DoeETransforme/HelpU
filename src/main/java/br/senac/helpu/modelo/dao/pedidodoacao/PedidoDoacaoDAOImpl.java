@@ -474,6 +474,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 				criteria.where(construtor.and(predicados.toArray(new Predicate[predicados.size()])));
 				
 			}
+			raizPedido.fetch(PedidoDoacao_.foto);
 			
 			pedidos = sessao.createQuery(criteria).getResultList();
 
