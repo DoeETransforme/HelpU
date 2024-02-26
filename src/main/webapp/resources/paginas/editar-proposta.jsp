@@ -28,7 +28,7 @@
 				</div>
 				<p class="titulo">Para a ONG (nome da ong) <br>O que
 					você gostaria de doar?</p>
-				<form action="proposta-editada" method="post" class="forms">
+				<form action="proposta-editada" method="post" >
 
 
 				
@@ -38,11 +38,11 @@
 							</c:if>
 
 					
-					<div>
+					<div class="editar-dados">
 						
 							
 									<label>Alimento:</label>
-									 <select name="alimento" class="padrao-input">
+									 <select id="select-editar-proposta" name="alimento" class="padrao-input">
 										<c:forEach var="alimento" items="${alimentos}">
 											<option value="" disabled selected> Selecione o alimento</option>
 											<option value="${alimento.id}">${alimento.nome}</option>
@@ -55,6 +55,7 @@
 									<input type="text" name="quantidade"
 									placeholder="Quantidade" required class="padrao-input">
 									</div>
+									<div class="submit-editar-dados"><input type="submit" value="Confirmar" ></div>
 							
 
 						
@@ -62,7 +63,6 @@
 				
 
 
-					<input type="submit" value="Confirmar" class="padrao-submit">
 				</form>
 			</div>
 		</section>

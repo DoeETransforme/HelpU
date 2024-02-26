@@ -11,6 +11,7 @@
     <style type="text/css"> <%@include file="/resources/css/propostas-pendentes.css"%></style> 
     <script><%@include file="/resources/js/Script.js"%></script>
     <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 							<div class="imagem-card"><img src="../imagens/perfil-icon.png" alt=""></div>
 							
 							<div class="conteudo">						
-		          				<h4>${propostas.pedidoDoacao.ong.nome}</h4>
+		          				<h2 id="titulo-propostas-pendentes">Para: ${propostas.pedidoDoacao.ong.nome}</h2>
 		                        <span class="descricao-proposta">Feito em: ${propostas.dataCriacao}</span>
 		                        <span class="descricao-proposta">No Pedido: ${propostas.pedidoDoacao.titulo}</span>
  

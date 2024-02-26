@@ -7,10 +7,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Helpu</title>
+		<link rel="icon" type="image/x-icon" href="../imagens/Logo-projeto-ico.ico">
         <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
 		<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 		<style type="text/css"> <%@include file="../css/login.css"%></style> 
 		<script><%@include file="/resources/js/Script.js"%></script>
+		
     </head>
     <body>
 
