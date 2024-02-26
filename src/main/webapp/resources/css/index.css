@@ -5,59 +5,6 @@
 	border: none;
 }
 
-.menu-index {
-    display: flex;
-    position: absolute;
-    width: 100%;
-}
-
-.menu-logo {
-
-    flex: 30%;
-    display: flex; /* Para alinhar verticalmente */
-    align-items: center; /* Para alinhar verticalmente */
-    margin-left: 5%
-}
-
-.menu-logo img {
-    width: 100px; /* Ajuste conforme necessário */
-}
-
-.opcoes {
-
-    display: flex;
-    justify-content: flex-end; /* Para alinhar à direita */
-    align-items: center; /* Para alinhar verticalmente */
-    flex: 70%;
-    margin-right: 5%;
-    font-size: 20px;
-}
-
-.opcoes nav ul {
-    list-style: none; /* Remove a estilização padrão da lista */
-    display: flex; /* Para alinhar horizontalmente */
-}
-
-.opcoes nav ul li {
-    margin-right: 10px; /* Adiciona margem entre os itens do menu */
-}
-
-.opcoes a {
-    text-decoration: none;
-    color: white;
-    margin-left: 30px;
-    transition: color 0.3s ease; /* Adiciona uma transição suave */
-}
-
-.opcoes a:hover {
-    color: #FDE583; /* Muda a cor para amarelo quando em hover */
-}
-
-.opcoes img {
-    width: 50px;
-    margin-left: 50px; /* Ajuste conforme necessário */
-}
-
 
 .texto-sobre-imagem {
 	position: absolute;
@@ -65,7 +12,7 @@
     top: 4.8em;
     left: 1em;
     text-align: left;
-    font-size: 55px;
+    font-size: 60px;
     margin: 0px !important;
 }
 
@@ -176,17 +123,20 @@ footer {
 .footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; /* Divide o footer em três colunas */
-    gap: 20px; /* Espaçamento entre as colunas */
+    gap: 20%; /* Espaçamento entre as colunas */
     max-width: 1200px; /* Largura máxima */
     margin: 0 auto; /* Centraliza o footer na página */
 }
 
+
 .column {
     text-align: center; /* Alinha o conteúdo das colunas ao centro */
+    font-size: 24px;
 }
 
 .column h2 {
     margin-bottom: 10px; /* Espaçamento abaixo do título */
+    color:white;
 }
 
 .column ul {
@@ -195,7 +145,7 @@ footer {
 }
 
 .column ul li {
-    margin-bottom: 5px; /* Espaçamento entre os itens da lista */
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
 }
 
 .column ul li a {
@@ -234,26 +184,17 @@ footer {
     align-items: center; /* Centraliza verticalmente */
     border-radius: 50%; /* Utilize 50% para um círculo */
     overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites da div */
-    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .quem-somos img {
-    width: 60%; /* Defina uma largura fixa para a imagem */
+    width: 50%; /* Defina uma largura fixa para a imagem */
     height: auto; /* Mantenha a proporção da imagem */
     display: block; /* Remove espaços verticais extras */
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
 }
 
-.imagem-logo {
-	width: 11vw;
-	height: 11vh;
-}
 
-.logo {
-	width: 10vw;
-	height: 10vh;
-	background-color: transparent !important;
-}
 
 .titulo-index {
 	font-size: 4.5em;
@@ -288,9 +229,12 @@ span {
     padding: 2em;
   	box-shadow: 0px 2px 0px #989898;
 }
+.tela-inicial{
 
+}
 .imagem-inicial {
-	width: 99.22vw;
+ 
+	width: 100%;
 	height: 119.7vh;
 	border: none;
 }

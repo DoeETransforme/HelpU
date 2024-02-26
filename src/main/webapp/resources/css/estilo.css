@@ -18,7 +18,7 @@
     --cor-texto: #32383E;
     --fonte-texto:"DM Sans", sans-serif;
     --cor-background-tela: #FFFFFF;
-    --cor-background-card:  #E5E5E5 ;
+    --cor-background-card:  #EDEDED ;
 }
 
 body {
@@ -353,101 +353,12 @@ body {
 
 }
 
-.imagem-login {
-    display: inline-block;
-
-    width: 650px;
-    height: auto;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    top: 150px;
-    left: 50px;
-
-}
 
 .barra-de-pesquisa {}
-
-.padrao-login {
-    border: 1px solid red;
-    width: 300px;
-    height: 50px;
-    margin: 10px;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: var(--cor-secundaria);
-
-
-}
-
-.forms-login {
-    align-items: center;
-
-
-
-}
-
-.titulo-login {
-    text-align: center;
-    display: flex;
-    position: relative;
-    bottom: 50px;
-    font-size: 100px;
-
-
-    color: 32383E;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-
-}
-
-.padrao-submit-login {
-    border: 1px solid red;
-    margin: 10px auto;
-    margin-top: 100px;
-    margin-bottom: 30px;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: var(--cor-secundaria);
-    display: block;
-    width: 20%;
-    transition: all 0.5s;
-}
-
-.padrao-submit-login:hover {
-    border-radius: 15px;
-    background-color: var(--cor-principal);
-    color: var(--cor-secundaria);
-}
 
 
 .position {}
 
-
-.esqueceu-senha-login {
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    color: 32383E;
-
-}
-
-.tamanho {
-    align-items: center;
-    bottom: 250px;
-    right: 160px;
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    height: auto;
-    margin-top: 60px;
-    margin-right: 300px;
-    float: right;
-}
 
 .negrito{
 	font-weight: bold;
@@ -465,6 +376,11 @@ body {
     justify-content: center;
     align-items: center;
 
+}
+
+#imagem-logo{
+    width: 30px;
+    position: absolute;
 }
 
 .logo {
@@ -656,6 +572,10 @@ body {
     margin: 10px;
     margin-left: -30px;
 
+}
+#foto-editar-doador{
+    color:black;
+    background-color: var(--cor-background-tela);
 }
 
 .submit-editar-dados {
@@ -1153,7 +1073,11 @@ progress::-moz-progress-bar {
     cursor: pointer;
     /* Para empurrar o botão para a parte inferior do card */
 }
+.editar-foto-ong{
+    text-align: center;
+    margin: 5%;
 
+}
 
 .menu-lateral {
     position: fixed;
@@ -1211,146 +1135,6 @@ progress::-moz-progress-bar {
     padding: 15px;
 
     transform: scale(1.1);
-}
-
-
-
-.perfil-doador {
-    width: 80%;
-
-    margin: 0 auto;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-
-    margin-top: 100px;
-    flex-direction: column; 
-}
-
-.informacoes-doador {
-
-    display: flex;
-    width: 70%;
-    margin: 0 auto;
-    text-align: center;
-    align-items: center;
-   
-
-
-}
-
-.imagem-doador {
-    flex: 20%;
-    width: 10vh;
-    border-radius: 50%;
-  
-}
-
-.informacoes-doador img {
-    width: 150px;
-
-
-}
-
-.nome-doador {
-    text-align: left;
-    justify-content: center;
-
-    font-size: 20px;
-
-    flex: 80%;
-   
-    font-family: 'Inter', sans-serif;
-}
-
-
-.nome-doador p,
-h1 {
-    margin-top: 20px;
-    margin-left: 4%;
-}
-
-.main-doador {
-    display: flex;
-
-
-    width: 70%;
-    margin: 0 auto;
-}
-
-.botoes-doador {
-    display: grid;
-    width: 20%;
-    justify-content: center;
-    height: 150px;
-    text-align: center;
-    margin-top: 40px;
-}
-
-.botoes-doador button,
-.botoes-doador a {
-	
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    width: 100%;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-
-    text-align: center;
-    justify-self: center;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    
-}
-
-.botoes-doador button:hover{
-    background-color: var(--cor-secundaria);
-    color: var(--cor-texto);
-
-}
-
-
-.ultimas-doacoes {
-    width: 80%;
- 
-    
-  }
- 
-  .card-doacoes-doador {
-width: 40%;
-    max-width: 40%;
-    float: left;
-    margin: 5%;
-    text-align: center;
-    background-color: #F4F2F0;
-    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow */
-    overflow:auto;
-    height: 100px;
-    border-radius: 10px;
- 
-  }
-  
-
-  .card-doacoes-doador a{
-    text-decoration: none;
-    color: #1B65AE;
- 
-  }
-
-  .card-doacoes-doador p {
-    text-align: left;
- 
-    display: block;
-    word-wrap: break-word;
-   
-  }
-  
-
-#titulo-doador {
-    width: 100%; 
-    text-align: center; 
-    margin: 20px 0; 
 }
 
 
@@ -1608,9 +1392,49 @@ width: 40%;
     float: left;
 }
 
+
 #imagem-confirmado-proposta{
 
     width: 100;
+}
+.descricao-proposta{
+
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%; 
+}
+.descricao-proposta-conteudo {
+   
+
+    width: 70%;
+    margin: 0 auto;
+
+    font-size: 20px;
+}
+
+.descricao-span {
+    display: block; /* Faz com que os spans se comportem como blocos, ocupando toda a largura disponível */
+    margin-bottom: 10px; /* Adiciona espaçamento entre cada span */
+    text-align:left; /* Alinha o texto à esquerda dentro dos spans */
+}
+.editar-deletar{
+    width: 20%;
+    margin: 0 auto;
+   
+    text-align: center;
+    display: block;
+    flex-direction: column;
+    
+    
+}
+
+.botao-link {
+    display: block;
+    margin-bottom: 10px;
+}
+#editar{
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
 
 }
 
@@ -1678,6 +1502,108 @@ color: #1B65AE;
     display: flex;
 }
 
+
 .img-nao {
     margin-right: 25px; 
+}
+
+.alimentos-cadastrados {  
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: grid; /* Alterado para display grid */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas com largura igual */
+    gap: 20px; /* Define um espaçamento entre os elementos */
+}
+
+.card-alimento-cadastrado {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--cor-background-input);
+    
+    width: 100%;
+    padding: 10px;
+}
+
+.conteudo-card-alimento {
+    font-size: 20px;
+}
+
+.editar-excluir-alimento {
+    display: flex;
+    justify-content: space-between; /
+}
+
+.editar-excluir-alimento a {
+
+    text-decoration: none;
+    font-size: 16;
+ 
+    color: var(--cor-background-tela);
+    padding: 10px;
+    border-radius: 10px;
+   
+    background-color: var(--cor-principal);
+}
+
+.input-search input {
+    background-color: #F4F2F0;
+    border-radius: 10px;
+    border: none;
+    width: 50%;
+    margin-top: 1%;
+    padding: 10px;
+    color: var(--cor-texto);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adicionando uma sombra */
+}
+
+.todas-conquistas-cadastradas{
+    
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: grid; /* Alterado para display grid */
+    grid-template-columns: repeat(3, 1fr); /* Cria 3 colunas com largura igual */
+    gap: 20px; /* Define um espaçamento entre os elementos */
+
+}
+
+.card-conquista{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--cor-background-input);
+    
+    width: 100%;
+    padding: 10px;
+    
+
+}
+.conteudo-card-conquista{
+    font-size: 20px;
+
+}
+.conteudo-card-conquista img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+  
+}
+
+.botoes-card-conquista {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.botoes-card-conquista a {
+
+    text-decoration: none;
+    font-size: 16;
+ 
+    color: var(--cor-background-tela);
+    padding: 10px;
+    border-radius: 10px;
+   
+    background-color: var(--cor-principal);
 }

@@ -624,7 +624,7 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			
 			criteria.orderBy(construtor.desc(raizConsulta.get(PropostaDoacao_.dataCriacao)));
 			
-			propostas = sessao.createQuery(criteria).setMaxResults(3).getResultList();
+			propostas = sessao.createQuery(criteria).setMaxResults(6).getResultList();
 
 			sessao.getTransaction().commit();
 

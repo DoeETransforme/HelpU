@@ -6,6 +6,7 @@
     justify-content: flex-start;
     width: 80%;
     margin: 0 auto;
+    margin-top: 0.5em;
 
 }
 .template-grid .menu-hamburguer {
@@ -22,15 +23,70 @@
       
   margin: 0 auto; 
         margin-left: 0px;
-        width: 900px;
-        height: 35px;
+        width: 67em;
+        height: 2.8em;
         border-radius: 6px;
         border: none;
+}
+
+
+.menu-index {
+
+    display: flex;
+    position: absolute;
+   
+    width: 100%;
+    margin-top: 10px;
+}
+
+.menu-logo {
+
+    flex: 30%;
+    display: flex; 
+    align-items: center; 
+    margin-left: 5%
+}
+
+.menu-logo img {
+    width: 50px; 
+}
+#imagem-logo{   
+    width: 50px; 
+    border: 1px solid red;
 
 }
 
-.input-search {
-   
-  
-  
+.opcoes {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: flex-start; 
+    flex: 70%;
+    margin-right: 5%;
+    font-size: 20px;
+}
+
+
+.opcoes nav ul {
+    list-style: none;
+    display: flex; 
+}
+
+.opcoes nav ul li {
+    margin-right: 10px;
+}
+
+.opcoes a {
+    text-decoration: none;
+    color: var(--cor-background-tela);
+    margin-left: 30px;
+    transition: color 0.3s ease;
+}
+
+.opcoes a:hover {
+    color: #FDE583; 
+}
+
+.opcoes img {
+    width: 50px;
+    margin-left: 50px; 
 }

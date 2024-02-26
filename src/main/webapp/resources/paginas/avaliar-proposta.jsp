@@ -21,7 +21,7 @@
 
     
 <div class="titulo">
-    <h1>Editar Conquista</h1>
+    <h1>Avaliar Proposta</h1>
 </div>
 
     <main>
