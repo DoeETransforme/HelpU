@@ -46,9 +46,9 @@ body {
 .botao:hover {
     border-radius: 8px;
     color: var(--cor-secundaria);
-    background-color: var(--cor-principal);
+    background-color: var(--cor-background-tela);
     transform: scale(1.05);
-    border: 1px solid var(--cor-principal);
+    border: 1px solid var(--cor-secundaria);
 }
 
 .botoes-doador {
