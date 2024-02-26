@@ -33,14 +33,5 @@
 						</div>									
 			</header>
 		</nav>
-	</c:when>
-	<c:when test="${tipoUsuario == 3}">
-		<nav>
-			<header>
-									
-			</header>
-		</nav>
-	</c:when>
-		
-		
+	</c:when>	
 	</c:choose>

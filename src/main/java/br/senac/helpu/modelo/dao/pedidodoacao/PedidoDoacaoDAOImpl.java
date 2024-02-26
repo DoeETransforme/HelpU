@@ -139,6 +139,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedidoDoacao = criteria.from(PedidoDoacao.class);
 			raizPedidoDoacao.fetch("ong", JoinType.LEFT);
+			raizPedidoDoacao.fetch(PedidoDoacao_.foto);
 
 			criteria.select(raizPedidoDoacao);
 
@@ -171,11 +172,55 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
 
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
-			Root<PedidoDoacao> raizConquista = criteria.from(PedidoDoacao.class);
 
+			Root<PedidoDoacao> raizConquista = criteria.from(PedidoDoacao.class);
+			
+			raizConquista.fetch(PedidoDoacao_.foto);
+			raizConquista.fetch(PedidoDoacao_.ong);
+			
 			criteria.select(raizConquista);
 
 			pedidos = sessao.createQuery(criteria).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return pedidos;
+	}
+	
+	
+	public List<PedidoDoacao> recuperarPedidosDoacaoLimitTrace() {
+		Session sessao = null;
+		List<PedidoDoacao> pedidos = null;
+
+		try {
+
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
+			Root<PedidoDoacao> raizProposta = criteria.from(PedidoDoacao.class);
+			
+			raizProposta.fetch(PedidoDoacao_.ONG);
+
+			criteria.select(raizProposta);
+
+			pedidos = sessao.createQuery(criteria).setMaxResults(5).getResultList();
 
 			sessao.getTransaction().commit();
 
@@ -209,6 +254,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			CriteriaQuery<PedidoDoacao> criteria = construtor.createQuery(PedidoDoacao.class);
 			Root<PedidoDoacao> raizPedido = criteria.from(PedidoDoacao.class);
 			raizPedido.fetch("ong", JoinType.LEFT);
+			raizPedido.fetch(PedidoDoacao_.foto);
 
 			Join<PedidoDoacao, Ong> juncaoPedidos = raizPedido.join(PedidoDoacao_.ong);
 

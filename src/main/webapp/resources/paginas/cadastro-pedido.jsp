@@ -23,7 +23,7 @@
 					<div class="titulo">
 						<h1>CADASTRAR SEU PEDIDO.</h1>
 					</div>
-					<form action="inserir-pedido" method="post" class="forms">
+					<form action="inserir-pedido" method="post" class="forms" enctype="multipart/form-data">
 						<div >
 							<input type="text" name="titulo" placeholder="Qual é o título do pedido?" required class="padrao-input">
 							<textarea name="descricao" rows="1" placeholder="Escreva sobre o pedido!" class="padrao-input"></textarea>
@@ -42,8 +42,10 @@
 
 							
 							<input type="text" name="meta-doacoes" placeholder="Meta de Doações" required class="padrao-input">
+							<input type="file" id="foto" name="foto">
+							
+							<button type="submit" class="padrao-submit">Cadastro</button>
 						</div>
-						<button type="submit" class="padrao-submit">Cadastro</button>
 					</form>
 					
 			</body>

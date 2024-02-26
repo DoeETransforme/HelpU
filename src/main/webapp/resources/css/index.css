@@ -1,71 +1,19 @@
-.menu-index {
-    display: flex;
-    position: absolute;
-    width: 100%;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
 }
 
-.menu-logo {
-
-    flex: 30%;
-    display: flex; /* Para alinhar verticalmente */
-    align-items: center; /* Para alinhar verticalmente */
-    margin-left: 5%
-}
-
-.menu-logo img {
-    width: 100px; /* Ajuste conforme necessário */
-}
-
-.opcoes {
-
-    display: flex;
-    justify-content: flex-end; /* Para alinhar à direita */
-    align-items: center; /* Para alinhar verticalmente */
-    flex: 70%;
-    margin-right: 5%;
-    font-size: 20px;
-}
-
-.opcoes nav ul {
-    list-style: none; /* Remove a estilização padrão da lista */
-    display: flex; /* Para alinhar horizontalmente */
-}
-
-.opcoes nav ul li {
-    margin-right: 10px; /* Adiciona margem entre os itens do menu */
-}
-
-.opcoes a {
-    text-decoration: none;
-    color: white;
-    margin-left: 30px;
-    transition: color 0.3s ease; /* Adiciona uma transição suave */
-}
-
-.opcoes a:hover {
-    color: #FDE583; /* Muda a cor para amarelo quando em hover */
-}
-
-.opcoes img {
-    width: 50px;
-    margin-left: 50px; /* Ajuste conforme necessário */
-}
-
-
-
-.tela-inicial img {
-    width: 100%;
-    
-}
 
 .texto-sobre-imagem {
-    position: absolute;
+	position: absolute;
     color: white;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
+    top: 4.8em;
+    left: 1em;
     text-align: left;
     font-size: 55px;
+    margin: 0px !important;
 }
 
 #Fazer-index {
@@ -77,7 +25,8 @@
 }
 
 .botoes-cadastro {
-    margin-top: 20px;
+    margin-top: 0.2em;
+    margin-left: 1.2em;
    
 }
 
@@ -85,8 +34,8 @@
     display: inline-block; /* Para aplicar transform */
     background-color: #1B65AE;
     text-decoration: none;
-  text-align: center;
-  margin-right: 10%;
+  	text-align: center;
+  	margin-right: 1em;
 
     padding: 8px;
     padding-left: 30px;
@@ -104,11 +53,6 @@
     
 }
 
-
-.imagem-card-index img{
-    width: 100%;
-   
-}
 .pedidos-index{
     width: 90%;
    
@@ -116,7 +60,7 @@
 }
 .todos-cards-index{
     display: flex;
-margin-bottom: 100px;
+	margin-bottom: 100px;
  
  
 }
@@ -213,14 +157,14 @@ footer {
 .quem-somos {
     background-color: #FDE583;
     display: flex;
-    margin-top: 100px;
+    margin-top: 6.25em;
    
     align-items: center; /* Centraliza horizontalmente */
-    height: 500px;
+    height: 31.25em;
 }
 
 .quem-somos-conteudo {
-    width: 70%;
+    width: 99vw;
     margin-bottom: auto; /* Coloca o conteúdo no topo */
     text-align: left; /* Alinha o texto ao centro */
     padding-top: 20px; /* Espaçamento superior */
@@ -237,7 +181,7 @@ footer {
     align-items: center; /* Centraliza verticalmente */
     border-radius: 50%; /* Utilize 50% para um círculo */
     overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites da div */
-    margin-leftsss: 5%;
+    margin-left: 5%;
 }
 
 .quem-somos img {
@@ -247,4 +191,95 @@ footer {
     margin: 0 auto; /* Centraliza a imagem horizontalmente */
 }
 
+.imagem-logo {
+	width: 11vw;
+	height: 11vh;
+}
 
+.logo {
+	width: 10vw;
+	height: 10vh;
+	background-color: transparent !important;
+}
+
+.titulo-index {
+	font-size: 4.5em;
+	align-items: left;
+	margin-left: 0;
+}
+
+span {
+	
+	font-size: 1.5em;
+}
+
+.container {
+	flex-wrap: wrap;
+	display: flex;
+	margin-left: 7em;
+
+}
+
+.card-pedidos {
+	display: flex;
+	background-color: var(--cor-background-card) ;
+	width: 16vw; 
+    height: 45vh; 
+    box-sizing: border-box; 
+    transition: transform 0.5s ease;
+    flex-flow: column wrap;
+    margin-left: 1em;
+    margin-top: 6em;
+    margin-right: 2em;
+    border-radius: 10px;
+    padding: 2em;
+  	box-shadow: 0px 2px 0px #989898;
+}
+
+.imagem-inicial {
+	width: 99.22vw;
+	height: 119.7vh;
+	border: none;
+}
+
+.ajuste-titulo {
+	margin-left: 2.5ex;
+	margin-right: 70em;
+}
+
+.botao-pedido {
+	font-weight: bold;
+	display: inline-block;
+    background-color: #1B65AE;
+    text-decoration: none;
+	padding-top: 1.2vh !important;
+    color: white;
+    font-size: 1.0em;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Adicionando uma transição suave */
+    height: 4vh;
+    width: 9vw;
+    justify-content: center;
+}
+
+.botao-pedido:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    color:#FDE583 ;
+    
+}
+.titulo-card {
+	display: flex;
+	color: var(--cor-principal);
+	font-weight: bold;
+	justify-content: center;
+	font-size: 1.5em;
+}
+
+.nome-card{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.texto-card {
+	font-size: 1.2em;
+}
