@@ -378,6 +378,11 @@ body {
 
 }
 
+#imagem-logo{
+    width: 30px;
+    position: absolute;
+}
+
 .logo {
     flex: 20%;
     display: flex;
@@ -565,6 +570,10 @@ body {
     margin: 10px;
     margin-left: -30px;
 
+}
+#foto-editar-doador{
+    color:black;
+    background-color: var(--cor-background-tela);
 }
 
 .submit-editar-dados {
@@ -1062,7 +1071,11 @@ progress::-moz-progress-bar {
     cursor: pointer;
     /* Para empurrar o botão para a parte inferior do card */
 }
+.editar-foto-ong{
+    text-align: center;
+    margin: 5%;
 
+}
 
 .menu-lateral {
     position: fixed;
@@ -1376,6 +1389,52 @@ progress::-moz-progress-bar {
     width: 30px;
     float: left;
 }
+
+.descricao-proposta{
+
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+
+    
+}
+.descricao-proposta-conteudo {
+   
+
+    width: 70%;
+    margin: 0 auto;
+
+    font-size: 20px;
+}
+
+.descricao-span {
+    display: block; /* Faz com que os spans se comportem como blocos, ocupando toda a largura disponível */
+    margin-bottom: 10px; /* Adiciona espaçamento entre cada span */
+    text-align:left; /* Alinha o texto à esquerda dentro dos spans */
+}
+.editar-deletar{
+    width: 20%;
+    margin: 0 auto;
+   
+    text-align: center;
+    display: block;
+    flex-direction: column;
+    
+    
+}
+
+
+
+
+.botao-link {
+    display: block;
+    margin-bottom: 10px;
+}
+#editar{
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+}
+
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
 #errorTelefone,

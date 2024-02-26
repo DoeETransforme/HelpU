@@ -88,6 +88,11 @@ body {
     align-items: center; 
     margin-top: 100px;
     flex-direction: column; 
+  
+}
+
+.perfil-doador img{
+    border-radius: 50%;
 }
 
 .informacoes-doador {
