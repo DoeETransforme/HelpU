@@ -34,7 +34,7 @@ body {
 	display: flex;
 	color: var(--cor-background-tela);
 	background-color: var(--cor-secundaria);
-	transition: all 0.5s;
+	transition: all 0.5s ease; 
     font-weight: bold;
     height: 2.2em;
     margin-bottom: 2em;
@@ -45,9 +45,10 @@ body {
 
 .botao:hover {
     border-radius: 8px;
-    color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    background-color: var(--cor-principal);
     transform: scale(1.05);
-    border: 1px solid var(--cor-principal)
+    border: 1px solid var(--cor-principal);
 }
 
 .botoes-doador {

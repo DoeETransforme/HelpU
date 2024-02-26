@@ -85,8 +85,8 @@ body {
 
 
 .padrao-submit {
-    background-color: var(--cor-principal);
-    color: var(--cor-secundaria);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
     padding: 10px;
     border: none;
     border-radius: 10px;
