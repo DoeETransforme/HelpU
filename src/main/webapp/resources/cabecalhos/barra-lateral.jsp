@@ -40,7 +40,7 @@
 									href="<%=request.getContextPath()%>/editar-perfil-ong">Editar Conta</a> 
 									<a href="<%=request.getContextPath()%>/desativar-conta">Desativar Conta</a> 
 									<a href="<%=request.getContextPath()%>/cadastro-pedido">Cadastro Pedido</a> 
-									<a href="<%=request.getContextPath()%>/historico-pedidos">Historico Pedidos</a>
+									<a href="<%=request.getContextPath()%>/historico-pedidos?id=<c:out value='${ong.id}'/>">Historico Pedidos</a>
 									<a href="<%=request.getContextPath()%>/propostas-analise">Propostas em Analise</a>
 									<a href="<%=request.getContextPath()%>/logout">Sair</a>
 

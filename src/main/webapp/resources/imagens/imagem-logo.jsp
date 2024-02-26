@@ -1,6 +1,5 @@
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100%" viewBox="0 0 292 223" enable-background="new 0 0 292 223" xml:space="preserve">
-<path fill="#FEFEFE" opacity="1.000000" stroke="none" 
+<svg id="imagem-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 292 223" enable-background="new 0 0 292 223" xml:space="preserve">
+    <path fill="none"opacity="1.000000" stroke="none"  
 	d="
 M293.000000,127.000000 
 	C293.000000,159.319107 293.000000,191.638229 293.000000,223.978668 
