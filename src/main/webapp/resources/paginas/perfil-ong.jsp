@@ -101,11 +101,10 @@
 				<c:forEach var="pedidos" items="${pedidos}">
 					<div class="pedidos-doacao-perfil-ong">
 						<div class="imagem-pedido-perfil-ong">
-							<img src="../imagens/imagem-pedido.png" alt="foto-ong"
-								id="imagem-pedido-perfil-ong">
+							<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
+						
 						</div>
 						<div class="conteudo-pedido-perfil-ong">
-							<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
 							<h3>
 								Titulo:<span id="TituloPedido">${pedidos.titulo}</span>
 							</h3>
