@@ -13,15 +13,9 @@
     </head>
 
 <body>
-    <div class="menu-hamburguer" id="menu-hamburguer">
-	
-		<div class="hamburguer" onclick="toggleMenu()">☰</div>
-	</div>
-	
-	<div class="menu-lateral" id="menu-lateral">
-		<%@ include file="../cabecalhos/barra-lateral.jsp" %>
-	</div>
-    
+
+    <%@ include file="../cabecalhos/menu.jsp" %>
+
         <div class="titulo">
             <h1>Editar Pedido de Doação</h1>
         </div>

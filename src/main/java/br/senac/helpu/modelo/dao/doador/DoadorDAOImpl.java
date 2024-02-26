@@ -178,7 +178,7 @@ public class DoadorDAOImpl implements DoadorDAO {
 			CriteriaQuery<Doador> criteria = construtor.createQuery(Doador.class);		
 			Root<Doador> raizDoador = criteria.from(Doador.class);
 			
-			
+			raizDoador.fetch(Doador_.fotoUsuario);
 			criteria.select(raizDoador);
 			
 			criteria.where(construtor.equal(raizDoador.get(Doador_.id), id));
