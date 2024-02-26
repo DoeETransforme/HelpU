@@ -34,6 +34,7 @@
 
 			<div class="imagem-cadastra-se">
 				<svg id="imagem-cadastro"  viewBox="0 0 822 822" fill="none" xmlns="http://www.w3.org/2000/svg">
+
 <g clip-path="url(#clip0_1390_184)">
 <mask id="mask0_1390_184" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="822" height="822">
 <path d="M822 0H0V822H822V0Z" fill="white"/>

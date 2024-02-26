@@ -14,8 +14,6 @@
 
 			<body>
 		<%@ include file="../cabecalhos/menu.jsp" %>
-			
-					
 
 					<div class="titulo">
 						<h1>CADASTRAR SEU PEDIDO.</h1>

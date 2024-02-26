@@ -11,6 +11,7 @@
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 <title>Helpu</title>
+<link rel="stylesheet" href="../css/perfil-ong.css">
 
 </head>
 
@@ -20,7 +21,7 @@
 	<main class="perfil-ong">
 		<section>
 			<div class="foto-capa-nome-ong">
-				<svg width="1636" height="387" viewBox="0 0 1636 387" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+				<svg  viewBox="0 0 1636 387" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<rect width="1636" height="387" fill="url(#pattern0)"/>
 					<rect width="1636" height="387" fill="url(#pattern1)"/>
 					<defs>
@@ -74,7 +75,7 @@
 				</div>
 
 				<div class="opcoes-ong">
-				<div>
+				<div class="historico-pedidos">
 					<a id="historico-pedidos"
 					href="<%=request.getContextPath()%>/historico-pedidos">Historico de Pedidos</a>
 					</div>
@@ -110,10 +111,12 @@
 							</h3>
 
 							<span id="TituloPedido">${pedidos.data}</span> <span>${pedidos.descricao}</span>
-							<a
-								href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver
-								Mais</a>
-						</div>
+							</div>
+							<div class="link-ver-mais">
+								<a
+									href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver
+									Mais</a>
+							</div>
 					</div>
 
 					</c:forEach>

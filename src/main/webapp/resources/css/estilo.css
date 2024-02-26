@@ -381,6 +381,11 @@ body {
 
 }
 
+#imagem-logo{
+    width: 30px;
+    position: absolute;
+}
+
 .logo {
     flex: 20%;
     display: flex;
@@ -455,6 +460,7 @@ body {
 .imagem-cadastra-se {
     margin-right: 10%;
     flex: 40%;
+   
 
     text-align: center;
 
@@ -462,6 +468,7 @@ body {
 
 #imagem-cadastro {
     max-width: 90%;
+  
 
 }
 
@@ -572,6 +579,10 @@ body {
     margin: 10px;
     margin-left: -30px;
 
+}
+#foto-editar-doador{
+    color:black;
+    background-color: var(--cor-background-tela);
 }
 
 .submit-editar-dados {
@@ -1085,7 +1096,11 @@ progress::-moz-progress-bar {
     cursor: pointer;
     /* Para empurrar o botão para a parte inferior do card */
 }
+.editar-foto-ong{
+    text-align: center;
+    margin: 5%;
 
+}
 
 .menu-lateral {
     position: fixed;
@@ -1403,6 +1418,53 @@ progress::-moz-progress-bar {
     width: 30px;
     float: left;
 }
+
+
+#imagem-confirmado-proposta{
+
+    width: 100;
+}
+.descricao-proposta{
+
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%; 
+}
+.descricao-proposta-conteudo {
+   
+
+    width: 70%;
+    margin: 0 auto;
+
+    font-size: 20px;
+}
+
+.descricao-span {
+    display: block; /* Faz com que os spans se comportem como blocos, ocupando toda a largura disponível */
+    margin-bottom: 10px; /* Adiciona espaçamento entre cada span */
+    text-align:left; /* Alinha o texto à esquerda dentro dos spans */
+}
+.editar-deletar{
+    width: 20%;
+    margin: 0 auto;
+   
+    text-align: center;
+    display: block;
+    flex-direction: column;
+    
+    
+}
+
+.botao-link {
+    display: block;
+    margin-bottom: 10px;
+}
+#editar{
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+
+}
+
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
 #errorTelefone,
@@ -1413,16 +1475,66 @@ progress::-moz-progress-bar {
     color: red;
 }
 
-p.one {
-    border-style: solid;
+
+.letra{
+color: #1B65AE;
+
+}
+
+.button{
+    background-color: #007bff;
+    color:white;
 }
 
 
-.alimentos-cadastrados {
+.meu-botao button {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none;
+    padding: 6px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 50%;
+    
+
+  }
+
+  .meu-botao a{
+    color: white;
+    text-decoration: none;
+  }
 
 
-   
-   
+  .imagem-nao-logado{
+    flex: 50%;
+  }
+  .imagem-nao-logado svg {
+  
+      
+        
+  
+}
+.botoes {
+  
+    width: 100%;
+    float: right;
+    
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+.nao-logado{
+
+    display: flex;
+}
+
+
+.img-nao {
+    margin-right: 25px; 
+}
+
+.alimentos-cadastrados {  
     width: 80%;
     padding: 10px;
     margin: 0 auto;

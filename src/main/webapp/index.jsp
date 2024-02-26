@@ -11,20 +11,22 @@
        <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
        <script><%@include file="/resources/js/Script.js"%></script>
 		<style type="text/css"> <%@include file="./resources/css/menu-topo.css"%></style> 
+  
     </head>
 
     <body>
-    		<%@include file="./resources/cabecalhos/menu-deslogado.jsp" %>
+        
         <div>
-            		
+            <jsp:include page="/resources/cabecalhos/menu-deslogado.jsp" />
+            
             <main>
                 <div class="tela-inicial">
-                <svg class="imagem-inicial">
-                    <%@ include file="/resources/imagens/tela-inicial-index.jsp" %>
-				</svg>		
-					
-
-                    <div class="texto-sobre-imagem">
+                    <svg class="imagem-inicial">
+                        <jsp:include page="/resources/imagens/tela-inicial-index.jsp" />
+                        </svg>		
+                        
+                        
+                        <div class="texto-sobre-imagem">
                         <h1>
                             <span id="Fazer-index">Fazer</span> a Diferença
                             nunca foi tão
