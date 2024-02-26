@@ -33,7 +33,7 @@ body {
 .botao {
 	display: flex;
 	color: var(--cor-background-tela);
-	background-color: var(--cor-principal);
+	background-color: var(--cor-secundaria);
 	transition: all 0.5s;
     font-weight: bold;
     height: 2.2em;
@@ -45,8 +45,9 @@ body {
 
 .botao:hover {
     border-radius: 8px;
-    color: var(--cor-secundaria);
+    color: var(--cor-principal);
     transform: scale(1.05);
+    border: 1px solid var(--cor-principal)
 }
 
 .botoes-doador {
@@ -144,7 +145,7 @@ h1 {
 
 .titulo-card{
     text-decoration: none;
-    color: var(--cor-principal);
+    color: var(--cor-secundaria);
  	font-weight: bold;
  	font-size: 1.2em;
   }
