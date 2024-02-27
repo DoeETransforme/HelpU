@@ -113,8 +113,42 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 			Root<PropostaDoacao> raizPropostaDoacao = criteria.from(PropostaDoacao.class);
 			
 			raizPropostaDoacao.fetch(PropostaDoacao_.PEDIDO_DOACAO, JoinType.LEFT).fetch("ong", JoinType.LEFT);
-			raizPropostaDoacao.fetch("doador", JoinType.LEFT);
+			raizPropostaDoacao.fetch("doador", JoinType.LEFT);			
+
+			criteria.select(raizPropostaDoacao);
+
+			criteria.where(construtor.equal(raizPropostaDoacao.get(PropostaDoacao_.id), id));		
+			propostaDoacao = sessao.createQuery(criteria).getSingleResult();
 			
+			sessao.getTransaction().commit();
+		} catch (Exception sqlException) {
+			sqlException.printStackTrace();
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+		} finally {
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		return propostaDoacao;
+	}
+	
+	public PropostaDoacao recuperarPropostaDoacaoStatusId(Long id) {
+
+		Session sessao = null;
+		PropostaDoacao propostaDoacao = null;
+
+		try {
+			sessao = fabrica.getConexao().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
+			Root<PropostaDoacao> raizPropostaDoacao = criteria.from(PropostaDoacao.class);
+			
+			raizPropostaDoacao.fetch(PropostaDoacao_.STATUS_PROPOSTA, JoinType.LEFT);						
 
 			criteria.select(raizPropostaDoacao);
 
