@@ -10,64 +10,31 @@
 				<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 				<script><%@include file="/resources/js/Script.js"%></script> 
 				<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+				<style type="text/css"> <%@include file="../css/historico-pedidos.css"%></style>
 			</head>
 
 			<body>
 				<%@ include file="../cabecalhos/menu.jsp" %>
-
-
-					<main>
-						<div>
+				
 							<div class="titulo">
 								<h1>Histórico de Pedidos da ONG</h1>
 							</div>
 
+	<div class="container">
+		<c:forEach var="pedidos" items="${pedidos}">
 
+			<div class="card-pedidos">
+				<img alt="foto pedido" id="foto-descricao-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
+			<div class="descricao-card">
+				<span class="titulo-card">Doações para ${pedidos.ong.nome}</span> 
+				<span class="texto-card">Status:${pedidos.statusPedido}</span> 
+				<span class="texto-card">Meta de doações: ${pedidos.metaDoacoes}</span> 
+				<a class="botao-pedido" <%-- href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>" --%>>Lista de Propostas</a>
+			</div>
+			</div>
+		</c:forEach>
+	</div>
 
-
-							<c:forEach var="pedidos" items="${pedidos}">
-
-								<div class="propostas-doacao-analise">
-									<div class="imagem-card" id="div-imagem-card">
-									<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>"></div>
-									<div class="conteudo" id="conteudo-historico">
-										<h2 id="titulo-historico">
-											Doações para <span id="Nome_Ong">${pedidos.ong.nome}</span>
-										</h2>
-										<br>
-										<p>
-											Status: <span id="Status_Ong">${pedidos.statusPedido}</span> <br>
-										</p>
-										<br>
-										<p>Meta de doações: <span id="Meta-Doacoes">${pedidos.metaDoacoes}</span></p>
-
-
-
-										<a
-											href="<%request.getServletContext();%>editar-pedido?id=<c:out value='${pedidos.id}'/>" >Editar</a>
-										<a
-											href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>">Excluir</a>
-
-
-									</div>
-
-								</div>
-
-							</c:forEach>
-
-
-
-							<!--                 <tr> -->
-							<!--                     <td> -->
-							<!--                         <h2>Doações para <span id="Nome_Ong">crianças PCD</span></h2> -->
-							<!--                         <h3>Status: <span id="Status_Ong">Ativo</span></h3> -->
-							<!--                         <img src="imagem.com" alt="imagem de perfil da ong"> -->
-							<!--                     </td> -->
-							<!--                 </tr> -->
-							</table>
-						</div>
-					</main>
-
-			</body>
+</body>
 
 			</html>

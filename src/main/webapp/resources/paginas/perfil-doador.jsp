@@ -66,7 +66,9 @@
 							 
 							 <span>Feito em: <c:out value="${proposta.dataCriacao}" /></span>
 							 
-							<a class="botao-doador" id="botao-descricao" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${proposta.pedidoDoacao.ong.id}'/>">Descrição</a>	
+
+							<a class="botao-doador" id="botao-descricao" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${proposta.id}'/>">Descrição</a>	
+
 						</div>			
 						
 				</c:forEach>	

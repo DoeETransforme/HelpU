@@ -27,15 +27,14 @@
 				<div class="titulo">
 					<h1>Editar Proposta</h1>
 				</div>
-				<p class="titulo">Para a ONG (nome da ong) <br>O que
+				<p class="titulo">Para a ONG <c:out value='${proposta.pedidoDoacao.ong.nome}' /> <br>O que
 					você gostaria de doar?</p>
 				<form action="proposta-editada" method="post" >
 
 
 				
 							<c:if test="${proposta != null}">
-								<input type="hidden" name="id"
-									value="<c:out value='${proposta.id}' />" />
+								<input type="hidden" name="id" value="<c:out value='${proposta.id}' />" />
 							</c:if>
 
 					
@@ -50,20 +49,12 @@
 										</c:forEach>
 									</select>
 								
-						
-								
 									<label >Quantidade:</label>
 									<input type="text" name="quantidade"
 									placeholder="Quantidade" required class="padrao-input">
 									</div>
 									<div class="submit-editar-dados"><input type="submit" value="Confirmar" ></div>
-							
-
-						
-
-				
-
-
+										
 				</form>
 			</div>
 		</section>

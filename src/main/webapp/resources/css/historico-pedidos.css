@@ -1,43 +1,21 @@
 @charset "UTF-8";
-
-* {
+*{
 	text-decoration: none;
+	border: none;	
 }
-
-h4  {
-	text-align: center;
-}
-
-.descricao-proposta{
-    grid-column: span 2;
-    text-align: left;
-    display: block;
-    margin-bottom: 0;	
-}
-
-
 
 .container {
 	display: flex;
 	flex-wrap: wrap;
-	margin-left: 17em;
-	width: 92em;
-	
+	margin-left: 12em;
 }
 
-.titulo-card {
-	display: flex;
-	color: var(--cor-secundaria);
-	font-weight: bold;
-	justify-content: center;
-	font-size: 1.5em;
-}
 
 .card-pedidos {
 	display: flex;
 	background-color: var(--cor-background-card) ;
-	width: 16vw; 
-    height: 23vh; 
+	width: 18vw; 
+    height: 37vh; 
     box-sizing: border-box; 
     transition: transform 0.5s ease;
     flex-flow: column wrap;
@@ -52,12 +30,22 @@ h4  {
 
 .descricao-card {
 	display: flex;
-	flex-direction: column;
 	padding: 1em;
+	flex-direction: column;
 }
 
-.texto-card {
-	font-size: 1.2em;
+#foto-descricao-pedido {
+	width: 18vw;
+	height: 20vh;
+	border: none;
+	border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+.ajuste-titulo {
+	margin-left: 2.5ex;
+	margin-right: 70em;
+	
 }
 
 .botao-pedido {
@@ -74,18 +62,28 @@ h4  {
     height: 4vh;
     width: 9vw;
     justify-content: center;
-    margin-left: 2.8em;
-    margin-top: 1.7em;
+    margin-left: 4em;
 }
 
 .botao-pedido:hover {
-	color: var(--cor-contraste) !important;
-    transform: scale(1.05); 
+    transform: scale(1.05); /* Aumenta o tamanho em 10% */
     color:var(--cor-secundaria) ;
     
 }
-
-span {
-	font-size: 1.4em;
-	margin-bottom: 0.5em;
+.titulo-card {
+	display: flex;
+	color: var(--cor-secundaria);
+	font-weight: bold;
+	justify-content: center;
+	font-size: 1.4m;
 }
+
+.nome-card{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.texto-card {
+	font-size: 1.2em;
+}
+
+
