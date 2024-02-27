@@ -11,6 +11,7 @@
   <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style> 
   <script><%@include file="/resources/js/Script.js"%></script>
   <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+  <script><%@include file="/resources/js/menu-topo.js"%></script>
 </head>
 
 <body>

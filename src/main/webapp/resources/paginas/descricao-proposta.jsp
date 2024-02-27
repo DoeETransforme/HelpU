@@ -16,6 +16,7 @@
 				<%@include file="../css/menu-topo.css" %>
 			</style>
 			<link rel="stylesheet" href="../css/estilo.css">
+			<script><%@include file="/resources/js/menu-topo.js"%></script>
 		</head>
 
 		<body>

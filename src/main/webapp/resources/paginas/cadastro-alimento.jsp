@@ -9,6 +9,7 @@
 <style type="text/css"><%@include file="/resources/css/estilo.css"%></style>
 <link rel="stylesheet" href="../css/estilo.css">
 <script><%@include file="/resources/js/Script.js"%></script>
+<script><%@include file="/resources/js/menu-topo.js"%></script>
 
 </head>
 <body>
