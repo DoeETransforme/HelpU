@@ -666,8 +666,7 @@ public class Servlet extends HttpServlet {
 		if (usuario instanceof Doador) {
 			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
 
-			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
-					StatusProposta.ACEITO);
+			List<PropostaDoacao> propostasDoacoes = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador, StatusProposta.ACEITO);
 
 			request.setAttribute("propostasDoacoes", propostasDoacoes);
 
@@ -699,12 +698,10 @@ public class Servlet extends HttpServlet {
 		if (usuario instanceof Ong) {
 
 			Ong ong = (Ong) usuario;
-
-			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong,
-					StatusProposta.ANALISE);
-
+			
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoOngStatusFetch(ong, StatusProposta.ANALISE);
+			
 			request.setAttribute("propostas", propostas);
-
 			request.setAttribute("ong", ong);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-analise.jsp");
