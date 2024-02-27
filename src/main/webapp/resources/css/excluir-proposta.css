@@ -38,15 +38,13 @@
 }
 
 
-.excluir-proposta{
-    
+.excluir-proposta{   
     flex-direction: column;
     display: flex;
     width: 50%;
     margin: 0 auto;
     text-align: center;
     margin-top: 20px;
-   
     align-items: center;
     
 }
@@ -58,12 +56,15 @@
     border: none;
     border-radius: 10px;
     padding: 10px;
-    color: var(--cor-texto);
+    color: var(--cor-background-tela) !important;
     width: 50%;
     transition: background-color 0.3s, color 0.3s; /* Adiciona transição suave */
 }
 
 .excluir-proposta a:hover {
-    background-color: var(--cor-principal);
-    color: var(--cor-secundaria);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-contraste) !important;
+    transform: scale(1.05); 
 }
+
+

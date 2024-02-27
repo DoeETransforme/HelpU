@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
+.imagem-descricao {
+	margin-right: 2em;
+	width: 10vw !important;
+	height: 10vh !important;		
+}
+
 .botoes-align {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	
 }
 
 .descricao-proposta {
@@ -21,4 +29,18 @@
     text-align: left;
     display: block;
     margin-bottom: 0;
+}
+
+.botao-link {
+	display: flex;
+	background-color: var(--cor-secundaria) !important;
+	color: var(--cor-background-tela);
+	font-weight: bold !important;
+	
+}
+
+.botao-link:hover {
+	color: var(--cor-contraste) !important;
+    transform: scale(1.05); 
+    color:var(--cor-secundaria) ;
 }

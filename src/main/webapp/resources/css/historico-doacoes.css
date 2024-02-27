@@ -1,21 +1,7 @@
 @charset "UTF-8";
-
 * {
 	text-decoration: none;
 }
-
-h4  {
-	text-align: center;
-}
-
-.descricao-proposta{
-    grid-column: span 2;
-    text-align: left;
-    display: block;
-    margin-bottom: 0;	
-}
-
-
 
 .container {
 	display: flex;
@@ -23,6 +9,11 @@ h4  {
 	margin-left: 17em;
 	width: 92em;
 	
+}
+
+.titulo {
+	font-size: 1.7em !important;
+	margin-top: 2.5em;
 }
 
 .titulo-card {
@@ -89,3 +80,4 @@ span {
 	font-size: 1.4em;
 	margin-bottom: 0.5em;
 }
+

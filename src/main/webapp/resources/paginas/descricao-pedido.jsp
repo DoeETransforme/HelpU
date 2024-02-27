@@ -27,8 +27,7 @@
 
 
 		<div class="imagem-do-pedido">
-			<img alt="foto pedido" id="imagem-pedido"
-				src="<c:out value='${pedido.foto.urlFoto()}'/>">
+			<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedido.foto.urlFoto()}'/>">
 
 			<div class="informacao-pedido">
 

@@ -6,15 +6,9 @@
 		<head>
 			<meta charset="UTF-8">
 			<title>HelpU</title>
-
-			<script><%@include file="/resources/js/Script.js" %></script>
-      
-			<style type="text/css">
-				<%@include file="/resources/css/estilo.css" %>
-			</style>
-			<style type="text/css">
-				<%@include file="../css/menu-topo.css" %>
-			</style>
+			<script><%@include file="/resources/js/Script.js" %></script>   
+			<style type="text/css"> <%@include file="/resources/css/estilo.css" %></style>
+			<style type="text/css"> <%@include file="../css/menu-topo.css" %></style>
 			<link rel="stylesheet" href="../css/estilo.css">
 		</head>
 
@@ -28,8 +22,7 @@
 
 
 						<div class="avaliar-proposta">
-							<img src="../imagens/perfil-icon.png" alt="Imagem de perfil do usuário"
-								id="imagem-PF-avaliarProposta">
+							<img  alt="Imagem de perfil do usuário" id="imagem-descricao" src="<c:out value='${doador.fotoUsuario.urlFoto()}'/>">
 							<h2>Doação de:
 								<c:out value="${proposta.doador.nome}" />
 							</h2>
@@ -51,20 +44,13 @@
 						<div class="linha"></div>
 						
 						<div class="editar-deletar">
-							<a id="editar" class="botao-link"
-								href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
-							<a class="botao-link"
-								href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
+						
+						<c:if test="${propostaStatus == ANALISE}">
+							<a  class="botao-link" href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
+							<a class="botao-link" href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
+						</c:if>							
 						</div>
-					</div>
-					</div>
-
-
-
-
-
-
-
+					</div>		
 
 				</main>
 		</body>

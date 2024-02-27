@@ -76,9 +76,8 @@
 
 .padrao-submit-login:hover {
     border-radius: 8px;
-    color: var(--cor-secundaria);
-    border:1px solid var(--cor-secundaria);
-    background-color: var(--cor-principal);
+    color: var(--cor-contraste);
+    background-color: var(--cor-secundaria);
     transform: scale(1.1);
 }
 

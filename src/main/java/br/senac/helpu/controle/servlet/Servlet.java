@@ -486,7 +486,7 @@ public class Servlet extends HttpServlet {
 
 			List<Conquista> conquistas = conquistaDAO.recuperarConquistasPorDoador(doador);
 			Long conquista = conquistaDAO.recuperarQuantidadeConquistaDoador(doador);
-			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(doador, StatusProposta.ACEITO);
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatusLimitTrace(doador, StatusProposta.ANALISE);
 			
 			request.setAttribute("propostas", propostas);
 			request.setAttribute("qntdConquistas", conquista);
@@ -745,8 +745,7 @@ public class Servlet extends HttpServlet {
 
 			Doador doador = (Doador) usuario;
 
-			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador,
-					StatusProposta.ANALISE);
+			List<PropostaDoacao> propostas = propostaDoacaoDAO.recuperarTodasPropostaDoacaoDoadorStatus(doador, StatusProposta.ANALISE);
 			request.setAttribute("propostas", propostas);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/propostas-pendentes.jsp");
@@ -875,11 +874,15 @@ public class Servlet extends HttpServlet {
 		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
 		if (usuario instanceof Doador) {
-
+			
 			Long id = Long.parseLong(request.getParameter("id"));
 			PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
+			Doador doador = doadorDAO.recuperarDoadorId(usuario.getId());
+			PropostaDoacao status = propostaDoacaoDAO.recuperarPropostaDoacaoStatusId(id);
 
 			request.setAttribute("proposta", proposta);
+			request.setAttribute("doador", doador);
+			request.setAttribute("status", status);
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("./resources/paginas/descricao-proposta.jsp");
 			dispatcher.forward(request, response);
@@ -1323,26 +1326,30 @@ public class Servlet extends HttpServlet {
 
 	private void mostrarExcluirProposta(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession sessao = request.getSession();
+		Usuario usuario = (Usuario) sessao.getAttribute("usuario");
 
+		if (usuario instanceof Doador) {
 		Long id = Long.parseLong(request.getParameter("id"));
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 
 		request.setAttribute("proposta", proposta);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/excluir-proposta.jsp");
 		dispatcher.forward(request, response);
+		}
 
 	}
 
 	private void excluirProposta(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+			throws ServletException, IOException {		
+		
 		Long id = Long.parseLong(request.getParameter("id"));
 		PropostaDoacao proposta = propostaDoacaoDAO.recuperarPropostaDoacaoId(id);
 
 		propostaDoacaoDAO.deletarPropostaDoacao(proposta);
-		
 
-		response.sendRedirect("propostas-pendentes");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/resources/paginas/propostas-pendentes.jsp");
+		dispatcher.forward(request, response);
 
 
 	}
