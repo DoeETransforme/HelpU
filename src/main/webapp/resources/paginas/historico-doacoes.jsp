@@ -27,6 +27,7 @@
 			<div class="propostas-doacao-analise">
 				<div class="conteudo">
 					<h2>
+					<a class="botao" id="botao-descricao" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostaDoacao.id}'/>">Descrição</a>	
 						Doação para: <span id="Nome_Ong">${propostaDoacao.pedidoDoacao.ong.nome}</span>
 					</h2>
 					<p>
