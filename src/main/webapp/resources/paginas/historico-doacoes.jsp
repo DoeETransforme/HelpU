@@ -12,7 +12,7 @@
 
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 <style type="text/css"> <%@include file="../css/estilo.css"%></style>
-  
+<style type="text/css"> <%@include file="../css/historico-doacoes.css"%></style>  
 </head>
 <body>
 		<%@ include file="../cabecalhos/menu.jsp" %>
@@ -22,32 +22,18 @@
 			<h1>Seu histórico de doações</h1>
 		</div>
  
- 
+ 		<div class="container">
 		<c:forEach var="propostaDoacao" items="${propostasDoacoes}">
-			<div class="propostas-doacao-analise">
-				<div class="conteudo">
-					<h2>
-					<a class="botao" id="botao-descricao" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostaDoacao.id}'/>">Descrição</a>	
-						Doação para: <span id="Nome_Ong">${propostaDoacao.pedidoDoacao.ong.nome}</span>
-					</h2>
-					<p>
-						Por: <span id="nomeUsuario">${propostaDoacao.doador.nome}</span>
-					</p>
-					<p>
-						Status: <span>${propostaDoacao.statusProposta}</span>
-					</p>
+			<div class="card-pedidos">
+				<div class="descricao-card">					
+					<span class="titulo-card">Doação para:${propostaDoacao.pedidoDoacao.ong.nome}</span>
+					<span class="texto-card">Por: ${propostaDoacao.doador.nome}</span> 
+					<span class="texto-card">Status: ${propostaDoacao.statusProposta}</span>
+					<a class="botao-pedido" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostaDoacao.id}'/>">Descrição</a>
 				</div>
 			</div>
- 
 		</c:forEach>
-		<!--         <ol> -->
-		<!--             <li>Doação de <span class="Quantidade">5kg</span> de <span class="Item">arroz</span> para ONG <span class="Nome_Ong">humanidade em ação</span></li> -->
-		<!--             <li>Doação de <span class="Quantidade">5kg</span> de <span class="Item">arroz</span> para ONG <span class="Nome_Ong">humanidade em ação</span></li> -->
-		<!--             <li>Doação de <span class="Quantidade">5kg</span> de <span class="Item">arroz</span> para ONG <span class="Nome_Ong">humanidade em ação</span></li> -->
-		<!--         </ol> -->
- 
-		<!-- <script src="../js/Script.js"></script> -->
- 
+ 		</div>
 	</main>
 </body>
 </html>

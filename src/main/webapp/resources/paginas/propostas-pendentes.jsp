@@ -22,22 +22,22 @@
     <div class="titulo">
     <h1> Suas propostas Pendentes:</h1>
     </div>
+    
+    		<div class="container">
               <c:forEach var="propostas" items="${propostas}">  	
-		          <div class="propostas-doacao-analise">
-							<div class="imagem-card"><img src="../imagens/perfil-icon.png" alt=""></div>
-							
-							<div class="conteudo">						
-		          				<h2 id="titulo-propostas-pendentes">Para: ${propostas.pedidoDoacao.ong.nome}</h2>
-		                        <span class="descricao-proposta">Feito em: ${propostas.dataCriacao}</span>
-		                        <span class="descricao-proposta">No Pedido: ${propostas.pedidoDoacao.titulo}</span>
+		          <div class="card-pedidos">						
+							<div class="descricao-card">						
+		          				<span class="titulo-card">Para: ${propostas.pedidoDoacao.ong.nome}</span>
+		                        <span class="texto-card">Feito em: ${propostas.dataCriacao}</span>
+		                        <span class="texto-card">No Pedido: ${propostas.pedidoDoacao.titulo}</span>
  
-                				<a href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostas.id}'/>">Descricao</a>
+                				<a class="botao-pedido" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${propostas.id}'/>">Descricao</a>
 
 		        		   </div>
 							
 				 </div>
 			</c:forEach>
-     
+     	</div>
        
     </main>
 

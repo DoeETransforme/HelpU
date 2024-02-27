@@ -27,8 +27,7 @@
 
 
 		<div class="imagem-do-pedido">
-			<img alt="foto pedido" id="imagem-pedido"
-				src="<c:out value='${pedido.foto.urlFoto()}'/>">
+			<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedido.foto.urlFoto()}'/>">
 
 			<div class="informacao-pedido">
 
@@ -88,8 +87,7 @@
 
 				<div class="alinhamento-descricao-proposta">
 					<div>
-						<img alt="foto do ong" id="foto-descricao-proposta"
-							src="<c:out value='${ongFoto.fotoUsuario.urlFoto()}'/>">
+						<img alt="foto do ong" id="foto-descricao-proposta" src="<c:out value='${ongFoto.fotoUsuario.urlFoto()}'/>">
 					</div>
 					<div class="alinhamento-nome">
 						<span><c:out value="${propostas.doador.nome}" /></span>
@@ -113,12 +111,13 @@
 
 		<c:forEach var="pedido" items="${pedidos}">
 			<div class="card-pedidos">
-				<img alt="foto do ong" id="foto-descricao-pedido" src="<c:out value='${ongFoto.fotoUsuario.urlFoto()}'/>">
+				<img alt="foto do ong" id="foto-descricao-pedido" src="<c:out value='${pedido.foto.urlFoto()}'/>">
 				<div class="descricao-card">
 					<span class="titulo-card"><c:out value="${pedido.titulo}" /></span>
 					<span class="nome-card">Por <c:out value="${pedido.ong.nome}" /></span> 
 					<span class="texto-card"><c:out value="${pedido.descricao}" />
-					</span> <a class="botao-pedido" href="<%request.getServletContext();%>/descricao-pedido">Leia Mais</a>
+					</span> <a class="botao-pedido"href="<%request.getServletContext();%>/descricao-pedido?id=<c:out value='${pedido.id}'/>">Leia Mais</a>
+
 				</div>
 			</div>
 		</c:forEach>
