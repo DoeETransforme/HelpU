@@ -11,21 +11,19 @@
 
 
 }
-
-.filtro-container {
+.filtro-container{
     position: fixed;
     top: 0;
-    left: -300px; /* Inicia escondido */
-    width: 300px;
+    left: -250px;
+    width: 250px;
     height: 100%;
-    background-color: #f4f4f4;
+    background-color: var(--cor-secundaria);
     transition: left 0.3s ease;
-  }
-  
-  .mostrar {
-    left: 0; /* Mostra o menu lateral */
-  }
-  
+}
+
+.filtro-container.mostrar1 {
+    left: 0;
+}
 
 .hamburguer-menu {
     width: 40px;
