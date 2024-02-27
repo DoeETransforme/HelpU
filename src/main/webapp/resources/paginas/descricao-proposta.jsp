@@ -6,7 +6,9 @@
 		<head>
 			<meta charset="UTF-8">
 			<title>HelpU</title>
+
 			<script><%@include file="/resources/js/Script.js" %></script>
+      
 			<style type="text/css">
 				<%@include file="/resources/css/estilo.css" %>
 			</style>
