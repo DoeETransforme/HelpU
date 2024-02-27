@@ -53,7 +53,7 @@
 						<div class="editar-deletar">
 							<a id="editar" class="botao-link"
 								href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
-							<a class="botao-link"
+							<a id="deletar" class="botao-link"
 								href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
 						</div>
 					</div>

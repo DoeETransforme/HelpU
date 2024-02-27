@@ -12,6 +12,21 @@
 
 }
 
+.filtro-container {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Inicia escondido */
+    width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    transition: left 0.3s ease;
+  }
+  
+  .mostrar {
+    left: 0; /* Mostra o menu lateral */
+  }
+  
+
 .hamburguer-menu {
     width: 40px;
 
@@ -22,19 +37,38 @@
 
 }
 
+#imagem-filtro{
+  
+    position: absolute;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-left: 5%;
+    
+
+}
+
 
 .input-search-menu{
  
  width: 50%;
- margin: 0 auto;
-}
-.template-grid-menu input[type="search"] {
-    background-color: var(--cor-background-input);
-    width: 100%;
+margin-left: 20%;
+  background-color: var(--cor-background-input);
+    width: 50%;
     padding: 10px;
     border-radius: 8px;
     border: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+    text-align: left;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+ 
+}
+.template-grid-menu input[type="search"] {
+    background-color: var(--cor-background-input);
+    width: 80%;
+ 
+
+    border-radius: 8px;
+    border: none;
+   
 }
 
 .menu-index {

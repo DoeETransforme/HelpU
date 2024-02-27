@@ -1503,11 +1503,17 @@ progress::-moz-progress-bar {
     display: block;
     margin-bottom: 10px;
 }
-#editar{
-    background-color: var(--cor-principal);
-    color: var(--cor-secundaria);
+#editar, #deletar{
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
 
 }
+#editar:hover, #deletar:hover{
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+}
+
 
 #errorNomeCompleto,
 #errorCPFOuCNPJ,
@@ -1674,3 +1680,81 @@ color: #1B65AE;
    
     background-color: var(--cor-principal);
 }
+
+.validar-proposta {
+ 
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+ 
+    justify-content: center; 
+    align-items: center; /
+}
+
+.validar-proposta a {
+    display: block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 8px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 18px; /* Adicionando "px" ao tamanho da fonte */
+    width: 30%;
+    transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adicionando transição */
+}
+
+.validar-proposta a:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+}
+
+.imagem-correto-proposta{
+
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10%;
+    
+}
+
+#imagem-correto-proposta{
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+}
+.voltar-proposta-aceita{
+
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5%;
+ 
+}
+#proposta-aceita-paragrafo, #proposta-excluida-paragrafo{
+    font-size: 30px;
+}
+.voltar-proposta-aceita a{
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 8px;
+    border-radius: 10px;
+
+  
+ 
+    text-decoration: none;
+    font-size: 18px; /* Adicionando "px" ao tamanho da fonte */
+  
+    transition: background-color 0.3s, color 0.3s, border 0.3s; /* Adicionando transição */
+
+}
+
+.voltar-proposta-aceita a:hover{
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+}
+

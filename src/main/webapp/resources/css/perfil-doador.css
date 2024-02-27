@@ -30,7 +30,7 @@ body {
   border-radius: 10px;
 }
 
-.botao {
+.botao-doador{
 	display: flex;
 	color: var(--cor-background-tela);
 	background-color: var(--cor-secundaria);
@@ -43,8 +43,8 @@ body {
     justify-content: center;
 }
 
-.botao:hover {
-    border-radius: 8px;
+.botao-doador:hover {
+  
     color: var(--cor-secundaria);
     background-color: var(--cor-background-tela);
     transform: scale(1.05);
