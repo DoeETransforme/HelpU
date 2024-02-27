@@ -41,7 +41,7 @@ public class Usuario implements Serializable {
 	@Enumerated ( EnumType.STRING)
 	private StatusUsuario status;
 	
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private Foto fotoUsuario;
 	
 	public Usuario() {

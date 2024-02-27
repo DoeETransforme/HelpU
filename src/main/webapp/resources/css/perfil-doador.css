@@ -45,10 +45,9 @@ body {
 
 .botao:hover {
     border-radius: 8px;
-    color: var(--cor-secundaria);
-    background-color: var(--cor-background-tela);
+    color: var(--cor-contraste) !important;
+    background-color: var(--cor-secundaria);
     transform: scale(1.05);
-    border: 1px solid var(--cor-secundaria);
 }
 
 .botoes-doador {
@@ -66,9 +65,7 @@ body {
     width: 100%;
     font-family: 'Inter', sans-serif;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    
-    
+    transition: background-color 0.3s ease; 
 }
 
 
