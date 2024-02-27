@@ -113,13 +113,12 @@
 
 		<c:forEach var="pedido" items="${pedidos}">
 			<div class="card-pedidos">
-				<img alt="foto do ong" id="foto-descricao-pedido"
-					src="<c:out value='${ongFoto.fotoUsuario.urlFoto()}'/>">
+				<img alt="foto do ong" id="foto-descricao-pedido" src="<c:out value='${ongFoto.fotoUsuario.urlFoto()}'/>">
 				<div class="descricao-card">
 					<span class="titulo-card"><c:out value="${pedido.titulo}" /></span>
 					<span class="nome-card">Por <c:out value="${pedido.ong.nome}" /></span> 
 					<span class="texto-card"><c:out value="${pedido.descricao}" />
-					</span> <a class="botao-pedido"href="<%request.getServletContext();%>/descricao-pedido">Leia Mais</a>
+					</span> <a class="botao-pedido" href="<%request.getServletContext();%>/descricao-pedido">Leia Mais</a>
 				</div>
 			</div>
 		</c:forEach>
