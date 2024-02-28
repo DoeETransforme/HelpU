@@ -1,0 +1,300 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+
+
+.texto-sobre-imagem {
+	position: absolute;
+    color: white;
+    top: 4.8em;
+    left: 1em;
+    text-align: left;
+    font-size: 60px;
+    margin: 0px !important;
+}
+
+#Fazer-index {
+    color: #FDE583;
+}
+
+#facil-index {
+    color: #1B65AE;
+}
+
+.botoes-cadastro {
+    margin-top: 0.2em;
+   
+}
+
+.botoes-cadastro a {
+    display: inline-block; /* Para aplicar transform */
+    background-color: #1B65AE;
+    text-decoration: none;
+  	text-align: center;
+  	margin-right: 1em;
+
+    padding: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+    font-size: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Adicionando uma transição suave */
+}
+
+.botoes-cadastro a:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    color:#FDE583 ;
+    
+}
+
+.pedidos-index{
+    width: 90%;
+   
+    margin:0 auto;
+}
+.todos-cards-index{
+    display: flex;
+	margin-bottom: 100px;
+ 
+ 
+}
+
+.card-pedidos-index{
+   
+    width: 20%;
+    border-radius: 10px;
+    margin-right: 40px; 
+
+    background-color: #F4F2F0;
+}
+
+.pedidos-texto-index h2 {
+    font-size: 50px;
+    color: #32383E;
+}
+
+.pedidos-texto-index p {
+    font-size: 30px;
+    color: #32383E;
+}
+.conteudo p{
+    text-align: left;
+}
+
+.conteudo h2{
+    color: #1B65AE;
+    
+}
+
+.card-pedidos-index button{
+    background-color: #1B65AE;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 50%;
+    margin-left: 22%;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Adicionando uma transição suave */
+
+}
+
+.card-pedidos-index button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+}
+#nome-ong{
+    margin-top: -20px;
+}
+
+footer {
+    margin-top: 300px;
+    background-color: #1B65AE; /* Cor de fundo azul */
+    color: white; /* Cor do texto */
+    padding: 20px 0; /* Espaçamento interno superior e inferior */
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Divide o footer em três colunas */
+    gap: 20%; /* Espaçamento entre as colunas */
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza o footer na página */
+}
+
+
+.column {
+    text-align: center; /* Alinha o conteúdo das colunas ao centro */
+    font-size: 24px;
+}
+
+.column h2 {
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    color:white;
+}
+
+.column ul {
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0; /* Remove o espaçamento interno */
+}
+
+.column ul li {
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+}
+
+.column ul li a {
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
+}
+
+.column ul li a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse sobre os links */
+}
+
+.quem-somos {
+    background-color: #FDE583;
+    display: flex;
+    margin-top: 6.25em;
+   
+    align-items: center; /* Centraliza horizontalmente */
+    height: 31.25em;
+}
+
+.quem-somos-conteudo {
+    width: 99vw;
+    margin-bottom: auto; /* Coloca o conteúdo no topo */
+    text-align: left; /* Alinha o texto ao centro */
+    padding-top: 20px; /* Espaçamento superior */
+    font-size: 40px;
+    margin-left: 5%;
+}
+
+.quem-somos-index {
+    background-color: white;
+    width: 300px; /* Defina uma largura fixa para a div */
+    height: 300px; /* Defina uma altura fixa para a div */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    border-radius: 50%; /* Utilize 50% para um círculo */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites da div */
+    margin-right: 5%;
+}
+
+.quem-somos img {
+    width: 50%; /* Defina uma largura fixa para a imagem */
+    height: auto; /* Mantenha a proporção da imagem */
+    display: block; /* Remove espaços verticais extras */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+
+
+
+.titulo-index {
+	display: flex;
+	font-size: 4.5em;
+	align-items: left;
+	margin-left: 0;
+}
+
+span {
+	
+	font-size: 1.5em;
+}
+
+.container {
+	flex-wrap: wrap;
+	display: flex;
+	margin-left: 4em;
+
+}
+
+.card-pedidos {
+	display: flex;
+	background-color: var(--cor-background-card) ;
+	width: 18vw; 
+    height: 50vh; 
+    box-sizing: border-box; 
+    transition: transform 0.5s ease;
+    flex-flow: column wrap;
+    margin-left: 1em;
+    margin-top: 6em;
+    margin-right: 2em;
+    border-radius: 10px;
+  	box-shadow: 0px 2px 0px #989898;
+}
+.tela-inicial{
+
+}
+.imagem-inicial {
+ 
+	width: 100%;
+	height: 119.7vh;
+	border: none;
+}
+
+.ajuste-titulo {
+	margin-left: 2.5ex;
+	margin-right: 40em;
+}
+
+.botao-pedido {
+	font-weight: bold;
+	display: flex;
+    background-color: #1B65AE;
+    text-decoration: none;
+	padding-top: 1.2vh !important;
+    color: white;
+    font-size: 1.0em;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* Adicionando uma transição suave */
+    height: 4vh;
+    width: 9vw;
+    justify-content: center;
+    margin-left: 3.5em;
+    margin-top: 1em;
+
+}
+
+.botao-pedido:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    color:#FDE583 ;
+    
+}
+.titulo-card {
+	display: flex;
+	color: var(--cor-secundaria);
+	font-weight: bold;
+	justify-content: center;
+	font-size: 1.5em;
+}
+
+.nome-card{
+	display: flex;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.texto-card {
+	font-size: 1.2em;
+}
+
+#foto-descricao-pedido {
+	width: 18vw;
+	height: 20vh;
+	border: none;
+	border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+.descricao-card {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+

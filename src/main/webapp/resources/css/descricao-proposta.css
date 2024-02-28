@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.imagem-descricao {
+	margin-right: 2em;
+	width: 10vw !important;
+	height: 10vh !important;		
+}
+
+.botoes-align {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.descricao-proposta {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 100;
+    font-family: 'Inter', sans-serif;
+    margin-top: 50px
+    
+}
+
+.descricao-span {
+    grid-column: span 2;
+    text-align: left;
+    display: block;
+    margin-bottom: 0;
+}
+
+.botao-link {
+	display: flex;
+	background-color: var(--cor-secundaria) !important;
+	color: var(--cor-background-tela);
+	font-weight: bold !important;
+	
+}
+
+.botao-link:hover {
+	color: var(--cor-contraste) !important;
+    transform: scale(1.05); 
+    color:var(--cor-secundaria) ;
+}

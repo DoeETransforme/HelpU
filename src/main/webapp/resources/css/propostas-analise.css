@@ -1,0 +1,118 @@
+
+:root {
+    --cor-principal: #FFFFFF;
+    --cor-secundaria: #1B65AE;
+   
+    --cor-background: #f2f2f2;
+    --cor-background-input: #F4F2F0;
+    --cor-texto: #32383E;
+    --fonte-texto:"DM Sans", sans-serif;
+    --cor-background-tela: #FFFFFF;
+    --cor-background-card:  #EDEDED ;
+    --cor-contraste: #FBE68B;
+}
+
+
+
+.titulo1 {   
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    color: var(--cor-texto);
+    
+  
+}
+
+
+.titulo h1 {
+    margin: 0; /* Remova as margens padrão do h1 */
+}
+
+
+.propostas-doacao-analise1 {
+   
+}
+
+#display2{
+    display: flex;
+    flex-wrap: wrap;
+   
+    width: 90%;
+    margin: 0 auto;
+    margin-top:30px;
+}
+
+.card-proposta2 {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	float: left;
+	margin-right: 40px;
+	margin-bottom: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao cartão */
+}
+
+
+
+
+
+.imagem-card1 img {
+    width: 100%;
+    max-width: 100px; /* Ajuste conforme necessário */
+    height: auto;
+    float: left;
+ 
+    
+}
+
+
+.conteudo1 {
+    margin-top: 50px;
+    font-size: 20px;
+
+    word-wrap: break-word; /* faz com que o texto quebre quando atingir o final da div */
+    overflow-wrap: break-word;
+    
+}
+
+.conteudo1 p {
+    margin: 5px 0;
+}
+
+.conteudo1 a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.conteudo1 a:hover {
+    text-decoration: underline;
+}
+
+.conteudo1 a {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adicionando uma transição suave */
+}
+
+
+#doacao-por{
+    color: var(--cor-secundaria);
+    font-size: 25px;
+    margin-left: 30%   ;
+    word-wrap: break-word; /* faz com que o texto quebre quando atingir o final da div */
+    overflow-wrap: break-word;
+
+}

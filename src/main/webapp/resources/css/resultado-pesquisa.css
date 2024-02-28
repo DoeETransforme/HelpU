@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	text-decoration: none;
+	border: none;
+}
+
+
+
+.container {
+	flex-direction: column;
+	max-width: 80em;
+	margin: 0 auto;
+	padding: 0 1em;
+	margin-top: 6em;
+	justify-content: center;
+}
+
+.titulo-pesquisa {
+	font-size: 2em;
+	color: var(--cor-texto);
+	display: flex;
+	justify-content: center;
+
+}
+
+.linha-resultado {
+	margin: 20px auto 10px;
+	width: 80em;
+	border-bottom: 1px solid #B7B7B7;
+	border-radius: 10px;
+}
+
+.titulo-ong-pesquisa {
+	font-size: 1em;
+}
+
+.perfil-encontrado{
+	display: flex;
+	flex-wrap: nowrap;
+	
+}
+
+.card-ong-pesquisa {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1em;
+	font-family: var(--fonte-texto);
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-bottom: 2em;
+	margin-right: 1em;
+}
+
+#foto-pesquisa {
+	width: 13vw;
+	height: 15vh;
+	border-radius: 50%;
+	
+}
+
+.card-pedidos {
+	display: flex;
+	background-color: var(--cor-background-card) ;
+	width: 20vw; 
+    height: 46vh; 
+    box-sizing: border-box; 
+    transition: transform 0.5s ease;
+    flex-flow: column wrap;
+    margin-top: 6em;
+    margin-right: 2em;
+    border-radius: 10px;
+    margin-left: 5em;
+    margin-bottom: 4em;
+  	box-shadow: 0px 2px 0px #989898;
+}
+
+#foto-descricao-pedido {
+	width: 20vw;
+	height: 18vh;
+	border: none;
+	border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+.descricao-card {
+	display: flex !important;
+	padding: 1em;
+	flex-direction: column;
+}
+
+.titulo-card {
+	display: flex;
+	color: var(--cor-secundaria);
+	font-weight: bold;
+	justify-content: center;
+	font-size: 1.5em;
+}
+
+.botao {
+	display: flex;
+	color: var(--cor-background-tela);
+	background-color: var(--cor-secundaria) !important;
+	padding-top: 0.4em !important;
+	transition: all 0.5s ease; 
+    font-weight: bold;
+    height: 2.2em;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.8);
+    border-radius: 7px;
+    justify-content: center;
+}
+
+.botao:hover {
+    border-radius: 8px;
+    color: var(--cor-contraste) !important;
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+#botao-descricao {
+	margin-left: 2.8em;
+	display: flex;
+	height: 2em;
+	width: 10em;
+	padding: 0.5em;
+	margin-bottom: 0;
+	margin-top: 2em;
+}
+
+span {
+	font-size: 1em;
+	margin-bottom: 0.3em;
+	display: flex;
+}
+
+.container-card {
+	display: flex;
+	flex-wrap: wrap;
+}
