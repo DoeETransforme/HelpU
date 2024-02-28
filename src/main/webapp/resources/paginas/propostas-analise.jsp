@@ -8,16 +8,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Helpu</title>
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+ <style type="text/css"> <%@include file="/resources/css/propostas-analise.css"%></style>
  <script><%@include file="/resources/js/Script.js"%></script>
  <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+
+ <link rel="stylesheet" href="../css/propostas-analise.css">
+
  
  <style type="text/css"> <%@include file="/resources/css/propostas-analise.css"%></style> 
+
 </head>
 <body>
 		<%@ include file="../cabecalhos/menu.jsp" %>
 
 
 	<main>
+
 			<div>
 			<div class="titulo">
 				<h1>Propostas em Análise.</h1>
@@ -38,6 +44,7 @@
 						<a class="botao-pedido" href="<%=request.getContextPath()%>/avaliar-proposta?id=<c:out value='${proposta.id}'/>">Ver Mais</a>						
 					</div>			
 				</div>	
+
 			</c:forEach>
 			</div>
 
