@@ -12,7 +12,12 @@
 
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 <style type="text/css"> <%@include file="../css/estilo.css"%></style>
+
+<script><%@include file="/resources/js/menu-topo.js"%></script>
+  
+
 <style type="text/css"> <%@include file="../css/historico-doacoes.css"%></style>  
+
 </head>
 <body>
 		<%@ include file="../cabecalhos/menu.jsp" %>

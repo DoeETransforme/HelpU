@@ -12,6 +12,7 @@
     <script><%@include file="/resources/js/Script.js"%></script>
     <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
     <link rel="stylesheet" href="../css/estilo.css">
+    <script><%@include file="/resources/js/menu-topo.js"%></script>
 </head>
 
 <body>
