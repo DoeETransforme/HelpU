@@ -8,8 +8,12 @@
 <title>Helpu</title>
 	<style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
 	<script><%@include file="/resources/js/Script.js"%></script>
+	<script><%@include file="/resources/js/menu-topo.js"%></script>
 	<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 	<style type="text/css"> <%@include file="/resources/css/perfil-doador.css"%></style> 
+	<link rel="stylesheet" href="../css/">
+	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" href="../css/perfil-doador.css">
 
 </head>
 <body>
@@ -36,8 +40,8 @@
 		
 		<div class="main-doador">
 			<div class="botoes-doador">
-				<a class="botao" href="<%=request.getContextPath()%>/historico-doacoes">Histórico de Doações</a>
-				<a class="botao" href="<%=request.getContextPath()%>/historico-conquistas">Histórico de conquistas</a>
+				<a class="botao-doador" href="<%=request.getContextPath()%>/historico-doacoes">Histórico de Doações</a>
+				<a class="botao-doador" href="<%=request.getContextPath()%>/historico-conquistas">Histórico de conquistas</a>
 				<a class="botao-editar-perfil" href="<%=request.getContextPath()%>/editar-perfil-doador?id=<c:out value='${doador.id}'/>">
 					<%@include file="../imagens/icone-editar-perfil.jsp" %>
 					Editar Perfil
@@ -62,7 +66,9 @@
 							 
 							 <span>Feito em: <c:out value="${proposta.dataCriacao}" /></span>
 							 
-							<a class="botao" id="botao-descricao" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${proposta.id}'/>">Descrição</a>	
+
+							<a class="botao-doador" id="botao-descricao" href="<%=request.getContextPath()%>/descricao-proposta?id=<c:out value='${proposta.id}'/>">Descrição</a>	
+
 						</div>			
 						
 				</c:forEach>	
