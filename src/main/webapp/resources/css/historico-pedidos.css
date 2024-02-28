@@ -1,89 +1,128 @@
-@charset "UTF-8";
-*{
-	text-decoration: none;
-	border: none;	
+
+:root {
+    --cor-principal: #FFFFFF;
+    --cor-secundaria: #1B65AE;
+   
+    --cor-background: #f2f2f2;
+    --cor-background-input: #F4F2F0;
+    --cor-texto: #32383E;
+    --fonte-texto:"DM Sans", sans-serif;
+    --cor-background-tela: #FFFFFF;
+    --cor-background-card:  #EDEDED ;
+    --cor-contraste: #FBE68B;
 }
 
-.container {
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: 12em;
-}
 
 
-.card-pedidos {
-	display: flex;
-	background-color: var(--cor-background-card) ;
-	width: 18vw; 
-    height: 37vh; 
-    box-sizing: border-box; 
-    transition: transform 0.5s ease;
-    flex-flow: column wrap;
-	margin-left: 1em;
-    margin-top: 6em;
-    margin-right: 2em;
-    border-radius: 10px;
-    margin-left: 6em;
-    margin-bottom: 4em;
-  	box-shadow: 0px 2px 0px #989898;
-}
-
-.descricao-card {
-	display: flex;
-	padding: 1em;
-	flex-direction: column;
-}
-
-#foto-descricao-pedido {
-	width: 18vw;
-	height: 20vh;
-	border: none;
-	border-top-left-radius: 10px; 
-    border-top-right-radius: 10px; 
-}
-
-.ajuste-titulo {
-	margin-left: 2.5ex;
-	margin-right: 70em;
-	
-}
-
-.botao-pedido {
-	font-weight: bold;
-	display: inline-block;
-    background-color: #1B65AE;
-    text-decoration: none;
-	padding-top: 1.2vh !important;
-    color: var(--cor-background-tela);
-    font-size: 1.0em;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease; /* Adicionando uma transição suave */
-    height: 4vh;
-    width: 9vw;
+.titulo1 {   
+    display: block;
     justify-content: center;
-    margin-left: 4em;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    color: var(--cor-texto);
+    
+  
+}
+#doacoes-para{
+	color: var(--cor-secundaria);
+	font-size: 24px;
 }
 
-.botao-pedido:hover {
-    transform: scale(1.05); /* Aumenta o tamanho em 10% */
-    color:var(--cor-secundaria) ;
+.titulo h1 {
+    margin: 0; /* Remova as margens padrão do h1 */
+}
+
+
+.propostas-doacao-analise1 {
+   
+}
+#display3 {
+    display: flex;
+    flex-wrap: wrap;
+   
+
+    width: 90%;
+    margin: 0 auto;
+}
+.card-completo1 {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	float: left;
+	margin-right: 50px;
+	margin-bottom: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+	flex: 1 0 30%;
+    max-width: 30%;
+	
+   
+}
+
+.imagem-card-pedidos1{
+	margin: 0 auto;
+
+	width: 50%;
+}
+.imagem-card-pedidos1 img {
+    width: 26vh;
+
+    height: auto;
+	margin: 0 auto;
+   
+ 
     
 }
-.titulo-card {
-	display: flex;
-	color: var(--cor-secundaria);
-	font-weight: bold;
-	justify-content: center;
-	font-size: 1.4m;
-}
-
-.nome-card{
-	font-size: 1.2em;
-	font-weight: bold;
-}
-.texto-card {
-	font-size: 1.2em;
-}
 
 
+.descricao-card1 {
+    margin-top: 50px;
+    font-size: 20px;
+
+    word-wrap: break-word; /* faz com que o texto quebre quando atingir o final da div */
+    overflow-wrap: break-word;
+    
+}
+
+.descricao-card1 p {
+    margin: 5px 0;
+}
+
+.descricao-card1 a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.descricao-card1 a:hover {
+    text-decoration: underline;
+}
+
+.descricao-card1 a {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adicionando uma transição suave */
+}
+
+.descricao-card1 a:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+}
+
+#doacao-por{
+    color: var(--cor-secundaria);
+    font-size: 25px;
+    margin-left: 30%   ;
+    word-wrap: break-word; /* faz com que o texto quebre quando atingir o final da div */
+    overflow-wrap: break-word;
+
+}

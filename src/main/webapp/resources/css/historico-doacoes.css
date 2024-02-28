@@ -3,81 +3,122 @@
 	text-decoration: none;
 }
 
-.container {
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: 17em;
-	width: 92em;
-	
+
+:root {
+    --cor-principal: #FFFFFF;
+    --cor-secundaria: #1B65AE;
+   
+    --cor-background: #f2f2f2;
+    --cor-background-input: #F4F2F0;
+    --cor-texto: #32383E;
+    --fonte-texto:"DM Sans", sans-serif;
+    --cor-background-tela: #FFFFFF;
+    --cor-background-card:  #EDEDED ;
+    --cor-contraste: #FBE68B;
 }
 
-.titulo {
-	font-size: 1.7em !important;
-	margin-top: 2.5em;
-}
 
-.titulo-card {
-	display: flex;
-	color: var(--cor-secundaria);
-	font-weight: bold;
-	justify-content: center;
-	font-size: 1.5em;
-}
-
-.card-pedidos {
-	display: flex;
-	background-color: var(--cor-background-card) ;
-	width: 16vw; 
-    height: 23vh; 
-    box-sizing: border-box; 
-    transition: transform 0.5s ease;
-    flex-flow: column wrap;
-	margin-left: 1em;
-    margin-top: 6em;
-    margin-right: 2em;
-    border-radius: 10px;
-    margin-left: 6em;
-    margin-bottom: 4em;
-  	box-shadow: 0px 2px 0px #989898;
-}
-
-.descricao-card {
-	display: flex;
-	flex-direction: column;
-	padding: 1em;
-}
-
-.texto-card {
-	font-size: 1.2em;
-}
-
-.botao-pedido {
-	font-weight: bold;
-	display: inline-block;
-    background-color: #1B65AE;
-    text-decoration: none;
-	padding-top: 1.2vh !important;
-    color: var(--cor-background-tela);
-    font-size: 1.0em;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease; /* Adicionando uma transição suave */
-    height: 4vh;
-    width: 9vw;
+.titulo1 {   
+    display: block;
     justify-content: center;
-    margin-left: 2.8em;
-    margin-top: 1.7em;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    color: var(--cor-texto);
+    
+  
 }
 
-.botao-pedido:hover {
-	color: var(--cor-contraste) !important;
-    transform: scale(1.05); 
-    color:var(--cor-secundaria) ;
+
+.titulo h1 {
+    margin: 0; /* Remova as margens padrão do h1 */
+}
+
+
+
+
+#display{
+    display: flex;
+    flex-wrap: wrap;
+   
+    width: 90%;
+    margin: 0 auto;
+    margin-top:30px;
+}
+
+.card-proposta1 {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+	float: left;
+	margin-right: 40px;
+	margin-bottom: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao cartão */
+}
+
+
+.imagem-card1 img {
+    width: 100%;
+    max-width: 100px; /* Ajuste conforme necessário */
+    height: auto;
+    float: left;
+ 
     
 }
 
-span {
-	font-size: 1.4em;
-	margin-bottom: 0.5em;
+
+.conteudo1 {
+    margin-top: 50px;
+    font-size: 18px;
+
+    word-wrap: break-word; /* faz com que o texto quebre quando atingir o final da div */
+    overflow-wrap: break-word;
+    
 }
 
+.conteudo1 p {
+    margin: 5px 0;
+}
+
+.conteudo1 a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.conteudo1 a:hover {
+    text-decoration: underline;
+}
+
+.conteudo1 a {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5%;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adicionando uma transição suave */
+}
+
+
+#doacao-por{
+    color: var(--cor-secundaria);
+    font-size: 25px;
+    margin-left: 30%   ;
+    word-wrap: break-word; /* faz com que o texto quebre quando atingir o final da div */
+    overflow-wrap: break-word;
+
+}
+.paragrafo-historico {
+    color: var(--cor-secundaria);
+    font-size: 16px;
+    font-weight: bold; /* Adiciona negrito */
+    line-height: 1.5; /* Define o espaçamento entre linhas */
+}
