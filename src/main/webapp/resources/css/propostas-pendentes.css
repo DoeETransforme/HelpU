@@ -36,8 +36,8 @@ h4  {
 .card-pedidos {
 	display: flex;
 	background-color: var(--cor-background-card) ;
-	width: 16vw; 
-    height: 23vh; 
+	width: 20vw; 
+    height: 30vh; 
     box-sizing: border-box; 
     transition: transform 0.5s ease;
     flex-flow: column wrap;
@@ -65,7 +65,7 @@ h4  {
 	display: inline-block;
     background-color: #1B65AE;
     text-decoration: none;
-	padding-top: 1.2vh !important;
+	padding-top: 0.4em !important;
     color: var(--cor-background-tela);
     font-size: 1.0em;
     border-radius: 10px;
@@ -74,7 +74,7 @@ h4  {
     height: 4vh;
     width: 9vw;
     justify-content: center;
-    margin-left: 2.8em;
+    margin-left: 3.5em;
     margin-top: 1.7em;
 }
 

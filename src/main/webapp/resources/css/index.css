@@ -26,7 +26,6 @@
 
 .botoes-cadastro {
     margin-top: 0.2em;
-    margin-left: 1.2em;
    
 }
 
@@ -197,6 +196,7 @@ footer {
 
 
 .titulo-index {
+	display: flex;
 	font-size: 4.5em;
 	align-items: left;
 	margin-left: 0;
@@ -210,15 +210,15 @@ span {
 .container {
 	flex-wrap: wrap;
 	display: flex;
-	margin-left: 7em;
+	margin-left: 4em;
 
 }
 
 .card-pedidos {
 	display: flex;
 	background-color: var(--cor-background-card) ;
-	width: 16vw; 
-    height: 45vh; 
+	width: 18vw; 
+    height: 50vh; 
     box-sizing: border-box; 
     transition: transform 0.5s ease;
     flex-flow: column wrap;
@@ -226,7 +226,6 @@ span {
     margin-top: 6em;
     margin-right: 2em;
     border-radius: 10px;
-    padding: 2em;
   	box-shadow: 0px 2px 0px #989898;
 }
 .tela-inicial{
@@ -241,12 +240,12 @@ span {
 
 .ajuste-titulo {
 	margin-left: 2.5ex;
-	margin-right: 70em;
+	margin-right: 40em;
 }
 
 .botao-pedido {
 	font-weight: bold;
-	display: inline-block;
+	display: flex;
     background-color: #1B65AE;
     text-decoration: none;
 	padding-top: 1.2vh !important;
@@ -258,6 +257,9 @@ span {
     height: 4vh;
     width: 9vw;
     justify-content: center;
+    margin-left: 3.5em;
+    margin-top: 1em;
+
 }
 
 .botao-pedido:hover {
@@ -267,16 +269,32 @@ span {
 }
 .titulo-card {
 	display: flex;
-	color: var(--cor-principal);
+	color: var(--cor-secundaria);
 	font-weight: bold;
 	justify-content: center;
 	font-size: 1.5em;
 }
 
 .nome-card{
+	display: flex;
 	font-size: 1.3em;
 	font-weight: bold;
 }
 .texto-card {
 	font-size: 1.2em;
 }
+
+#foto-descricao-pedido {
+	width: 18vw;
+	height: 20vh;
+	border: none;
+	border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+
+.descricao-card {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
