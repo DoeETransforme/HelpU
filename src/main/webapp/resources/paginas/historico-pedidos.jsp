@@ -11,29 +11,41 @@
 				<script><%@include file="/resources/js/Script.js"%></script> 
 				<style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 				<style type="text/css"> <%@include file="../css/historico-pedidos.css"%></style>
+				<link rel="stylesheet" href="../css/historico-pedidos.css">
 			</head>
 
 			<body>
 				<%@ include file="../cabecalhos/menu.jsp" %>
 				
-							<div class="titulo">
+							<div class="titulo1">
 								<h1>Histórico de Pedidos da ONG</h1>
 							</div>
 
-	<div class="container">
-		<c:forEach var="pedidos" items="${pedidos}">
 
-			<div class="card-pedidos">
-				<img alt="foto pedido" id="foto-descricao-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
-			<div class="descricao-card">
-				<span class="titulo-card">Doações para ${pedidos.ong.nome}</span> 
-				<span class="texto-card">Status:${pedidos.statusPedido}</span> 
-				<span class="texto-card">Meta de doações: ${pedidos.metaDoacoes}</span> 
-				<a class="botao-pedido" <%-- href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>" --%>>Lista de Propostas</a>
-			</div>
-			</div>
+		<section id="display3">
+			<c:forEach var="pedidos" items="${pedidos}" >
+			
+						<div class="card-completo1">
+							<div class="imagem-card-pedidos1">
+								<img alt="foto pedido" id="foto-descricao-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
+								</div>
+							<div class="descricao-card1">
+								<p id="doacoes-para">Doações para ${pedidos.ong.nome}</p>
+								<p>Status:${pedidos.statusPedido}</p>
+								<p> meta de doações: ${pedidos.metaDoacoes}</p>
+								<a class="botao-pedido" <%-- href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>" --%>Lista de Propostas</a>
+							</div>
+						</div>
+						
+						
+		</section>
+				
+				
+				
+				
+
 		</c:forEach>
-	</div>
+
 
 </body>
 

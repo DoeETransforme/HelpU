@@ -1163,6 +1163,7 @@ progress::-moz-progress-bar {
 
 .menu-lateral.mostrar {
     left: 0;
+    z-index: 9999;
 }
 
 .menu-lateral ul {
