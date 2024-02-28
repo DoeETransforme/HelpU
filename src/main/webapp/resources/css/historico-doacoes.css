@@ -37,6 +37,7 @@
 
 
 
+
 #display{
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +67,7 @@
     height: auto;
     float: left;
  
-    
+
 }
 
 
@@ -89,6 +90,7 @@
     text-align: center;
     color: #007bff;
     text-decoration: none;
+
 }
 
 .conteudo1 a:hover {

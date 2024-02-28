@@ -780,8 +780,11 @@ public class PropostaDoacaoDAOImpl implements PropostaDoacaoDAO {
 	        CriteriaQuery<PropostaDoacao> criteria = construtor.createQuery(PropostaDoacao.class);
 	        
 	        Root<PropostaDoacao> raizProposta = criteria.from(PropostaDoacao.class);
-	        raizProposta.fetch("pedidoDoacao", JoinType.LEFT).fetch("ong" , JoinType.LEFT);
+	        	
+	        	
+	        raizProposta.fetch("pedidoDoacao", JoinType.LEFT);
 	        raizProposta.fetch("doador", JoinType.LEFT);
+	        
 	        Join<PropostaDoacao, PedidoDoacao> juncaoPedido = raizProposta.join(PropostaDoacao_.pedidoDoacao);
 	        
 	        

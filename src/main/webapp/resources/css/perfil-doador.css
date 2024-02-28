@@ -45,10 +45,8 @@ body {
 
 
 .botao-doador:hover {
-  
-    color: var(--cor-secundaria);
-    background-color: var(--cor-background-tela);
-
+    color: var(--cor-contraste);
+    background-color: var(--cor-secundaria);
     transform: scale(1.05);
 }
 
@@ -173,8 +171,8 @@ h1 {
 .card-doacoes-doador {
 	border-radius: 10px;
 	background-color: var(--cor-background-card) ;
-	width: 19em; 
-    height: 14em; 
+	width: 17em; 
+    height: 11em; 
     padding: 20px; 
     box-sizing: border-box; 
     transition: transform 0.5s ease;

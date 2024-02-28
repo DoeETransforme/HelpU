@@ -26,7 +26,7 @@
     
     		<div class="container">
               <c:forEach var="propostas" items="${propostas}">  	
-		          <div class="card-pedidos">						
+		          <div class="card-pedidos">							          	
 							<div class="descricao-card">						
 		          				<span class="titulo-card">Para: ${propostas.pedidoDoacao.ong.nome}</span>
 		                        <span class="texto-card">Feito em: ${propostas.dataCriacao}</span>

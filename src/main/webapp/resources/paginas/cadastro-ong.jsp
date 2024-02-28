@@ -27,20 +27,20 @@
         </div>
         <div class="titulo">
             <h1>Cadastro ONG</h1>
-            <p>informaÃ§Ãµes pessoais</p>
+            <p>informações pessoais</p>
         </div>
-        <form action="inserir-ong" method="post" class="forms" enctype="multipart/form-data">
+        <form action="inserir-ong" method="post" class="forms" enctype="multipart/form-data" onsubmit="return validarFormulario()">
            
                
                    
                     <div >
-                        <input type="text" id="NomeCompletoOng" name="nome-ong" placeholder="Nome da ONG" required class="padrao-input">   
-                        <input type="text" id="CPFOuCNPJ_Ong" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required class="padrao-input">
-                        <input type="text" id="TelefoneOng" name="telefone-ong" placeholder="Telefone da ONG" required class="padrao-input">
-                        <input type="email" id="EmailDaOng" name="email-ong" placeholder="Email da ONG" required class="padrao-input">
-                        <input type="email" id="ConfirmarEmailOng" name="ConfirmarEmailOng" placeholder="Confirmar Email da ONG" required class="padrao-input">
-                        <input type="password" id="SenhaOng" name="senha-ong" placeholder="Senha da ONG" required class="padrao-input">
-                        <input type="password" id="ConfirmarSenhaOng" name="ConfirmarSenhaOng" placeholder="Confirmar Senha" required class="padrao-input">
+                        <input type="text" id="nome" name="nome-ong" placeholder="Nome da ONG" required class="padrao-input">   
+                        <input type="text" id="cpf" name="cpf-cnpj-ong" placeholder="CPF ou CNPJ da ONG" required class="padrao-input">
+                        <input type="text" id="telefone" name="telefone-ong" placeholder="Telefone da ONG" required class="padrao-input">
+                        <input type="email" id="email" name="email-ong" placeholder="Email da ONG" required class="padrao-input">
+                        <input type="email" id="confirmar-email" name="ConfirmarEmailOng" placeholder="Confirmar Email da ONG" required class="padrao-input">
+                        <input type="password" id="senha" name="senha-ong" placeholder="Senha da ONG" required class="padrao-input">
+                        <input type="password" id="confirmar-senha" name="ConfirmarSenhaOng" placeholder="Confirmar Senha" required class="padrao-input">
                         
                         
                         </div>
@@ -53,5 +53,39 @@
 
         
     </div>
+    
+    <script>
+        function validarFormulario() {
+            var emailEntrada = document.getElementById("email");
+            var confirmarEmailEntrada = document.getElementById("confirmar-email");
+            var senhaEntrada = document.getElementById("senha");
+            var confirmarSenhaEntrada = document.getElementById("confirma-senha");
+
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(emailEntrada.value)) {
+                alert("Por favor, insira um endereço de e-mail válido no formato 'x@x.x'.");
+                return false;
+            }
+
+            if (emailEntrada.value !== confirmarEmailEntrada.value) {
+                alert("Os endereços de e-mail não coincidem. Por favor, insira endereços iguais.");
+                return false;
+            }
+
+            var senhaPadrao = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+            if (!senhaPadrao.test(senhaEntrada.value)) {
+                alert("A senha deve ter no mínimo 8 caracteres e conter um caractere especial.");
+                return false;
+            }
+
+            if (senhaEntrada.value !== confirmarSenhaEntrada.value) {
+                alert("As senhas não coincidem. Por favor, insira senhas iguais.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    
 </body>
 </html>
