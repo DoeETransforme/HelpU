@@ -47,9 +47,10 @@
 						<div class="editar-deletar">
 
 						
-						<c:if test="${propostaStatus == ANALISE}">
-							<a id="editar" class="botao-link" href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
-							<a id="deletar" class="botao-link" href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
+
+						<c:if test="${status == ANALISE}">
+							<a  class="botao-link" href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
+							<a class="botao-link" href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
 						</c:if>							
 
 						</div>
