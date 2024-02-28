@@ -217,8 +217,8 @@ span {
 .card-pedidos {
 	display: flex;
 	background-color: var(--cor-background-card) ;
-	width: 18vw; 
-    height: 50vh; 
+	width: 20vw; 
+    height: 53vh; 
     box-sizing: border-box; 
     transition: transform 0.5s ease;
     flex-flow: column wrap;

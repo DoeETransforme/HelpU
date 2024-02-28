@@ -248,8 +248,8 @@ h1 {
 .card-pedidos {
 	display: flex;
 	background-color: var(--cor-background-card) ;
-	width: 16vw; 
-    height: 45vh; 
+	width: 20vw; 
+    height: 50vh; 
     box-sizing: border-box; 
     transition: transform 0.5s ease;
     flex-flow: column wrap;
@@ -267,7 +267,7 @@ h1 {
 }
 
 #foto-descricao-pedido {
-	width: 16vw;
+	width: 20vw;
 	height: 20vh;
 	border: none;
 	border-top-left-radius: 10px; 
@@ -304,7 +304,7 @@ h1 {
 }
 .titulo-card {
 	display: flex;
-	color: var(--cor-principal);
+	color: var(--cor-secundaria);
 	font-weight: bold;
 	justify-content: center;
 	font-size: 1.5em;
