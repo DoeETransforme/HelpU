@@ -43,18 +43,20 @@
             </main>
             
             <div class="container">
-            	<!--Coloque a imagem Aqui Pedro  -->
 	            <div class="ajuste-titulo">
 	            <h1 class="titulo-index">Pedidos em destaque!</h1>
 	            
 	            <span>Campanhas em alta em nosso site: cadastre-se e se conecte com ONGS que precisam de você!</span>
 	            </div>
 	            <c:forEach var="pedido" items="${pedidos}">
-					<div class="card-pedidos">
+	            <div class="card-pedidos">
+	           		 <img alt="foto do ong" id="foto-descricao-pedido" src="<c:out value='${pedido.foto.urlFoto()}'/>">
+						<div class="descricao-card">
 						<span class="titulo-card"><c:out value="${pedido.titulo}" /></span>
 						<span class="nome-card">Por <c:out value="${pedido.ong.nome}" /></span>
 						<span class="texto-card"><c:out value="${pedido.descricao}" /></span>
 						<a class="botao-pedido" href="<%request.getServletContext();%>/descricao-pedido">Leia Mais</a>
+					</div>
 					</div>
 				</c:forEach>
             

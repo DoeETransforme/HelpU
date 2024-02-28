@@ -64,8 +64,8 @@
 .card-pedidos {
 	display: flex;
 	background-color: var(--cor-background-card) ;
-	width: 16vw; 
-    height: 40vh; 
+	width: 20vw; 
+    height: 46vh; 
     box-sizing: border-box; 
     transition: transform 0.5s ease;
     flex-flow: column wrap;
@@ -78,7 +78,7 @@
 }
 
 #foto-descricao-pedido {
-	width: 16vw;
+	width: 20vw;
 	height: 18vh;
 	border: none;
 	border-top-left-radius: 10px; 
@@ -102,7 +102,8 @@
 .botao {
 	display: flex;
 	color: var(--cor-background-tela);
-	background-color: var(--cor-secundaria);
+	background-color: var(--cor-secundaria) !important;
+	padding-top: 0.4em !important;
 	transition: all 0.5s ease; 
     font-weight: bold;
     height: 2.2em;
@@ -131,6 +132,7 @@
 span {
 	font-size: 1em;
 	margin-bottom: 0.3em;
+	display: flex;
 }
 
 .container-card {

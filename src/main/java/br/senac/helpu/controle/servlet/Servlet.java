@@ -115,7 +115,7 @@ public class Servlet extends HttpServlet {
 
 		try {
 			switch (action) {
-			case "/home":
+			case "/":
 				mostrarIndex(request, response);
 				break;
 

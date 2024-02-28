@@ -217,6 +217,7 @@ public class PedidoDoacaoDAOImpl implements PedidoDoacaoDAO {
 			Root<PedidoDoacao> raizProposta = criteria.from(PedidoDoacao.class);
 			
 			raizProposta.fetch(PedidoDoacao_.ONG);
+			raizProposta.fetch(PedidoDoacao_.foto);
 
 			criteria.select(raizProposta);
 
