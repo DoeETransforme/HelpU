@@ -80,7 +80,7 @@
                     <div class="column">
                         <h2>HelpU</h2>
                         <ul>
-                            <li><a href="#">Instagram/a></li>
+                            <li><a href="#">Instagram</a></li>
                             <li><a href="#">Email</a></li>
                         </ul>
                     </div>

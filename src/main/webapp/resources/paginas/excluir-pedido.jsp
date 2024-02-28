@@ -12,6 +12,7 @@
 <script src="../js/Script.js"></script> 
 <script><%@include file="/resources/js/Script.js"%></script>
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+<style type="text/css"> <%@include file="/resources/css/excluir-pedido.css"%></style>
 <link rel="stylesheet" href="../css/estilo.css">
 
 </head>
@@ -28,7 +29,7 @@
 			<input type="hidden" name="id" value="<c:out value='${pedido.id}' />" />
 		</c:if>
 	</div>
-	<div class="excluir-pedido">
+	<div class="excluir-pedido1">
 		<a href="<%=request.getContextPath()%>/perfil-ong?id=<c:out value='${pedido.id}'/>" class="padrao-submit" > Voltar</a>
 		<a href="<%=request.getContextPath()%>/pedido-excluido?id=<c:out value='${pedido.id}'/>" class="padrao-submit">Confirmar</a>
 	</div>
