@@ -68,6 +68,7 @@
 .botao-pedido:hover {
     transform: scale(1.05); /* Aumenta o tamanho em 10% */
     color:var(--cor-secundaria) ;
+    color: var(--cor-contraste);
     
 }
 .titulo-card {
