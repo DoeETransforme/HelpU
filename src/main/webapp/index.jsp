@@ -78,22 +78,22 @@
                     <div class="column">
                         <h2>HelpU</h2>
                         <ul>
-                            <li><a href="#">Teste</a></li>
-                            <li><a href="#">Teste</a></li>
+                            <li><a href="#">Instagram/a></li>
+                            <li><a href="#">Email</a></li>
                         </ul>
                     </div>
                     <div class="column">
                         <h2>Atendimento</h2>
                         <ul>
-                            <li><a href="#">Teste</a></li>
-                            <li><a href="#">Teste</a></li>
+                            <li><a href="#">Sobre nós</a></li>
+                            <li><a href="#">Fale conosco</a></li>
                         </ul>
                     </div>
                     <div class="column">
                         <h2>Dúvidas</h2>
                         <ul>
-                            <li><a href="#">Teste</a></li>
-                            <li><a href="#">Teste</a></li>
+                            <li><a href="#">Perguntas Frequentes</a></li>
+                            <li><a href="#">Suporte</a></li>
                         </ul>
                     </div>
                 </div>

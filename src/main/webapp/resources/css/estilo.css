@@ -1158,6 +1158,7 @@ progress::-moz-progress-bar {
     height: 100%;
     background-color: var(--cor-secundaria);
     transition: left 0.3s ease;
+    z-index: 9999;
 }
 
 .menu-lateral.mostrar {
