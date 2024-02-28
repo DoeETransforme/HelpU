@@ -27,24 +27,26 @@
 			
 						<div class="card-completo1">
 							<div class="imagem-card-pedidos1">
-								<img alt="foto pedido" id="foto-descricao-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
+								<img alt="foto pedido"  src="<c:out value='${pedidos.foto.urlFoto()}'/>">
 								</div>
 							<div class="descricao-card1">
 								<p id="doacoes-para">Doações para ${pedidos.ong.nome}</p>
 								<p>Status:${pedidos.statusPedido}</p>
 								<p> meta de doações: ${pedidos.metaDoacoes}</p>
-								<a class="botao-pedido" <%-- href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>" --%>Lista de Propostas</a>
+								<a class="botao-pedido"href="<%request.getServletContext();%>excluir-pedido?id=<c:out value='${pedidos.id}'/>">Excluir Pedido</a>
 							</div>
 						</div>
 						
+						</c:forEach>
+						</section>
 						
-		</section>
+						
+						
 				
 				
 				
 				
 
-		</c:forEach>
 
 
 </body>
