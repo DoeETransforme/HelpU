@@ -208,7 +208,7 @@ progress::-moz-progress-bar {
 .botao {
 	display: flex;
 	color: var(--cor-background-tela) !important;
-	background-color: var(--cor-principal);
+	background-color: var(--cor-secundaria);
 	transition: all 0.5s;
     font-weight: bold;
     height: 4vh;
@@ -223,7 +223,7 @@ progress::-moz-progress-bar {
 
 .botao:hover {
     border-radius: 8px;
-    color: var(--cor-secundaria) !important;
+    color: var(--cor-contraste) !important;
     transform: scale(1.05);
 }
 
@@ -232,10 +232,10 @@ progress::-moz-progress-bar {
 }
 
 .linha-doador {
-  width: 13vw;
+  width: 25vw;
   border-bottom: 1px solid #B7B7B7;
   border-radius: 10px;
-  margin-left: -13.5em;
+  margin-left: -21.5em;
   margin-top: -5em;
   padding-top: -5em;
 }
@@ -321,7 +321,7 @@ h1 {
 .container {
 	display: flex;
 	flex-direction: column;
-	margin-left: 30em;
+	margin-left: 28em;
 }
 
 .container-pedidos {
