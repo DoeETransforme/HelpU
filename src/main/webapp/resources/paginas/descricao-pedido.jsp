@@ -109,7 +109,7 @@
 		</div>
 
 		<h1>Veja outros pedidos ativos:</h1>
-
+		<div class="container-pedidos">
 		<c:forEach var="pedido" items="${pedidos}">
 			<div class="card-pedidos">
 				<img alt="foto do ong" id="foto-descricao-pedido" src="<c:out value='${pedido.foto.urlFoto()}'/>">
@@ -122,7 +122,7 @@
 				</div>
 			</div>
 		</c:forEach>
-
+		</div>
 	</main>
 </body>
 

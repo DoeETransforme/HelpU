@@ -321,7 +321,12 @@ h1 {
 .container {
 	display: flex;
 	flex-direction: column;
-	margin-left: 45em;
+	margin-left: 30em;
+}
+
+.container-pedidos {
+	display: flex;
+	flex-wrap: nowrap;
 }
 
 #foto-descricao-proposta {
