@@ -9,7 +9,9 @@
 <script src="../js/Script.js"></script>
 <script><%@include file="/resources/js/Script.js"%></script>
 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+<style type="text/css"> <%@include file="/resources/css/perfil-ong.css"%></style>
 <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
+
 <title>Helpu</title>
 <link rel="stylesheet" href="../css/perfil-ong.css">
 
@@ -18,9 +20,9 @@
 <body>
 	<%@ include file="../cabecalhos/menu.jsp"%>
 
-	<main class="perfil-ong">
+	<main class="perfil-ong1">
 		<section>
-			<div class="foto-capa-nome-ong">
+			<div class="foto-capa-nome-ong1">
 				<svg  viewBox="0 0 1636 387" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<rect width="1636" height="387" fill="url(#pattern0)"/>
 					<rect width="1636" height="387" fill="url(#pattern1)"/>
@@ -36,11 +38,11 @@
 					</svg>
 					</div>
  
-				<div class="foto-nome-ong">
+				<div class="foto-nome-ong1">
 					<div class="foto-ong">
 						<img alt="foto do ong" id="foto-ong" src="<c:out value='${ong.fotoUsuario.urlFoto()}'/>">
 					</div>
-					<div class="nome-ong">
+					<div class="nome-ong1">
 						<h2>
 
 
@@ -53,19 +55,19 @@
 			</div>
 		</section>
 
-		<div class="informacoes-ong">
+		<div class="informacoes-ong1">
 
-			<div class="butoes-ong">
-				<div class="contato-ong">
+			<div class="butoes-ong1">
+				<div class="contato-ong1">
 					<h2>Contatos</h2>
-					<div class="contato-item">
+					<div class="contato-item1">
 						<img src="../imagens/Telefone.png" alt="">
 						<p>
 							Telefone:
 							<c:out value="${contato.celular}" />
 						</p>
 					</div>
-					<div class="contato-item">
+					<div class="contato-item1">
 						<img src="../imagens/Email.png" alt="">
 						<p>
 							Email:
@@ -74,15 +76,15 @@
 					</div>
 				</div>
 
-				<div class="opcoes-ong">
-				<div class="historico-pedidos">
+				<div class="opcoes-ong1">
+				<div class="historico-pedidos1">
 					<a id="historico-pedidos"
 					href="<%=request.getContextPath()%>/historico-pedidos">Historico de Pedidos</a>
 					</div>
-					<div class="opcao-ong">
+					<div class="opcao-ong1">
 					<a id="editar-perfil" href="<%=request.getContextPath()%>/editar-perfil">Editar Perfil</a>
 					</div>
-					<div class="opcao-ong">
+					<div class="opcao-ong1">
 						<a id="cadastro-pedido" href="<%=request.getContextPath()%>/cadastro-pedido">Criar Novo Pedido</a>
 							
 					</div>
@@ -92,26 +94,26 @@
 
 
 
-			<div class="ultimos-pedidos-ong">
+			<div class="ultimos-pedidos-ong1">
 				<div class="titulo">
 					<h3>Ultimos Pedidos</h3>
 				</div>
 
 				<c:forEach var="pedidos" items="${pedidos}">
-					<div class="pedidos-doacao-perfil-ong">
-						<div class="imagem-pedido-perfil-ong">
+					<div class="pedidos-doacao-perfil-ong1">
+						<div class="imagem-pedido-perfil-ong1">
 							<img alt="foto pedido" id="imagem-pedido" src="<c:out value='${pedidos.foto.urlFoto()}'/>">
 						
 						</div>
-						<div class="conteudo-pedido-perfil-ong">
+						<div class="conteudo-pedido-perfil-ong1">
 							<h3>
 								Titulo:<span id="TituloPedido">${pedidos.titulo}</span>
 							</h3>
 
 							<span id="TituloPedido">${pedidos.data}</span> <span>${pedidos.descricao}</span>
 							</div>
-							<div class="link-ver-mais">
-								<a
+							<div class="link-ver-mais1">
+								<a id="link-ver-mais1"
 									href="<%=request.getContextPath()%>/descricao-pedido?id=<c:out value='${pedidos.id}'/>">Ver
 									Mais</a>
 							</div>

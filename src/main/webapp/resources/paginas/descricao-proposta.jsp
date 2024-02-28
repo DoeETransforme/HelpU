@@ -10,6 +10,7 @@
 			<style type="text/css"> <%@include file="/resources/css/estilo.css" %></style>
 			<style type="text/css"> <%@include file="../css/menu-topo.css" %></style>
 			<link rel="stylesheet" href="../css/estilo.css">
+			<script><%@include file="/resources/js/menu-topo.js"%></script>
 		</head>
 
 		<body>
@@ -44,11 +45,14 @@
 						<div class="linha"></div>
 						
 						<div class="editar-deletar">
+
 						
-						<c:if test="${propostaStatus == ANALISE}">
+
+						<c:if test="${status == ANALISE}">
 							<a  class="botao-link" href="<%=request.getContextPath()%>/editar-proposta?id=<c:out value='${proposta.id}'/>">Editar</a>
 							<a class="botao-link" href="<%=request.getContextPath()%>/excluir-proposta?id=<c:out value='${proposta.id}'/>">Deletar</a>
 						</c:if>							
+
 						</div>
 					</div>		
 

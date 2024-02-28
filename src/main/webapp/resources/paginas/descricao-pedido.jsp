@@ -12,6 +12,7 @@
 				 <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
 				 <style type="text/css"> <%@include file="../css/descricao-pedido.css"%></style>
 				<script><%@include file="/resources/js/barra-progressao.js"%></script>
+				<script><%@include file="/resources/js/menu-topo.js"%></script>
 			</head>
 
 <body>

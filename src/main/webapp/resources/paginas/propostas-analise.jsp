@@ -10,40 +10,36 @@
  <style type="text/css"> <%@include file="/resources/css/estilo.css"%></style>
  <script><%@include file="/resources/js/Script.js"%></script>
  <style type="text/css"> <%@include file="../css/menu-topo.css"%></style>
+ 
+ <style type="text/css"> <%@include file="/resources/css/propostas-analise.css"%></style> 
 </head>
 <body>
 		<%@ include file="../cabecalhos/menu.jsp" %>
 
 
 	<main>
-		<div>
+			<div>
 			<div class="titulo">
 				<h1>Propostas em Análise.</h1>
 			</div>
 			
-			<c:forEach var="proposta" items="${propostas}">	
-				
-				<div class="propostas-doacao-analise">
-					<div class="imagem-card"><img src="../imagens/perfil-icon.png" alt=""></div>
-					
-					<div class="conteudo">				
-						<p>
-							Doação Por: <span id="nomeUsuario">${proposta.doador.nome}</span>
-						</p>
-						<p>
-							No Pedido: <span id="titulo-pedido">${proposta.pedidoDoacao.titulo}</span>
-						</p>
-						<p>
-							Status: <span>${proposta.statusProposta}</span>
-						</p>
-						<a href="<%=request.getContextPath()%>/avaliar-proposta?id=<c:out value='${proposta.id}'/>">Ver Mais</a>
-						
-					</div>
-					
-				</div>
-				
+			<div class="container">
+			<c:forEach var="proposta" items="${propostas}">					
+				<div class="card-pedidos">
+					<div class="ajuste-titulo">
+							<img alt="foto pedido" id="foto-descricao-pedido" src="<c:out value='${proposta.doador.fotoUsuario.urlFoto()}'/>">						
+							<span class="titulo-card" id="nomeUsuario">Doação Por: </span>
+							<span class="titulo-card" id="nomeUsuario">${proposta.doador.nome}</span>
+						</div>
+						<div class="descricao-card">
+							 <span class="texto-card">No Pedido: ${proposta.pedidoDoacao.titulo}</span>
+							 <span class="texto-card">Status: ${proposta.statusProposta}</span>
+
+						<a class="botao-pedido" href="<%=request.getContextPath()%>/avaliar-proposta?id=<c:out value='${proposta.id}'/>">Ver Mais</a>						
+					</div>			
+				</div>	
 			</c:forEach>
-			
+			</div>
 
 		</div>
 	</main>
